@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is Playwright ready for WebDriver BiDi yet?</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font: 1rem/1.6 sans-serif;
+      }
+      h1 {
+        text-align: center;
+        font-size: 36px;
+      }
+      h1 a {
+        text-decoration: none;
+      }
+      @media screen and (min-width: 1900px) {
+        h1 {
+          font-size: 72px;
+        }
+      }
+      #main {
+        height: 100vh;
+        width: calc(100vw - 40px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #area {
+        display: flex;
+        height: 80vh;
+        width: 100%;
+        justify-content: center;
+      }
+      footer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+      }
+      @media screen and (min-width: 1900px) {
+        footer {
+          font-size: 32px;
+        }
+      }
+      #delta {
+        font-weight: bold;
+      }
+      #config-button {
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: 24px;
+        height: 24px;
+      }
+      #config {
+        position: absolute;
+        left: 0;
+        top: 32px;
+        bottom: 0;
+        overflow: auto;
+        background-color: #eeec;
+        display: none;
+        input {
+          margin-left: 0.3rem;
+        }
+      }
+      #config-toolbar {
+        position: absolute;
+        left: 32px;
+        top: 4px;
+        display: none;
+      }
+      .suite-result {
+        display: inline-block;
+        width: 50px;
+        height: 16px;
+        border: 1px solid #000;
+        margin: 0 0.3rem;
+        .firefox {
+          width: 0px;
+          height: 8px;
+          background-color: #9ad0f5;
+        }
+        .chrome {
+          width: 0px;
+          height: 8px;
+          background-color: #ffb1c1;
+        }
+      }
+    </style>
+    <div id="main">
+      <h1>Is Playwright ready for WebDriver BiDi yet?</h1>
+      <img id="config-button" src="./config.svg"></img>
+      <div id="config-toolbar">
+        <button>All</button>
+        <button>None</button>
+        <button>Invert</button>
+        <button>Remove completed</button>
+      </div>
+      <div id="config"></div>
+      <div id="area">
+        <canvas id="chart"></canvas>
+      </div>
+      <footer>
+        <div>
+          Firefox (WebDriver BiDi) has <span id="firefox-failing"></span> failing or skipped tests
+          and Chrome (WebDriver BiDi) has <span id="chrome-failing"></span> failing or skipped tests.
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script type="module" src="main.mjs"></script>
+  </body>
+</html>
