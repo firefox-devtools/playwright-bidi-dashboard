@@ -282,3 +282,9 @@ export const suiteNames = [
   "page/wheel.spec.ts",
   "page/workers.spec.ts"
 ];
+
+export const disabledSuites = [
+  "library/browsertype-launch-selenium.spec.ts",
+  "library/modernizr.spec.ts",
+  "library/page-clock.frozen.spec.ts"
+];

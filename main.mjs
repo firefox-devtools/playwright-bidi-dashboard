@@ -1,4 +1,4 @@
-import { encodeFilter, decodeFilter, suiteNames, formatDate } from './shared.mjs';
+import { encodeFilter, decodeFilter, suiteNames, formatDate, disabledSuites } from './shared.mjs';
 
 let suiteCheckboxes = new Map();
 let entries;
@@ -213,11 +213,6 @@ function renderConfig() {
   for (const suite of [...suiteCheckboxes.keys()].sort()) {
     const suiteEl = document.createElement('div');
 
-    const checkboxEl = document.createElement('input');
-    checkboxEl.type = 'checkbox';
-    checkboxEl.checked = true;
-    checkboxEl.onchange = filterUpdated;
-
     const resultEl = document.createElement('div');
     resultEl.className = 'suite-result';
     let resultTitles = [];
@@ -244,6 +239,11 @@ function renderConfig() {
     resultEl.title = resultTitles.join('\n');
     resultEl.appendChild(firefoxResultEl);
     resultEl.appendChild(chromeResultEl);
+
+    const checkboxEl = document.createElement('input');
+    checkboxEl.type = 'checkbox';
+    checkboxEl.checked = firefoxResult && chromeResult && !disabledSuites.includes(suite);
+    checkboxEl.onchange = filterUpdated;
 
     suiteEl.appendChild(checkboxEl);
     suiteEl.appendChild(resultEl);
