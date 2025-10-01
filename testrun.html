@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is Playwright ready for WebDriver BiDi yet?</title>
+    <style>
+      html {
+        font: 1rem/1.6 sans-serif;
+      }
+      #title {
+        margin: 0.4rem 0 0.2rem;
+      }
+      #links {
+        margin-bottom: 0.4rem;
+        a {
+          margin-right: 0.4rem;
+        }
+      }
+      #table {
+        display: inline-block;
+        .suite .result {
+            display: inline-block;
+            width: 100px;
+            height: 12px;
+            vertical-align: middle;
+            border: 1px solid #000;
+            background-color: #f00;
+            margin-right: 0.3rem;
+
+            .passing {
+              display: inline-block;
+              vertical-align: top;
+              height: 100%;
+              background-color: #0f0;
+            }
+
+            .skipping {
+              display: inline-block;
+              vertical-align: top;
+              height: 100%;
+              background-color: #ddd;
+            }
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="title"></h2>
+    <div id="links"></div>
+    <div id="table"></div>
+    <script type="module" src="testrun.mjs"></script>
+  </body>
+</html>
