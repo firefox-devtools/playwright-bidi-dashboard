@@ -190,11 +190,13 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
+    "failing": [
+      "should save download",
+      "should save download"
+    ],
     "skipped": [
       "should saveAs videos from remote browser",
       "should be able to connect 20 times to a single server without warnings",
-      "should save download",
-      "should error when saving download after deletion",
       "should forward non-forwarded requests",
       "should proxy localhost requests @smoke",
       "should proxy ipv6 localhost requests @smoke",
@@ -204,9 +206,7 @@
       "should lead to the error page for forwarded requests when the connection is refused",
       "should proxy based on the pattern",
       "should check proxy pattern on the client",
-      "should saveAs videos from remote browser",
-      "should save download",
-      "should error when saving download after deletion"
+      "should saveAs videos from remote browser"
     ]
   },
   "library/browsertype-launch-selenium.spec.ts": {
@@ -250,16 +250,13 @@
   "library/debug-controller.spec.ts": {
     "failing": [
       "should pick element",
-      "should allow setting recorder mode only for specific browser",
       "should record"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
-      "should support javascriptEnabled option"
-    ],
-    "skipped": [
+      "should support javascriptEnabled option",
       "should support acceptDownloads option"
     ]
   },
@@ -282,27 +279,20 @@
     ]
   },
   "library/download.spec.ts": {
-    "skipped": [
+    "failing": [
       "should be able to download a PDF file",
       "should be able to download a inline PDF file via response interception",
       "should be able to download a inline PDF file via navigation",
       "should save to user-specified path",
-      "should download even if there is no \"attachment\" value",
-      "should convert navigation to a resource with unsupported mime type into download",
-      "should download links with data url",
       "should download successfully when routing",
       "should report download when navigation turns into download @smoke",
       "should work with Cross-Origin-Opener-Policy",
-      "should report downloads with acceptDownloads: false",
       "should report downloads with acceptDownloads: true",
-      "should report proper download url when download is from download attribute",
       "should report downloads for download attribute",
       "should save to user-specified path without updating original path",
       "should save to two different paths with multiple saveAs calls",
       "should save to overwritten filepath",
       "should create subdirectories when saving to non-existent user-specified path",
-      "should error when saving with downloads disabled",
-      "should error when saving after deletion",
       "should report non-navigation downloads",
       "should report download path within page.on('download', …) handler for Files",
       "should report download path within page.on('download', …) handler for Blobs",
@@ -312,22 +302,20 @@
       "should expose stream",
       "should delete downloads on context destruction",
       "should delete downloads on browser gone",
-      "should close the context without awaiting the failed download",
-      "should close the context without awaiting the download",
-      "should throw if browser dies",
       "should download large binary.zip",
       "should be able to cancel pending downloads",
       "should not fail explicitly to cancel a download even if that is already finished",
       "should report downloads with interception",
       "should emit download event from nested iframes"
+    ],
+    "skipped": [
+      "should close the context without awaiting the failed download"
     ]
   },
   "library/downloads-path.spec.ts": {
-    "skipped": [
+    "failing": [
       "should keep downloadsPath folder",
       "should delete downloads when context closes",
-      "should report downloads in downloadsPath folder",
-      "should report downloads in downloadsPath folder with a relative path",
       "should accept downloads in persistent context",
       "should delete downloads when persistent context closes"
     ]
@@ -336,6 +324,7 @@
     "failing": [
       "should think that all pages are focused @smoke",
       "should focus popups by default",
+      "should not affect screenshots",
       "should focus with more than one page/context"
     ]
   },
@@ -473,7 +462,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -906,7 +894,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1033,8 +1022,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should capture blinking caret if explicitly asked for",
-      "should not capture pseudo element css animation",
-      "should wait for fonts to load"
+      "should not capture pseudo element css animation"
     ]
   },
   "page/page-set-content.spec.ts": {
