@@ -61,7 +61,7 @@ async function renderTestRun() {
     skippingEl.style.width = `${suiteCounts.skipping / suiteCounts.total * 100}%`
     resultEl.appendChild(skippingEl);
 
-    resultEl.title = `${suiteCounts.passing} passing, ${suiteCounts.skipping} skipped, ${suiteCounts.total} total`;
+    resultEl.title = `${suiteCounts.passing} passing, ${suiteCounts.failing} failing, ${suiteCounts.skipping} skipped, ${suiteCounts.total} total`;
     suiteEl.append(suiteCounts.suite);
 
     table.appendChild(suiteEl);
