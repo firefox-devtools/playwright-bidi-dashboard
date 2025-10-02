@@ -1,4 +1,4 @@
-import { decodeFilter, parseDate, formatDate, suiteNames } from './shared.mjs';
+import { decodeFilter, parseDate, formatDate, suiteNames, disabledSuites } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
@@ -10,6 +10,13 @@ async function renderTestRun() {
   const dateString = searchParams.get('date');
   const date = parseDate(dateString);
 
+  const response = await fetch('./data.json');
+  const entries = await response.json();
+  const entry = entries.find(entry => entry.date === date);
+  if (!entry) {
+    return;
+  }
+
   let enabledSuites;
   if (searchParams.has('filter')) {
     enabledSuites = [];
@@ -19,14 +26,8 @@ async function renderTestRun() {
       }
     });
   } else {
-    enabledSuites = suiteNames;
-  }
-
-  const response = await fetch('./data.json');
-  const entries = await response.json();
-  const entry = entries.find(entry => entry.date === date);
-  if (!entry) {
-    return;
+    const lastEntry = entries[entries.length - 1];
+    enabledSuites = suiteNames.filter(suite => lastEntry.firefoxCounts.bySuite[suite] && lastEntry.chromeCounts.bySuite[suite] && !disabledSuites.includes(suite));
   }
 
   const allCounts = entry[`${browser}Counts`].bySuite;

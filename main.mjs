@@ -151,9 +151,9 @@ function createMainChart() {
       ],
     },
     options: {
-      onClick: (x,y,z) => {
-        const browser = ['firefox', 'chrome'][y[0].datasetIndex];
-        const date = formatDate(chartData[y[0].index][0]);
+      onClick: (event, elements, chart) => {
+        const browser = ['firefox', 'chrome'][elements[0].datasetIndex];
+        const date = formatDate(chartData[elements[0].index][0]);
         let targetUrl = `${location.href.substring(0, location.href.lastIndexOf('/'))}/testrun.html?browser=${browser}&date=${date}`;
         const searchParams = new URLSearchParams(location.search);
         const filter = searchParams.get('filter');
