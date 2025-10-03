@@ -249,7 +249,6 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element",
       "should record"
     ]
   },
@@ -324,7 +323,6 @@
     "failing": [
       "should think that all pages are focused @smoke",
       "should focus popups by default",
-      "should not affect screenshots",
       "should focus with more than one page/context"
     ]
   },
@@ -462,6 +460,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -523,6 +522,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should handle src=blob",
       "should pick locator in iframe",
@@ -1022,7 +1022,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should capture blinking caret if explicitly asked for",
-      "should not capture pseudo element css animation"
+      "should not capture pseudo element css animation",
+      "should wait for fonts to load"
     ]
   },
   "page/page-set-content.spec.ts": {
