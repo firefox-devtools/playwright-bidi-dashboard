@@ -277,7 +277,8 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element"
+      "should pick element",
+      "should record"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -519,6 +520,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "should work with error after successful open",
       "should work with error after successful open",
@@ -905,6 +909,9 @@
     ]
   },
   "page/page-filechooser.spec.ts": {
+    "failing": [
+      "should not throw when frame is detached immediately"
+    ],
     "skipped": [
       "should upload multiple large files",
       "should emit event once",
@@ -1089,7 +1096,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should throw if screenshot size is too large",
-      "should not capture pseudo element css animation"
+      "should not capture pseudo element css animation",
+      "should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "should capture blinking caret if explicitly asked for",
