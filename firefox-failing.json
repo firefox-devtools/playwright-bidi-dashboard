@@ -490,6 +490,7 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
+      "should respect routes from browser context",
       "should inherit extra headers from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
@@ -520,9 +521,6 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "should work with error after successful open",
       "should work with error after successful open",
@@ -570,6 +568,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
@@ -959,6 +958,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should fail when navigating to bad SSL",
       "should fail when replaced by another navigation",
       "should send referer",
       "should send referer of cross-origin URL",
@@ -1096,8 +1096,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should throw if screenshot size is too large",
-      "should not capture pseudo element css animation",
-      "should not capture css animations in shadow DOM"
+      "should not capture pseudo element css animation"
     ],
     "skipped": [
       "should capture blinking caret if explicitly asked for",
