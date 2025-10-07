@@ -1,7 +1,8 @@
 const { downloadArtifacts } = require("./download");
-const { processArtifacts } = require("./process");
+const { processArtifacts, generateDiffs } = require("./process");
 
 (async () => {
   await downloadArtifacts();
   processArtifacts();
+  generateDiffs();
 })();

@@ -116,6 +116,72 @@ function processArtifacts() {
   }
 }
 
+function generateDiffs() {
+  const reports = { firefox: [], chrome: [] };
+  fs.readdirSync("./data").filter(parseFilename).forEach(filename => {
+    const { browser, date } = parseFilename(filename);
+    reports[browser].push({ date, filename });
+  });
+  for (const browser of ["firefox", "chrome"]) {
+    const browserReports = reports[browser];
+    if (browserReports.length < 2) {
+      continue;
+    }
+    browserReports.sort((a, b) => a.date - b.date);
+    let previousReport = readArtifact(`./data/${browserReports[0].filename}`);
+    for (let i = 1; i < browserReports.length; i++) {
+      const currentReport = readArtifact(`./data/${browserReports[i].filename}`);
+      const filename = `../gh-pages/${formatDate(new Date(browserReports[i].date))}-${browser}-diff.json`;
+      if (!fs.existsSync(filename)) {
+        console.log(`Diff ${browserReports[i].filename}`);
+        const diff = generateDiff(previousReport, currentReport);
+        fs.writeFileSync(filename, JSON.stringify(diff, null, 2));
+      } else {
+        console.log(`${browserReports[i].filename} already diffed - skipping`);
+      }
+      previousReport = currentReport;
+    }
+  }
+}
+
+function generateDiff(previousReport, currentReport) {
+  const diff = {};
+  forEachSpec(previousReport, (spec, path) => {
+    const specPath = `${path.join(" > ")} > ${spec.title}`;
+    const result = spec.tests[0].results[0].status;
+    diff[specPath] = { previous: result };
+  });
+  forEachSpec(currentReport, (spec, path) => {
+    const specPath = `${path.join(" > ")} > ${spec.title}`;
+    const result = spec.tests[0].results[0].status;
+    let testResults = diff[specPath];
+    if (!testResults) {
+      testResults = {};
+      diff[specPath] = testResults;
+    }
+    testResults.current = result;
+  });
+  for (const specPath in diff) {
+    const testResults = diff[specPath];
+    if (testResults.previous === testResults.current) {
+      delete diff[specPath];
+    }
+  }
+  return diff;
+}
+
+function forEachSpec(report, cb) {
+  function processSuite(suite, path) {
+    for (const spec of suite.specs || []) {
+      cb(spec, path);
+    }
+    for (const childSuite of suite.suites || []) {
+      processSuite(childSuite, [...path, childSuite.title]);
+    }
+  }
+  processSuite(report, []);
+}
+
 function parseFilename(file) {
   if (!file.endsWith(".zip")) {
     return undefined;
@@ -140,3 +206,4 @@ function formatDate(date) {
 }
 
 exports.processArtifacts = processArtifacts;
+exports.generateDiffs = generateDiffs;
