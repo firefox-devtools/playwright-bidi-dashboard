@@ -30,6 +30,10 @@ export function parseDate(dateString) {
   }
 }
 
+export function capitalize(s) {
+  return s[0].toUpperCase() + s.substring(1);
+}
+
 export const suiteNames = [
   "library/beforeunload.spec.ts",
   "library/browser.spec.ts",

@@ -1,4 +1,4 @@
-import { decodeFilter, parseDate, formatDate, suiteNames, disabledSuites } from './shared.mjs';
+import { decodeFilter, parseDate, formatDate, capitalize, suiteNames, disabledSuites } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
@@ -80,6 +80,11 @@ async function renderTestRun() {
   }
   linksEl.appendChild(dashboardLinkEl);
 
+  const diffLinkEl = document.createElement('a');
+  diffLinkEl.textContent = 'Diff';
+  diffLinkEl.href = `${location.href.substring(0, location.href.lastIndexOf('/'))}/diff.html?browser=${browser}&date=${dateString}`;
+  linksEl.appendChild(diffLinkEl);
+
   const prevDayLinkEl = document.createElement('a');
   const prevDay = date - 24 * 60 * 60 * 1000;
   if (entries.find(entry => entry.date === prevDay)) {
@@ -103,10 +108,6 @@ async function renderTestRun() {
   otherBrowserLinkEl.textContent = capitalize(otherBrowser);
   otherBrowserLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('browser', otherBrowser)}`;
   linksEl.appendChild(otherBrowserLinkEl);
-}
-
-function capitalize(s) {
-  return s[0].toUpperCase() + s.substring(1);
 }
 
 function modifiedSearchParams(key, value) {
