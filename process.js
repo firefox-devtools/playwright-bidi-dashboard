@@ -67,6 +67,8 @@ function processArtifacts() {
       counts.skipping += suiteCounts.skipping;
     }
 
+    data.sort((a, b) => a.date - b.date);
+
     entryForDate[`${browser}Counts`] = {
       ...counts,
       total: counts.passing + counts.failing + counts.skipping,
