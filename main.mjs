@@ -32,7 +32,7 @@ function filteredCounts(counts) {
   let passing = 0;
   let failing = 0;
   let skipping = 0;
-  for (const suite in counts.bySuite) {
+  for (const suite in counts?.bySuite ?? []) {
     if (suiteCheckboxes.get(suite).checked) {
       const suiteCounts = counts.bySuite[suite];
       passing += suiteCounts.passing;
@@ -218,7 +218,7 @@ function renderConfig() {
     let resultTitles = [];
     const firefoxResultEl = document.createElement('div');
     firefoxResultEl.className = 'firefox';
-    const firefoxResult = results.firefoxCounts.bySuite[suite];
+    const firefoxResult = results.firefoxCounts?.bySuite[suite];
     if (firefoxResult) {
       const total = firefoxResult.passing + firefoxResult.failing + firefoxResult.skipping;
       if (total) {
@@ -228,7 +228,7 @@ function renderConfig() {
     }
     const chromeResultEl = document.createElement('div');
     chromeResultEl.className = 'chrome';
-    const chromeResult = results.chromeCounts.bySuite[suite];
+    const chromeResult = results.chromeCounts?.bySuite[suite];
     if (chromeResult) {
       const total = chromeResult.passing + chromeResult.failing + chromeResult.skipping;
       if (total) {
@@ -301,7 +301,7 @@ async function main() {
 
   for (const entry of entries) {
     for (const counts of [entry.firefoxCounts, entry.chromeCounts]) {
-      for (const suite in counts.bySuite) {
+      for (const suite in counts?.bySuite ?? []) {
         suiteCheckboxes.set(suite, undefined);
         if (!suiteNames.includes(suite)) {
           console.warn(`Unknown suite ${suite}`);
