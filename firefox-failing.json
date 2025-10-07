@@ -277,8 +277,7 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element",
-      "should record"
+      "should pick element"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -361,7 +360,8 @@
   },
   "library/fetch-proxy.spec.ts": {
     "skipped": [
-      "context request should pick up proxy credentials"
+      "context request should pick up proxy credentials",
+      "should send correct ALPN protocol to HTTPS proxy"
     ]
   },
   "library/firefox/launcher.spec.ts": {
@@ -490,7 +490,6 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
-      "should respect routes from browser context",
       "should inherit extra headers from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
@@ -568,7 +567,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
@@ -958,7 +956,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should fail when navigating to bad SSL",
       "should fail when replaced by another navigation",
       "should send referer",
       "should send referer of cross-origin URL",
@@ -972,8 +969,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1096,7 +1092,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should throw if screenshot size is too large",
-      "should not capture pseudo element css animation"
+      "should not capture pseudo element css animation",
+      "should wait for fonts to load"
     ],
     "skipped": [
       "should capture blinking caret if explicitly asked for",
