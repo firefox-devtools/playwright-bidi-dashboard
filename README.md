@@ -1,1 +1,1 @@
-[Is Playwright ready for BiDi yet?](https://hbenl.github.io/playwright-bidi-dashboard/)
+[Is Playwright ready for BiDi yet?](https://firefox-devtools.github.io/playwright-bidi-dashboard/)
