@@ -1,0 +1,714 @@
+{
+  "library/beforeunload.spec.ts > should be able to navigate away from page with beforeunload": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-add-cookies.spec.ts > should set a cookie on a different domain": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-add-init-script.spec.ts > should work with browser context scripts with a path": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-base-url.spec.ts > should construct a new URL when a baseURL in browser.newContext is passed to page.goto @smoke": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-cookies-third-party.spec.ts > third party 'Partitioned;' cookies": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-cookies-third-party.spec.ts > same origin third party 'Partitioned;' cookie with different origin intermediate iframe": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-device.spec.ts > device > should scroll to a precise position with mobile scale": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-fetch.spec.ts > should add cookies from Set-Cookie header": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-fetch.spec.ts > should support cookie with empty value": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-har.spec.ts > should round-trip extracted har.zip": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-har.spec.ts > should ignore boundary when matching multipart/form-data body": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-har.spec.ts > should update har.zip for page with different options": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-har.spec.ts > should update extracted har.zip for page": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-har.spec.ts > context.unrouteAll should stop context.routeFromHAR": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-locale.spec.ts > should format date": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-locale.spec.ts > should work for multiple pages sharing same process": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-page-event.spec.ts > should work with Ctrl-clicking": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-pages.spec.ts > should return bounding box with page scale": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-proxy.spec.ts > should use proxy": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-proxy.spec.ts > should use socks proxy": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-reuse.spec.ts > reuse launch > should continue issuing events after closing the reused page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-reuse.spec.ts > reuse connect > should continue issuing events after closing the reused page": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-reuse.spec.ts > reuse connect > should work with routeWebSocket": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-viewport-mobile.spec.ts > mobile viewport > should scroll when emulating a mobile viewport": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-viewport.spec.ts > should set window.screen.orientation.type for mobile devices": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsertype-connect.spec.ts > run-server > socks proxy > should proxy ipv6 localhost requests @smoke": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/capabilities.spec.ts > navigator.clipboard should be present": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/capabilities.spec.ts > window.GestureEvent in WebKit": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/capabilities.spec.ts > should send no Content-Length header for GET requests with a Content-Type": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/capabilities.spec.ts > should be able to render avif images": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/channels.spec.ts > should not generate dispatchers for subresources w/o listeners": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/chromium/disable-web-security.spec.ts > test init script w/ --disable-web-security": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/chromium/oopif.spec.ts > should handle oopif detach": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/chromium/oopif.spec.ts > should expose function": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/chromium/oopif.spec.ts > should respect route": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/chromium/oopif.spec.ts > should click": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/chromium/oopif.spec.ts > contentFrame should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/debug-controller.spec.ts > should reset routes before reuse": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/emulation-focus.spec.ts > should change document.activeElement": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/emulation-focus.spec.ts > should change focused iframe": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/har.spec.ts > should have version and creator": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/har.spec.ts > should include query params": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/har.spec.ts > should skip invalid Expires": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/headful.spec.ts > should(not) block third party cookies": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/hit-target.spec.ts > should not block programmatic events": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/hit-target.spec.ts > should work with mui select": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/hit-target.spec.ts > should work with block-block-block inside inline-inline": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/page-close.spec.ts > should not treat navigations as new popups": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/popup.spec.ts > should not dispatch binding on a closed page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/popup.spec.ts > should not throttle rAF in the opener page": {
+    "previous": "timedOut",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should exclude patterns": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should use socks proxy": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should use socks proxy in second page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/proxy.spec.ts > should proxy local network requests > by default > link-local": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/proxy.spec.ts > should proxy local network requests > with other bypasses > loopback address": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/role-utils.spec.ts > wpt accname #0": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/role-utils.spec.ts > wpt accname #3": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/role-utils.spec.ts > axe-core accessible-text": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/role-utils.spec.ts > svg role=presentation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/route-web-socket.spec.ts > should not throw with empty handler": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/trace-viewer.spec.ts > canvas clipping in iframe": {
+    "previous": "timedOut",
+    "current": "failed"
+  },
+  "page/elementhandle-click.spec.ts > should double click the button": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-content-frame.spec.ts > should work": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-convenience.spec.ts > should have a nice preview for non-ascii attributes/children": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-misc.spec.ts > should hover": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-screenshot.spec.ts > element screenshot > should work when main world busts JSON.stringify": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/expect-boolean.spec.ts > toBeAttached > over navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/frame-evaluate.spec.ts > should be isolated between frames": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/frame-evaluate.spec.ts > should work in iframes that interrupted initial javascript url navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/frame-frame-element.spec.ts > should work with contentFrame": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/frame-hierarchy.spec.ts > should not send attach/detach events for main frame": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/frame-hierarchy.spec.ts > should detach child frames on navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/locator-convenience.spec.ts > innerHTML should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/locator-misc-1.spec.ts > should fill input": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/locator-misc-1.spec.ts > should fill input when Node is removed": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/locator-misc-1.spec.ts > should clear input": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/locator-query.spec.ts > should enforce same frame for has/leftOf/rightOf/above/below/near": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-init-script.spec.ts > should work after a cross origin navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work with a custom check": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-locator-handler.spec.ts > should wait for hidden by default 2": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work with noWaitAfter": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-script-tag.spec.ts > should work with a path and type=module": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-script-tag.spec.ts > should work with a path": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-script-tag.spec.ts > should work with content": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-style-tag.spec.ts > should include sourceURL when path is provided": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-style-tag.spec.ts > should throw when added with content to the CSP page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-autowaiting-basic.spec.ts > should await cross-process navigation when clicking anchor": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-autowaiting-basic.spec.ts > should work with goto following click": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > clicking on links which do not commit navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > clicking in the middle of navigation that aborts": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > clicking in the middle of navigation that commits": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-basic.spec.ts > page.title should return the page title": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click-react.spec.ts > should not retarget when element changes on hover": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click-timeout-2.spec.ts > should timeout waiting for display:none to be gone": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click-timeout-3.spec.ts > should timeout waiting for hit target": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click-timeout-3.spec.ts > should still click when force but hit target is obscured": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click-timeout-4.spec.ts > should click for the second time after first timeout": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should waitFor display:none to be gone": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should waitFor visible when parent is hidden": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click on checkbox input and toggle": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should scroll and click the button": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should scroll and click the button with smooth scroll behavior": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click a rotated button": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click the button with px border with offset": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should click the button with em border with offset": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > trial run should work with short timeout": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > trial run should not click": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should fail when obscured and not waiting for hit target": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should fail when element detaches after animation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should retry when element detaches after animation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-dispatchevent.spec.ts > should dispatch click event properties": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-dispatchevent.spec.ts > should dispatch click after navigation ": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-dispatchevent.spec.ts > should dispatch click after a cross origin navigation ": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-drag.spec.ts > Drag and drop > should be able to drag the mouse in a frame": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-evaluate.spec.ts > should not throw an error when evaluation does a navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-evaluate.spec.ts > should work with CSP": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-evaluate.spec.ts > should work with overridden Object.defineProperty": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-evaluate.spec.ts > should work with busted Array.prototype.map/push": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-event-load.spec.ts > should fire once with iframe navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-event-popup.spec.ts > should work with noopener and url": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-event-popup.spec.ts > should work with clicking target=_blank": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-event-popup.spec.ts > should work with fake-clicking target=_blank and rel=noopener": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-event-request.spec.ts > should fire for fetches with keepalive: true": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-event-request.spec.ts > should finish 204 request": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-expose-function.spec.ts > should work on frames before navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-filechooser.spec.ts > should not throw when frame is detached immediately": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-fill.spec.ts > should fill different input types": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-fill.spec.ts > input event.composed should be true and cross shadow dom boundary - date": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-fill.spec.ts > input event.composed should be true and cross shadow dom boundary - range": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-goto.spec.ts > should work with cross-process that fails before committing": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-goto.spec.ts > should not throw if networkidle0 is passed as an option": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should disable timeout when its set to 0": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should work with self requesting page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-goto.spec.ts > should be able to navigate to a page controlled by service worker": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should properly wait for load": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-history.spec.ts > goBack/goForward should work with bfcache-able pages": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-history.spec.ts > page.reload during renderer-initiated navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-history.spec.ts > page.reload should not resolve with same-document navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-history.spec.ts > page.reload should work on a page with a hash at the end": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-history.spec.ts > page.goForward during renderer-initiated navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-history.spec.ts > regression test for issue 20791": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-keyboard.spec.ts > should support multiple plus-separated modifiers": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-keyboard.spec.ts > should be able to prevent selectAll": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-mouse.spec.ts > should trigger hover state": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-navigation.spec.ts > should work with _blank target": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-navigation.spec.ts > should work with cross-process _blank target": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-network-idle.spec.ts > should wait for networkidle to succeed navigation with request from previous navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-network-idle.spec.ts > should wait for networkidle in setContent with request from previous navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-network-idle.spec.ts > should wait for networkidle from the child frame": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-network-request.spec.ts > should report raw response headers in redirects": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-route.spec.ts > should work with redirects for subresources": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should not capture pseudo element css animation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should stop animations that happen right before screenshot": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should resume infinite animations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should capture screenshots after layoutchanges in transitionend event": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should not change animation with playbackRate equal to 0": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should trigger particular events for INfinite css animation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-set-input-files.spec.ts > should upload the file with spaces in name": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-function.spec.ts > should survive cross-process navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-function.spec.ts > should not be called after finishing unsuccessfully": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-load-state.spec.ts > should resolve immediately if loaded": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-load-state.spec.ts > should resolve immediately if load state matches": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work when subframe issues window.stop()": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work with url match": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work for cross-process navigations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should fail when frame detaches": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-response.spec.ts > should work with async predicate": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-response.spec.ts > sync predicate should be only called once": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > should throw on waitFor": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > should report logs while waiting for visible": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > should report logs while waiting for hidden": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-selector-2.spec.ts > should survive cross-process navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-selector-2.spec.ts > should work when navigating before node adoption": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/queryselector.spec.ts > should return empty array if nothing is found": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/selectors-css.spec.ts > should work with :nth-child": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-css.spec.ts > should work with :not": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/selectors-css.spec.ts > should work with spaces in :nth-child and :not": {
+    "previous": "passed",
+    "current": "failed"
+  }
+}

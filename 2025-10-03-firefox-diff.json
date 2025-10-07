@@ -1,0 +1,28 @@
+{
+  "library/debug-controller.spec.ts > should pick element": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/emulation-focus.spec.ts > should not affect screenshots": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/popup.spec.ts > BrowserContext.addInitScript should apply to a cross-process popup": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/trace-viewer.spec.ts > should filter network requests by url": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/trace-viewer.spec.ts > should survive service worker restart": {
+    "previous": "passed"
+  },
+  "library/trace-viewer.spec.ts > should survive ping after service worker restart": {
+    "previous": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should wait for fonts to load": {
+    "previous": "passed",
+    "current": "failed"
+  }
+}

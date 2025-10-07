@@ -1,0 +1,37 @@
+{
+  "library/browsercontext-device.spec.ts > device > should work @smoke": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-user-agent.spec.ts > should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-user-agent.spec.ts > should work for subframes": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-user-agent.spec.ts > should emulate device user-agent": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-user-agent.spec.ts > should make a copy of default options": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-user-agent.spec.ts > custom user agent for download": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/debug-controller.spec.ts > should work with browser._launchServer": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/defaultbrowsercontext-1.spec.ts > should support userAgent option": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/trace-viewer.spec.ts > should survive ping after service worker restart": {
+    "current": "passed"
+  }
+}
