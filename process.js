@@ -78,7 +78,7 @@ function processArtifacts() {
   fs.writeFileSync("../gh-pages/data.json", JSON.stringify(data, null, 2));
 
   for (const browser of ["firefox", "chrome"]) {
-    const filename = `./data/${browser}-${formatDate(new Date(mostRecent))}.zip`;
+    const filename = `./data/${formatDate(new Date(mostRecent))}-${browser}.zip`;
     if (fs.existsSync(filename)) {
       const json = readArtifact(filename);
       const suites = {};
@@ -189,12 +189,12 @@ function parseFilename(file) {
     return undefined;
   }
   const parts = file.substring(0, file.length - 4).split("-");
-  if (parts.length !== 4 || !+parts[1] || !+parts[2] || !+parts[3]) {
+  if (parts.length !== 4 || !+parts[0] || !+parts[1] || !+parts[2]) {
     return undefined;
   }
   return {
-    browser: parts[0],
-    date: Date.UTC(+parts[1], +parts[2] - 1, +parts[3]),
+    browser: parts[3],
+    date: Date.UTC(+parts[0], +parts[1] - 1, +parts[2]),
   };
 }
 

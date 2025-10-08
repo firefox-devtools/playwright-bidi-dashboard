@@ -48,7 +48,7 @@ async function downloadWorkflowRunArtifacts(id, date) {
 }
 
 function getFilename(browser, date) {
-  return `data/${browser}-${getDateString(date)}.zip`;
+  return `data/${getDateString(date)}-${browser}.zip`;
 }
 
 function getDateString(date) {
