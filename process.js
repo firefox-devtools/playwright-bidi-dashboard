@@ -133,7 +133,7 @@ function generateDiffs() {
     let previousReport = readArtifact(`./data/${browserReports[0].filename}`);
     for (let i = 1; i < browserReports.length; i++) {
       const currentReport = readArtifact(`./data/${browserReports[i].filename}`);
-      const filename = `../gh-pages/${formatDate(new Date(browserReports[i].date))}-${browser}-diff.json`;
+      const filename = `../gh-pages/diff/${formatDate(new Date(browserReports[i].date))}-${browser}.json`;
       if (!fs.existsSync(filename)) {
         console.log(`Diff ${browserReports[i].filename}`);
         const diff = generateDiff(previousReport, currentReport);
