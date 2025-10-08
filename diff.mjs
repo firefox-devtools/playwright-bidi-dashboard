@@ -9,7 +9,7 @@ async function renderDiff() {
   const browser = searchParams.get('browser');
   const dateString = searchParams.get('date');
 
-  const response = await fetch(`./${dateString}-${browser}-diff.json`);
+  const response = await fetch(`./diff/${dateString}-${browser}.json`);
   const entries = await response.json();
 
   const table = document.getElementById('table');
