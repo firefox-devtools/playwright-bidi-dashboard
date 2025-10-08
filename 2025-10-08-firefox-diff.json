@@ -1,0 +1,35 @@
+{
+  "library/debug-controller.spec.ts > should record": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/popup.spec.ts > BrowserContext.addInitScript should apply to a cross-process popup": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/trace-viewer.spec.ts > should filter network requests by url": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/trace-viewer.spec.ts > should open two trace files": {
+    "previous": "passed"
+  },
+  "library/trace-viewer.spec.ts > should open two trace files of the same test (v6)": {
+    "previous": "passed"
+  },
+  "page/page-event-network.spec.ts > Page.Events.RequestFailed @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-history.spec.ts > regression test for issue 20791": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should wait for fonts to load": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/trace-viewer.spec.ts > should open v6 trace file": {
+    "current": "passed"
+  }
+}
