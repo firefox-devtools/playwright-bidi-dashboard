@@ -855,7 +855,6 @@
   },
   "page/page-evaluate.spec.ts": {
     "failing": [
-      "should properly serialize window.performance object",
       "should work with new Function() and CSP",
       "should work with CSP"
     ],
@@ -880,11 +879,6 @@
     "skipped": [
       "should fire once",
       "should fire once with iframe navigation"
-    ]
-  },
-  "page/page-event-network.spec.ts": {
-    "failing": [
-      "Page.Events.RequestFailed @smoke"
     ]
   },
   "page/page-event-popup.spec.ts": {
