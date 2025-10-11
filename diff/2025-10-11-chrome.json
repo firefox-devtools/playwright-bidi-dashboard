@@ -1,0 +1,743 @@
+{
+  "library/beforeunload.spec.ts > should support dismissing the dialog multiple times": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/beforeunload.spec.ts > should support closing the page via a subsequent onbeforeunload dialog": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-add-cookies.spec.ts > should isolate session cookies": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-add-cookies.spec.ts > should isolate persistent cookies": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-add-cookies.spec.ts > should be able to set unsecure cookie for HTTP website": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-add-cookies.spec.ts > should allow unnamed cookies": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-base-url.spec.ts > should construct a new URL when a baseURL in browser.newContext is passed to page.goto @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-basic.spec.ts > should isolate localStorage and cookies @smoke": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-cookies.spec.ts > should properly report \"Lax\" sameSite cookie": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-dsf.spec.ts > should fetch lodpi assets @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-har.spec.ts > should produce extracted zip": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-har.spec.ts > should round-trip extracted har.zip": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-har.spec.ts > should ignore boundary when matching multipart/form-data body": {
+    "previous": "timedOut",
+    "current": "passed"
+  },
+  "library/browsercontext-har.spec.ts > should update har.zip for page": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-locale.spec.ts > should format number in popups": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-locale.spec.ts > should work for multiple pages sharing same process": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-proxy.spec.ts > should send secure cookies to subdomain.localhost": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-proxy.spec.ts > should use proxy for second page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-proxy.spec.ts > should use socks proxy": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/browsercontext-proxy.spec.ts > should use socks proxy in second page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsercontext-viewport-mobile.spec.ts > mobile viewport > should scroll when emulating a mobile viewport": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/browsertype-connect.spec.ts > run-server > should be able to visit ipv6": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/capabilities.spec.ts > should not crash on storage.getDirectory()": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/capabilities.spec.ts > navigator.clipboard should be present": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/capabilities.spec.ts > should send no Content-Length header for GET requests with a Content-Type": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/capabilities.spec.ts > service worker should cover the iframe": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/emulation-focus.spec.ts > should change document.activeElement": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/emulation-focus.spec.ts > should change focused iframe": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/har.spec.ts > should have browser": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/har.spec.ts > should skip invalid Expires": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/har.spec.ts > should calculate time": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/har.spec.ts > should not hang on resources served from cache": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/headful.spec.ts > should not block third party SameSite=None cookies": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/headful.spec.ts > should not override viewport size when passed null": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/hit-target.spec.ts > should block all events when hit target is wrong and element detaches": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/hit-target.spec.ts > should work with mui select": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/hit-target.spec.ts > should not click an element overlaying iframe with the target": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/hit-target.spec.ts > should detect overlay from another shadow root": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/ignorehttpserrors.spec.ts > should work with mixed content": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/permissions.spec.ts > permissions > should prompt for geolocation permission when origin is not listed": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should use proxy @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should use proxy for second page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/proxy.spec.ts > should use socks proxy": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should use socks proxy in second page": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/proxy.spec.ts > should proxy local network requests > by default > localhost": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/proxy.spec.ts > should proxy local network requests > by default > loopback address": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should proxy local network requests > by default > link-local": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/proxy.spec.ts > should proxy local network requests > with other bypasses > loopback address": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/resource-timing.spec.ts > should work for subresource": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/role-utils.spec.ts > wpt accname #0": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/role-utils.spec.ts > svg role=presentation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/route-web-socket.spec.ts > no-mock > should work with binaryType=arraybuffer": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/route-web-socket.spec.ts > no-mock > should work with error after successful open": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/signals.spec.ts > should remove temp dir on process.exit": {
+    "previous": "passed",
+    "current": "timedOut"
+  },
+  "library/trace-viewer.spec.ts > should open snapshot in new browser context": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-click.spec.ts > should work for Shadow DOM v1": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-content-frame.spec.ts > should work": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-convenience.spec.ts > should have a nice preview": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-convenience.spec.ts > should have a nice preview for non-ascii attributes/children": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-convenience.spec.ts > innerHTML should work": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-convenience.spec.ts > textContent should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-misc.spec.ts > should hover when Node is removed": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-misc.spec.ts > should select single option": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/elementhandle-misc.spec.ts > should focus a button": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-owner-frame.spec.ts > should work for document": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/elementhandle-screenshot.spec.ts > element screenshot > path option should create subdirectories": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/eval-on-selector.spec.ts > should support spaces with >> syntax": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/expect-boolean.spec.ts > toBeAttached > over navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/frame-evaluate.spec.ts > should have different execution contexts": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/frame-evaluate.spec.ts > should have correct execution contexts @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/frame-goto.spec.ts > should return matching responses": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/frame-hierarchy.spec.ts > should persist mainFrame on cross-process navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/frame-hierarchy.spec.ts > should detach child frames on navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/frame-hierarchy.spec.ts > should return frame.page()": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/locator-convenience.spec.ts > innerText should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/locator-misc-1.spec.ts > should hover when Node is removed": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-init-script.spec.ts > should work after a cross origin navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work with a custom check": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-locator-handler.spec.ts > should not work with force:true": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work with locator.waitFor": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-locator-handler.spec.ts > should wait for hidden by default 2": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-add-locator-handler.spec.ts > should work with noWaitAfter": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-style-tag.spec.ts > should work with content": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should auto-wait for navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-autowaiting-basic.spec.ts > should work with goto following click": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > assigning location to about:blank": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > calling window.open and window.close": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > opening a popup": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-autowaiting-no-hang.spec.ts > clicking in the middle of navigation that aborts": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click-react.spec.ts > should not retarget when element is recycled on hover": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click-timeout-3.spec.ts > should report wrong hit target subtree": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should click button inside frameset": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should click offscreen buttons": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should waitFor visible when parent is hidden": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click wrapped links": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should click on checkbox label and toggle": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should scroll and click the button with smooth scroll behavior": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click a rotated button": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should click the button with px border with offset": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click a very large button with offset": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > trial run should not double click": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should update modifiers correctly": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should report nice error when element is detached and force-clicked": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-dispatchevent.spec.ts > should dispatch click event @smoke": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-dispatchevent.spec.ts > should dispatch click event via ElementHandles": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-dispatchevent.spec.ts > should dispatch device motion event": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-dispatchevent.spec.ts > should throw if argument is from different frame": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-evaluate.spec.ts > should work with overridden globalThis.Window/Document/Node": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-evaluate.spec.ts > should work with overridden URL/Date/RegExp": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-event-load.spec.ts > should fire once with iframe navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-event-network.spec.ts > should fire events in proper order": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-event-popup.spec.ts > should emit for immediately closed popups 2": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-event-popup.spec.ts > should work with clicking target=_blank and rel=noopener": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-filechooser.spec.ts > should not throw when frame is detached immediately": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-fill.spec.ts > should fill textarea @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-fill.spec.ts > should fill different input types": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-fill.spec.ts > input event.composed should be true and cross shadow dom boundary - range": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-fill.spec.ts > should fill contenteditable": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-fill.spec.ts > should throw if passed a non-string value": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-fill.spec.ts > should retry on invisible element": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-fill.spec.ts > should be able to clear using fill()": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should use http for no protocol": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should navigate to URL with hash and fire requests without hash": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should be able to navigate to a page controlled by service worker": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should not resolve goto upon window.stop()": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-goto.spec.ts > should return from goto if new navigation is started": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-goto.spec.ts > should wait for load when iframe attaches and detaches": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-history.spec.ts > page.reload during renderer-initiated navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-keyboard.spec.ts > should send a character with ElementHandle.press": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-keyboard.spec.ts > should support plus-separated modifiers": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-keyboard.spec.ts > should support multiple plus-separated modifiers": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-keyboard.spec.ts > should specify location": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-keyboard.spec.ts > should be able to prevent selectAll": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-keyboard.spec.ts > should dispatch insertText after context menu was opened": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-mouse.spec.ts > should select the text with mouse": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-mouse.spec.ts > should set modifier keys on click": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-navigation.spec.ts > should work with cross-process _blank target": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-network-idle.spec.ts > should wait for networkidle in setContent with request from previous navigation": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-network-idle.spec.ts > should wait for networkidle in setContent from the child frame": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-network-response.spec.ts > should return status text": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot > should work while navigating": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should not capture pseudo element css animation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should not capture css animations in shadow DOM": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should resume infinite animations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-set-input-files.spec.ts > should throw when uploading a folder in a normal file upload input": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-set-input-files.spec.ts > should throw an error if the file does not exist": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-function.spec.ts > should survive navigations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-function.spec.ts > should not be called after finishing successfully": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-load-state.spec.ts > should throw for bad state": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-load-state.spec.ts > should work with pages that have loaded before being connected to": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-load-state.spec.ts > should work with clicking target=_blank": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-load-state.spec.ts > should resolve after popup load": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work with clicking on anchor links": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work with url match": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-navigation.spec.ts > should work for cross-process navigations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-request.spec.ts > should work": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-request.spec.ts > should work with predicate": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-response.spec.ts > should work with predicate": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-response.spec.ts > should work with async predicate": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > should report logs while waiting for visible": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > should report logs while waiting for hidden": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > should work when node is added through innerHTML": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-selector-1.spec.ts > page.waitForSelector is shortcut for main frame": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-selector-2.spec.ts > should support >> selector syntax": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-url.spec.ts > should work": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-wait-for-url.spec.ts > should work with history.pushState()": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-wait-for-url.spec.ts > should work with url match for same document navigations": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/queryselector.spec.ts > should return empty array if nothing is found": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-css.spec.ts > should work with comma separated list": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-css.spec.ts > should work with :not": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-css.spec.ts > should work with :has": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react15 > should work with multi-root elements (fragments)": {
+    "previous": "skipped",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react15 > should support nested react trees": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react16 > should work with single-root elements @smoke": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react16 > should partially match by props": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react16 > should work with multiroot react": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react17 > should query by props combinations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react17 > should support truthy querying": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react18 > should query by props combinations": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react18 > should support all string operators": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/selectors-react.spec.ts > react18 > should work with react memo": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-click.spec.ts > should click into shadow root with slotted div": {
+    "current": "passed"
+  },
+  "page/page-click.spec.ts > should click shadow root button": {
+    "current": "passed"
+  },
+  "page/selectors-css.spec.ts > should use light DOM structure for child combinator with slotted content": {
+    "current": "passed"
+  }
+}
