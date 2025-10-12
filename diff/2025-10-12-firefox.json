@@ -1,0 +1,18 @@
+{
+  "library/debug-controller.spec.ts > should pick element": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/popup.spec.ts > BrowserContext.addInitScript should apply to a cross-process popup": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-history.spec.ts > regression test for issue 20791": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot animations > should not capture css animations in shadow DOM": {
+    "previous": "passed",
+    "current": "failed"
+  }
+}
