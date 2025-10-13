@@ -247,7 +247,6 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element",
       "should record"
     ]
   },
@@ -409,6 +408,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "should tick before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -896,7 +900,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1018,8 +1023,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should throw if screenshot size is too large",
-      "should not capture pseudo element css animation",
-      "should not capture css animations in shadow DOM"
+      "should not capture pseudo element css animation"
     ],
     "skipped": [
       "should capture blinking caret if explicitly asked for"
