@@ -410,11 +410,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "should tick before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -473,6 +468,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "should work with error after successful open",
       "should work with error after successful open",
@@ -518,6 +516,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
@@ -900,8 +899,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {

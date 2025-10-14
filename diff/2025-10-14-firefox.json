@@ -1,0 +1,42 @@
+{
+  "library/page-clock.spec.ts > popup > should tick before popup": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/route-web-socket.spec.ts > should emit close upon frame detach": {
+    "previous": "passed",
+    "current": "timedOut"
+  },
+  "library/trace-viewer.spec.ts > should filter network requests by url": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-history.spec.ts > regression test for issue 20791": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshots on multiple tracks": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for attribute change": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for child removal": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for child addition": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for prop change": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for cursor change": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for name change": {
+    "current": "passed"
+  },
+  "page/page-aria-snapshot-ai.spec.ts > should create incremental snapshot for text change": {
+    "current": "passed"
+  }
+}
