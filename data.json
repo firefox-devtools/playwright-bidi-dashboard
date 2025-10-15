@@ -45419,5 +45419,2464 @@
       },
       "total": 4004
     }
+  },
+  {
+    "date": 1760486400000,
+    "chromeCounts": {
+      "passing": 3057,
+      "failing": 800,
+      "skipping": 269,
+      "bySuite": {
+        "library/beforeunload.spec.ts": {
+          "passing": 6,
+          "failing": 3,
+          "skipping": 2
+        },
+        "library/browser.spec.ts": {
+          "passing": 5,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-add-cookies.spec.ts": {
+          "passing": 17,
+          "failing": 6,
+          "skipping": 0
+        },
+        "library/browsercontext-add-init-script.spec.ts": {
+          "passing": 5,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-base-url.spec.ts": {
+          "passing": 5,
+          "failing": 3,
+          "skipping": 0
+        },
+        "library/browsercontext-basic.spec.ts": {
+          "passing": 17,
+          "failing": 11,
+          "skipping": 0
+        },
+        "library/browsercontext-clearcookies.spec.ts": {
+          "passing": 2,
+          "failing": 5,
+          "skipping": 0
+        },
+        "library/browsercontext-cookies-third-party.spec.ts": {
+          "passing": 5,
+          "failing": 6,
+          "skipping": 0
+        },
+        "library/browsercontext-cookies.spec.ts": {
+          "passing": 8,
+          "failing": 6,
+          "skipping": 1
+        },
+        "library/browsercontext-credentials.spec.ts": {
+          "passing": 2,
+          "failing": 8,
+          "skipping": 0
+        },
+        "library/browsercontext-csp.spec.ts": {
+          "passing": 0,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/browsercontext-device.spec.ts": {
+          "passing": 1,
+          "failing": 7,
+          "skipping": 0
+        },
+        "library/browsercontext-dsf.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-events.spec.ts": {
+          "passing": 3,
+          "failing": 2,
+          "skipping": 6
+        },
+        "library/browsercontext-expose-function.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-fetch-algorithms.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-fetch-happy-eyeballs.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-fetch.spec.ts": {
+          "passing": 110,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-har.spec.ts": {
+          "passing": 20,
+          "failing": 11,
+          "skipping": 0
+        },
+        "library/browsercontext-locale.spec.ts": {
+          "passing": 6,
+          "failing": 4,
+          "skipping": 1
+        },
+        "library/browsercontext-network-event.spec.ts": {
+          "passing": 3,
+          "failing": 3,
+          "skipping": 1
+        },
+        "library/browsercontext-page-event.spec.ts": {
+          "passing": 6,
+          "failing": 5,
+          "skipping": 0
+        },
+        "library/browsercontext-pages.spec.ts": {
+          "passing": 8,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/browsercontext-proxy.spec.ts": {
+          "passing": 14,
+          "failing": 9,
+          "skipping": 3
+        },
+        "library/browsercontext-reuse.spec.ts": {
+          "passing": 0,
+          "failing": 22,
+          "skipping": 0
+        },
+        "library/browsercontext-route.spec.ts": {
+          "passing": 16,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/browsercontext-service-worker-policy.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/browsercontext-set-extra-http-headers.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-storage-state.spec.ts": {
+          "passing": 13,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/browsercontext-strict.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-timezone-id.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-user-agent.spec.ts": {
+          "passing": 0,
+          "failing": 5,
+          "skipping": 1
+        },
+        "library/browsercontext-viewport-mobile.spec.ts": {
+          "passing": 3,
+          "failing": 10,
+          "skipping": 1
+        },
+        "library/browsercontext-viewport.spec.ts": {
+          "passing": 6,
+          "failing": 9,
+          "skipping": 1
+        },
+        "library/browsertype-basic.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/browsertype-connect.spec.ts": {
+          "passing": 56,
+          "failing": 4,
+          "skipping": 46
+        },
+        "library/browsertype-launch-selenium.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 7
+        },
+        "library/browsertype-launch-server.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsertype-launch.spec.ts": {
+          "passing": 10,
+          "failing": 5,
+          "skipping": 0
+        },
+        "library/capabilities.spec.ts": {
+          "passing": 25,
+          "failing": 3,
+          "skipping": 1
+        },
+        "library/channels.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 1
+        },
+        "library/chromium/bfcache.spec.ts": {
+          "passing": 0,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/chromium/chromium.spec.ts": {
+          "passing": 2,
+          "failing": 5,
+          "skipping": 16
+        },
+        "library/chromium/connect-over-cdp.spec.ts": {
+          "passing": 5,
+          "failing": 17,
+          "skipping": 3
+        },
+        "library/chromium/css-coverage.spec.ts": {
+          "passing": 0,
+          "failing": 10,
+          "skipping": 0
+        },
+        "library/chromium/disable-web-security.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/chromium/extensions.spec.ts": {
+          "passing": 0,
+          "failing": 3,
+          "skipping": 1
+        },
+        "library/chromium/js-coverage.spec.ts": {
+          "passing": 0,
+          "failing": 8,
+          "skipping": 0
+        },
+        "library/chromium/launcher.spec.ts": {
+          "passing": 2,
+          "failing": 1,
+          "skipping": 1
+        },
+        "library/chromium/oopif.spec.ts": {
+          "passing": 1,
+          "failing": 22,
+          "skipping": 2
+        },
+        "library/chromium/session.spec.ts": {
+          "passing": 1,
+          "failing": 11,
+          "skipping": 0
+        },
+        "library/chromium/tracing.spec.ts": {
+          "passing": 0,
+          "failing": 7,
+          "skipping": 0
+        },
+        "library/client-certificates.spec.ts": {
+          "passing": 35,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/component-parser.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/css-parser.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/debug-controller.spec.ts": {
+          "passing": 6,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/defaultbrowsercontext-1.spec.ts": {
+          "passing": 0,
+          "failing": 11,
+          "skipping": 0
+        },
+        "library/defaultbrowsercontext-2.spec.ts": {
+          "passing": 1,
+          "failing": 26,
+          "skipping": 1
+        },
+        "library/download.spec.ts": {
+          "passing": 1,
+          "failing": 2,
+          "skipping": 34
+        },
+        "library/downloads-path.spec.ts": {
+          "passing": 0,
+          "failing": 2,
+          "skipping": 4
+        },
+        "library/emulation-focus.spec.ts": {
+          "passing": 8,
+          "failing": 2,
+          "skipping": 1
+        },
+        "library/events/add-listeners.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/check-listener-leaks.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/events-list.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/listener-count.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/listeners-side-effects.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/listeners.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/max-listeners.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/method-names.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/modify-in-emit.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/num-args.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/once.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/prepend.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/remove-all-listeners-wait.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/remove-all-listeners.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/remove-listeners.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/set-max-listeners-side-effects.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/special-event-names.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/subclass.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/symbols.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/favicon.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/fetch-proxy.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/geolocation.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 5
+        },
+        "library/global-fetch-cookie.spec.ts": {
+          "passing": 20,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/global-fetch.spec.ts": {
+          "passing": 66,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/har.spec.ts": {
+          "passing": 30,
+          "failing": 20,
+          "skipping": 1
+        },
+        "library/headful.spec.ts": {
+          "passing": 7,
+          "failing": 7,
+          "skipping": 2
+        },
+        "library/hit-target.spec.ts": {
+          "passing": 16,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/ignorehttpserrors.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/launcher.spec.ts": {
+          "passing": 3,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/locator-dispatchevent-touch.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/locator-generator.spec.ts": {
+          "passing": 24,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/logger.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/modernizr.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/multiclient.spec.ts": {
+          "passing": 10,
+          "failing": 5,
+          "skipping": 1
+        },
+        "library/page-clock.frozen.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/page-clock.spec.ts": {
+          "passing": 41,
+          "failing": 6,
+          "skipping": 0
+        },
+        "library/page-close.spec.ts": {
+          "passing": 15,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/page-event-crash.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 5
+        },
+        "library/pdf.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/permissions.spec.ts": {
+          "passing": 5,
+          "failing": 11,
+          "skipping": 0
+        },
+        "library/popup.spec.ts": {
+          "passing": 4,
+          "failing": 10,
+          "skipping": 1
+        },
+        "library/proxy-pattern.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/proxy.spec.ts": {
+          "passing": 13,
+          "failing": 5,
+          "skipping": 1
+        },
+        "library/resource-timing.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/role-utils.spec.ts": {
+          "passing": 24,
+          "failing": 3,
+          "skipping": 0
+        },
+        "library/route-web-socket.spec.ts": {
+          "passing": 34,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/screenshot.spec.ts": {
+          "passing": 5,
+          "failing": 18,
+          "skipping": 2
+        },
+        "library/selector-generator.spec.ts": {
+          "passing": 0,
+          "failing": 66,
+          "skipping": 0
+        },
+        "library/selectors-register.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/shared-worker.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/signals.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/slowmo.spec.ts": {
+          "passing": 36,
+          "failing": 0,
+          "skipping": 3
+        },
+        "library/snapshotter.spec.ts": {
+          "passing": 18,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/tap.spec.ts": {
+          "passing": 1,
+          "failing": 8,
+          "skipping": 0
+        },
+        "library/trace-viewer.spec.ts": {
+          "passing": 73,
+          "failing": 11,
+          "skipping": 2
+        },
+        "library/tracing.spec.ts": {
+          "passing": 29,
+          "failing": 2,
+          "skipping": 4
+        },
+        "library/unit/clock.spec.ts": {
+          "passing": 162,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/unit/codegen.spec.ts": {
+          "passing": 28,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/unit/sequence.spec.ts": {
+          "passing": 16,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/unroute-behavior.spec.ts": {
+          "passing": 13,
+          "failing": 0,
+          "skipping": 3
+        },
+        "library/video.spec.ts": {
+          "passing": 3,
+          "failing": 16,
+          "skipping": 10
+        },
+        "library/web-socket.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 10
+        },
+        "page/elementhandle-bounding-box.spec.ts": {
+          "passing": 5,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/elementhandle-click.spec.ts": {
+          "passing": 8,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/elementhandle-content-frame.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/elementhandle-convenience.spec.ts": {
+          "passing": 13,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/elementhandle-eval-on-selector.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-misc.spec.ts": {
+          "passing": 8,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/elementhandle-owner-frame.spec.ts": {
+          "passing": 6,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/elementhandle-press.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-query-selector.spec.ts": {
+          "passing": 6,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/elementhandle-screenshot.spec.ts": {
+          "passing": 15,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/elementhandle-scroll-into-view.spec.ts": {
+          "passing": 4,
+          "failing": 5,
+          "skipping": 0
+        },
+        "page/elementhandle-select-text.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-type.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-wait-for-element-state.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/eval-on-selector-all.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/eval-on-selector.spec.ts": {
+          "passing": 26,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-boolean.spec.ts": {
+          "passing": 85,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/expect-matcher-result.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/expect-misc.spec.ts": {
+          "passing": 59,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-timeout.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-to-have-accessible.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-to-have-text.spec.ts": {
+          "passing": 28,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-to-have-value.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/frame-evaluate.spec.ts": {
+          "passing": 6,
+          "failing": 5,
+          "skipping": 2
+        },
+        "page/frame-frame-element.spec.ts": {
+          "passing": 4,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/frame-goto.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/frame-hierarchy.spec.ts": {
+          "passing": 8,
+          "failing": 3,
+          "skipping": 2
+        },
+        "page/interception.spec.ts": {
+          "passing": 9,
+          "failing": 1,
+          "skipping": 1
+        },
+        "page/jshandle-as-element.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-evaluate.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-json-value.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-properties.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-to-string.spec.ts": {
+          "passing": 1,
+          "failing": 5,
+          "skipping": 0
+        },
+        "page/locator-click.spec.ts": {
+          "passing": 4,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/locator-convenience.spec.ts": {
+          "passing": 13,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/locator-element-handle.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-evaluate.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-frame.spec.ts": {
+          "passing": 22,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-highlight.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-is-visible.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/locator-list.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-misc-1.spec.ts": {
+          "passing": 11,
+          "failing": 1,
+          "skipping": 1
+        },
+        "page/locator-misc-2.spec.ts": {
+          "passing": 13,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/locator-query.spec.ts": {
+          "passing": 24,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/matchers.misc.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/network-post-data.spec.ts": {
+          "passing": 0,
+          "failing": 6,
+          "skipping": 0
+        },
+        "page/page-accessibility.spec.ts": {
+          "passing": 0,
+          "failing": 20,
+          "skipping": 0
+        },
+        "page/page-add-init-script.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-add-locator-handler.spec.ts": {
+          "passing": 12,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-add-script-tag.spec.ts": {
+          "passing": 11,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-add-style-tag.spec.ts": {
+          "passing": 7,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-aria-snapshot-ai.spec.ts": {
+          "passing": 26,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-aria-snapshot.spec.ts": {
+          "passing": 33,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-autowaiting-basic.spec.ts": {
+          "passing": 9,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-autowaiting-no-hang.spec.ts": {
+          "passing": 9,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-basic.spec.ts": {
+          "passing": 15,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-check.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-during-navigation.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-react.spec.ts": {
+          "passing": 2,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-click-scroll.spec.ts": {
+          "passing": 5,
+          "failing": 1,
+          "skipping": 1
+        },
+        "page/page-click-timeout-1.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-timeout-2.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-click-timeout-3.spec.ts": {
+          "passing": 3,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-click-timeout-4.spec.ts": {
+          "passing": 2,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-click.spec.ts": {
+          "passing": 63,
+          "failing": 16,
+          "skipping": 4
+        },
+        "page/page-dialog.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 2
+        },
+        "page/page-dispatchevent.spec.ts": {
+          "passing": 13,
+          "failing": 4,
+          "skipping": 0
+        },
+        "page/page-drag.spec.ts": {
+          "passing": 13,
+          "failing": 4,
+          "skipping": 2
+        },
+        "page/page-emulate-media.spec.ts": {
+          "passing": 2,
+          "failing": 9,
+          "skipping": 0
+        },
+        "page/page-evaluate-handle.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-evaluate-no-stall.spec.ts": {
+          "passing": 2,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-evaluate.spec.ts": {
+          "passing": 93,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-event-console.spec.ts": {
+          "passing": 8,
+          "failing": 4,
+          "skipping": 1
+        },
+        "page/page-event-load.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-event-network.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/page-event-pageerror.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 9
+        },
+        "page/page-event-popup.spec.ts": {
+          "passing": 9,
+          "failing": 3,
+          "skipping": 1
+        },
+        "page/page-event-request.spec.ts": {
+          "passing": 9,
+          "failing": 6,
+          "skipping": 1
+        },
+        "page/page-expose-function.spec.ts": {
+          "passing": 19,
+          "failing": 3,
+          "skipping": 2
+        },
+        "page/page-filechooser.spec.ts": {
+          "passing": 5,
+          "failing": 19,
+          "skipping": 0
+        },
+        "page/page-fill.spec.ts": {
+          "passing": 40,
+          "failing": 4,
+          "skipping": 0
+        },
+        "page/page-focus.spec.ts": {
+          "passing": 6,
+          "failing": 1,
+          "skipping": 3
+        },
+        "page/page-goto.spec.ts": {
+          "passing": 53,
+          "failing": 10,
+          "skipping": 1
+        },
+        "page/page-history.spec.ts": {
+          "passing": 11,
+          "failing": 3,
+          "skipping": 2
+        },
+        "page/page-keyboard.spec.ts": {
+          "passing": 37,
+          "failing": 5,
+          "skipping": 4
+        },
+        "page/page-listeners.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-mouse.spec.ts": {
+          "passing": 12,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-navigation.spec.ts": {
+          "passing": 2,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-network-idle.spec.ts": {
+          "passing": 10,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-network-request.spec.ts": {
+          "passing": 13,
+          "failing": 16,
+          "skipping": 0
+        },
+        "page/page-network-response.spec.ts": {
+          "passing": 12,
+          "failing": 8,
+          "skipping": 0
+        },
+        "page/page-network-sizes.spec.ts": {
+          "passing": 4,
+          "failing": 9,
+          "skipping": 2
+        },
+        "page/page-request-continue.spec.ts": {
+          "passing": 32,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-request-fallback.spec.ts": {
+          "passing": 14,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-request-fulfill.spec.ts": {
+          "passing": 18,
+          "failing": 6,
+          "skipping": 0
+        },
+        "page/page-request-gc.spec.ts": {
+          "passing": 0,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-request-intercept.spec.ts": {
+          "passing": 11,
+          "failing": 4,
+          "skipping": 1
+        },
+        "page/page-route.spec.ts": {
+          "passing": 41,
+          "failing": 13,
+          "skipping": 1
+        },
+        "page/page-screenshot.spec.ts": {
+          "passing": 30,
+          "failing": 29,
+          "skipping": 0
+        },
+        "page/page-select-option.spec.ts": {
+          "passing": 32,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-set-content.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-set-extra-http-headers.spec.ts": {
+          "passing": 1,
+          "failing": 4,
+          "skipping": 0
+        },
+        "page/page-set-input-files.spec.ts": {
+          "passing": 10,
+          "failing": 4,
+          "skipping": 6
+        },
+        "page/page-strict.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-function.spec.ts": {
+          "passing": 26,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-load-state.spec.ts": {
+          "passing": 13,
+          "failing": 5,
+          "skipping": 0
+        },
+        "page/page-wait-for-navigation.spec.ts": {
+          "passing": 13,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-wait-for-request.spec.ts": {
+          "passing": 7,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-wait-for-response.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-selector-1.spec.ts": {
+          "passing": 14,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-wait-for-selector-2.spec.ts": {
+          "passing": 31,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-wait-for-url.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/queryselector.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/retarget.spec.ts": {
+          "passing": 14,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/selectors-css.spec.ts": {
+          "passing": 26,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/selectors-frame.spec.ts": {
+          "passing": 26,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-get-by.spec.ts": {
+          "passing": 20,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-misc.spec.ts": {
+          "passing": 21,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-react.spec.ts": {
+          "passing": 57,
+          "failing": 0,
+          "skipping": 3
+        },
+        "page/selectors-register.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-role.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-text.spec.ts": {
+          "passing": 22,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-vue.spec.ts": {
+          "passing": 25,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/to-match-aria-snapshot.spec.ts": {
+          "passing": 30,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/wheel.spec.ts": {
+          "passing": 7,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/workers.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 16
+        }
+      },
+      "total": 4126
+    },
+    "firefoxCounts": {
+      "passing": 3462,
+      "failing": 371,
+      "skipping": 175,
+      "bySuite": {
+        "library/beforeunload.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browser.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-add-cookies.spec.ts": {
+          "passing": 22,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-add-init-script.spec.ts": {
+          "passing": 5,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-base-url.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-basic.spec.ts": {
+          "passing": 20,
+          "failing": 8,
+          "skipping": 0
+        },
+        "library/browsercontext-clearcookies.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-cookies-third-party.spec.ts": {
+          "passing": 3,
+          "failing": 7,
+          "skipping": 1
+        },
+        "library/browsercontext-cookies.spec.ts": {
+          "passing": 14,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-credentials.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/browsercontext-csp.spec.ts": {
+          "passing": 0,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/browsercontext-device.spec.ts": {
+          "passing": 6,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/browsercontext-dsf.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-events.spec.ts": {
+          "passing": 9,
+          "failing": 1,
+          "skipping": 1
+        },
+        "library/browsercontext-expose-function.spec.ts": {
+          "passing": 5,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-fetch-algorithms.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-fetch-happy-eyeballs.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-fetch.spec.ts": {
+          "passing": 109,
+          "failing": 1,
+          "skipping": 1
+        },
+        "library/browsercontext-har.spec.ts": {
+          "passing": 24,
+          "failing": 7,
+          "skipping": 0
+        },
+        "library/browsercontext-locale.spec.ts": {
+          "passing": 7,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/browsercontext-network-event.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/browsercontext-page-event.spec.ts": {
+          "passing": 6,
+          "failing": 4,
+          "skipping": 1
+        },
+        "library/browsercontext-pages.spec.ts": {
+          "passing": 8,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/browsercontext-proxy.spec.ts": {
+          "passing": 23,
+          "failing": 3,
+          "skipping": 0
+        },
+        "library/browsercontext-reuse.spec.ts": {
+          "passing": 18,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/browsercontext-route.spec.ts": {
+          "passing": 18,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-service-worker-policy.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-set-extra-http-headers.spec.ts": {
+          "passing": 1,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-storage-state.spec.ts": {
+          "passing": 13,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/browsercontext-strict.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsercontext-timezone-id.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/browsercontext-user-agent.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/browsercontext-viewport-mobile.spec.ts": {
+          "passing": 8,
+          "failing": 6,
+          "skipping": 0
+        },
+        "library/browsercontext-viewport.spec.ts": {
+          "passing": 9,
+          "failing": 6,
+          "skipping": 1
+        },
+        "library/browsertype-basic.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/browsertype-connect.spec.ts": {
+          "passing": 92,
+          "failing": 2,
+          "skipping": 12
+        },
+        "library/browsertype-launch-selenium.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 7
+        },
+        "library/browsertype-launch-server.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/browsertype-launch.spec.ts": {
+          "passing": 14,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/capabilities.spec.ts": {
+          "passing": 24,
+          "failing": 1,
+          "skipping": 4
+        },
+        "library/channels.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/client-certificates.spec.ts": {
+          "passing": 35,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/component-parser.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/css-parser.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/debug-controller.spec.ts": {
+          "passing": 9,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/defaultbrowsercontext-1.spec.ts": {
+          "passing": 8,
+          "failing": 3,
+          "skipping": 0
+        },
+        "library/defaultbrowsercontext-2.spec.ts": {
+          "passing": 17,
+          "failing": 9,
+          "skipping": 2
+        },
+        "library/download.spec.ts": {
+          "passing": 9,
+          "failing": 26,
+          "skipping": 2
+        },
+        "library/downloads-path.spec.ts": {
+          "passing": 2,
+          "failing": 4,
+          "skipping": 0
+        },
+        "library/emulation-focus.spec.ts": {
+          "passing": 8,
+          "failing": 3,
+          "skipping": 0
+        },
+        "library/events/add-listeners.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/check-listener-leaks.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/events-list.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/listener-count.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/listeners-side-effects.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/listeners.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/max-listeners.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/method-names.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/modify-in-emit.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/num-args.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/once.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/prepend.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/remove-all-listeners-wait.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/remove-all-listeners.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/remove-listeners.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/set-max-listeners-side-effects.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/special-event-names.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/subclass.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/events/symbols.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/favicon.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/fetch-proxy.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/firefox/launcher.spec.ts": {
+          "passing": 2,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/geolocation.spec.ts": {
+          "passing": 4,
+          "failing": 5,
+          "skipping": 0
+        },
+        "library/global-fetch-cookie.spec.ts": {
+          "passing": 20,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/global-fetch.spec.ts": {
+          "passing": 66,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/har.spec.ts": {
+          "passing": 38,
+          "failing": 13,
+          "skipping": 0
+        },
+        "library/headful.spec.ts": {
+          "passing": 14,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/hit-target.spec.ts": {
+          "passing": 18,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/ignorehttpserrors.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/launcher.spec.ts": {
+          "passing": 3,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/locator-dispatchevent-touch.spec.ts": {
+          "passing": 0,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/locator-generator.spec.ts": {
+          "passing": 24,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/logger.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/modernizr.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/multiclient.spec.ts": {
+          "passing": 12,
+          "failing": 1,
+          "skipping": 3
+        },
+        "library/page-clock.frozen.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/page-clock.spec.ts": {
+          "passing": 47,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/page-close.spec.ts": {
+          "passing": 19,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/page-event-crash.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 5
+        },
+        "library/pdf.spec.ts": {
+          "passing": 0,
+          "failing": 0,
+          "skipping": 2
+        },
+        "library/permissions.spec.ts": {
+          "passing": 5,
+          "failing": 9,
+          "skipping": 2
+        },
+        "library/popup.spec.ts": {
+          "passing": 5,
+          "failing": 9,
+          "skipping": 1
+        },
+        "library/proxy-pattern.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/proxy.spec.ts": {
+          "passing": 18,
+          "failing": 0,
+          "skipping": 1
+        },
+        "library/resource-timing.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/role-utils.spec.ts": {
+          "passing": 26,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/route-web-socket.spec.ts": {
+          "passing": 32,
+          "failing": 1,
+          "skipping": 3
+        },
+        "library/screenshot.spec.ts": {
+          "passing": 20,
+          "failing": 2,
+          "skipping": 3
+        },
+        "library/selector-generator.spec.ts": {
+          "passing": 65,
+          "failing": 1,
+          "skipping": 0
+        },
+        "library/selectors-register.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/shared-worker.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/signals.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/slowmo.spec.ts": {
+          "passing": 37,
+          "failing": 2,
+          "skipping": 0
+        },
+        "library/snapshotter.spec.ts": {
+          "passing": 18,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/tap.spec.ts": {
+          "passing": 1,
+          "failing": 8,
+          "skipping": 0
+        },
+        "library/trace-viewer.spec.ts": {
+          "passing": 75,
+          "failing": 9,
+          "skipping": 2
+        },
+        "library/tracing.spec.ts": {
+          "passing": 30,
+          "failing": 5,
+          "skipping": 0
+        },
+        "library/unit/clock.spec.ts": {
+          "passing": 162,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/unit/codegen.spec.ts": {
+          "passing": 28,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/unit/sequence.spec.ts": {
+          "passing": 16,
+          "failing": 0,
+          "skipping": 0
+        },
+        "library/unroute-behavior.spec.ts": {
+          "passing": 13,
+          "failing": 0,
+          "skipping": 3
+        },
+        "library/video.spec.ts": {
+          "passing": 3,
+          "failing": 6,
+          "skipping": 20
+        },
+        "library/web-socket.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 10
+        },
+        "page/elementhandle-bounding-box.spec.ts": {
+          "passing": 6,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/elementhandle-click.spec.ts": {
+          "passing": 7,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/elementhandle-content-frame.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/elementhandle-convenience.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-eval-on-selector.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-misc.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-owner-frame.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-press.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-query-selector.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-screenshot.spec.ts": {
+          "passing": 16,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/elementhandle-scroll-into-view.spec.ts": {
+          "passing": 3,
+          "failing": 6,
+          "skipping": 0
+        },
+        "page/elementhandle-select-text.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-type.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/elementhandle-wait-for-element-state.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/eval-on-selector-all.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/eval-on-selector.spec.ts": {
+          "passing": 26,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-boolean.spec.ts": {
+          "passing": 86,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-matcher-result.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-misc.spec.ts": {
+          "passing": 58,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/expect-timeout.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-to-have-accessible.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-to-have-text.spec.ts": {
+          "passing": 28,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/expect-to-have-value.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/frame-evaluate.spec.ts": {
+          "passing": 8,
+          "failing": 4,
+          "skipping": 1
+        },
+        "page/frame-frame-element.spec.ts": {
+          "passing": 4,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/frame-goto.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/frame-hierarchy.spec.ts": {
+          "passing": 8,
+          "failing": 3,
+          "skipping": 2
+        },
+        "page/interception.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 3
+        },
+        "page/jshandle-as-element.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-evaluate.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-json-value.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-properties.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/jshandle-to-string.spec.ts": {
+          "passing": 1,
+          "failing": 4,
+          "skipping": 1
+        },
+        "page/locator-click.spec.ts": {
+          "passing": 4,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/locator-convenience.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-element-handle.spec.ts": {
+          "passing": 5,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-evaluate.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-frame.spec.ts": {
+          "passing": 21,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/locator-highlight.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-is-visible.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-list.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-misc-1.spec.ts": {
+          "passing": 13,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/locator-misc-2.spec.ts": {
+          "passing": 15,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/locator-query.spec.ts": {
+          "passing": 24,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/matchers.misc.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/network-post-data.spec.ts": {
+          "passing": 0,
+          "failing": 6,
+          "skipping": 0
+        },
+        "page/page-accessibility.spec.ts": {
+          "passing": 0,
+          "failing": 20,
+          "skipping": 0
+        },
+        "page/page-add-init-script.spec.ts": {
+          "passing": 8,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-add-locator-handler.spec.ts": {
+          "passing": 14,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-add-script-tag.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-add-style-tag.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-aria-snapshot-ai.spec.ts": {
+          "passing": 26,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-aria-snapshot.spec.ts": {
+          "passing": 33,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-autowaiting-basic.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-autowaiting-no-hang.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-basic.spec.ts": {
+          "passing": 16,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-check.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-during-navigation.spec.ts": {
+          "passing": 1,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-react.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-scroll.spec.ts": {
+          "passing": 5,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-click-timeout-1.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-timeout-2.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-timeout-3.spec.ts": {
+          "passing": 4,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click-timeout-4.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-click.spec.ts": {
+          "passing": 75,
+          "failing": 7,
+          "skipping": 1
+        },
+        "page/page-dialog.spec.ts": {
+          "passing": 10,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-dispatchevent.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-drag.spec.ts": {
+          "passing": 6,
+          "failing": 10,
+          "skipping": 3
+        },
+        "page/page-emulate-media.spec.ts": {
+          "passing": 2,
+          "failing": 9,
+          "skipping": 0
+        },
+        "page/page-evaluate-handle.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-evaluate-no-stall.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-evaluate.spec.ts": {
+          "passing": 93,
+          "failing": 2,
+          "skipping": 1
+        },
+        "page/page-event-console.spec.ts": {
+          "passing": 6,
+          "failing": 5,
+          "skipping": 2
+        },
+        "page/page-event-load.spec.ts": {
+          "passing": 2,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-event-network.spec.ts": {
+          "passing": 7,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-event-pageerror.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-event-popup.spec.ts": {
+          "passing": 12,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-event-request.spec.ts": {
+          "passing": 10,
+          "failing": 5,
+          "skipping": 1
+        },
+        "page/page-expose-function.spec.ts": {
+          "passing": 23,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-filechooser.spec.ts": {
+          "passing": 4,
+          "failing": 1,
+          "skipping": 19
+        },
+        "page/page-fill.spec.ts": {
+          "passing": 37,
+          "failing": 1,
+          "skipping": 6
+        },
+        "page/page-focus.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 4
+        },
+        "page/page-goto.spec.ts": {
+          "passing": 60,
+          "failing": 3,
+          "skipping": 1
+        },
+        "page/page-history.spec.ts": {
+          "passing": 13,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-keyboard.spec.ts": {
+          "passing": 40,
+          "failing": 3,
+          "skipping": 3
+        },
+        "page/page-listeners.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-mouse.spec.ts": {
+          "passing": 12,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-navigation.spec.ts": {
+          "passing": 3,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-network-idle.spec.ts": {
+          "passing": 12,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-network-request.spec.ts": {
+          "passing": 17,
+          "failing": 11,
+          "skipping": 1
+        },
+        "page/page-network-response.spec.ts": {
+          "passing": 14,
+          "failing": 5,
+          "skipping": 1
+        },
+        "page/page-network-sizes.spec.ts": {
+          "passing": 14,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/page-request-continue.spec.ts": {
+          "passing": 17,
+          "failing": 15,
+          "skipping": 3
+        },
+        "page/page-request-fallback.spec.ts": {
+          "passing": 12,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-request-fulfill.spec.ts": {
+          "passing": 21,
+          "failing": 3,
+          "skipping": 0
+        },
+        "page/page-request-gc.spec.ts": {
+          "passing": 0,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-request-intercept.spec.ts": {
+          "passing": 14,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-route.spec.ts": {
+          "passing": 46,
+          "failing": 7,
+          "skipping": 2
+        },
+        "page/page-screenshot.spec.ts": {
+          "passing": 55,
+          "failing": 3,
+          "skipping": 1
+        },
+        "page/page-select-option.spec.ts": {
+          "passing": 32,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-set-content.spec.ts": {
+          "passing": 16,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/page-set-extra-http-headers.spec.ts": {
+          "passing": 1,
+          "failing": 4,
+          "skipping": 0
+        },
+        "page/page-set-input-files.spec.ts": {
+          "passing": 18,
+          "failing": 2,
+          "skipping": 0
+        },
+        "page/page-strict.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-function.spec.ts": {
+          "passing": 25,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/page-wait-for-load-state.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/page-wait-for-navigation.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-request.spec.ts": {
+          "passing": 8,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-response.spec.ts": {
+          "passing": 9,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-selector-1.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-selector-2.spec.ts": {
+          "passing": 33,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/page-wait-for-url.spec.ts": {
+          "passing": 11,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/queryselector.spec.ts": {
+          "passing": 17,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/retarget.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-css.spec.ts": {
+          "passing": 27,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-frame.spec.ts": {
+          "passing": 26,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-get-by.spec.ts": {
+          "passing": 20,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-misc.spec.ts": {
+          "passing": 21,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-react.spec.ts": {
+          "passing": 57,
+          "failing": 0,
+          "skipping": 3
+        },
+        "page/selectors-register.spec.ts": {
+          "passing": 6,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-role.spec.ts": {
+          "passing": 15,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-text.spec.ts": {
+          "passing": 22,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/selectors-vue.spec.ts": {
+          "passing": 25,
+          "failing": 0,
+          "skipping": 1
+        },
+        "page/to-match-aria-snapshot.spec.ts": {
+          "passing": 30,
+          "failing": 0,
+          "skipping": 0
+        },
+        "page/wheel.spec.ts": {
+          "passing": 7,
+          "failing": 1,
+          "skipping": 0
+        },
+        "page/workers.spec.ts": {
+          "passing": 6,
+          "failing": 2,
+          "skipping": 10
+        }
+      },
+      "total": 4008
+    }
   }
 ]

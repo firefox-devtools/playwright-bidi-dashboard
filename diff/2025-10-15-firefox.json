@@ -1,0 +1,54 @@
+{
+  "library/browsercontext-page-event.spec.ts > should work with Ctrl-clicking": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/debug-controller.spec.ts > should pick element": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/debug-controller.spec.ts > should record": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/har.spec.ts > should not hang on resources served from cache": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "library/popup.spec.ts > BrowserContext.addInitScript should apply to a cross-process popup": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/screenshot.spec.ts > page screenshot > should throw if screenshot size is too large with device scale factor": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-add-init-script.spec.ts > init script should run only once in iframe": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-goto.spec.ts > should fail when replaced by another navigation": {
+    "previous": "failed",
+    "current": "passed"
+  },
+  "page/page-history.spec.ts > regression test for issue 20791": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "page/page-screenshot.spec.ts > page screenshot > should allow transparency": {
+    "previous": "passed",
+    "current": "failed"
+  },
+  "library/trace-viewer.spec.ts > should survive service worker restart": {
+    "current": "passed"
+  },
+  "library/unit/clock.spec.ts > runFor > does not rewind back in time": {
+    "current": "passed"
+  },
+  "library/unit/clock.spec.ts > fastForward > error does not pause forever": {
+    "current": "passed"
+  },
+  "page/expect-to-have-text.spec.ts > toHaveText with text > do not show \"element(s) not found\" when the real failure is a string mismatch": {
+    "current": "passed"
+  }
+}

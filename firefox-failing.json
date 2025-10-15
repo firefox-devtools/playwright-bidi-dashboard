@@ -110,8 +110,7 @@
       "should have url",
       "should report when a new page is created and closed",
       "should report initialized pages",
-      "should have an opener",
-      "should work with Ctrl-clicking"
+      "should have an opener"
     ],
     "skipped": [
       "should have about:blank for empty url with domcontentloaded"
@@ -247,7 +246,7 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should record"
+      "should pick element"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -357,8 +356,7 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response",
-      "should not hang on resources served from cache"
+      "should return security details directly from response"
     ]
   },
   "library/headful.spec.ts": {
@@ -450,6 +448,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -480,8 +479,7 @@
   "library/screenshot.spec.ts": {
     "failing": [
       "should work with device scale factor and scale:css",
-      "should work with device scale factor, clip and scale:css",
-      "should throw if screenshot size is too large with device scale factor"
+      "should work with device scale factor, clip and scale:css"
     ],
     "skipped": [
       "should work with a mobile viewport",
@@ -727,8 +725,7 @@
   },
   "page/page-add-init-script.spec.ts": {
     "failing": [
-      "should work with CSP",
-      "init script should run only once in iframe"
+      "should work with CSP"
     ]
   },
   "page/page-aria-snapshot-ai.spec.ts": {
@@ -887,7 +884,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should fail when replaced by another navigation",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -899,7 +895,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1021,6 +1018,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should throw if screenshot size is too large",
+      "should allow transparency",
       "should not capture pseudo element css animation"
     ],
     "skipped": [
