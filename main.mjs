@@ -1,7 +1,8 @@
-import { encodeFilter, decodeFilter, suiteNames, formatDate, disabledSuites } from './shared.mjs';
+import { startDate, msPerDay, encodeFilter, decodeFilter, suiteNames, formatDate, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
 
 let suiteCheckboxes = new Map();
-let entries;
+let data;
+let lastDay;
 let chart;
 
 const pf = new Intl.NumberFormat('en', {
@@ -15,39 +16,21 @@ function formatPercentage(number) {
 }
 
 function buildTooltip(label, counts) {
+  const passing = counts[0];
+  const skipping = counts[1];
+  const failing = counts[2] + counts[3];
+  const total = passing + skipping + failing;
   return `
     <div style="padding: 10px; font-size: 18px;">
       <h3 style="margin: 0;">${label}</h3>
-      <div>Total: ${counts.total}</div>
-      <div>Passing: ${counts.passing} (${formatPercentage(
-        counts.passing / counts.total,
+      <div>Total: ${total}</div>
+      <div>Passing: ${counts[0]} (${formatPercentage(
+        passing / total,
       )})</div>
-      <div>Skipping: ${counts.skipping}</div>
-      <div>Failing: ${counts.failing}</div>
+      <div>Skipping: ${skipping}</div>
+      <div>Failing: ${failing}</div>
     </div>
   `;
-}
-
-function filteredCounts(counts) {
-  let passing = 0;
-  let failing = 0;
-  let skipping = 0;
-  for (const suite in counts?.bySuite ?? []) {
-    if (suiteCheckboxes.get(suite).checked) {
-      const suiteCounts = counts.bySuite[suite];
-      passing += suiteCounts.passing;
-      failing += suiteCounts.failing;
-      skipping += suiteCounts.skipping;
-    }
-  }
-  return { passing, failing, skipping, total: passing + failing + skipping };
-}
-
-function getFilteredCounts(entry) {
-  const { firefoxCounts, chromeCounts } = entry;
-  const firefoxFilteredCounts = filteredCounts(firefoxCounts);
-  const chromeFilteredCounts = filteredCounts(chromeCounts);
-  return { firefoxFilteredCounts, chromeFilteredCounts };
 }
 
 function createMainChart() {
@@ -55,19 +38,30 @@ function createMainChart() {
 
   const chartData = [];
 
-  for (const entry of entries) {
-    const { firefoxFilteredCounts, chromeFilteredCounts } = getFilteredCounts(entry);
+  let firefoxCounts;
+  let chromeCounts;
+  for (let day = 0; day <= lastDay; day++) {
+    firefoxCounts = [0, 0, 0, 0];
+    chromeCounts = [0, 0, 0, 0];
+    for (const suite in data) {
+      if (suiteCheckboxes.get(suite).checked) {
+        countSuiteResults(data[suite], day, "firefox", firefoxCounts);
+        countSuiteResults(data[suite], day, "chrome", chromeCounts);
+      }
+    }
+
+    const date = new Date(startDate + day * msPerDay);
     chartData.push([
-      new Date(entry.date),
-      (firefoxFilteredCounts.passing / firefoxFilteredCounts.total) * 100,
-      (chromeFilteredCounts.passing / chromeFilteredCounts.total) * 100,
+      date,
+      (firefoxCounts[0] / firefoxCounts.reduce((a,b)=>a+b)) * 100,
+      (chromeCounts[0] / chromeCounts.reduce((a,b)=>a+b)) * 100,
       buildTooltip(
-        'Firefox ' + new Date(entry.date).toLocaleDateString(),
-        firefoxFilteredCounts,
+        'Firefox ' + date.toLocaleDateString(),
+        firefoxCounts,
       ),
       buildTooltip(
-        'Chrome ' + new Date(entry.date).toLocaleDateString(),
-        chromeFilteredCounts,
+        'Chrome ' + date.toLocaleDateString(),
+        chromeCounts,
       ),
     ]);
   }
@@ -182,18 +176,18 @@ function createMainChart() {
       },
     },
   });
+
+  return { firefoxCounts, chromeCounts };
 }
 
 function renderDashboard() {
-  createMainChart();
-
-  const { firefoxFilteredCounts, chromeFilteredCounts } = getFilteredCounts(entries[entries.length - 1]);
+  const { firefoxCounts, chromeCounts } = createMainChart();
 
   document.querySelector('#firefox-failing').textContent =
-    firefoxFilteredCounts.failing + firefoxFilteredCounts.skipping;
+    firefoxCounts[1] + firefoxCounts[2] + firefoxCounts[3];
 
   document.querySelector('#chrome-failing').textContent =
-    chromeFilteredCounts.failing + chromeFilteredCounts.skipping;
+    chromeCounts[1] + chromeCounts[2] + chromeCounts[3];
 }
 
 function filterUpdated() {
@@ -208,9 +202,13 @@ function renderConfig() {
   const configButtonEl = document.getElementById('config-button');
   const configEl = document.getElementById('config');
   const configToolbarEl = document.getElementById('config-toolbar');
-  const results = entries[entries.length - 1];
 
   for (const suite of [...suiteCheckboxes.keys()].sort()) {
+    const firefoxCounts = [0, 0, 0, 0];
+    countSuiteResults(data[suite], lastDay, "firefox", firefoxCounts);
+    const chromeCounts = [0, 0, 0, 0];
+    countSuiteResults(data[suite], lastDay, "chrome", chromeCounts);
+
     const suiteEl = document.createElement('div');
 
     const resultEl = document.createElement('div');
@@ -218,40 +216,31 @@ function renderConfig() {
     let resultTitles = [];
     const firefoxResultEl = document.createElement('div');
     firefoxResultEl.className = 'firefox';
-    const firefoxResult = results.firefoxCounts?.bySuite[suite];
-    if (firefoxResult) {
-      const total = firefoxResult.passing + firefoxResult.failing + firefoxResult.skipping;
-      if (total) {
-        firefoxResultEl.style.width = `${firefoxResult.passing / total * 100}%`;
-        resultTitles.push(`Firefox: ${firefoxResult.passing}/${total}`);
-      }
+    const firefoxPassing = firefoxCounts[0];
+    const firefoxTotal = firefoxCounts.reduce((a,b)=>a+b);
+    if (firefoxTotal) {
+      firefoxResultEl.style.width = `${firefoxPassing / firefoxTotal * 100}%`;
+      resultTitles.push(`Firefox: ${firefoxPassing}/${firefoxTotal}`);
     }
     const chromeResultEl = document.createElement('div');
     chromeResultEl.className = 'chrome';
-    const chromeResult = results.chromeCounts?.bySuite[suite];
-    if (chromeResult) {
-      const total = chromeResult.passing + chromeResult.failing + chromeResult.skipping;
-      if (total) {
-        chromeResultEl.style.width = `${chromeResult.passing / total * 100}%`;
-        resultTitles.push(`Chrome: ${chromeResult.passing}/${total}`);
-      }
+    const chromePassing = chromeCounts[0];
+    const chromeTotal = chromeCounts.reduce((a,b)=>a+b);
+    if (chromeTotal) {
+      chromeResultEl.style.width = `${chromePassing / chromeTotal * 100}%`;
+      resultTitles.push(`Chrome: ${chromePassing}/${chromeTotal}`);
     }
     resultEl.title = resultTitles.join('\n');
     resultEl.appendChild(firefoxResultEl);
     resultEl.appendChild(chromeResultEl);
 
-    const checkboxEl = document.createElement('input');
-    checkboxEl.type = 'checkbox';
-    checkboxEl.checked = firefoxResult && chromeResult && !disabledSuites.includes(suite);
-    checkboxEl.onchange = filterUpdated;
+    const checkboxEl = suiteCheckboxes.get(suite);
 
     suiteEl.appendChild(checkboxEl);
     suiteEl.appendChild(resultEl);
     suiteEl.append(suite);
 
     configEl.appendChild(suiteEl);
-
-    suiteCheckboxes.set(suite, checkboxEl);
   }
 
   configButtonEl.onclick = () => {
@@ -280,13 +269,14 @@ function renderConfig() {
     filterUpdated();
   }
   toolbarButtons[3].onclick = () => {
-    const results = entries[entries.length - 1];
     for (const suite of suiteCheckboxes.keys()) {
-      const firefoxResult = results.firefoxCounts.bySuite[suite];
-      const chromeResult = results.chromeCounts.bySuite[suite];
+      const firefoxCounts = [0, 0, 0, 0];
+      countSuiteResults(data[suite], lastDay, "firefox", firefoxCounts);
+      const chromeCounts = [0, 0, 0, 0];
+      countSuiteResults(data[suite], lastDay, "chrome", chromeCounts);
       if (
-        !firefoxResult?.failing && !firefoxResult?.skipping &&
-        !chromeResult?.failing && !chromeResult?.skipping
+        firefoxCounts[1] === 0 && firefoxCounts[2] === 0 && firefoxCounts[3] === 0 &&
+        chromeCounts[1] === 0 && chromeCounts[2] === 0 && chromeCounts[3] === 0
       ) {
         suiteCheckboxes.get(suite).checked = false;
       }
@@ -297,16 +287,16 @@ function renderConfig() {
 
 async function main() {
   const response = await fetch('./data.json');
-  entries = await response.json();
-
-  for (const entry of entries) {
-    for (const counts of [entry.firefoxCounts, entry.chromeCounts]) {
-      for (const suite in counts?.bySuite ?? []) {
-        suiteCheckboxes.set(suite, undefined);
-        if (!suiteNames.includes(suite)) {
-          console.warn(`Unknown suite ${suite}`);
-        }
-      }
+  data = await response.json();
+  lastDay = getLastDay(data);
+  for (const suite of Object.keys(data)) {
+    const checkboxEl = document.createElement('input');
+    checkboxEl.type = 'checkbox';
+    checkboxEl.checked = !disabledSuites.includes(suite);
+    checkboxEl.onchange = filterUpdated;
+    suiteCheckboxes.set(suite, checkboxEl);
+    if (!suiteNames.includes(suite)) {
+      console.warn(`Unknown suite ${suite}`);
     }
   }
 

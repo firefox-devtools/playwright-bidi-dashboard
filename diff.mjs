@@ -1,4 +1,6 @@
-import { capitalize } from './shared.mjs';
+import { startDate, msPerDay, parseDate, capitalize } from './shared.mjs';
+
+const RESULTS = ["passed", "skipped", "failed", "timedOut"];
 
 async function renderDiff() {
   const searchParams = new URLSearchParams(location.search);
@@ -8,28 +10,37 @@ async function renderDiff() {
   }
   const browser = searchParams.get('browser');
   const dateString = searchParams.get('date');
+  const date = parseDate(dateString);
+  const day = (date - startDate) / msPerDay;
 
-  const response = await fetch(`./diff/${dateString}-${browser}.json`);
-  const entries = await response.json();
+  const response = await fetch('./data.json');
+  const data = await response.json();
 
   const table = document.getElementById('table');
-  for (const testPath in entries) {
-    const testEl = document.createElement('div');
-    testEl.className = 'test';
+  for (const suite in data) {
+    for (const spec in data[suite]) {
+      const results = data[suite][spec][browser];
+      if (results[day - 1] === results[day]) {
+        continue;
+      }
 
-    const previousEl = document.createElement('div');
-    previousEl.className = `previous result ${entries[testPath].previous}`;
-    previousEl.title = entries[testPath].previous;
-    testEl.appendChild(previousEl);
+      const testEl = document.createElement('div');
+      testEl.className = 'test';
 
-    const currentEl = document.createElement('div');
-    currentEl.className = `current result ${entries[testPath].current}`;
-    currentEl.title = entries[testPath].current;
-    testEl.appendChild(currentEl);
+      const previousEl = document.createElement('div');
+      previousEl.className = `previous result ${RESULTS[results[day - 1]]}`;
+      previousEl.title = RESULTS[results[day - 1]];
+      testEl.appendChild(previousEl);
 
-    testEl.append(testPath);
+      const currentEl = document.createElement('div');
+      currentEl.className = `current result ${RESULTS[results[day]]}`;
+      currentEl.title = RESULTS[results[day]];
+      testEl.appendChild(currentEl);
 
-    table.appendChild(testEl);
+      testEl.append(`${suite} > ${spec}`);
+
+      table.appendChild(testEl);
+    }
   }
 
   document.getElementById('title').textContent = `${capitalize(browser)} test result changes on ${dateString}`;

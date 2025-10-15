@@ -1,4 +1,4 @@
-import { decodeFilter, parseDate, formatDate, capitalize, suiteNames, disabledSuites } from './shared.mjs';
+import { startDate, msPerDay, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
@@ -9,13 +9,12 @@ async function renderTestRun() {
   const browser = searchParams.get('browser');
   const dateString = searchParams.get('date');
   const date = parseDate(dateString);
+  const day = (date - startDate) / msPerDay;
 
   const response = await fetch('./data.json');
-  const entries = await response.json();
-  const entry = entries.find(entry => entry.date === date);
-  if (!entry) {
-    return;
-  }
+  const data = await response.json();
+
+  const lastDay = getLastDay(data);
 
   let enabledSuites;
   if (searchParams.has('filter')) {
@@ -26,25 +25,29 @@ async function renderTestRun() {
       }
     });
   } else {
-    const lastEntry = entries[entries.length - 1];
-    enabledSuites = suiteNames.filter(suite => lastEntry.firefoxCounts.bySuite[suite] && lastEntry.chromeCounts.bySuite[suite] && !disabledSuites.includes(suite));
+    enabledSuites = Object.keys(data).filter(suite => !disabledSuites.includes(suite));
   }
 
-  const allCounts = entry[`${browser}Counts`].bySuite;
-  const suitesCounts = enabledSuites.filter(suite => allCounts[suite]).map(suite => {
-    const counts = allCounts[suite];
-    const total = counts.passing + counts.failing + counts.skipping;
+  const suitesCounts = enabledSuites.map(suite => {
+    const counts = [0, 0, 0, 0];
+    countSuiteResults(data[suite], day, browser, counts);
+    const total = counts.reduce((a, b) => a + b);
     return {
-      ...counts,
       suite,
+      passing: counts[0],
+      skipping: counts[1],
+      failing: counts[2] + counts[3],
       total,
-      passingShare: counts.passing / total,
+      passingShare: counts[0] / total,
     };
   });
   suitesCounts.sort((a, b) => a.passingShare - b.passingShare);
 
   const table = document.getElementById('table');
   for (const suiteCounts of suitesCounts) {
+    if (suiteCounts.total === 0) {
+      continue;
+    }
     const suiteEl = document.createElement('div');
     suiteEl.className = 'suite';
 
@@ -86,18 +89,16 @@ async function renderTestRun() {
   linksEl.appendChild(diffLinkEl);
 
   const prevDayLinkEl = document.createElement('a');
-  const prevDay = date - 24 * 60 * 60 * 1000;
-  if (entries.find(entry => entry.date === prevDay)) {
-    const prevDayString = formatDate(new Date(prevDay));
+  if (day > 0) {
+    const prevDayString = formatDate(new Date(date - msPerDay));
     prevDayLinkEl.textContent = prevDayString;
     prevDayLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('date', prevDayString)}`;
     linksEl.appendChild(prevDayLinkEl);
   }
 
   const nextDayLinkEl = document.createElement('a');
-  const nextDay = date + 24 * 60 * 60 * 1000;
-  if (entries.find(entry => entry.date === nextDay)) {
-    const nextDayString = formatDate(new Date(nextDay));
+  if (day < lastDay) {
+    const nextDayString = formatDate(new Date(date + msPerDay));
     nextDayLinkEl.textContent = nextDayString;
     nextDayLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('date', nextDayString)}`;
     linksEl.appendChild(nextDayLinkEl);

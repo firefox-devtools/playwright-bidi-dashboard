@@ -1,3 +1,10 @@
+export const startDate = Date.UTC(2025, 8, 25);
+export const msPerDay = 24 * 60 * 60 * 1000;
+
+export function getLastDay(data) {
+  return Math.max(...Object.values(data).map(suite => Math.max(...Object.values(suite).map(spec => Math.max(spec.firefox.length, spec.chrome.length))))) - 1;
+}
+
 export function encodeFilter(getValue) {
   const encoded = new Uint8Array(Math.ceil(suiteNames.length / 8));
   suiteNames.forEach((suite, index) => {
@@ -32,6 +39,15 @@ export function parseDate(dateString) {
 
 export function capitalize(s) {
   return s[0].toUpperCase() + s.substring(1);
+}
+
+export function countSuiteResults(suiteData, day, browser, counts) {
+  for (const spec in suiteData) {
+    const result = suiteData[spec][browser][day];
+    if (typeof result === 'number') {
+      counts[result]++;
+    }
+  }
 }
 
 export const suiteNames = [
@@ -289,6 +305,18 @@ export const suiteNames = [
 
 export const disabledSuites = [
   "library/browsertype-launch-selenium.spec.ts",
+  "library/chromium/bfcache.spec.ts",
+  "library/chromium/chromium.spec.ts",
+  "library/chromium/connect-over-cdp.spec.ts",
+  "library/chromium/css-coverage.spec.ts",
+  "library/chromium/disable-web-security.spec.ts",
+  "library/chromium/extensions.spec.ts",
+  "library/chromium/js-coverage.spec.ts",
+  "library/chromium/launcher.spec.ts",
+  "library/chromium/oopif.spec.ts",
+  "library/chromium/session.spec.ts",
+  "library/chromium/tracing.spec.ts",
+  "library/firefox/launcher.spec.ts",
   "library/modernizr.spec.ts",
   "library/page-clock.frozen.spec.ts"
 ];
