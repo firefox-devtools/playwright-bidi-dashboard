@@ -56,8 +56,8 @@
   },
   "library/browsercontext-device.spec.ts": {
     "failing": [
-      "should emulate viewport and screen size",
-      "should emulate viewport without screen size"
+      "device > should emulate viewport and screen size",
+      "device > should emulate viewport without screen size"
     ]
   },
   "library/browsercontext-events.spec.ts": {
@@ -131,10 +131,10 @@
   },
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
-      "should not cache resources",
-      "should update viewport and media",
-      "should not cache resources",
-      "should update viewport and media"
+      "reuse launch > should not cache resources",
+      "reuse launch > should update viewport and media",
+      "reuse connect > should not cache resources",
+      "reuse connect > should update viewport and media"
     ]
   },
   "library/browsercontext-set-extra-http-headers.spec.ts": {
@@ -160,12 +160,12 @@
   },
   "library/browsercontext-viewport-mobile.spec.ts": {
     "failing": [
-      "should support touch emulation",
-      "should be detectable",
-      "should detect touch when applying viewport with touches",
-      "should support window.orientation emulation",
-      "default mobile viewports to 980 width",
-      "should emulate the hover media feature"
+      "mobile viewport > should support touch emulation",
+      "mobile viewport > should be detectable",
+      "mobile viewport > should detect touch when applying viewport with touches",
+      "mobile viewport > should support window.orientation emulation",
+      "mobile viewport > default mobile viewports to 980 width",
+      "mobile viewport > should emulate the hover media feature"
     ]
   },
   "library/browsercontext-viewport.spec.ts": {
@@ -188,22 +188,22 @@
   },
   "library/browsertype-connect.spec.ts": {
     "failing": [
-      "should save download",
-      "should save download"
+      "launchServer > should save download",
+      "run-server > should save download"
     ],
     "skipped": [
-      "should saveAs videos from remote browser",
-      "should be able to connect 20 times to a single server without warnings",
-      "should forward non-forwarded requests",
-      "should proxy localhost requests @smoke",
-      "should proxy ipv6 localhost requests @smoke",
-      "should proxy requests from fetch api",
-      "should proxy requests from fetch api over ipv6",
-      "should proxy local.playwright requests",
-      "should lead to the error page for forwarded requests when the connection is refused",
-      "should proxy based on the pattern",
-      "should check proxy pattern on the client",
-      "should saveAs videos from remote browser"
+      "launchServer > should saveAs videos from remote browser",
+      "launchServer > should be able to connect 20 times to a single server without warnings",
+      "launchServer > socks proxy > should forward non-forwarded requests",
+      "launchServer > socks proxy > should proxy localhost requests @smoke",
+      "launchServer > socks proxy > should proxy ipv6 localhost requests @smoke",
+      "launchServer > socks proxy > should proxy requests from fetch api",
+      "launchServer > socks proxy > should proxy requests from fetch api over ipv6",
+      "launchServer > socks proxy > should proxy local.playwright requests",
+      "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
+      "launchServer > socks proxy > should proxy based on the pattern",
+      "launchServer > socks proxy > should check proxy pattern on the client",
+      "run-server > should saveAs videos from remote browser"
     ]
   },
   "library/browsertype-launch-selenium.spec.ts": {
@@ -241,12 +241,13 @@
   },
   "library/client-certificates.spec.ts": {
     "skipped": [
-      "support http2 if the browser only supports http1.1"
+      "browser > support http2 if the browser only supports http1.1"
     ]
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element"
+      "should pick element",
+      "should record"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -280,39 +281,39 @@
       "should be able to download a inline PDF file via navigation",
       "should save to user-specified path",
       "should download successfully when routing",
-      "should report download when navigation turns into download @smoke",
-      "should work with Cross-Origin-Opener-Policy",
-      "should report downloads with acceptDownloads: true",
-      "should report downloads for download attribute",
-      "should save to user-specified path without updating original path",
-      "should save to two different paths with multiple saveAs calls",
-      "should save to overwritten filepath",
-      "should create subdirectories when saving to non-existent user-specified path",
-      "should report non-navigation downloads",
-      "should report download path within page.on('download', …) handler for Files",
-      "should report download path within page.on('download', …) handler for Blobs",
-      "should report new window downloads",
-      "should delete file",
-      "should expose stream",
-      "should delete downloads on context destruction",
-      "should delete downloads on browser gone",
-      "should download large binary.zip",
-      "should be able to cancel pending downloads",
-      "should not fail explicitly to cancel a download even if that is already finished",
-      "should report downloads with interception",
-      "should emit download event from nested iframes"
+      "download event > should report download when navigation turns into download @smoke",
+      "download event > should work with Cross-Origin-Opener-Policy",
+      "download event > should report downloads with acceptDownloads: true",
+      "download event > should report downloads for download attribute",
+      "download event > should save to user-specified path without updating original path",
+      "download event > should save to two different paths with multiple saveAs calls",
+      "download event > should save to overwritten filepath",
+      "download event > should create subdirectories when saving to non-existent user-specified path",
+      "download event > should report non-navigation downloads",
+      "download event > should report download path within page.on('download', …) handler for Files",
+      "download event > should report download path within page.on('download', …) handler for Blobs",
+      "download event > should report new window downloads",
+      "download event > should delete file",
+      "download event > should expose stream",
+      "download event > should delete downloads on context destruction",
+      "download event > should delete downloads on browser gone",
+      "download event > should download large binary.zip",
+      "download event > should be able to cancel pending downloads",
+      "download event > should not fail explicitly to cancel a download even if that is already finished",
+      "download event > should report downloads with interception",
+      "download event > should emit download event from nested iframes"
     ],
     "skipped": [
-      "should report alt-click downloads",
-      "should close the context without awaiting the failed download"
+      "download event > should report alt-click downloads",
+      "download event > should close the context without awaiting the failed download"
     ]
   },
   "library/downloads-path.spec.ts": {
     "failing": [
-      "should keep downloadsPath folder",
-      "should delete downloads when context closes",
-      "should accept downloads in persistent context",
-      "should delete downloads when persistent context closes"
+      "downloads path > should keep downloadsPath folder",
+      "downloads path > should delete downloads when context closes",
+      "downloads path > should accept downloads in persistent context",
+      "downloads path > should delete downloads when persistent context closes"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -383,7 +384,7 @@
   },
   "library/locator-generator.spec.ts": {
     "failing": [
-      "reverse engineer internal:has-text locators"
+      " > reverse engineer internal:has-text locators"
     ]
   },
   "library/modernizr.spec.ts": {
@@ -408,6 +409,12 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick after popup",
+      "popup > should run time before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -426,29 +433,29 @@
   "library/permissions.spec.ts": {
     "failing": [
       "should support clipboard read",
-      "should deny permission when not listed",
-      "should fail when bad permission is given",
-      "should accumulate when adding",
-      "should clear permissions",
-      "should grant permission when listed for all domains",
-      "should grant permission when creating context",
-      "should trigger permission onchange",
-      "should isolate permissions between browser contexts"
+      "permissions > should deny permission when not listed",
+      "permissions > should fail when bad permission is given",
+      "permissions > should accumulate when adding",
+      "permissions > should clear permissions",
+      "permissions > should grant permission when listed for all domains",
+      "permissions > should grant permission when creating context",
+      "permissions > should trigger permission onchange",
+      "permissions > should isolate permissions between browser contexts"
     ],
     "skipped": [
       "storage access",
-      "should be able to use the local-fonts API"
+      " > should be able to use the local-fonts API"
     ]
   },
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
+      "should respect routes from browser context",
       "should inherit extra headers from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -471,31 +478,31 @@
       "should emit close upon frame detach"
     ],
     "skipped": [
-      "should work with error after successful open",
-      "should work with error after successful open",
-      "should work with error after successful open"
+      "no-mock > should work with error after successful open",
+      "no-match > should work with error after successful open",
+      "pass-through > should work with error after successful open"
     ]
   },
   "library/screenshot.spec.ts": {
     "failing": [
-      "should work with device scale factor and scale:css",
-      "should work with device scale factor, clip and scale:css"
+      "page screenshot > should work with device scale factor and scale:css",
+      "page screenshot > should work with device scale factor, clip and scale:css"
     ],
     "skipped": [
-      "should work with a mobile viewport",
-      "should work with a mobile viewport and clip",
-      "should work with a mobile viewport and fullPage"
+      "page screenshot > should work with a mobile viewport",
+      "page screenshot > should work with a mobile viewport and clip",
+      "page screenshot > should work with a mobile viewport and fullPage"
     ]
   },
   "library/selector-generator.spec.ts": {
     "failing": [
-      "should work in dynamic iframes without navigation"
+      "selector generator > should work in dynamic iframes without navigation"
     ]
   },
   "library/slowmo.spec.ts": {
     "failing": [
-      "Frame SlowMo check",
-      "Frame SlowMo uncheck"
+      "slowMo > Frame SlowMo check",
+      "slowMo > Frame SlowMo uncheck"
     ]
   },
   "library/tap.spec.ts": {
@@ -545,34 +552,34 @@
   },
   "library/video.spec.ts": {
     "failing": [
-      "should capture static page in persistent context @smoke",
-      "should throw on browser close",
-      "should throw if browser dies",
-      "should wait for video to finish if page was closed",
-      "should capture full viewport",
-      "should capture full viewport on hidpi"
+      "screencast > should capture static page in persistent context @smoke",
+      "screencast > should throw on browser close",
+      "screencast > should throw if browser dies",
+      "screencast > should wait for video to finish if page was closed",
+      "screencast > should capture full viewport",
+      "screencast > should capture full viewport on hidpi"
     ],
     "skipped": [
       "should saveAs video",
-      "should work with old options",
-      "should capture static page",
-      "should continue recording main page after popup closes",
-      "should expose video path",
-      "should delete video",
-      "should expose video path blank page",
-      "should work with weird screen resolution",
-      "should work with relative path for recordVideo.dir",
-      "should expose video path blank popup",
-      "should capture navigation",
-      "should capture css transformation",
-      "should work for popups",
-      "should scale frames down to the requested size ",
-      "should use viewport scaled down to fit into 800x800 as default size",
-      "should be 800x450 by default",
-      "should be 800x600 with null viewport",
-      "should emulate an iphone",
-      "should not create video for internal pages",
-      "should work with video+trace"
+      "screencast > should work with old options",
+      "screencast > should capture static page",
+      "screencast > should continue recording main page after popup closes",
+      "screencast > should expose video path",
+      "screencast > should delete video",
+      "screencast > should expose video path blank page",
+      "screencast > should work with weird screen resolution",
+      "screencast > should work with relative path for recordVideo.dir",
+      "screencast > should expose video path blank popup",
+      "screencast > should capture navigation",
+      "screencast > should capture css transformation",
+      "screencast > should work for popups",
+      "screencast > should scale frames down to the requested size ",
+      "screencast > should use viewport scaled down to fit into 800x800 as default size",
+      "screencast > should be 800x450 by default",
+      "screencast > should be 800x600 with null viewport",
+      "screencast > should emulate an iphone",
+      "screencast > should not create video for internal pages",
+      "screencast > should work with video+trace"
     ]
   },
   "library/web-socket.spec.ts": {
@@ -608,8 +615,8 @@
   },
   "page/elementhandle-screenshot.spec.ts": {
     "failing": [
-      "should work with a rotated element",
-      "should work for an element with an offset"
+      "element screenshot > should work with a rotated element",
+      "element screenshot > should work for an element with an offset"
     ]
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
@@ -728,9 +735,9 @@
       "should work with CSP"
     ]
   },
-  "page/page-aria-snapshot-ai.spec.ts": {
+  "page/page-autowaiting-basic.spec.ts": {
     "failing": [
-      "return empty snapshot when iframe is not loaded"
+      "should work with goto following click"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -762,20 +769,20 @@
   "page/page-drag.spec.ts": {
     "failing": [
       "should handle custom dataTransfer",
-      "should work @smoke",
-      "should send the right events",
-      "should work inside iframe",
-      "should cancel on escape",
-      "should respect the drop effect",
-      "should work if the drag event is captured but not canceled",
-      "should work if a frame is stalled",
-      "should work with the helper method",
-      "should work with locators"
+      "Drag and drop > should work @smoke",
+      "Drag and drop > should send the right events",
+      "Drag and drop > should work inside iframe",
+      "Drag and drop > should cancel on escape",
+      "Drag and drop > should respect the drop effect",
+      "Drag and drop > should work if the drag event is captured but not canceled",
+      "Drag and drop > should work if a frame is stalled",
+      "Drag and drop > should work with the helper method",
+      "Drag and drop > should work with locators"
     ],
     "skipped": [
-      "should not send dragover on the first mousemove",
-      "should drag into an iframe",
-      "should drag out of an iframe"
+      "Drag and drop > should not send dragover on the first mousemove",
+      "Drag and drop > iframe > should drag into an iframe",
+      "Drag and drop > iframe > should drag out of an iframe"
     ]
   },
   "page/page-emulate-media.spec.ts": {
@@ -895,8 +902,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -968,7 +974,7 @@
       "continue should delete headers on redirects",
       "propagate headers cross origin redirect after interception",
       "should not forward Host header on cross-origin redirect",
-      "should compute content-length from post data"
+      "post data > should compute content-length from post data"
     ],
     "skipped": [
       "should not throw if request was cancelled by the page",
@@ -1018,11 +1024,11 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "should throw if screenshot size is too large",
-      "should allow transparency",
-      "should not capture pseudo element css animation"
+      "page screenshot > should allow transparency",
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
-      "should capture blinking caret if explicitly asked for"
+      "page screenshot > should capture blinking caret if explicitly asked for"
     ]
   },
   "page/page-set-content.spec.ts": {
@@ -1056,14 +1062,14 @@
   },
   "page/selectors-react.spec.ts": {
     "skipped": [
-      "should work with multi-root elements (fragments)",
-      "should work with react memo",
-      "should work with react memo"
+      "react15 > should work with multi-root elements (fragments)",
+      "react15 > should work with react memo",
+      "react16 > should work with react memo"
     ]
   },
   "page/selectors-vue.spec.ts": {
     "skipped": [
-      "should work with multi-root elements (fragments)"
+      "vue2 > should work with multi-root elements (fragments)"
     ]
   },
   "page/wheel.spec.ts": {
