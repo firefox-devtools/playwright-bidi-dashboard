@@ -1,6 +1,4 @@
-import { startDate, msPerDay, parseDate, capitalize } from './shared.mjs';
-
-const RESULTS = ["passed", "skipped", "failed", "timedOut"];
+import { startDate, msPerDay, resultClassnames, parseDate, capitalize } from './shared.mjs';
 
 async function renderDiff() {
   const searchParams = new URLSearchParams(location.search);
@@ -24,22 +22,22 @@ async function renderDiff() {
         continue;
       }
 
-      const testEl = document.createElement('div');
-      testEl.className = 'test';
+      const specEl = document.createElement('div');
+      specEl.className = 'test';
 
       const previousEl = document.createElement('div');
-      previousEl.className = `previous result ${RESULTS[results[day - 1]]}`;
-      previousEl.title = RESULTS[results[day - 1]];
-      testEl.appendChild(previousEl);
+      previousEl.className = `previous result ${resultClassnames[results[day - 1]]}`;
+      previousEl.title = resultClassnames[results[day - 1]];
+      specEl.appendChild(previousEl);
 
       const currentEl = document.createElement('div');
-      currentEl.className = `current result ${RESULTS[results[day]]}`;
-      currentEl.title = RESULTS[results[day]];
-      testEl.appendChild(currentEl);
+      currentEl.className = `current result ${resultClassnames[results[day]]}`;
+      currentEl.title = resultClassnames[results[day]];
+      specEl.appendChild(currentEl);
 
-      testEl.append(`${suite} > ${spec}`);
+      specEl.append(`${suite} > ${spec}`);
 
-      table.appendChild(testEl);
+      table.appendChild(specEl);
     }
   }
 

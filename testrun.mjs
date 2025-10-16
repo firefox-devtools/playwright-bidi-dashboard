@@ -1,4 +1,4 @@
-import { startDate, msPerDay, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
+import { startDate, msPerDay, resultClassnames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
@@ -38,7 +38,7 @@ async function renderTestRun() {
       skipping: counts[1],
       failing: counts[2] + counts[3],
       total,
-      passingShare: counts[0] / total,
+      passingShare: total ? counts[0] / total : 0,
     };
   });
   suitesCounts.sort((a, b) => a.passingShare - b.passingShare);
@@ -48,12 +48,15 @@ async function renderTestRun() {
     if (suiteCounts.total === 0) {
       continue;
     }
-    const suiteEl = document.createElement('div');
+    const suiteEl = document.createElement('details');
     suiteEl.className = 'suite';
+    const summaryEl = document.createElement('summary');
+    suiteEl.appendChild(summaryEl);
 
     const resultEl = document.createElement('div');
     resultEl.className = 'result';
-    suiteEl.appendChild(resultEl);
+    summaryEl.appendChild(resultEl);
+    summaryEl.append(suiteCounts.suite);
 
     const passingEl = document.createElement('div');
     passingEl.className = 'passing';
@@ -66,7 +69,20 @@ async function renderTestRun() {
     resultEl.appendChild(skippingEl);
 
     resultEl.title = `${suiteCounts.passing} passing, ${suiteCounts.failing} failing, ${suiteCounts.skipping} skipped, ${suiteCounts.total} total`;
-    suiteEl.append(suiteCounts.suite);
+
+    const specResults = data[suiteCounts.suite];
+    for (const spec of Object.keys(specResults).sort()) {
+      const specEl = document.createElement('div');
+      specEl.className = 'spec';
+      suiteEl.appendChild(specEl);
+
+      const resultEl = document.createElement('div');
+      const result = resultClassnames[specResults[spec][browser][day]];
+      resultEl.className = `result ${result}`;
+      resultEl.title = result;
+      specEl.appendChild(resultEl);
+      specEl.append(spec);
+    }
 
     table.appendChild(suiteEl);
   }

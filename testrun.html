@@ -19,7 +19,9 @@
       }
       #table {
         display: inline-block;
-        .suite .result {
+
+        .suite {
+          summary .result {
             display: inline-block;
             width: 100px;
             height: 12px;
@@ -42,6 +44,32 @@
               background-color: #ddd;
             }
           }
+
+          .spec {
+            margin-left: 1rem;
+
+            .result {
+              display: inline-block;
+              width: 12px;
+              height: 12px;
+              vertical-align: middle;
+              border: 1px solid #000;
+              margin-right: 0.3rem;
+
+              &.failing {
+                background-color: #f00;
+              }
+
+              &.passing {
+                background-color: #0f0;
+              }
+
+              &.skipping {
+                background-color: #ddd;
+              }
+            }
+          }
+        }
       }
     </style>
   </head>
