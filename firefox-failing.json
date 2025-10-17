@@ -246,7 +246,6 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element",
       "should record"
     ]
   },
@@ -409,12 +408,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should tick after popup",
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -440,7 +433,8 @@
       "permissions > should grant permission when listed for all domains",
       "permissions > should grant permission when creating context",
       "permissions > should trigger permission onchange",
-      "permissions > should isolate permissions between browser contexts"
+      "permissions > should isolate permissions between browser contexts",
+      "local network request is allowed from public origin"
     ],
     "skipped": [
       "storage access",
@@ -456,6 +450,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -474,9 +469,6 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -735,9 +727,9 @@
       "should work with CSP"
     ]
   },
-  "page/page-autowaiting-basic.spec.ts": {
+  "page/page-aria-snapshot-ai.spec.ts": {
     "failing": [
-      "should work with goto following click"
+      "return empty snapshot when iframe is not loaded"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -902,7 +894,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
