@@ -246,7 +246,7 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element"
+      "should record"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -408,6 +408,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick after popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -444,7 +449,6 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
-      "should respect routes from browser context",
       "should inherit extra headers from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
@@ -513,7 +517,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
