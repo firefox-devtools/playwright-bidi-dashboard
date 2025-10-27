@@ -410,6 +410,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick after popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -520,7 +525,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
