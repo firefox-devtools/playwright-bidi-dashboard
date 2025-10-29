@@ -410,6 +410,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick after popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -451,7 +456,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -514,6 +518,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
@@ -641,11 +646,6 @@
     "failing": [
       "should work inside closed shadow root",
       "should work inside declarative shadow root"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -898,7 +898,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -962,6 +963,8 @@
       "should work with Cross-Origin-Opener-Policy",
       "should delete the origin header",
       "should continue preload link requests",
+      "should respect set-cookie in redirect response",
+      "continue should not propagate cookie override to redirects",
       "continue should not override cookie",
       "redirect after continue should be able to delete cookie",
       "continue should propagate headers to redirects",
@@ -973,9 +976,7 @@
       "post data > should compute content-length from post data"
     ],
     "skipped": [
-      "should not throw if request was cancelled by the page",
-      "should respect set-cookie in redirect response",
-      "continue should not propagate cookie override to redirects"
+      "should not throw if request was cancelled by the page"
     ]
   },
   "page/page-request-fallback.spec.ts": {
@@ -1021,7 +1022,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
