@@ -245,7 +245,7 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
-      "should pick element"
+      "should record"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -317,7 +317,6 @@
     "failing": [
       "should think that all pages are focused @smoke",
       "should focus popups by default",
-      "should not affect screenshots",
       "should focus with more than one page/context"
     ]
   },
@@ -443,11 +442,13 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
+      "should respect routes from browser context",
       "should inherit extra headers from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -510,14 +511,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should work with meta CSP",
-      "should update highlight when typing snapshot",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -722,6 +722,11 @@
   "page/page-add-init-script.spec.ts": {
     "failing": [
       "should work with CSP"
+    ]
+  },
+  "page/page-aria-snapshot-ai.spec.ts": {
+    "failing": [
+      "return empty snapshot when iframe is not loaded"
     ]
   },
   "page/page-basic.spec.ts": {
