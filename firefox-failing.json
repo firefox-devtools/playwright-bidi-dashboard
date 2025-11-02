@@ -95,7 +95,6 @@
   "library/browsercontext-locale.spec.ts": {
     "failing": [
       "should affect accept-language header @smoke",
-      "should format date",
       "should format number in workers"
     ]
   },
@@ -245,6 +244,7 @@
   },
   "library/debug-controller.spec.ts": {
     "failing": [
+      "should pick element",
       "should record"
     ]
   },
@@ -511,6 +511,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
@@ -891,8 +892,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1015,8 +1015,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
