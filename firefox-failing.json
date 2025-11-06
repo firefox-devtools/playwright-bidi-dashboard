@@ -242,6 +242,11 @@
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
+  "library/debug-controller.spec.ts": {
+    "failing": [
+      "should pick element"
+    ]
+  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
@@ -510,8 +515,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -718,11 +722,6 @@
       "should work with CSP"
     ]
   },
-  "page/page-aria-snapshot-ai.spec.ts": {
-    "failing": [
-      "return empty snapshot when iframe is not loaded"
-    ]
-  },
   "page/page-basic.spec.ts": {
     "failing": [
       "page.frame should respect name",
@@ -885,7 +884,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
