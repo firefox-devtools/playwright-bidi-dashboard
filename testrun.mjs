@@ -1,18 +1,29 @@
-import { startDate, msPerDay, resultClassnames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
+import { startDate, msPerDay, resultClassnames, resultNames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
 
-  if (!searchParams.has('browser') || !searchParams.has('date')) {
+  if (!searchParams.has('browser') || (!searchParams.has('date') && !searchParams.has('pr'))) {
     return;
   }
-  const browser = searchParams.get('browser');
-  const dateString = searchParams.get('date');
-  const date = parseDate(dateString);
-  const day = (date - startDate) / msPerDay;
 
   const response = await fetch('./data.json');
   const data = await response.json();
+
+  const browser = searchParams.get('browser');
+  const prNumber = searchParams.get('pr');
+  let dateString;
+  let date;
+  let day;
+  let getResult;
+  if (prNumber) {
+    getResult = specResults => specResults?.pullRequests?.[browser]?.[prNumber];
+  } else {
+    dateString = searchParams.get('date');
+    date = parseDate(dateString);
+    day = (date - startDate) / msPerDay;
+    getResult = specResults => specResults?.[browser]?.[day];
+  }
 
   const lastDay = getLastDay(data.results);
 
@@ -30,7 +41,7 @@ async function renderTestRun() {
 
   const suitesCounts = enabledSuites.map(suite => {
     const counts = [0, 0, 0, 0];
-    countSuiteResults(data.results[suite], day, browser, counts);
+    countSuiteResults(data.results[suite], getResult, counts);
     const total = counts.reduce((a, b) => a + b);
     return {
       suite,
@@ -77,9 +88,9 @@ async function renderTestRun() {
       suiteEl.appendChild(specEl);
 
       const resultEl = document.createElement('div');
-      const result = resultClassnames[specResults[spec][browser]?.[day]];
-      resultEl.className = `result ${result}`;
-      resultEl.title = result;
+      const result = getResult(specResults[spec]);
+      resultEl.className = `result ${resultClassnames[result]}`;
+      resultEl.title = resultNames[result];
       specEl.appendChild(resultEl);
       specEl.append(spec);
     }
@@ -87,7 +98,8 @@ async function renderTestRun() {
     table.appendChild(suiteEl);
   }
 
-  document.getElementById('title').textContent = `${capitalize(browser)} test results on ${dateString}`;
+  const title = `${capitalize(browser)} test results on ` + (prNumber ? `PR #${prNumber}` : dateString);
+  document.getElementById('title').textContent = title;
 
   const linksEl = document.getElementById('links');
 
@@ -101,23 +113,25 @@ async function renderTestRun() {
 
   const diffLinkEl = document.createElement('a');
   diffLinkEl.textContent = 'Diff';
-  diffLinkEl.href = `${location.href.substring(0, location.href.lastIndexOf('/'))}/diff.html?browser=${browser}&date=${dateString}`;
+  diffLinkEl.href = `${location.href.substring(0, location.href.lastIndexOf('/'))}/diff.html?${modifiedSearchParams('filter', undefined)}`;
   linksEl.appendChild(diffLinkEl);
 
-  const prevDayLinkEl = document.createElement('a');
-  if (day > 0) {
-    const prevDayString = formatDate(new Date(date - msPerDay));
-    prevDayLinkEl.textContent = prevDayString;
-    prevDayLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('date', prevDayString)}`;
-    linksEl.appendChild(prevDayLinkEl);
-  }
+  if (!prNumber) {
+    const prevDayLinkEl = document.createElement('a');
+    if (day > 0) {
+      const prevDayString = formatDate(new Date(date - msPerDay));
+      prevDayLinkEl.textContent = prevDayString;
+      prevDayLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('date', prevDayString)}`;
+      linksEl.appendChild(prevDayLinkEl);
+    }
 
-  const nextDayLinkEl = document.createElement('a');
-  if (day < lastDay) {
-    const nextDayString = formatDate(new Date(date + msPerDay));
-    nextDayLinkEl.textContent = nextDayString;
-    nextDayLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('date', nextDayString)}`;
-    linksEl.appendChild(nextDayLinkEl);
+    const nextDayLinkEl = document.createElement('a');
+    if (day < lastDay) {
+      const nextDayString = formatDate(new Date(date + msPerDay));
+      nextDayLinkEl.textContent = nextDayString;
+      nextDayLinkEl.href = `${location.origin}${location.pathname}?${modifiedSearchParams('date', nextDayString)}`;
+      linksEl.appendChild(nextDayLinkEl);
+    }
   }
 
   const otherBrowserLinkEl = document.createElement('a');
@@ -129,7 +143,11 @@ async function renderTestRun() {
 
 function modifiedSearchParams(key, value) {
   const searchParams = new URLSearchParams(location.search);
-  searchParams.set(key, value);
+  if (value !== undefined) {
+    searchParams.set(key, value);
+  } else {
+    searchParams.delete(key);
+  }
   return searchParams;
 }
 

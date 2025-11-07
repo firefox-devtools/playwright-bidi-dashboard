@@ -45,8 +45,8 @@ function createMainChart() {
     chromeCounts = [0, 0, 0, 0];
     for (const suite in data.results) {
       if (suiteCheckboxes.get(suite).checked) {
-        countSuiteResults(data.results[suite], day, "firefox", firefoxCounts);
-        countSuiteResults(data.results[suite], day, "chrome", chromeCounts);
+        countSuiteResults(data.results[suite], specResults => specResults.firefox?.[day], firefoxCounts);
+        countSuiteResults(data.results[suite], specResults => specResults.chrome?.[day], chromeCounts);
       }
     }
 
@@ -205,9 +205,9 @@ function renderConfig() {
 
   for (const suite of [...suiteCheckboxes.keys()].sort()) {
     const firefoxCounts = [0, 0, 0, 0];
-    countSuiteResults(data.results[suite], lastDay, "firefox", firefoxCounts);
+    countSuiteResults(data.results[suite], specResults => specResults.firefox?.[lastDay], firefoxCounts);
     const chromeCounts = [0, 0, 0, 0];
-    countSuiteResults(data.results[suite], lastDay, "chrome", chromeCounts);
+    countSuiteResults(data.results[suite], specResults => specResults.chrome?.[lastDay], chromeCounts);
 
     const suiteEl = document.createElement('div');
 
@@ -271,9 +271,9 @@ function renderConfig() {
   toolbarButtons[3].onclick = () => {
     for (const suite of suiteCheckboxes.keys()) {
       const firefoxCounts = [0, 0, 0, 0];
-      countSuiteResults(data.results[suite], lastDay, "firefox", firefoxCounts);
+      countSuiteResults(data.results[suite], specResults => specResults.firefox?.[lastDay], firefoxCounts);
       const chromeCounts = [0, 0, 0, 0];
-      countSuiteResults(data.results[suite], lastDay, "chrome", chromeCounts);
+      countSuiteResults(data.results[suite], specResults => specResults.chrome?.[lastDay], chromeCounts);
       if (
         firefoxCounts[1] === 0 && firefoxCounts[2] === 0 && firefoxCounts[3] === 0 &&
         chromeCounts[1] === 0 && chromeCounts[2] === 0 && chromeCounts[3] === 0

@@ -1,5 +1,6 @@
 export const startDate = Date.UTC(2025, 8, 25);
 export const msPerDay = 24 * 60 * 60 * 1000;
+export const resultNames = ["passed", "skipped", "failed", "timedOut"];
 export const resultClassnames = ["passing", "skipping", "failing", "failing"];
 
 export function getLastDay(results) {
@@ -42,9 +43,9 @@ export function capitalize(s) {
   return s[0].toUpperCase() + s.substring(1);
 }
 
-export function countSuiteResults(suiteData, day, browser, counts) {
+export function countSuiteResults(suiteData, getResult, counts) {
   for (const spec in suiteData) {
-    const result = suiteData[spec][browser]?.[day];
+    const result = getResult(suiteData[spec]);
     if (typeof result === 'number') {
       counts[result]++;
     }
