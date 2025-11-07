@@ -1,4 +1,4 @@
-name: Update dashboard
+name: Add PR to dashboard
 
 permissions:
   contents: write
