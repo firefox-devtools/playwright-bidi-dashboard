@@ -29,6 +29,25 @@ async function renderDiff() {
       return specResults?.[browser]?.[day - 1];
     }
   }
+  function isIntermittent(specResults) {
+    const end = prNumber ? day : day - 1;
+    const start = Math.max(0, end - 28);
+    const results = specResults?.[browser]?.slice(start, end + 1) ?? [];
+    let lastNonSkippedResult = undefined;
+    let count = 0;
+    for (const result of results) {
+      if (result === null || result === 1) {
+        continue;
+      }
+      if (lastNonSkippedResult === undefined) {
+        lastNonSkippedResult = result;
+      } else if (lastNonSkippedResult !== result) {
+        count++;
+        lastNonSkippedResult = result;
+      }
+    }
+    return count >= 2;
+  }
 
   const table = document.getElementById('table');
   for (const suite in data.results) {
@@ -36,12 +55,13 @@ async function renderDiff() {
       const specResults = data.results[suite][spec];
       const currentResult = getCurrentResult(specResults);
       const previousResult = getPreviousResult(specResults);
+      const intermittent = isIntermittent(specResults);
       if (currentResult === previousResult) {
         continue;
       }
 
       const specEl = document.createElement('div');
-      specEl.className = 'test';
+      specEl.className = intermittent ? 'test intermittent' : 'test';
 
       const previousEl = document.createElement('div');
       previousEl.className = `previous result ${resultClassnames[previousResult]}`;
@@ -53,7 +73,11 @@ async function renderDiff() {
       currentEl.title = resultNames[currentResult];
       specEl.appendChild(currentEl);
 
-      specEl.append(`${suite} > ${spec}`);
+      let specText = `${suite} > ${spec}`;
+      if (intermittent) {
+        specText += ' (intermittent)';
+      }
+      specEl.append(specText);
 
       table.appendChild(specEl);
     }

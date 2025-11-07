@@ -13,7 +13,11 @@
       }
       #table {
         display: inline-block;
-        .test .result {
+        .test {
+          &.intermittent {
+            opacity: 0.3;
+          }
+          .result {
             display: inline-block;
             width: 12px;
             height: 12px;
@@ -33,6 +37,7 @@
               background-color: #ddd;
             }
           }
+        }
       }
     </style>
   </head>
