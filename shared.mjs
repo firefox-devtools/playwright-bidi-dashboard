@@ -2,8 +2,8 @@ export const startDate = Date.UTC(2025, 8, 25);
 export const msPerDay = 24 * 60 * 60 * 1000;
 export const resultClassnames = ["passing", "skipping", "failing", "failing"];
 
-export function getLastDay(data) {
-  return Math.max(...Object.values(data).map(suite => Math.max(...Object.values(suite).map(spec => Math.max(spec.firefox.length, spec.chrome.length))))) - 1;
+export function getLastDay(results) {
+  return Math.max(...Object.values(results).map(suite => Math.max(...Object.values(suite).map(spec => Math.max(spec.firefox?.length ?? 0, spec.chrome?.length ?? 0))))) - 1;
 }
 
 export function encodeFilter(getValue) {
@@ -44,7 +44,7 @@ export function capitalize(s) {
 
 export function countSuiteResults(suiteData, day, browser, counts) {
   for (const spec in suiteData) {
-    const result = suiteData[spec][browser][day];
+    const result = suiteData[spec][browser]?.[day];
     if (typeof result === 'number') {
       counts[result]++;
     }

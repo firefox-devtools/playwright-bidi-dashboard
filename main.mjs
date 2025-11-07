@@ -43,10 +43,10 @@ function createMainChart() {
   for (let day = 0; day <= lastDay; day++) {
     firefoxCounts = [0, 0, 0, 0];
     chromeCounts = [0, 0, 0, 0];
-    for (const suite in data) {
+    for (const suite in data.results) {
       if (suiteCheckboxes.get(suite).checked) {
-        countSuiteResults(data[suite], day, "firefox", firefoxCounts);
-        countSuiteResults(data[suite], day, "chrome", chromeCounts);
+        countSuiteResults(data.results[suite], day, "firefox", firefoxCounts);
+        countSuiteResults(data.results[suite], day, "chrome", chromeCounts);
       }
     }
 
@@ -205,9 +205,9 @@ function renderConfig() {
 
   for (const suite of [...suiteCheckboxes.keys()].sort()) {
     const firefoxCounts = [0, 0, 0, 0];
-    countSuiteResults(data[suite], lastDay, "firefox", firefoxCounts);
+    countSuiteResults(data.results[suite], lastDay, "firefox", firefoxCounts);
     const chromeCounts = [0, 0, 0, 0];
-    countSuiteResults(data[suite], lastDay, "chrome", chromeCounts);
+    countSuiteResults(data.results[suite], lastDay, "chrome", chromeCounts);
 
     const suiteEl = document.createElement('div');
 
@@ -271,9 +271,9 @@ function renderConfig() {
   toolbarButtons[3].onclick = () => {
     for (const suite of suiteCheckboxes.keys()) {
       const firefoxCounts = [0, 0, 0, 0];
-      countSuiteResults(data[suite], lastDay, "firefox", firefoxCounts);
+      countSuiteResults(data.results[suite], lastDay, "firefox", firefoxCounts);
       const chromeCounts = [0, 0, 0, 0];
-      countSuiteResults(data[suite], lastDay, "chrome", chromeCounts);
+      countSuiteResults(data.results[suite], lastDay, "chrome", chromeCounts);
       if (
         firefoxCounts[1] === 0 && firefoxCounts[2] === 0 && firefoxCounts[3] === 0 &&
         chromeCounts[1] === 0 && chromeCounts[2] === 0 && chromeCounts[3] === 0
@@ -288,8 +288,8 @@ function renderConfig() {
 async function main() {
   const response = await fetch('./data.json');
   data = await response.json();
-  lastDay = getLastDay(data);
-  for (const suite of Object.keys(data)) {
+  lastDay = getLastDay(data.results);
+  for (const suite of Object.keys(data.results)) {
     const checkboxEl = document.createElement('input');
     checkboxEl.type = 'checkbox';
     checkboxEl.checked = !disabledSuites.includes(suite);

@@ -14,7 +14,7 @@ async function renderTestRun() {
   const response = await fetch('./data.json');
   const data = await response.json();
 
-  const lastDay = getLastDay(data);
+  const lastDay = getLastDay(data.results);
 
   let enabledSuites;
   if (searchParams.has('filter')) {
@@ -25,12 +25,12 @@ async function renderTestRun() {
       }
     });
   } else {
-    enabledSuites = Object.keys(data).filter(suite => !disabledSuites.includes(suite));
+    enabledSuites = Object.keys(data.results).filter(suite => !disabledSuites.includes(suite));
   }
 
   const suitesCounts = enabledSuites.map(suite => {
     const counts = [0, 0, 0, 0];
-    countSuiteResults(data[suite], day, browser, counts);
+    countSuiteResults(data.results[suite], day, browser, counts);
     const total = counts.reduce((a, b) => a + b);
     return {
       suite,
@@ -70,14 +70,14 @@ async function renderTestRun() {
 
     resultEl.title = `${suiteCounts.passing} passing, ${suiteCounts.failing} failing, ${suiteCounts.skipping} skipped, ${suiteCounts.total} total`;
 
-    const specResults = data[suiteCounts.suite];
+    const specResults = data.results[suiteCounts.suite];
     for (const spec of Object.keys(specResults).sort()) {
       const specEl = document.createElement('div');
       specEl.className = 'spec';
       suiteEl.appendChild(specEl);
 
       const resultEl = document.createElement('div');
-      const result = resultClassnames[specResults[spec][browser][day]];
+      const result = resultClassnames[specResults[spec][browser]?.[day]];
       resultEl.className = `result ${result}`;
       resultEl.title = result;
       specEl.appendChild(resultEl);

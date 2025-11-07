@@ -15,10 +15,10 @@ async function renderDiff() {
   const data = await response.json();
 
   const table = document.getElementById('table');
-  for (const suite in data) {
-    for (const spec in data[suite]) {
-      const results = data[suite][spec][browser];
-      if (results[day - 1] === results[day]) {
+  for (const suite in data.results) {
+    for (const spec in data.results[suite]) {
+      const results = data.results[suite][spec][browser];
+      if (!results || results[day - 1] === results[day]) {
         continue;
       }
 
