@@ -4,6 +4,7 @@ const { finished } = require('stream/promises');
 
 const repo = "microsoft/playwright";
 const workflow = "tests_bidi.yml";
+const workflowPath = ".github/workflows/tests_bidi.yml";
 const artifactNames = {
   "firefox": "json-report-moz-firefox-nightly",
   "chrome": "json-report-bidi-chromium",
@@ -16,23 +17,36 @@ async function downloadLatestArtifacts() {
   for (let i = 0; i < workflow_runs.length; i++) {
     const id = workflow_runs[i].id;
     const date = new Date(workflow_runs[i].run_started_at);
-    if (Object.getOwnPropertyNames(artifactNames).some(browser => !existsSync(getFilename(browser, date)))) {
-      await downloadWorkflowRunArtifacts(id, date);
+    const dateString = getDateString(date);
+    if (Object.getOwnPropertyNames(artifactNames).some(browser => !existsSync(getFilename(browser, dateString)))) {
+      await downloadWorkflowRunArtifacts(id, dateString, true);
     } else {
-      console.log(`All files for ${getDateString(date)} already exist - stopping`);
+      console.log(`All files for ${dateString} already exist - stopping`);
       break;
     }
   }
 }
 
-async function downloadWorkflowRunArtifacts(id, date) {
-  console.log(`Download artifacts for ${getDateString(date)}`);
+async function downloadPullRequestArtifacts(prNumber) {
+  const prResponse = await fetch(`https://api.github.com/repos/${repo}/pulls/${prNumber}`);
+  const prData = await prResponse.json();
+  const headSha = prData.head.sha;
+
+  const runsResponse = await fetch(`https://api.github.com/repos/${repo}/actions/runs?head_sha=${headSha}`);
+  const { workflow_runs } = await runsResponse.json();
+  const id = workflow_runs.find(run => run.path === workflowPath).id;
+
+  await downloadWorkflowRunArtifacts(id, `PRs/${prNumber}`, false);
+}
+
+async function downloadWorkflowRunArtifacts(id, filenamePrefix, skipIfExists) {
+  console.log(`Download artifacts for ${filenamePrefix}`);
   const response = await fetch(`https://api.github.com/repos/${repo}/actions/runs/${id}/artifacts`)
   const artifacts = await response.json();
 
   for (const browser in artifactNames) {
-    const filename = getFilename(browser, date);
-    if (existsSync(filename)) {
+    const filename = getFilename(browser, filenamePrefix);
+    if (skipIfExists && existsSync(filename)) {
       console.log(`${filename} already exists - skipping`);
       continue;
     }
@@ -47,8 +61,8 @@ async function downloadWorkflowRunArtifacts(id, date) {
   }
 }
 
-function getFilename(browser, date) {
-  return `data/${getDateString(date)}-${browser}.zip`;
+function getFilename(browser, filenamePrefix) {
+  return `data/${filenamePrefix}-${browser}.zip`;
 }
 
 function getDateString(date) {
@@ -56,3 +70,4 @@ function getDateString(date) {
 }
 
 exports.downloadArtifacts = downloadLatestArtifacts;
+exports.downloadPullRequestArtifacts = downloadPullRequestArtifacts;

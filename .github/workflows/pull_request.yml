@@ -1,0 +1,52 @@
+name: Update dashboard
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: 'Pull Request number to download artifacts for'
+        required: true
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          path: main
+      - name: Checkout gh-pages
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Download and process pull request artifacts
+        working-directory: ./main
+        env:
+          PR_NUMBER: ${{ github.event.inputs.pr-number }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm ci
+          node pull-request
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "username@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Add artifacts from Playwright's CI"
+            git push
+          fi
+      - name: Publish dashboard
+        working-directory: ./gh-pages
+        run: |
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update dashboard"
+            git push
+          fi
