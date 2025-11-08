@@ -94,7 +94,6 @@
   },
   "library/browsercontext-locale.spec.ts": {
     "failing": [
-      "should affect accept-language header @smoke",
       "should format number in workers"
     ]
   },
@@ -120,24 +119,12 @@
       "should click the button with deviceScaleFactor set"
     ]
   },
-  "library/browsercontext-proxy.spec.ts": {
-    "failing": [
-      "should authenticate with empty password",
-      "should isolate proxy credentials between contexts",
-      "should isolate proxy credentials between contexts on navigation"
-    ]
-  },
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
-    ]
-  },
-  "library/browsercontext-set-extra-http-headers.spec.ts": {
-    "failing": [
-      "should override extra headers from browser context"
     ]
   },
   "library/browsercontext-storage-state.spec.ts": {
@@ -242,12 +229,6 @@
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
-  "library/debug-controller.spec.ts": {
-    "failing": [
-      "should pick element",
-      "should record"
-    ]
-  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
@@ -263,7 +244,6 @@
       "should support forcedColors option",
       "should support contrast option",
       "should support geolocation and permissions options",
-      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -354,7 +334,8 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response"
+      "should return security details directly from response",
+      "should not hang on resources served from cache"
     ]
   },
   "library/headful.spec.ts": {
@@ -406,6 +387,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -442,8 +428,6 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
-      "should respect routes from browser context",
-      "should inherit extra headers from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
@@ -461,15 +445,17 @@
       "should use proxy with emulated user agent"
     ]
   },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "should work when serving from memory cache"
+    ]
+  },
   "library/role-utils.spec.ts": {
     "failing": [
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -893,8 +879,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1002,10 +987,7 @@
     "failing": [
       "should be able to remove headers",
       "should not override cookie header",
-      "should show custom HTTP headers",
-      "should work with custom referer headers",
       "should be abortable with custom error codes",
-      "should send referer",
       "should intercept when postData is more than 1MB"
     ],
     "skipped": [
@@ -1017,9 +999,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -1028,14 +1008,6 @@
   "page/page-set-content.spec.ts": {
     "skipped": [
       "should handle timeout properly"
-    ]
-  },
-  "page/page-set-extra-http-headers.spec.ts": {
-    "failing": [
-      "should work @smoke",
-      "should work with redirects",
-      "should work with extra headers from browser context",
-      "should not duplicate referer header"
     ]
   },
   "page/page-set-input-files.spec.ts": {
@@ -1052,6 +1024,11 @@
   "page/page-wait-for-load-state.spec.ts": {
     "skipped": [
       "should wait for load state of empty url popup"
+    ]
+  },
+  "page/page-wait-for-response.spec.ts": {
+    "failing": [
+      "should work with re-rendered cached IMG elements"
     ]
   },
   "page/selectors-react.spec.ts": {
