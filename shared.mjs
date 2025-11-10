@@ -322,3 +322,49 @@ export const disabledSuites = [
   "library/modernizr.spec.ts",
   "library/page-clock.frozen.spec.ts"
 ];
+
+export const labels = [
+  {
+    label: "P1",
+    color: "#f00",
+    suites: [
+      "library/browsercontext-csp.spec.ts",
+      "library/browsercontext-set-extra-http-headers.spec.ts",
+      "library/download.spec.ts",
+      "library/downloads-path.spec.ts",
+      "library/popup.spec.ts",
+      "page/network-post-data.spec.ts",
+      "page/page-event-console.spec.ts",
+      "page/page-filechooser.spec.ts",
+      "page/page-request-continue.spec.ts",
+      "page/page-set-extra-http-headers.spec.ts",
+      "library/video.spec.ts",
+    ]
+  },
+  {
+    label: "P2",
+    color: "#fd0",
+    suites: [
+    "library/geolocation.spec.ts",
+    "library/permissions.spec.ts",
+    "library/web-socket.spec.ts",
+    "page/elementhandle-scroll-into-view.spec.ts",
+    "page/page-drag.spec.ts",
+    "page/page-emulate-media.spec.ts",
+    "page/page-request-gc.spec.ts",
+    "page/workers.spec.ts",
+    ]
+  },
+  {
+    label: "P3",
+    color: "#0f0",
+    suites: [
+    "library/browsercontext-cookies-third-party.spec.ts",
+    "library/page-event-crash.spec.ts",
+    "library/pdf.spec.ts",
+    "library/tap.spec.ts",
+    "page/jshandle-to-string.spec.ts",
+    "library/locator-dispatchevent-touch.spec.ts",
+    ]
+  },
+];

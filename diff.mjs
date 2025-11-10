@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultNames, resultClassnames, parseDate, capitalize } from './shared.mjs';
+import { startDate, msPerDay, resultNames, resultClassnames, parseDate, capitalize, labels } from './shared.mjs';
 
 async function renderDiff() {
   const searchParams = new URLSearchParams(location.search);
@@ -78,6 +78,16 @@ async function renderDiff() {
         specText += ' (intermittent)';
       }
       specEl.append(specText);
+
+      for (const { label, color, suites } of labels) {
+        if (suites.includes(suite)) {
+          const labelEl = document.createElement('span');
+          labelEl.className = 'label';
+          labelEl.textContent = label;
+          labelEl.style.backgroundColor = color;
+          specEl.appendChild(labelEl);
+        }
+      }
 
       table.appendChild(specEl);
     }

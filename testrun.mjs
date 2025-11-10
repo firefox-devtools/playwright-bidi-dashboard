@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultClassnames, resultNames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
+import { startDate, msPerDay, resultClassnames, resultNames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay, labels } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
@@ -68,6 +68,15 @@ async function renderTestRun() {
     resultEl.className = 'result';
     summaryEl.appendChild(resultEl);
     summaryEl.append(suiteCounts.suite);
+    for (const { label, color, suites } of labels) {
+      if (suites.includes(suiteCounts.suite)) {
+        const labelEl = document.createElement('span');
+        labelEl.className = 'label';
+        labelEl.textContent = label;
+        labelEl.style.backgroundColor = color;
+        summaryEl.appendChild(labelEl);
+      }
+    }
 
     const passingEl = document.createElement('div');
     passingEl.className = 'passing';

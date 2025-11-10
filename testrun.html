@@ -21,27 +21,35 @@
         display: inline-block;
 
         .suite {
-          summary .result {
-            display: inline-block;
-            width: 100px;
-            height: 12px;
-            vertical-align: middle;
-            border: 1px solid #000;
-            background-color: #f00;
-            margin-right: 0.3rem;
-
-            .passing {
+          summary {
+            .result {
               display: inline-block;
-              vertical-align: top;
-              height: 100%;
-              background-color: #0f0;
+              width: 100px;
+              height: 12px;
+              vertical-align: middle;
+              border: 1px solid #000;
+              background-color: #f00;
+              margin-right: 0.3rem;
+
+              .passing {
+                display: inline-block;
+                vertical-align: top;
+                height: 100%;
+                background-color: #0f0;
+              }
+
+              .skipping {
+                display: inline-block;
+                vertical-align: top;
+                height: 100%;
+                background-color: #ddd;
+              }
             }
 
-            .skipping {
-              display: inline-block;
-              vertical-align: top;
-              height: 100%;
-              background-color: #ddd;
+            .label {
+              margin-left: 0.5rem;
+              padding: 0.1rem 0.4rem;
+              border-radius: 1rem;
             }
           }
 
