@@ -49,35 +49,7 @@ function processArtifacts() {
       console.log(`${filename} already processed - skipping`);
       return;
     }
-
-    console.log(`Process ${filename}`);
-    const report = readArtifact(`./data/PRs/${filename}`);
-    if (!pullRequests[prNumber]) {
-      pullRequests[prNumber] = {};
-    }
-    pullRequests[prNumber].title = report.config.metadata.ci.prTitle;
-    pullRequests[prNumber][browser] = {
-      date: report.stats.startTime,
-    };
-    for (const suite of report.suites) {
-      if (!results[suite.title]) {
-        results[suite.title] = {};
-      }
-      forEachSpec(suite, (spec, path) => {
-        const specPath = [...path, spec.title].join(" > ");
-        const result = spec.tests[0].results[0].status;
-        if (!results[suite.title][specPath]) {
-          results[suite.title][specPath] = {};
-        }
-        if (!results[suite.title][specPath].pullRequests) {
-          results[suite.title][specPath].pullRequests = {};
-        }
-        if (!results[suite.title][specPath].pullRequests[browser]) {
-          results[suite.title][specPath].pullRequests[browser] = {};
-        }
-        results[suite.title][specPath].pullRequests[browser][prNumber] = RESULTS.indexOf(result);
-      });
-    }
+    processPullRequestArtifact(data, filename);
   });
 
   fs.writeFileSync("../gh-pages/data.json", JSON.stringify(data));
@@ -107,6 +79,58 @@ function processArtifacts() {
     }
     fs.writeFileSync(`../gh-pages/${browser}-failing.json`, JSON.stringify(suites, null, 2));
   }
+}
+
+function processPullRequestArtifacts(prNumber) {
+  const data = JSON.parse(fs.readFileSync("../gh-pages/data.json"));
+
+  for (const browser of ["firefox", "chrome"]) {
+    const filename = `${prNumber}-${browser}.zip`;
+    if (fs.existsSync(`./data/PRs/${filename}`)) {
+      processPullRequestArtifact(data, filename);
+    } else {
+      console.log(`Artifact ${filename} does not exist - skipping`);
+    }
+  }
+
+  fs.writeFileSync("../gh-pages/data.json", JSON.stringify(data));
+}
+
+function processPullRequestArtifact(data, filename) {
+    console.log(`Process ${filename}`);
+
+    const pullRequests = data.pullRequests;
+    const results = data.results;
+    const { browser, prNumber } = parsePRFilename(filename);
+    const report = readArtifact(`./data/PRs/${filename}`);
+
+    if (!pullRequests[prNumber]) {
+      pullRequests[prNumber] = {};
+    }
+    pullRequests[prNumber].title = report.config.metadata.ci.prTitle;
+    pullRequests[prNumber][browser] = {
+      date: report.stats.startTime,
+    };
+
+    for (const suite of report.suites) {
+      if (!results[suite.title]) {
+        results[suite.title] = {};
+      }
+      forEachSpec(suite, (spec, path) => {
+        const specPath = [...path, spec.title].join(" > ");
+        const result = spec.tests[0].results[0].status;
+        if (!results[suite.title][specPath]) {
+          results[suite.title][specPath] = {};
+        }
+        if (!results[suite.title][specPath].pullRequests) {
+          results[suite.title][specPath].pullRequests = {};
+        }
+        if (!results[suite.title][specPath].pullRequests[browser]) {
+          results[suite.title][specPath].pullRequests[browser] = {};
+        }
+        results[suite.title][specPath].pullRequests[browser][prNumber] = RESULTS.indexOf(result);
+      });
+    }
 }
 
 function forEachSpec(report, cb) {
@@ -162,3 +186,4 @@ function readArtifact(filename) {
 }
 
 exports.processArtifacts = processArtifacts;
+exports.processPullRequestArtifacts = processPullRequestArtifacts;

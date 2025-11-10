@@ -1,7 +1,7 @@
 const { downloadPullRequestArtifacts } = require("./download");
-const { processArtifacts } = require("./process");
+const { processPullRequestArtifacts } = require("./process");
 
 (async () => {
   await downloadPullRequestArtifacts(process.env.PR_NUMBER);
-  processArtifacts();
+  processPullRequestArtifacts(process.env.PR_NUMBER);
 })();
