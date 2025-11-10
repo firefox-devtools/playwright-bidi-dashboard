@@ -389,7 +389,7 @@
   },
   "library/page-clock.spec.ts": {
     "failing": [
-      "popup > should run time before popup"
+      "popup > should tick after popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -428,10 +428,12 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
+      "should respect routes from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -709,6 +711,11 @@
   "page/page-add-init-script.spec.ts": {
     "failing": [
       "should work with CSP"
+    ]
+  },
+  "page/page-aria-snapshot-ai.spec.ts": {
+    "failing": [
+      "return empty snapshot when iframe is not loaded"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -993,8 +1000,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -1013,7 +1019,6 @@
   },
   "page/page-wait-for-function.spec.ts": {
     "failing": [
-      "should poll on interval",
       "should work with strict CSP policy"
     ]
   },
