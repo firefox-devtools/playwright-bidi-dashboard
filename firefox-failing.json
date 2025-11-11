@@ -387,11 +387,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should tick after popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -428,7 +423,6 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
-      "should respect routes from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
@@ -684,30 +678,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-accessibility.spec.ts": {
-    "failing": [
-      "should work @smoke",
-      "should work with regular text",
-      "roledescription",
-      "orientation",
-      "autocomplete",
-      "multiselectable",
-      "keyshortcuts",
-      "should not report text nodes inside controls",
-      "rich text editable fields should have children",
-      "rich text editable fields with role should have children",
-      "non editable textbox with role and tabIndex and label should not have children",
-      "checkbox with and tabIndex and label should not have children",
-      "checkbox without label should not have children",
-      "should work a button",
-      "should work an input",
-      "should work on a menu",
-      "should return null when the element is no longer in DOM",
-      "should show uninteresting nodes",
-      "should work when there is a title ",
-      "should work with aria-invalid accessibility tree"
-    ]
-  },
   "page/page-add-init-script.spec.ts": {
     "failing": [
       "should work with CSP"
@@ -880,7 +850,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
