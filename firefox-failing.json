@@ -678,6 +678,16 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/network-request-body.spec.ts": {
+    "failing": [
+      "should return correct request body buffer for utf-8 body",
+      "should return request body w/o content-type @smoke",
+      "should throw on invalid JSON in post data",
+      "should return body for PUT requests",
+      "should get request body for file/blob",
+      "should get request body for navigator.sendBeacon api calls"
+    ]
+  },
   "page/page-add-init-script.spec.ts": {
     "failing": [
       "should work with CSP"
