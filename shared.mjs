@@ -302,7 +302,8 @@ export const suiteNames = [
   "page/selectors-vue.spec.ts",
   "page/to-match-aria-snapshot.spec.ts",
   "page/wheel.spec.ts",
-  "page/workers.spec.ts"
+  "page/workers.spec.ts",
+  "page/network-request-body.spec.ts",
 ];
 
 export const disabledSuites = [
