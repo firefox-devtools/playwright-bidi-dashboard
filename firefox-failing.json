@@ -334,8 +334,7 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response",
-      "should not hang on resources served from cache"
+      "should return security details directly from response"
     ]
   },
   "library/headful.spec.ts": {
@@ -440,11 +439,6 @@
       "should use proxy with emulated user agent"
     ]
   },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "should work when serving from memory cache"
-    ]
-  },
   "library/role-utils.spec.ts": {
     "failing": [
       "axe-core accessible-text"
@@ -495,12 +489,14 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -778,11 +774,6 @@
       "should trigger correct Log"
     ]
   },
-  "page/page-event-popup.spec.ts": {
-    "failing": [
-      "should report popup opened from iframes"
-    ]
-  },
   "page/page-event-request.spec.ts": {
     "failing": [
       "should fire for fetches with keepalive: true",
@@ -981,7 +972,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -1006,11 +998,6 @@
   "page/page-wait-for-load-state.spec.ts": {
     "skipped": [
       "should wait for load state of empty url popup"
-    ]
-  },
-  "page/page-wait-for-response.spec.ts": {
-    "failing": [
-      "should work with re-rendered cached IMG elements"
     ]
   },
   "page/selectors-react.spec.ts": {
