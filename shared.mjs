@@ -334,7 +334,7 @@ export const labels = [
       "library/download.spec.ts",
       "library/downloads-path.spec.ts",
       "library/popup.spec.ts",
-      "page/network-post-data.spec.ts",
+      "page/network-request-body.spec.ts",
       "page/page-event-console.spec.ts",
       "page/page-filechooser.spec.ts",
       "page/page-request-continue.spec.ts",
