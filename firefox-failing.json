@@ -422,6 +422,7 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
+      "should respect routes from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
@@ -973,7 +974,7 @@
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -1020,7 +1021,9 @@
   "page/workers.spec.ts": {
     "failing": [
       "should have JSHandles for console logs",
-      "should report and intercept network from nested worker"
+      "should report and intercept network from nested worker",
+      "should report console event on the worker",
+      "should report console event on the worker when not listening on page or context"
     ],
     "skipped": [
       "Page.workers @smoke",
