@@ -104,6 +104,14 @@ function processPullRequestArtifact(data, filename) {
     const { browser, prNumber } = parsePRFilename(filename);
     const report = readArtifact(`./data/PRs/${filename}`);
 
+    for (const suite of Object.values(data.results)) {
+      for (const spec of Object.values(suite)) {
+        if (spec.pullRequests?.[browser]) {
+          delete spec.pullRequests[browser][prNumber];
+        }
+      }
+    }
+
     if (!pullRequests[prNumber]) {
       pullRequests[prNumber] = {};
     }
