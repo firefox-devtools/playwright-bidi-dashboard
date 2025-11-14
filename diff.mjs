@@ -53,8 +53,8 @@ async function renderDiff() {
   for (const suite in data.results) {
     for (const spec of Object.keys(data.results[suite]).sort()) {
       const specResults = data.results[suite][spec];
-      const currentResult = getCurrentResult(specResults);
-      const previousResult = getPreviousResult(specResults);
+      const currentResult = getCurrentResult(specResults) ?? undefined;
+      const previousResult = getPreviousResult(specResults) ?? undefined;
       const intermittent = isIntermittent(specResults);
       if (currentResult === previousResult) {
         continue;
