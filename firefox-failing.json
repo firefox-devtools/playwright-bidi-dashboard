@@ -386,11 +386,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -449,6 +444,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -493,6 +491,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
@@ -620,6 +619,11 @@
     "failing": [
       "should work inside closed shadow root",
       "should work inside declarative shadow root"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -850,7 +854,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -971,7 +976,7 @@
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
