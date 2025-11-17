@@ -68,7 +68,7 @@ async function renderTestRun() {
     resultEl.className = 'result';
     summaryEl.appendChild(resultEl);
     summaryEl.append(suiteCounts.suite);
-    for (const { label, color, suites } of labels) {
+    for (const [label, { color, suites }] of Object.entries(labels)) {
       if (suites.includes(suiteCounts.suite)) {
         const labelEl = document.createElement('span');
         labelEl.className = 'label';

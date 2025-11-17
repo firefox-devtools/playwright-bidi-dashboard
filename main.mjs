@@ -1,4 +1,4 @@
-import { startDate, msPerDay, encodeFilter, decodeFilter, suiteNames, formatDate, countSuiteResults, disabledSuites, getLastDay } from './shared.mjs';
+import { startDate, msPerDay, encodeFilter, decodeFilter, suiteNames, formatDate, countSuiteResults, disabledSuites, getLastDay, filterForLabel } from './shared.mjs';
 
 let suiteCheckboxes = new Map();
 let data;
@@ -33,7 +33,7 @@ function buildTooltip(label, counts) {
   `;
 }
 
-function createMainChart() {
+function createMainChart(label) {
   chart?.destroy();
 
   const chartData = [];
@@ -133,12 +133,12 @@ function createMainChart() {
       labels: chartData.map((item) => formatDate(item[0])),
       datasets: [
         {
-          label: '% tests passed (Firefox)',
+          label: `% ${label} tests passed (Firefox)`,
           data: chartData.map((item) => item[1]),
           borderWidth: 1,
         },
         {
-          label: '% tests passed (Chrome)',
+          label: `% ${label} tests passed (Chrome)`,
           data: chartData.map((item) => item[2]),
           borderWidth: 1,
         },
@@ -180,8 +180,8 @@ function createMainChart() {
   return { firefoxCounts, chromeCounts };
 }
 
-function renderDashboard() {
-  const { firefoxCounts, chromeCounts } = createMainChart();
+function renderDashboard(label) {
+  const { firefoxCounts, chromeCounts } = createMainChart(label);
 
   document.querySelector('#firefox-failing').textContent =
     firefoxCounts[1] + firefoxCounts[2] + firefoxCounts[3];
@@ -195,6 +195,7 @@ function filterUpdated() {
 
   const url = new URL(location.href);
   url.searchParams.set('filter', encodeFilter(suite => suiteCheckboxes.get(suite).checked));
+  url.searchParams.delete('label');
   history.replaceState(null, '', url.toString());
 }
 
@@ -303,11 +304,15 @@ async function main() {
   renderConfig();
 
   const searchParams = new URLSearchParams(location.search);
+  const setValue = (suite, value) => suiteCheckboxes.get(suite).checked = value;
+  let label = '';
   if (searchParams.has('filter')) {
-    decodeFilter(searchParams.get('filter'), (suite, value) => suiteCheckboxes.get(suite).checked = value);
+    decodeFilter(searchParams.get('filter'), setValue);
+  } else if (searchParams.has('label')) {
+    label = filterForLabel(searchParams.get('label'), setValue);
   }
 
-  renderDashboard();
+  renderDashboard(label);
 }
 
 main();

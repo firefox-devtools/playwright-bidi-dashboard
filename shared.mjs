@@ -28,6 +28,23 @@ export function decodeFilter(base64Encoded, setValue) {
   });
 }
 
+export function filterForLabel(label, setValue) {
+  for (const suite of suiteNames) {
+    setValue(suite, false);
+  }
+  let displayLabel = label;
+  while (label) {
+    for (const suite of labels[label].suites) {
+      setValue(suite, true);
+    }
+    label = labels[label].extends;
+    if (label) {
+      displayLabel = `${label}/${displayLabel}`;
+    }
+  }
+  return displayLabel;
+}
+
 export function formatDate(date) {
   return date.toISOString().slice(0, 'yyyy-mm-dd'.length);
 }
@@ -324,9 +341,8 @@ export const disabledSuites = [
   "library/page-clock.frozen.spec.ts"
 ];
 
-export const labels = [
-  {
-    label: "P1",
+export const labels = {
+  P1: {
     color: "#f00",
     suites: [
       "library/browsercontext-csp.spec.ts",
@@ -340,32 +356,32 @@ export const labels = [
       "page/page-request-continue.spec.ts",
       "page/page-set-extra-http-headers.spec.ts",
       "library/video.spec.ts",
-    ]
+    ],
   },
-  {
-    label: "P2",
+  P2: {
     color: "#fd0",
     suites: [
-    "library/geolocation.spec.ts",
-    "library/permissions.spec.ts",
-    "library/web-socket.spec.ts",
-    "page/elementhandle-scroll-into-view.spec.ts",
-    "page/page-drag.spec.ts",
-    "page/page-emulate-media.spec.ts",
-    "page/page-request-gc.spec.ts",
-    "page/workers.spec.ts",
-    ]
+      "library/geolocation.spec.ts",
+      "library/permissions.spec.ts",
+      "library/web-socket.spec.ts",
+      "page/elementhandle-scroll-into-view.spec.ts",
+      "page/page-drag.spec.ts",
+      "page/page-emulate-media.spec.ts",
+      "page/page-request-gc.spec.ts",
+      "page/workers.spec.ts",
+    ],
+    extends: "P1",
   },
-  {
-    label: "P3",
+  P3: {
     color: "#0f0",
     suites: [
-    "library/browsercontext-cookies-third-party.spec.ts",
-    "library/page-event-crash.spec.ts",
-    "library/pdf.spec.ts",
-    "library/tap.spec.ts",
-    "page/jshandle-to-string.spec.ts",
-    "library/locator-dispatchevent-touch.spec.ts",
-    ]
+      "library/browsercontext-cookies-third-party.spec.ts",
+      "library/page-event-crash.spec.ts",
+      "library/pdf.spec.ts",
+      "library/tap.spec.ts",
+      "page/jshandle-to-string.spec.ts",
+      "library/locator-dispatchevent-touch.spec.ts",
+    ],
+    extends: "P2",
   },
-];
+};

@@ -87,7 +87,7 @@ async function renderDiff() {
       }
       specEl.append(specText);
 
-      for (const { label, color, suites } of labels) {
+      for (const [label, { color, suites }] of Object.entries(labels)) {
         if (suites.includes(suite)) {
           const labelEl = document.createElement('span');
           labelEl.className = 'label';
