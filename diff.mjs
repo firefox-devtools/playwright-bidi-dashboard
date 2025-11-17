@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultNames, resultClassnames, parseDate, capitalize, labels } from './shared.mjs';
+import { startDate, msPerDay, resultNames, resultClassnames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
 
 async function renderDiff() {
   const searchParams = new URLSearchParams(location.search);
@@ -15,6 +15,18 @@ async function renderDiff() {
   const dateString = prNumber ? data.pullRequests[prNumber][browser].date.substring(0, 10) : searchParams.get('date');
   const date = parseDate(dateString);
   const day = (date - startDate) / msPerDay;
+  let fromDateString;
+  let fromDay;
+  if (searchParams.has('from')) {
+    fromDateString = searchParams.get('from');
+    fromDay = (parseDate(fromDateString) - startDate) / msPerDay;
+  } else if (prNumber) {
+    fromDateString = dateString;
+    fromDay = day;
+  } else {
+    fromDay = day - 1;
+    fromDateString = formatDate(new Date(startDate + fromDay * msPerDay));
+  }
   function getCurrentResult(specResults) {
     if (prNumber) {
       return specResults?.pullRequests?.[browser]?.[prNumber];
@@ -23,11 +35,7 @@ async function renderDiff() {
     }
   }
   function getPreviousResult(specResults) {
-    if (prNumber) {
-      return specResults?.[browser]?.[day];
-    } else {
-      return specResults?.[browser]?.[day - 1];
-    }
+    return specResults?.[browser]?.[fromDay];
   }
   function isIntermittent(specResults) {
     const end = prNumber ? day : day - 1;
@@ -93,7 +101,7 @@ async function renderDiff() {
     }
   }
 
-  const title = `${capitalize(browser)} test result changes on ` + (prNumber ? `PR #${prNumber}` : dateString);
+  const title = `${capitalize(browser)} test result changes on ${prNumber ? `PR #${prNumber}` : dateString} compared with ${fromDateString}`;
   document.getElementById('title').textContent = title;
 }
 
