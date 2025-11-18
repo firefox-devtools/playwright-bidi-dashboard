@@ -214,8 +214,7 @@
     "skipped": [
       "should play video @smoke",
       "should not crash on showDirectoryPicker",
-      "webkit should define window.safari",
-      "should not crash when clicking a label with a <input type=\"file\"/>"
+      "webkit should define window.safari"
     ]
   },
   "library/channels.spec.ts": {
@@ -388,7 +387,7 @@
   },
   "library/page-clock.spec.ts": {
     "failing": [
-      "popup > should tick before popup"
+      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -427,11 +426,11 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit user agent from browser context @smoke",
-      "should respect routes from browser context",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -494,13 +493,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -622,6 +621,11 @@
     "failing": [
       "should work inside closed shadow root",
       "should work inside declarative shadow root"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -778,6 +782,11 @@
       "should trigger correct Log"
     ]
   },
+  "page/page-event-popup.spec.ts": {
+    "failing": [
+      "should work with fake-clicking target=_blank and rel=noopener"
+    ]
+  },
   "page/page-event-request.spec.ts": {
     "failing": [
       "should fire for fetches with keepalive: true",
@@ -796,26 +805,10 @@
     ]
   },
   "page/page-filechooser.spec.ts": {
-    "skipped": [
-      "should upload multiple large files",
-      "should emit event once",
-      "should emit event via prepend",
+    "failing": [
       "should emit event for iframe",
-      "should emit event on/off",
-      "should emit event addListener/removeListener",
-      "should work when file input is attached to DOM",
-      "should work when file input is not attached to DOM",
-      "should not throw when filechooser belongs to iframe",
-      "should work with no timeout",
-      "should return the same file chooser when there are many watchdogs simultaneously",
-      "should accept single file",
-      "should be able to read selected file",
-      "should be able to reset selected files with empty file list",
-      "should work for single file pick",
-      "should work for \"multiple\"",
-      "should work for \"webkitdirectory\"",
-      "should emit event after navigation",
-      "should trigger listener added before navigation"
+      "should respect timeout",
+      "should be able to reset selected files with empty file list"
     ]
   },
   "page/page-fill.spec.ts": {
@@ -973,8 +966,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
