@@ -336,7 +336,6 @@ export const disabledSuites = [
   "library/chromium/oopif.spec.ts",
   "library/chromium/session.spec.ts",
   "library/chromium/tracing.spec.ts",
-  "library/firefox/launcher.spec.ts",
   "library/modernizr.spec.ts",
   "library/page-clock.frozen.spec.ts"
 ];
