@@ -380,11 +380,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -425,7 +420,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -493,7 +487,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -507,13 +502,6 @@
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
-    ]
-  },
-  "library/unroute-behavior.spec.ts": {
-    "skipped": [
-      "context.unroute should not wait for pending handlers to complete",
-      "context.unrouteAll should wait for pending handlers to complete",
-      "context.unrouteAll should not wait for pending handlers to complete if behavior is ignoreErrors"
     ]
   },
   "library/video.spec.ts": {
@@ -763,7 +751,6 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "should fire for fetches with keepalive: true",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should not expose preflight OPTIONS request",
@@ -819,7 +806,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
