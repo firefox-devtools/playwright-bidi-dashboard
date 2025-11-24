@@ -380,6 +380,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -420,6 +425,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -438,6 +444,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -488,7 +497,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -664,6 +674,11 @@
       "should work with CSP"
     ]
   },
+  "page/page-aria-snapshot-ai.spec.ts": {
+    "failing": [
+      "return empty snapshot when iframe is not loaded"
+    ]
+  },
   "page/page-basic.spec.ts": {
     "failing": [
       "page.frame should respect name",
@@ -801,7 +816,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -940,6 +956,7 @@
   },
   "page/page-wait-for-function.spec.ts": {
     "failing": [
+      "should poll on interval",
       "should work with strict CSP policy"
     ]
   },
