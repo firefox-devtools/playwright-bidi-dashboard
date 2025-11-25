@@ -6,7 +6,8 @@
   },
   "library/browsercontext-add-init-script.spec.ts": {
     "failing": [
-      "should work without navigation in popup"
+      "should work without navigation in popup",
+      "init script should run only once in popup"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -62,7 +63,10 @@
   },
   "library/browsercontext-events.spec.ts": {
     "failing": [
-      "console event should work with element handles"
+      "console event should work with element handles",
+      "console event should work in popup",
+      "console event should work in popup 2",
+      "console event should work in immediately closed popup"
     ],
     "skipped": [
       "dialog event should work in popup 2"
@@ -94,10 +98,16 @@
   },
   "library/browsercontext-locale.spec.ts": {
     "failing": [
+      "should format number in popups",
+      "should affect navigator.language in popups",
+      "should work for multiple pages sharing same process",
       "should format number in workers"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
+    "failing": [
+      "should not fire events for favicon or favicon redirects"
+    ],
     "skipped": [
       "should reject response.finished if context closes"
     ]
@@ -106,7 +116,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should report initialized pages",
       "should have an opener"
     ],
     "skipped": [
@@ -131,6 +140,11 @@
     "failing": [
       "should set local storage in third-party context",
       "should roundtrip local storage in third-party context"
+    ]
+  },
+  "library/browsercontext-timezone-id.spec.ts": {
+    "failing": [
+      "should work for multiple pages sharing same process"
     ]
   },
   "library/browsercontext-user-agent.spec.ts": {
@@ -333,6 +347,7 @@
   },
   "library/headful.spec.ts": {
     "failing": [
+      "should not override viewport size when passed null",
       "should click in OOPIF",
       "should click bottom row w/ infobar in OOPIF"
     ]
@@ -351,11 +366,6 @@
   "library/locator-dispatchevent-touch.spec.ts": {
     "failing": [
       "should support touch points in touch event arguments"
-    ]
-  },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
     ]
   },
   "library/modernizr.spec.ts": {
@@ -382,7 +392,10 @@
   },
   "library/page-clock.spec.ts": {
     "failing": [
-      "popup > should tick before popup"
+      "popup > should tick after popup",
+      "popup > should tick before popup",
+      "popup > should run time before popup",
+      "popup > should not run time before popup on pause"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -422,12 +435,15 @@
     "failing": [
       "should inherit user agent from browser context @smoke",
       "should inherit offline from browser context",
+      "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
+      "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to an in-process popup",
       "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
-      "should not dispatch binding on a closed page"
+      "should not dispatch binding on a closed page",
+      "should not throttle rAF in the opener page"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -444,9 +460,6 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -492,7 +505,6 @@
       "should render console",
       "should open console errors on click",
       "should filter network requests by url",
-      "should work with meta CSP",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -679,6 +691,11 @@
       "return empty snapshot when iframe is not loaded"
     ]
   },
+  "page/page-autowaiting-basic.spec.ts": {
+    "failing": [
+      "should not stall on JS navigation link"
+    ]
+  },
   "page/page-basic.spec.ts": {
     "failing": [
       "page.frame should respect name",
@@ -693,6 +710,7 @@
   },
   "page/page-click.spec.ts": {
     "failing": [
+      "should issue clicks in parallel in page and popup",
       "should select the text by triple clicking",
       "should double click the button",
       "should click the button with fixed position inside an iframe",
@@ -752,11 +770,20 @@
       "should work for different console API calls",
       "should not fail for window object",
       "should have location for console API calls",
+      "should not throw when there are console messages in detached iframes",
       "should use object previews for arrays and objects"
     ],
     "skipped": [
       "should format the message correctly with time/timeLog/timeEnd",
       "should trigger correct Log"
+    ]
+  },
+  "page/page-event-popup.spec.ts": {
+    "failing": [
+      "should work @smoke",
+      "should work with window features",
+      "should work with empty url",
+      "should work with clicking target=_blank"
     ]
   },
   "page/page-event-request.spec.ts": {
@@ -805,6 +832,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -817,7 +845,8 @@
     "failing": [
       "page.goBack should work for file urls",
       "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "regression test for issue 20791",
+      "should reload proper page"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -937,13 +966,17 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
     ]
   },
   "page/page-set-content.spec.ts": {
+    "failing": [
+      "should return empty content there is no iframe src"
+    ],
     "skipped": [
       "should handle timeout properly"
     ]
@@ -956,11 +989,15 @@
   },
   "page/page-wait-for-function.spec.ts": {
     "failing": [
-      "should poll on interval",
       "should work with strict CSP policy"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
+    "failing": [
+      "should wait for load state of about:blank popup ",
+      "should wait for load state of popup with network url ",
+      "should work with clicking target=_blank"
+    ],
     "skipped": [
       "should wait for load state of empty url popup"
     ]
