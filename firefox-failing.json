@@ -368,11 +368,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -509,7 +504,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -630,11 +624,6 @@
     "failing": [
       "should work inside closed shadow root",
       "should work inside declarative shadow root"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -842,7 +831,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should fail when server returns 204",
+      "should fail when navigating to bad SSL",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
