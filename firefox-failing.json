@@ -72,11 +72,6 @@
       "dialog event should work in popup 2"
     ]
   },
-  "library/browsercontext-expose-function.spec.ts": {
-    "failing": [
-      "should work with CSP"
-    ]
-  },
   "library/browsercontext-fetch.spec.ts": {
     "failing": [
       "should support set-cookie with SameSite and without Secure attribute over HTTP"
@@ -217,9 +212,6 @@
     ]
   },
   "library/capabilities.spec.ts": {
-    "failing": [
-      "should respect CSP @smoke"
-    ],
     "skipped": [
       "should play video @smoke",
       "should not crash on showDirectoryPicker",
@@ -625,11 +617,6 @@
       "should work inside declarative shadow root"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should handle nested frames @smoke",
@@ -684,9 +671,14 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
+  "page/page-add-script-tag.spec.ts": {
     "failing": [
-      "should work with CSP"
+      "should throw when added with content to the CSP page"
+    ]
+  },
+  "page/page-add-style-tag.spec.ts": {
+    "failing": [
+      "should throw when added with content to the CSP page"
     ]
   },
   "page/page-aria-snapshot-ai.spec.ts": {
@@ -759,10 +751,6 @@
     ]
   },
   "page/page-evaluate.spec.ts": {
-    "failing": [
-      "should work with new Function() and CSP",
-      "should work with CSP"
-    ],
     "skipped": [
       "should throw for too deep reference chain"
     ]
@@ -835,7 +823,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should fail when navigating to bad SSL",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -969,7 +956,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -985,13 +973,7 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should upload a folder",
-      "should work with CSP"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should work with strict CSP policy"
+      "should upload a folder"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
