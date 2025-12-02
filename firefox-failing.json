@@ -501,7 +501,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -682,6 +683,11 @@
       "should throw when added with content to the CSP page"
     ]
   },
+  "page/page-aria-snapshot-ai.spec.ts": {
+    "failing": [
+      "return empty snapshot when iframe is not loaded"
+    ]
+  },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
       "should not stall on JS navigation link"
@@ -831,7 +837,6 @@
     "failing": [
       "page.goBack should work for file urls",
       "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791",
       "should reload proper page"
     ]
   },
@@ -969,11 +974,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
