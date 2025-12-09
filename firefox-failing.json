@@ -4,6 +4,11 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "should work without navigation in popup"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -185,6 +190,11 @@
       "selenium grid 4.8.3 standalone chromium broken driver",
       "selenium grid 3.141.59 standalone non-chromium",
       "selenium grid 3.141.59 standalone chromium through run-driver"
+    ]
+  },
+  "library/browsertype-launch-server.spec.ts": {
+    "failing": [
+      "launch server > should provide an error when ws endpoint is incorrect"
     ]
   },
   "library/browsertype-launch.spec.ts": {
@@ -376,6 +386,11 @@
       "should be able to generate outline"
     ]
   },
+  "library/perform-task.spec.ts": {
+    "skipped": [
+      "extract task"
+    ]
+  },
   "library/permissions.spec.ts": {
     "failing": [
       "should support clipboard read",
@@ -401,7 +416,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -420,6 +434,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -469,7 +486,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -778,10 +796,10 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with file URL with subframes",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should override referrer-policy"
     ],
     "skipped": [
       "should work with anchor navigation"
@@ -933,14 +951,6 @@
   "page/page-wait-for-load-state.spec.ts": {
     "skipped": [
       "should wait for load state of empty url popup"
-    ]
-  },
-  "page/perform-task.spec.ts": {
-    "failing": [
-      "page.perform"
-    ],
-    "skipped": [
-      "extract task"
     ]
   },
   "page/selectors-react.spec.ts": {
