@@ -4,11 +4,6 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "should work without navigation in popup"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -29,7 +24,8 @@
       "add 'Partitioned;' cookie via API",
       "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
       "top level 'Partitioned;' cookie and same origin iframe",
-      "should be able to send third party cookies via an iframe"
+      "should be able to send third party cookies via an iframe",
+      "should(not) block third party cookies - persistent context"
     ],
     "skipped": [
       "save/load third party 'Partitioned;' cookies"
@@ -52,12 +48,6 @@
       "should bypass CSP header",
       "should bypass after cross-process navigation",
       "should bypass CSP in iframes as well"
-    ]
-  },
-  "library/browsercontext-device.spec.ts": {
-    "failing": [
-      "device > should emulate viewport and screen size",
-      "device > should emulate viewport without screen size"
     ]
   },
   "library/browsercontext-events.spec.ts": {
@@ -145,11 +135,7 @@
   },
   "library/browsercontext-viewport.spec.ts": {
     "failing": [
-      "should emulate device width",
-      "should emulate device height",
-      "should emulate availWidth and availHeight",
       "should support touch with null viewport",
-      "should set both screen and viewport options",
       "should drag with high dpi"
     ],
     "skipped": [
@@ -190,11 +176,6 @@
       "selenium grid 4.8.3 standalone chromium broken driver",
       "selenium grid 3.141.59 standalone non-chromium",
       "selenium grid 3.141.59 standalone chromium through run-driver"
-    ]
-  },
-  "library/browsertype-launch-server.spec.ts": {
-    "failing": [
-      "launch server > should provide an error when ws endpoint is incorrect"
     ]
   },
   "library/browsertype-launch.spec.ts": {
@@ -416,6 +397,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -424,6 +406,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should exclude patterns"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -434,9 +419,6 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -481,7 +463,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -796,7 +777,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with file URL with subframes",
+      "should use http for no protocol",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -929,7 +911,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
