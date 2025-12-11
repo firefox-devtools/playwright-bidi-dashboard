@@ -1207,7 +1207,6 @@
       "should close browser after context menu was triggered",
       "should(not) block third party cookies",
       "should not block third party SameSite=None cookies",
-      "should not override viewport size when passed null",
       "Page.bringToFront should work",
       "should click in OOPIF",
       "should click bottom row w/ infobar in OOPIF",
@@ -1570,6 +1569,7 @@
   },
   "library/screenshot.spec.ts": {
     "failing": [
+      "page screenshot > should run in parallel in multiple pages",
       "page screenshot > should work with a mobile viewport",
       "page screenshot > should work with a mobile viewport and clip",
       "page screenshot > should work with a mobile viewport and fullPage",
@@ -1592,7 +1592,6 @@
       "element screenshot > page screenshot should capture css transform with device pixels"
     ],
     "skipped": [
-      "page screenshot > should run in parallel in multiple pages",
       "element screenshot > should work if the main resource hangs"
     ]
   },
@@ -4600,7 +4599,6 @@
   "page/wheel.spec.ts": {
     "failing": [
       "should dispatch wheel events @smoke",
-      "should dispatch wheel events after context menu was opened",
       "should dispatch wheel events after popup was opened @smoke",
       "should dispatch wheel event on svg element",
       "should scroll when nobody is listening",

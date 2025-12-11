@@ -24,8 +24,7 @@
       "add 'Partitioned;' cookie via API",
       "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
       "top level 'Partitioned;' cookie and same origin iframe",
-      "should be able to send third party cookies via an iframe",
-      "should(not) block third party cookies - persistent context"
+      "should be able to send third party cookies via an iframe"
     ],
     "skipped": [
       "save/load third party 'Partitioned;' cookies"
@@ -368,6 +367,10 @@
     ]
   },
   "library/perform-task.spec.ts": {
+    "failing": [
+      "page.perform",
+      "page.perform secret"
+    ],
     "skipped": [
       "extract task"
     ]
@@ -406,9 +409,6 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should exclude patterns"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -463,12 +463,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -777,7 +777,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should use http for no protocol",
       "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
@@ -911,8 +910,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -929,6 +927,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
