@@ -1416,7 +1416,8 @@
   "library/perform-task.spec.ts": {
     "failing": [
       "page.perform",
-      "page.perform secret"
+      "page.perform secret",
+      "page.perform expect value"
     ],
     "skipped": [
       "extract task"

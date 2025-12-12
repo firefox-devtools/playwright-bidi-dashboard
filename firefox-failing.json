@@ -51,8 +51,7 @@
   },
   "library/browsercontext-events.spec.ts": {
     "failing": [
-      "console event should work with element handles",
-      "console event should work in popup 2"
+      "console event should work with element handles"
     ],
     "skipped": [
       "dialog event should work in popup 2"
@@ -179,7 +178,8 @@
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
-      "should reject if launched browser fails immediately"
+      "should reject if launched browser fails immediately",
+      "should accept objects as options"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -369,7 +369,8 @@
   "library/perform-task.spec.ts": {
     "failing": [
       "page.perform",
-      "page.perform secret"
+      "page.perform secret",
+      "page.perform expect value"
     ],
     "skipped": [
       "extract task"
@@ -400,7 +401,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -419,6 +419,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -463,12 +466,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -647,11 +650,6 @@
       "return empty snapshot when iframe is not loaded"
     ]
   },
-  "page/page-autowaiting-basic.spec.ts": {
-    "failing": [
-      "should not stall on JS navigation link"
-    ]
-  },
   "page/page-basic.spec.ts": {
     "failing": [
       "frame.press should work"
@@ -777,7 +775,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -910,16 +907,14 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
     ]
   },
   "page/page-set-content.spec.ts": {
-    "failing": [
-      "should return empty content there is no iframe src"
-    ],
     "skipped": [
       "should handle timeout properly"
     ]
