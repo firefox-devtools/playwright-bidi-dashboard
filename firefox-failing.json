@@ -182,6 +182,9 @@
     ]
   },
   "library/capabilities.spec.ts": {
+    "failing": [
+      "should not crash when clicking a label with a <input type=\"file\"/>"
+    ],
     "skipped": [
       "should play video @smoke",
       "should not crash on showDirectoryPicker",
@@ -214,6 +217,7 @@
       "should support forcedColors option",
       "should support contrast option",
       "should support geolocation and permissions options",
+      "should accept userDataDir",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -348,11 +352,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -653,11 +652,6 @@
       "should throw when added with content to the CSP page"
     ]
   },
-  "page/page-aria-snapshot-ai.spec.ts": {
-    "failing": [
-      "return empty snapshot when iframe is not loaded"
-    ]
-  },
   "page/page-basic.spec.ts": {
     "failing": [
       "frame.press should work"
@@ -755,9 +749,26 @@
   },
   "page/page-filechooser.spec.ts": {
     "failing": [
+      "should upload multiple large files",
+      "should emit event once",
+      "should emit event via prepend",
       "should emit event for iframe",
-      "should respect timeout",
-      "should be able to reset selected files with empty file list"
+      "should emit event on/off",
+      "should emit event addListener/removeListener",
+      "should work when file input is attached to DOM",
+      "should work when file input is not attached to DOM",
+      "should not throw when filechooser belongs to iframe",
+      "should not throw when frame is detached immediately",
+      "should work with no timeout",
+      "should return the same file chooser when there are many watchdogs simultaneously",
+      "should accept single file",
+      "should be able to read selected file",
+      "should be able to reset selected files with empty file list",
+      "should work for single file pick",
+      "should work for \"multiple\"",
+      "should work for \"webkitdirectory\"",
+      "should emit event after navigation",
+      "should trigger listener added before navigation"
     ]
   },
   "page/page-fill.spec.ts": {
@@ -783,7 +794,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with file URL with subframes",
       "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
@@ -931,6 +941,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
