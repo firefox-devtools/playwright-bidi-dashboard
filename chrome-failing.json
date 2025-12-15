@@ -1207,7 +1207,6 @@
       "should close browser after context menu was triggered",
       "should(not) block third party cookies",
       "should not block third party SameSite=None cookies",
-      "should not override viewport size when passed null",
       "Page.bringToFront should work",
       "should click in OOPIF",
       "should click bottom row w/ infobar in OOPIF",
