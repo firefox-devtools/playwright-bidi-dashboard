@@ -4,11 +4,6 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "should work without navigation in popup"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -187,9 +182,6 @@
     ]
   },
   "library/capabilities.spec.ts": {
-    "failing": [
-      "should not crash when clicking a label with a <input type=\"file\"/>"
-    ],
     "skipped": [
       "should play video @smoke",
       "should not crash on showDirectoryPicker",
@@ -358,11 +350,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -413,7 +400,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -422,9 +408,6 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should use http proxy for websocket requests"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -484,8 +467,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -595,6 +577,11 @@
       "should work in iframes that failed initial navigation"
     ]
   },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
+    ]
+  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should support framesets"
@@ -615,13 +602,8 @@
   },
   "page/jshandle-to-string.spec.ts": {
     "failing": [
-      "should work for complicated objects",
       "should beautifully render sparse arrays",
-      "should work for promises",
-      "should work with different subtypes @smoke"
-    ],
-    "skipped": [
-      "should work with previewable subtypes"
+      "should work for promises"
     ]
   },
   "page/locator-click.spec.ts": {
@@ -659,14 +641,8 @@
       "should throw when added with content to the CSP page"
     ]
   },
-  "page/page-aria-snapshot-ai.spec.ts": {
-    "failing": [
-      "return empty snapshot when iframe is not loaded"
-    ]
-  },
   "page/page-basic.spec.ts": {
     "failing": [
-      "should have sane user agent",
       "frame.press should work"
     ],
     "skipped": [
@@ -734,10 +710,8 @@
     "failing": [
       "should work @smoke",
       "should work for different console API calls",
-      "should not fail for window object",
       "should have location for console API calls",
-      "should not throw when there are console messages in detached iframes",
-      "should use object previews for arrays and objects"
+      "should not throw when there are console messages in detached iframes"
     ],
     "skipped": [
       "should format the message correctly with time/timeLog/timeEnd",
@@ -762,26 +736,9 @@
   },
   "page/page-filechooser.spec.ts": {
     "failing": [
-      "should upload multiple large files",
-      "should emit event once",
-      "should emit event via prepend",
       "should emit event for iframe",
-      "should emit event on/off",
-      "should emit event addListener/removeListener",
-      "should work when file input is attached to DOM",
-      "should work when file input is not attached to DOM",
-      "should not throw when filechooser belongs to iframe",
-      "should not throw when frame is detached immediately",
-      "should work with no timeout",
-      "should return the same file chooser when there are many watchdogs simultaneously",
-      "should accept single file",
-      "should be able to read selected file",
-      "should be able to reset selected files with empty file list",
-      "should work for single file pick",
-      "should work for \"multiple\"",
-      "should work for \"webkitdirectory\"",
-      "should emit event after navigation",
-      "should trigger listener added before navigation"
+      "should respect timeout",
+      "should be able to reset selected files with empty file list"
     ]
   },
   "page/page-fill.spec.ts": {
@@ -810,7 +767,8 @@
       "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ],
     "skipped": [
       "should work with anchor navigation"
@@ -819,7 +777,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -953,11 +912,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
