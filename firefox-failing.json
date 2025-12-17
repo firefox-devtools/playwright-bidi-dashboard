@@ -4,6 +4,11 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in popup"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -199,6 +204,11 @@
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
+  "library/debug-controller.spec.ts": {
+    "failing": [
+      "should record"
+    ]
+  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
@@ -350,6 +360,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick after popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "skipped": [
       "should emit crash event when page crashes",
@@ -366,11 +381,6 @@
     ]
   },
   "library/perform-task.spec.ts": {
-    "failing": [
-      "page.perform",
-      "page.perform secret",
-      "page.perform expect value"
-    ],
     "skipped": [
       "extract task"
     ]
@@ -400,6 +410,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -602,8 +613,7 @@
   },
   "page/jshandle-to-string.spec.ts": {
     "failing": [
-      "should beautifully render sparse arrays",
-      "should work for promises"
+      "should beautifully render sparse arrays"
     ]
   },
   "page/locator-click.spec.ts": {
@@ -764,11 +774,9 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should override referrer-policy"
     ],
     "skipped": [
       "should work with anchor navigation"
@@ -912,6 +920,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
