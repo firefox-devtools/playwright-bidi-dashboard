@@ -133,10 +133,10 @@ function initializeDateInputs() {
   let startDate = new Date(endDate.getTime() - 7 * 24 * 60 * 60 * 1000);
 
   if (endDateParam) {
-    endDate = parseDate(endDateParam);
+    endDate = new Date(parseDate(endDateParam));
   }
   if (startDateParam) {
-    startDate = parseDate(startDateParam);
+    startDate = new Date(parseDate(startDateParam));
   }
 
   document.getElementById('startDate').value = formatDate(startDate);
@@ -162,7 +162,7 @@ async function init() {
 
   // Initial render if parameters provided
   const searchParams = new URLSearchParams(location.search);
-  if (searchParams.has('startDate') && searchParams.has('endDate')) {
+  if (searchParams.has('startDate') && searchParams.has('endDate') && searchParams.has('browser')) {
     renderChanges();
   }
 }
