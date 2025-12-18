@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is Playwright ready for WebDriver BiDi yet?</title>
+    <style>
+      html {
+        font: 1rem/1.6 sans-serif;
+      }
+      body {
+        padding: 20px;
+      }
+      #controls {
+        margin-bottom: 20px;
+      }
+      #controls input,
+      #controls select {
+        padding: 5px;
+        margin-right: 10px;
+        font-size: 1rem;
+      }
+      #controls button {
+        padding: 5px 15px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      #title {
+        margin: 0.4rem 0 0.2rem;
+      }
+      #table {
+        display: inline-block;
+      }
+      #table .test {
+        margin-bottom: 0.5rem;
+      }
+      #table .result {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        vertical-align: middle;
+        border: 1px solid #000;
+        margin-right: 0.3rem;
+      }
+      #table .result.failing {
+        background-color: #f00;
+      }
+      #table .result.passing {
+        background-color: #0f0;
+      }
+      #table .result.skipping {
+        background-color: #ddd;
+      }
+      #table .result.notrun {
+        background-color: #fff;
+      }
+      #table .label {
+        margin-left: 0.5rem;
+        padding: 0.1rem 0.4rem;
+        border-radius: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="controls">
+      <label>Start Date: <input type="date" id="startDate" /></label>
+      <label>End Date: <input type="date" id="endDate" /></label>
+      <label>
+        Browser:
+        <select id="browser">
+          <option value="chrome">Chrome</option>
+          <option value="firefox">Firefox</option>
+        </select>
+      </label>
+      <button id="loadButton">Load Changes</button>
+    </div>
+    <h2 id="title"></h2>
+    <div id="table"></div>
+    <script type="module" src="changes.mjs"></script>
+  </body>
+</html>
