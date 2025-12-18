@@ -31,27 +31,33 @@ function normalizeStatus(status) {
   return status;
 }
 
-function hasStatusChanged(specResults, browser, days) {
+function countStatusChanges(specResults, browser, days) {
   if (!specResults[browser]) {
-    return false;
+    return 0;
   }
   let previousStatus = undefined;
+  let changeCount = 0;
   for (const day of days) {
     const currentStatus = normalizeStatus(specResults[browser][day]);
     if (previousStatus !== undefined && currentStatus !== undefined && previousStatus !== currentStatus) {
-      return true;
+      changeCount++;
     }
     if (currentStatus !== undefined) {
       previousStatus = currentStatus;
     }
   }
-  return false;
+  return changeCount;
+}
+
+function hasStatusChanged(specResults, browser, days, minChanges = 1) {
+  return countStatusChanges(specResults, browser, days) >= minChanges;
 }
 
 function renderChanges() {
   const startDateInput = document.getElementById('startDate').value;
   const endDateInput = document.getElementById('endDate').value;
   const browser = document.getElementById('browser').value;
+  const minChanges = parseInt(document.getElementById('minChanges').value) || 1;
 
   if (!startDateInput || !endDateInput) {
     return;
@@ -62,6 +68,9 @@ function renderChanges() {
   searchParams.set('startDate', startDateInput);
   searchParams.set('endDate', endDateInput);
   searchParams.set('browser', browser);
+  if (minChanges !== 1) {
+    searchParams.set('minChanges', minChanges);
+  }
   window.history.replaceState({}, '', `?${searchParams.toString()}`);
 
   const days = getDaysBetween(startDateInput, endDateInput);
@@ -77,7 +86,7 @@ function renderChanges() {
   for (const suite in data.results) {
     for (const spec of Object.keys(data.results[suite]).sort()) {
       const specResults = data.results[suite][spec];
-      if (hasStatusChanged(specResults, browser, days)) {
+      if (hasStatusChanged(specResults, browser, days, minChanges)) {
         changedTests.push({ suite, spec, specResults });
       }
     }
@@ -145,6 +154,10 @@ function initializeDateInputs() {
   if (searchParams.has('browser')) {
     document.getElementById('browser').value = searchParams.get('browser');
   }
+
+  if (searchParams.has('minChanges')) {
+    document.getElementById('minChanges').value = searchParams.get('minChanges');
+  }
 }
 
 async function init() {
@@ -157,6 +170,11 @@ async function init() {
     if (e.key === 'Enter') renderChanges();
   });
   document.getElementById('endDate').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') renderChanges();
+  });
+
+  // Also render on Enter key in minChanges input
+  document.getElementById('minChanges').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') renderChanges();
   });
 
