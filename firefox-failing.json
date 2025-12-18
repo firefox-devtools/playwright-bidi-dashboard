@@ -4,11 +4,6 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in popup"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -202,11 +197,6 @@
   "library/client-certificates.spec.ts": {
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
-    ]
-  },
-  "library/debug-controller.spec.ts": {
-    "failing": [
-      "should record"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -588,11 +578,6 @@
       "should work in iframes that failed initial navigation"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should support framesets"
@@ -649,6 +634,11 @@
   "page/page-add-style-tag.spec.ts": {
     "failing": [
       "should throw when added with content to the CSP page"
+    ]
+  },
+  "page/page-aria-snapshot-ai.spec.ts": {
+    "failing": [
+      "return empty snapshot when iframe is not loaded"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -718,7 +708,6 @@
   },
   "page/page-event-console.spec.ts": {
     "failing": [
-      "should work @smoke",
       "should work for different console API calls",
       "should have location for console API calls",
       "should not throw when there are console messages in detached iframes"
@@ -747,7 +736,6 @@
   "page/page-filechooser.spec.ts": {
     "failing": [
       "should emit event for iframe",
-      "should respect timeout",
       "should be able to reset selected files with empty file list"
     ]
   },
@@ -906,7 +894,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -920,11 +909,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
