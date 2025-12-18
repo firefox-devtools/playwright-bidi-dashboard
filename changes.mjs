@@ -57,6 +57,13 @@ function renderChanges() {
     return;
   }
 
+  // Update URL search parameters
+  const searchParams = new URLSearchParams();
+  searchParams.set('startDate', startDateInput);
+  searchParams.set('endDate', endDateInput);
+  searchParams.set('browser', browser);
+  window.history.replaceState({}, '', `?${searchParams.toString()}`);
+
   const days = getDaysBetween(startDateInput, endDateInput);
   if (days.length === 0) {
     return;
