@@ -260,7 +260,6 @@
     "failing": [
       "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
-      "downloads path > should report downloads in downloadsPath folder",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
     ]
@@ -397,6 +396,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -464,8 +464,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -759,6 +758,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with file URL with subframes",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
