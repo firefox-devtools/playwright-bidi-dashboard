@@ -90,6 +90,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ],
     "skipped": [
@@ -200,6 +201,11 @@
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
+  "library/debug-controller.spec.ts": {
+    "failing": [
+      "should record"
+    ]
+  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
@@ -215,7 +221,8 @@
       "should support forcedColors option",
       "should support contrast option",
       "should support geolocation and permissions options",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "should have passed URL when launching with ignoreDefaultArgs: true",
+      "should support har option"
     ],
     "skipped": [
       "should work in persistent context",
@@ -464,7 +471,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -758,7 +766,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with file URL with subframes",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -891,8 +899,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
