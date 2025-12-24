@@ -351,11 +351,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -400,6 +395,7 @@
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
+      "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to an in-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
@@ -463,13 +459,11 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -581,11 +575,6 @@
       "should work in iframes that failed initial navigation"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should send \"framenavigated\" when navigating on anchor URLs",
@@ -634,6 +623,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-locator-handler.spec.ts": {
+    "failing": [
+      "should work"
     ]
   },
   "page/page-add-script-tag.spec.ts": {
@@ -773,6 +767,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -781,7 +776,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
