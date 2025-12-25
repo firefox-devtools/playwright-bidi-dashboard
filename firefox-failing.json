@@ -4,6 +4,11 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in popup"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -258,6 +263,7 @@
     "failing": [
       "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
+      "downloads path > should report downloads in downloadsPath folder with a relative path",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
     ]
@@ -395,8 +401,8 @@
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
-      "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -463,7 +469,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -625,11 +632,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-locator-handler.spec.ts": {
-    "failing": [
-      "should work"
-    ]
-  },
   "page/page-add-script-tag.spec.ts": {
     "failing": [
       "should throw when added with content to the CSP page"
@@ -767,17 +769,17 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
+      "should fail when navigating to bad SSL",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
