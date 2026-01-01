@@ -175,7 +175,8 @@
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
-      "should reject if launched browser fails immediately"
+      "should reject if launched browser fails immediately",
+      "should report launch log"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -351,11 +352,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should tick before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -419,9 +415,6 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -634,6 +627,11 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/page-add-locator-handler.spec.ts": {
+    "failing": [
+      "should work"
+    ]
+  },
   "page/page-add-script-tag.spec.ts": {
     "failing": [
       "should throw when added with content to the CSP page"
@@ -770,20 +768,18 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should fail when navigating to bad SSL",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -901,7 +897,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
