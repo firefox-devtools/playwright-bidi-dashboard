@@ -4,11 +4,6 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "should work without navigation in popup"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -192,6 +187,7 @@
   },
   "library/channels.spec.ts": {
     "failing": [
+      "should scope context handles",
       "should work with the domain module"
     ],
     "skipped": [
@@ -263,7 +259,6 @@
     "failing": [
       "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
-      "downloads path > should report downloads in downloadsPath folder with a relative path",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
     ]
@@ -402,7 +397,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -774,9 +768,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with file URL with subframes",
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
