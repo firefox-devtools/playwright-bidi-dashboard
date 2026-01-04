@@ -104,6 +104,7 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -187,7 +188,6 @@
   },
   "library/channels.spec.ts": {
     "failing": [
-      "should scope context handles",
       "should work with the domain module"
     ],
     "skipped": [
@@ -397,6 +397,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -415,6 +416,9 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -577,11 +581,6 @@
       "should work in iframes that failed initial navigation"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should send \"framenavigated\" when navigating on anchor URLs",
@@ -640,11 +639,6 @@
   "page/page-add-style-tag.spec.ts": {
     "failing": [
       "should throw when added with content to the CSP page"
-    ]
-  },
-  "page/page-aria-snapshot-ai.spec.ts": {
-    "failing": [
-      "return empty snapshot when iframe is not loaded"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -768,10 +762,13 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should use http for no protocol",
       "should work with anchor navigation",
+      "should fail when navigating to bad SSL",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
