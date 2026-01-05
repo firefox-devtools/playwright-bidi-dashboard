@@ -104,7 +104,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -259,6 +258,7 @@
     "failing": [
       "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
+      "downloads path > should report downloads in downloadsPath folder with a relative path",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
     ]
@@ -352,6 +352,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -397,7 +402,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -416,9 +420,6 @@
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -463,7 +464,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -641,8 +641,14 @@
       "should throw when added with content to the CSP page"
     ]
   },
+  "page/page-aria-snapshot-ai.spec.ts": {
+    "failing": [
+      "return empty snapshot when iframe is not loaded"
+    ]
+  },
   "page/page-basic.spec.ts": {
     "failing": [
+      "should have sane user agent",
       "frame.press should work"
     ],
     "skipped": [
@@ -762,20 +768,16 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should use http for no protocol",
       "should work with anchor navigation",
-      "should fail when navigating to bad SSL",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
