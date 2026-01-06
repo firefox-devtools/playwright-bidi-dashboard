@@ -258,7 +258,6 @@
     "failing": [
       "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
-      "downloads path > should report downloads in downloadsPath folder with a relative path",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
     ]
@@ -330,6 +329,11 @@
       "should support touch points in touch event arguments"
     ]
   },
+  "library/locator-generator.spec.ts": {
+    "failing": [
+      " > reverse engineer internal:has-text locators"
+    ]
+  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -350,11 +354,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should tick before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -648,7 +647,6 @@
   },
   "page/page-basic.spec.ts": {
     "failing": [
-      "should have sane user agent",
       "frame.press should work"
     ],
     "skipped": [
@@ -769,6 +767,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -777,7 +776,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
