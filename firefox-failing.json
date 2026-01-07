@@ -329,11 +329,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -354,6 +349,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should tick after popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -463,6 +463,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -640,11 +641,6 @@
       "should throw when added with content to the CSP page"
     ]
   },
-  "page/page-aria-snapshot-ai.spec.ts": {
-    "failing": [
-      "return empty snapshot when iframe is not loaded"
-    ]
-  },
   "page/page-basic.spec.ts": {
     "failing": [
       "frame.press should work"
@@ -766,8 +762,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with file URL with subframes",
       "should work with anchor navigation",
-      "should work with subframes return 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -776,8 +772,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -895,7 +890,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
