@@ -329,6 +329,11 @@
       "should support touch points in touch event arguments"
     ]
   },
+  "library/locator-generator.spec.ts": {
+    "failing": [
+      " > reverse engineer internal:has-text locators"
+    ]
+  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -349,11 +354,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should tick after popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -581,6 +581,11 @@
       "should work in iframes that failed initial navigation"
     ]
   },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
+    ]
+  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should send \"framenavigated\" when navigating on anchor URLs",
@@ -762,8 +767,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with file URL with subframes",
       "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -890,8 +895,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
