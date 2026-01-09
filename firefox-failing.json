@@ -90,6 +90,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -148,6 +149,7 @@
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
       "run-server > should saveAs videos from remote browser",
+      "run-server > should be able to connect 20 times to a single server without warnings",
       "run-server > should save download"
     ],
     "skipped": [
@@ -329,11 +331,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -354,6 +351,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -401,6 +403,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -415,6 +418,7 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -818,7 +822,6 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
-      "should wait until response completes",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should report if request was fromServiceWorker",
@@ -914,6 +917,11 @@
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
       "should wait for load state of empty url popup"
+    ]
+  },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for detached"
     ]
   },
   "page/selectors-react.spec.ts": {
