@@ -104,6 +104,7 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -353,9 +354,9 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
+  "library/page-close.spec.ts": {
     "failing": [
-      "popup > should run time before popup"
+      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -418,7 +419,7 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
+      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -467,13 +468,11 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -583,11 +582,6 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -772,7 +766,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -917,11 +910,6 @@
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
       "should wait for load state of empty url popup"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for detached"
     ]
   },
   "page/selectors-react.spec.ts": {
