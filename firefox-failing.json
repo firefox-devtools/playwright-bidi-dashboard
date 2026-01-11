@@ -90,7 +90,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -104,7 +103,6 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -178,6 +176,7 @@
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
+      "should reject all promises when browser is closed",
       "should reject if launched browser fails immediately"
     ]
   },
@@ -232,6 +231,7 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
+      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -259,7 +259,6 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
-      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -354,11 +353,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -419,6 +413,7 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
       "axe-core implicit-role",
       "axe-core accessible-text"
     ]
@@ -468,11 +463,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -768,13 +765,15 @@
       "should work with anchor navigation",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -905,6 +904,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
