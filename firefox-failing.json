@@ -176,7 +176,6 @@
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
-      "should reject all promises when browser is closed",
       "should reject if launched browser fails immediately"
     ]
   },
@@ -202,6 +201,7 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
+      "context.cookies() should work @smoke",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -231,7 +231,6 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
-      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -259,6 +258,7 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
+      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -331,6 +331,11 @@
       "should support touch points in touch event arguments"
     ]
   },
+  "library/locator-generator.spec.ts": {
+    "failing": [
+      " > reverse engineer internal:has-text locators"
+    ]
+  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -351,6 +356,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -397,8 +407,8 @@
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
+      "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -414,7 +424,6 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -438,6 +447,7 @@
   },
   "library/selector-generator.spec.ts": {
     "failing": [
+      "selector generator > should prefer button over inner span",
       "selector generator > should work in dynamic iframes without navigation"
     ]
   },
@@ -717,6 +727,11 @@
       "should format the message correctly with time/timeLog/timeEnd"
     ]
   },
+  "page/page-event-network.spec.ts": {
+    "failing": [
+      "Page.Events.RequestFailed @smoke"
+    ]
+  },
   "page/page-event-request.spec.ts": {
     "failing": [
       "should report requests and responses handled by service worker",
@@ -765,8 +780,7 @@
       "should work with anchor navigation",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
@@ -897,6 +911,9 @@
     ]
   },
   "page/page-set-content.spec.ts": {
+    "failing": [
+      "content() should throw nice error during navigation"
+    ],
     "skipped": [
       "should handle timeout properly"
     ]
@@ -906,14 +923,14 @@
       "should upload a folder"
     ]
   },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
-    ]
-  },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
       "should wait for load state of empty url popup"
+    ]
+  },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for detached"
     ]
   },
   "page/selectors-react.spec.ts": {
