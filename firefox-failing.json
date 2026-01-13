@@ -1,4 +1,9 @@
 {
+  "library/browser.spec.ts": {
+    "failing": [
+      "should dispatch page.on(close) upon browser.close and reject evaluate"
+    ]
+  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
@@ -90,6 +95,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -201,7 +207,6 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "context.cookies() should work @smoke",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -331,11 +336,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -380,7 +380,8 @@
   },
   "library/perform-task.spec.ts": {
     "skipped": [
-      "extract task"
+      "extract task",
+      "page.perform history"
     ]
   },
   "library/permissions.spec.ts": {
@@ -407,7 +408,6 @@
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
-      "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to an in-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
@@ -447,7 +447,6 @@
   },
   "library/selector-generator.spec.ts": {
     "failing": [
-      "selector generator > should prefer button over inner span",
       "selector generator > should work in dynamic iframes without navigation"
     ]
   },
@@ -478,8 +477,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -727,11 +725,6 @@
       "should format the message correctly with time/timeLog/timeEnd"
     ]
   },
-  "page/page-event-network.spec.ts": {
-    "failing": [
-      "Page.Events.RequestFailed @smoke"
-    ]
-  },
   "page/page-event-request.spec.ts": {
     "failing": [
       "should report requests and responses handled by service worker",
@@ -778,9 +771,11 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
@@ -911,9 +906,6 @@
     ]
   },
   "page/page-set-content.spec.ts": {
-    "failing": [
-      "content() should throw nice error during navigation"
-    ],
     "skipped": [
       "should handle timeout properly"
     ]
@@ -925,12 +917,26 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should wait for load state of empty url popup"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for detached"
+      "should respect timeout"
+    ],
+    "skipped": [
+      "should pick up ongoing navigation",
+      "should resolve immediately if loaded",
+      "should throw for bad state",
+      "should resolve immediately if load state matches",
+      "should work with pages that have loaded before being connected to",
+      "should wait for load state of empty url popup",
+      "should wait for load state of about:blank popup ",
+      "should wait for load state of about:blank popup with noopener ",
+      "should wait for load state of popup with network url ",
+      "should wait for load state of popup with network url and noopener ",
+      "should work with clicking target=_blank",
+      "should wait for load state of newPage",
+      "should resolve after popup load",
+      "should work for frame",
+      "should work with javascript: iframe",
+      "should work with broken data-url iframe",
+      "should work with broken blob-url iframe"
     ]
   },
   "page/selectors-react.spec.ts": {

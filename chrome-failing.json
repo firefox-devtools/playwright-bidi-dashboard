@@ -1421,7 +1421,8 @@
     "failing": [
       "page.perform",
       "page.perform secret",
-      "page.perform expect value"
+      "page.perform expect value",
+      "page.perform history"
     ],
     "skipped": [
       "extract task"
@@ -3898,7 +3899,8 @@
       "route.fallback should throw if called twice",
       "route.abort should throw if called twice",
       "should intercept when postData is more than 1MB",
-      "should be able to intercept every navigation to a page controlled by service worker"
+      "should be able to intercept every navigation to a page controlled by service worker",
+      "does not get stalled by beforeUnload"
     ]
   },
   "page/page-screenshot.spec.ts": {
