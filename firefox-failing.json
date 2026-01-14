@@ -1,9 +1,4 @@
 {
-  "library/browser.spec.ts": {
-    "failing": [
-      "should dispatch page.on(close) upon browser.close and reject evaluate"
-    ]
-  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
@@ -95,7 +90,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -358,11 +352,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -404,7 +393,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
@@ -423,7 +411,6 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -472,12 +459,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -575,7 +562,8 @@
   },
   "page/expect-misc.spec.ts": {
     "failing": [
-      "strict mode violation error format"
+      "strict mode violation error format",
+      "toHaveCSS > pass with CSSPProperties object with vendor-prefixed properties"
     ]
   },
   "page/frame-evaluate.spec.ts": {
@@ -774,15 +762,13 @@
       "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -809,7 +795,6 @@
       "should return postData",
       "should work with binary post data",
       "should work with binary post data and interception",
-      "should override post data content type",
       "should parse the json post data",
       "should parse the data if content-type is application/x-www-form-urlencoded",
       "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
@@ -839,36 +824,17 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "should amend HTTP headers",
-      "should not allow to override unsafe HTTP headers",
-      "should delete header with undefined value",
       "should not throw if request was cancelled by the page",
-      "should work with Cross-Origin-Opener-Policy",
-      "should delete the origin header",
-      "should continue preload link requests",
       "should respect set-cookie in redirect response",
-      "continue should not propagate cookie override to redirects",
-      "continue should not override cookie",
-      "redirect after continue should be able to delete cookie",
-      "continue should propagate headers to redirects",
       "continue should drop content-length on redirects",
       "redirected requests should report overridden headers",
-      "continue should delete headers on redirects",
       "propagate headers cross origin redirect after interception",
-      "should not forward Host header on cross-origin redirect",
-      "post data > should compute content-length from post data"
-    ]
-  },
-  "page/page-request-fallback.spec.ts": {
-    "failing": [
-      "should amend HTTP headers",
-      "should delete header with undefined value"
+      "should not forward Host header on cross-origin redirect"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
     "failing": [
       "should not throw if request was cancelled by the page",
-      "should not modify the headers sent to the server",
       "should fulfill with gzip and readback"
     ]
   },
@@ -885,8 +851,6 @@
   },
   "page/page-route.spec.ts": {
     "failing": [
-      "should be able to remove headers",
-      "should not override cookie header",
       "should be abortable with custom error codes",
       "should not throw if request was cancelled by the page",
       "should intercept when postData is more than 1MB"

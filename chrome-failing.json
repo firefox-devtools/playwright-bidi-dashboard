@@ -2342,13 +2342,17 @@
       "toHaveAttribute > should match attribute without value",
       "toHaveAttribute > should support boolean attribute with options",
       "toHaveAttribute > support ignoreCase",
-      "toHaveCSS > pass",
-      "toHaveCSS > custom css properties",
       "toHaveId > pass",
       "toBeInViewport > should work",
       "toBeInViewport > should respect ratio option",
       "toBeInViewport > should have good stack",
-      "toBeInViewport > should report intersection even if fully covered by other element"
+      "toBeInViewport > should report intersection even if fully covered by other element",
+      "toHaveCSS > pass with css property",
+      "toHaveCSS > pass with custom css property",
+      "toHaveCSS > pass with CSSPProperties object",
+      "toHaveCSS > pass with CSSPProperties object with camelCased properties",
+      "toHaveCSS > pass with CSSPProperties object with vendor-prefixed properties",
+      "toHaveCSS > pass with CSSPProperties object with custom properties"
     ]
   },
   "page/expect-timeout.spec.ts": {
@@ -3746,7 +3750,6 @@
       "should override method along with url",
       "should amend method on main request",
       "should work with Cross-Origin-Opener-Policy",
-      "should delete the origin header",
       "should continue preload link requests",
       "should respect set-cookie in redirect response",
       "continue should not propagate cookie override to redirects",
@@ -3769,7 +3772,8 @@
       "post data > should amend utf8 post data",
       "post data > should amend longer post data",
       "post data > should amend binary post data",
-      "post data > should use content-type from original request"
+      "post data > should use content-type from original request",
+      "should not delete the origin header"
     ]
   },
   "page/page-request-fallback.spec.ts": {
