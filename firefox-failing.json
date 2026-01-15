@@ -203,6 +203,7 @@
     "failing": [
       "should support bypassCSP option",
       "should support javascriptEnabled option",
+      "should support httpCredentials option",
       "should support acceptDownloads option"
     ]
   },
@@ -352,6 +353,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -369,8 +375,7 @@
   },
   "library/perform-task.spec.ts": {
     "skipped": [
-      "extract task",
-      "page.perform history"
+      "extract task"
     ]
   },
   "library/permissions.spec.ts": {
@@ -411,10 +416,15 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -459,12 +469,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -758,11 +768,12 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with file URL with subframes",
       "should work with anchor navigation",
-      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
@@ -863,6 +874,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
+      "page screenshot > should take fullPage screenshots during navigation",
       "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [

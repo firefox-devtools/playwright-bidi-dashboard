@@ -3064,7 +3064,10 @@
       "should set PointerEvent.pressure on pointermove",
       "should click into shadow root with slotted div",
       "should click shadow root button",
-      "should click with tweened mouse movement"
+      "should click with tweened mouse movement",
+      "should not wait with noAutoWaiting",
+      "should not wait with noAutoWaiting 2",
+      "should not wait with noAutoWaiting 3"
     ]
   },
   "page/page-dialog.spec.ts": {
