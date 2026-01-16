@@ -90,6 +90,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -174,11 +175,6 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
-  "library/browsertype-launch.spec.ts": {
-    "failing": [
-      "should reject if launched browser fails immediately"
-    ]
-  },
   "library/capabilities.spec.ts": {
     "skipped": [
       "should play video @smoke",
@@ -203,7 +199,6 @@
     "failing": [
       "should support bypassCSP option",
       "should support javascriptEnabled option",
-      "should support httpCredentials option",
       "should support acceptDownloads option"
     ]
   },
@@ -214,7 +209,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support geolocation and permissions options",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -284,15 +278,6 @@
       "should support custom firefox policies"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should work @smoke",
-      "should isolate contexts",
-      "should use context options",
-      "watchPosition should be notified",
-      "should use context options for popup"
-    ]
-  },
   "library/har.spec.ts": {
     "failing": [
       "should include postData",
@@ -319,11 +304,6 @@
   "library/hit-target.spec.ts": {
     "failing": [
       "should detect overlaid element in a transformed iframe"
-    ]
-  },
-  "library/launcher.spec.ts": {
-    "failing": [
-      "should throw a friendly error if its headed and there is no xserver on linux running"
     ]
   },
   "library/locator-dispatchevent-touch.spec.ts": {
@@ -353,11 +333,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -373,20 +348,11 @@
       "should be able to generate outline"
     ]
   },
-  "library/perform-task.spec.ts": {
-    "skipped": [
-      "extract task"
-    ]
-  },
   "library/permissions.spec.ts": {
     "failing": [
       "should support clipboard read",
       "permissions > should deny permission when not listed",
       "permissions > should fail when bad permission is given",
-      "permissions > should accumulate when adding",
-      "permissions > should clear permissions",
-      "permissions > should grant permission when listed for all domains",
-      "permissions > should grant permission when creating context",
       "permissions > should trigger permission onchange",
       "permissions > should isolate permissions between browser contexts",
       "local network request is allowed from public origin"
@@ -417,14 +383,10 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -773,7 +735,7 @@
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
@@ -874,8 +836,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot > should take fullPage screenshots during navigation",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"

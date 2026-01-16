@@ -1,4 +1,25 @@
 {
+  "library/agent-expect.spec.ts": {
+    "failing": [
+      "expectVisible not found error",
+      "expectVisible not visible error",
+      "not expectVisible visible error",
+      "expectChecked not checked error",
+      "expectValue wrong value error",
+      "expectAria wrong snapshot error"
+    ]
+  },
+  "library/agent-perform.spec.ts": {
+    "failing": [
+      "click a button",
+      "retrieve a secret",
+      "extract task",
+      "expect value",
+      "perform history",
+      "perform run timeout",
+      "invalid cache file throws error"
+    ]
+  },
   "library/beforeunload.spec.ts": {
     "failing": [
       "should close browser with beforeunload page",
@@ -751,7 +772,6 @@
   "library/browsertype-launch.spec.ts": {
     "failing": [
       "should reject all promises when browser is closed",
-      "should reject if launched browser fails immediately",
       "should handle timeout",
       "should handle exception",
       "should report launch log",
@@ -1415,17 +1435,6 @@
     "failing": [
       "should be able to save file",
       "should be able to generate outline"
-    ]
-  },
-  "library/perform-task.spec.ts": {
-    "failing": [
-      "page.perform",
-      "page.perform secret",
-      "page.perform expect value",
-      "page.perform history"
-    ],
-    "skipped": [
-      "extract task"
     ]
   },
   "library/permissions.spec.ts": {
