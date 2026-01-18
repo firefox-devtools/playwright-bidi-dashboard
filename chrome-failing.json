@@ -6,7 +6,20 @@
       "not expectVisible visible error",
       "expectChecked not checked error",
       "expectValue wrong value error",
-      "expectAria wrong snapshot error"
+      "expectAria wrong snapshot error",
+      "expect timeout during run",
+      "expect timeout during generate",
+      "expectURL success",
+      "expectURL wrong URL error",
+      "expectURL with regex",
+      "expectURL with regex error"
+    ]
+  },
+  "library/agent-limits.spec.ts": {
+    "failing": [
+      "should respect total max tokens limit",
+      "should respect call max tokens limit",
+      "should respect max actions limit"
     ]
   },
   "library/agent-perform.spec.ts": {
@@ -17,7 +30,8 @@
       "expect value",
       "perform history",
       "perform run timeout",
-      "invalid cache file throws error"
+      "invalid cache file throws error",
+      "perform reports error"
     ]
   },
   "library/beforeunload.spec.ts": {
