@@ -103,7 +103,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -117,7 +116,6 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
-      "reuse connect > should reset serviceworker that hangs in importScripts",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -223,7 +221,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support locale option",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -240,7 +237,6 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
-      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -268,6 +264,7 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
+      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -382,9 +379,7 @@
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
-      "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -393,15 +388,13 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should use http proxy for websocket requests"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -450,13 +443,11 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -751,16 +742,17 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -873,21 +865,26 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should wait for load state of empty url popup"
-    ]
-  },
-  "page/page-wait-for-request.spec.ts": {
-    "failing": [
-      "should work with predicate"
+      "should respect timeout"
     ],
     "skipped": [
-      "should work",
-      "should respect timeout",
-      "should respect default timeout",
-      "should log the url",
-      "should work with no timeout",
-      "should work with url match",
-      "should work with url match regular expression from a different context"
+      "should pick up ongoing navigation",
+      "should resolve immediately if loaded",
+      "should throw for bad state",
+      "should resolve immediately if load state matches",
+      "should work with pages that have loaded before being connected to",
+      "should wait for load state of empty url popup",
+      "should wait for load state of about:blank popup ",
+      "should wait for load state of about:blank popup with noopener ",
+      "should wait for load state of popup with network url ",
+      "should wait for load state of popup with network url and noopener ",
+      "should work with clicking target=_blank",
+      "should wait for load state of newPage",
+      "should resolve after popup load",
+      "should work for frame",
+      "should work with javascript: iframe",
+      "should work with broken data-url iframe",
+      "should work with broken blob-url iframe"
     ]
   },
   "page/selectors-react.spec.ts": {
