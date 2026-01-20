@@ -1,12 +1,4 @@
 {
-  "library/agent-expect.spec.ts": {
-    "failing": [
-      "expectURL success",
-      "expectURL wrong URL error",
-      "expectURL with regex",
-      "expectURL with regex error"
-    ]
-  },
   "library/agent-limits.spec.ts": {
     "failing": [
       "should respect max actions limit"
@@ -380,6 +372,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -395,6 +388,7 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -447,7 +441,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -458,6 +453,7 @@
     "failing": [
       "should collect trace with resources, but no js",
       "should not include trace resources from the previous chunks",
+      "should survive browser.close with auto-created traces dir",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
@@ -545,8 +541,7 @@
   },
   "page/expect-misc.spec.ts": {
     "failing": [
-      "strict mode violation error format",
-      "toHaveCSS > pass with CSSPProperties object with vendor-prefixed properties"
+      "strict mode violation error format"
     ]
   },
   "page/frame-evaluate.spec.ts": {
@@ -741,8 +736,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with file URL with subframes",
       "should work with anchor navigation",
-      "should work with subframes return 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",

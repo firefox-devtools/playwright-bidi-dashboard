@@ -12,7 +12,9 @@
       "expectURL success",
       "expectURL wrong URL error",
       "expectURL with regex",
-      "expectURL with regex error"
+      "expectURL with regex error",
+      "expectTitle success",
+      "expectTitle wrong title error"
     ]
   },
   "library/agent-limits.spec.ts": {
