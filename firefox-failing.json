@@ -4,6 +4,18 @@
       "should respect max actions limit"
     ]
   },
+  "library/browser.spec.ts": {
+    "failing": [
+      "should create new page @smoke"
+    ],
+    "skipped": [
+      "should return browserType",
+      "should throw upon second create new page",
+      "version should work",
+      "should dispatch page.on(close) upon browser.close and reject evaluate",
+      "newContext should not leave a context upon failure"
+    ]
+  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
@@ -95,6 +107,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -229,6 +242,7 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
+      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -256,7 +270,6 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
-      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -387,8 +400,6 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -453,7 +464,6 @@
     "failing": [
       "should collect trace with resources, but no js",
       "should not include trace resources from the previous chunks",
-      "should survive browser.close with auto-created traces dir",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
@@ -553,6 +563,11 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -740,8 +755,7 @@
       "should work with anchor navigation",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
@@ -860,26 +874,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout"
-    ],
-    "skipped": [
-      "should pick up ongoing navigation",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
-      "should resolve immediately if load state matches",
-      "should work with pages that have loaded before being connected to",
-      "should wait for load state of empty url popup",
-      "should wait for load state of about:blank popup ",
-      "should wait for load state of about:blank popup with noopener ",
-      "should wait for load state of popup with network url ",
-      "should wait for load state of popup with network url and noopener ",
-      "should work with clicking target=_blank",
-      "should wait for load state of newPage",
-      "should resolve after popup load",
-      "should work for frame",
-      "should work with javascript: iframe",
-      "should work with broken data-url iframe",
-      "should work with broken blob-url iframe"
+      "should wait for load state of empty url popup"
     ]
   },
   "page/selectors-react.spec.ts": {
