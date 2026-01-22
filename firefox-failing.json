@@ -1,24 +1,47 @@
 {
+  "library/agent-expect.spec.ts": {
+    "failing": [
+      "expectURL success",
+      "expectURL wrong URL error"
+    ]
+  },
   "library/agent-limits.spec.ts": {
     "failing": [
       "should respect max actions limit"
     ]
   },
-  "library/browser.spec.ts": {
+  "library/agent-perform.spec.ts": {
     "failing": [
-      "should create new page @smoke"
-    ],
-    "skipped": [
-      "should return browserType",
-      "should throw upon second create new page",
-      "version should work",
-      "should dispatch page.on(close) upon browser.close and reject evaluate",
-      "newContext should not leave a context upon failure"
+      "expect value"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should set cookies with SameSite attribute and no secure attribute"
+      "should work with expires=-1"
+    ],
+    "skipped": [
+      "should work @smoke",
+      "should add cookies with empty value",
+      "should set cookies with SameSite attribute and no secure attribute",
+      "should roundtrip cookie",
+      "should send cookie header",
+      "should isolate cookies in browser contexts",
+      "should isolate session cookies",
+      "should isolate persistent cookies",
+      "should isolate send cookie header",
+      "should isolate cookies between launches",
+      "should set multiple cookies",
+      "should have |expires| set to |-1| for session cookies",
+      "should set cookie with reasonable defaults",
+      "should set a cookie with a path",
+      "should not set a cookie with blank page URL",
+      "should not set a cookie on a data URL page",
+      "should default to setting secure cookie for HTTPS websites",
+      "should be able to set unsecure cookie for HTTP website",
+      "should set a cookie on a different domain",
+      "should set cookies for a frame",
+      "should allow unnamed cookies",
+      "should set secure cookies on secure WebSocket"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -242,7 +265,6 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
-      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -270,6 +292,7 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
+      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -350,6 +373,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -385,7 +413,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -448,12 +475,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -563,11 +590,6 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -751,17 +773,18 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with file URL with subframes",
       "should work with anchor navigation",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -856,7 +879,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
