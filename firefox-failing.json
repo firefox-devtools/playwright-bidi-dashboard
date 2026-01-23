@@ -1,47 +1,24 @@
 {
-  "library/agent-expect.spec.ts": {
-    "failing": [
-      "expectURL success",
-      "expectURL wrong URL error"
-    ]
-  },
   "library/agent-limits.spec.ts": {
     "failing": [
       "should respect max actions limit"
     ]
   },
-  "library/agent-perform.spec.ts": {
+  "library/browser.spec.ts": {
     "failing": [
-      "expect value"
+      "should create new page @smoke"
+    ],
+    "skipped": [
+      "should return browserType",
+      "should throw upon second create new page",
+      "version should work",
+      "should dispatch page.on(close) upon browser.close and reject evaluate",
+      "newContext should not leave a context upon failure"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should work with expires=-1"
-    ],
-    "skipped": [
-      "should work @smoke",
-      "should add cookies with empty value",
-      "should set cookies with SameSite attribute and no secure attribute",
-      "should roundtrip cookie",
-      "should send cookie header",
-      "should isolate cookies in browser contexts",
-      "should isolate session cookies",
-      "should isolate persistent cookies",
-      "should isolate send cookie header",
-      "should isolate cookies between launches",
-      "should set multiple cookies",
-      "should have |expires| set to |-1| for session cookies",
-      "should set cookie with reasonable defaults",
-      "should set a cookie with a path",
-      "should not set a cookie with blank page URL",
-      "should not set a cookie on a data URL page",
-      "should default to setting secure cookie for HTTPS websites",
-      "should be able to set unsecure cookie for HTTP website",
-      "should set a cookie on a different domain",
-      "should set cookies for a frame",
-      "should allow unnamed cookies",
-      "should set secure cookies on secure WebSocket"
+      "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -130,7 +107,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -351,6 +327,11 @@
       "should support touch points in touch event arguments"
     ]
   },
+  "library/locator-generator.spec.ts": {
+    "failing": [
+      " > reverse engineer internal:has-text locators"
+    ]
+  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -373,9 +354,9 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
+  "library/page-close.spec.ts": {
     "failing": [
-      "popup > should run time before popup"
+      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -413,6 +394,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -421,6 +403,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should use SOCKS proxy for websocket requests"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -475,7 +460,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -672,7 +656,6 @@
       "should double click the button",
       "should click the button with fixed position inside an iframe",
       "should click in a transformed iframe",
-      "should click a button that is overlaid by a permission popup",
       "should click in a transformed iframe with force",
       "should click in a nested transformed iframe"
     ],
@@ -776,8 +759,7 @@
       "should work with anchor navigation",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
@@ -879,8 +861,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
