@@ -191,6 +191,11 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
+  "library/browsertype-launch.spec.ts": {
+    "failing": [
+      "should be callable twice"
+    ]
+  },
   "library/capabilities.spec.ts": {
     "skipped": [
       "should play video @smoke",
@@ -327,11 +332,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -352,11 +352,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -394,7 +389,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -403,15 +397,13 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should use SOCKS proxy for websocket requests"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -574,6 +566,11 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -757,6 +754,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -861,7 +859,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
