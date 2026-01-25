@@ -107,6 +107,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -193,7 +194,7 @@
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
-      "should be callable twice"
+      "should accept objects as options"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -230,6 +231,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should have default URL when launching browser",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -354,6 +356,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -389,6 +396,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -404,6 +412,8 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
+      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -625,6 +635,7 @@
   },
   "page/page-add-script-tag.spec.ts": {
     "failing": [
+      "should throw an error if no options are provided",
       "should throw when added with content to the CSP page"
     ]
   },
@@ -754,7 +765,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -763,8 +773,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -859,8 +868,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
