@@ -194,7 +194,7 @@
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
-      "should accept objects as options"
+      "should reject all promises when browser is closed"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -231,7 +231,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have default URL when launching browser",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -356,11 +355,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -396,7 +390,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -405,6 +398,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should use http proxy for websocket requests"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -412,8 +408,6 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
-      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -462,6 +456,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -578,11 +573,6 @@
       "should work in iframes that failed initial navigation"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should send \"framenavigated\" when navigating on anchor URLs",
@@ -635,7 +625,6 @@
   },
   "page/page-add-script-tag.spec.ts": {
     "failing": [
-      "should throw an error if no options are provided",
       "should throw when added with content to the CSP page"
     ]
   },
@@ -765,6 +754,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -868,7 +858,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
