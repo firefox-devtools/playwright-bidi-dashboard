@@ -192,14 +192,11 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
-  "library/browsertype-launch.spec.ts": {
-    "failing": [
-      "should reject all promises when browser is closed"
-    ]
-  },
   "library/capabilities.spec.ts": {
+    "failing": [
+      "should play video @smoke"
+    ],
     "skipped": [
-      "should play video @smoke",
       "should not crash on showDirectoryPicker",
       "webkit should define window.safari"
     ]
@@ -231,6 +228,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should accept userDataDir",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -242,7 +240,6 @@
     "failing": [
       "should be able to download a PDF file",
       "should be able to download a inline PDF file via response interception",
-      "should be able to download a inline PDF file via navigation",
       "should save to user-specified path",
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
@@ -268,6 +265,7 @@
       "download event > should emit download event from nested iframes"
     ],
     "skipped": [
+      "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
     ]
@@ -373,10 +371,6 @@
   "library/permissions.spec.ts": {
     "failing": [
       "should support clipboard read",
-      "permissions > should deny permission when not listed",
-      "permissions > should fail when bad permission is given",
-      "permissions > should trigger permission onchange",
-      "permissions > should isolate permissions between browser contexts",
       "local network request is allowed from public origin"
     ],
     "skipped": [
@@ -390,6 +384,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -398,9 +393,6 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should use http proxy for websocket requests"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -571,6 +563,11 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -746,7 +743,6 @@
   "page/page-focus.spec.ts": {
     "skipped": [
       "should traverse only form elements",
-      "clicking checkbox should activate it",
       "tab should cycle between single input and browser",
       "tab should cycle between document elements and browser"
     ]
@@ -754,7 +750,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -763,7 +758,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -858,8 +854,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -873,11 +868,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-load-state.spec.ts": {
-    "failing": [
-      "should wait for load state of empty url popup"
     ]
   },
   "page/selectors-react.spec.ts": {
