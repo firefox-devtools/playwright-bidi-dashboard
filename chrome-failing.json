@@ -598,7 +598,8 @@
       "should set local storage in third-party context",
       "should roundtrip local storage in third-party context",
       "should support IndexedDB",
-      "should support empty indexedDB"
+      "should support empty indexedDB",
+      "setStorageState should handle missing file"
     ]
   },
   "library/browsercontext-strict.spec.ts": {
@@ -902,7 +903,8 @@
       "should allow tracing over cdp session",
       "setInputFiles should preserve lastModified timestamp",
       "should not reuse utility worlds between two clients",
-      "setInputFiles should use local path when isLocal is set"
+      "setInputFiles should use local path when isLocal is set",
+      "should get title and URL of existing page"
     ],
     "skipped": [
       "emulate media should not be affected by second connectOverCDP"
@@ -1980,7 +1982,10 @@
       "screencast > should throw if browser dies",
       "screencast > should wait for video to finish if page was closed",
       "screencast > should not create video for internal pages",
-      "screencast > should work with video+trace"
+      "screencast > should work with video+trace",
+      "screencast > video.start/stop twice",
+      "screencast > should fail when recordVideo is set",
+      "screencast > should fail when another recording is in progress"
     ],
     "skipped": [
       "screencast > should capture full viewport",
@@ -4423,70 +4428,6 @@
       "chaining should work with large DOM @smoke"
     ]
   },
-  "page/selectors-react.spec.ts": {
-    "failing": [
-      "react15 > should work with single-root elements @smoke",
-      "react15 > should work with multi-root elements (fragments)",
-      "react15 > should not crash when there is no match",
-      "react15 > should compose",
-      "react15 > should query by props combinations",
-      "react15 > should exact match by props",
-      "react15 > should partially match by props",
-      "react15 > should support all string operators",
-      "react15 > should support regex",
-      "react15 > should support truthy querying",
-      "react15 > should support nested react trees",
-      "react15 > should work with react memo",
-      "react15 > should work with multiroot react",
-      "react15 > should work with multiroot react inside shadow DOM",
-      "react15 > should work with multiroot react after unmount",
-      "react16 > should work with single-root elements @smoke",
-      "react16 > should work with multi-root elements (fragments)",
-      "react16 > should not crash when there is no match",
-      "react16 > should compose",
-      "react16 > should query by props combinations",
-      "react16 > should exact match by props",
-      "react16 > should partially match by props",
-      "react16 > should support all string operators",
-      "react16 > should support regex",
-      "react16 > should support truthy querying",
-      "react16 > should support nested react trees",
-      "react16 > should work with react memo",
-      "react16 > should work with multiroot react",
-      "react16 > should work with multiroot react inside shadow DOM",
-      "react16 > should work with multiroot react after unmount",
-      "react17 > should work with single-root elements @smoke",
-      "react17 > should work with multi-root elements (fragments)",
-      "react17 > should not crash when there is no match",
-      "react17 > should compose",
-      "react17 > should query by props combinations",
-      "react17 > should exact match by props",
-      "react17 > should partially match by props",
-      "react17 > should support all string operators",
-      "react17 > should support regex",
-      "react17 > should support truthy querying",
-      "react17 > should support nested react trees",
-      "react17 > should work with react memo",
-      "react17 > should work with multiroot react",
-      "react17 > should work with multiroot react inside shadow DOM",
-      "react17 > should work with multiroot react after unmount",
-      "react18 > should work with single-root elements @smoke",
-      "react18 > should work with multi-root elements (fragments)",
-      "react18 > should not crash when there is no match",
-      "react18 > should compose",
-      "react18 > should query by props combinations",
-      "react18 > should exact match by props",
-      "react18 > should partially match by props",
-      "react18 > should support all string operators",
-      "react18 > should support regex",
-      "react18 > should support truthy querying",
-      "react18 > should support nested react trees",
-      "react18 > should work with react memo",
-      "react18 > should work with multiroot react",
-      "react18 > should work with multiroot react inside shadow DOM",
-      "react18 > should work with multiroot react after unmount"
-    ]
-  },
   "page/selectors-register.spec.ts": {
     "failing": [
       "textContent should be atomic",
@@ -4540,36 +4481,6 @@
       "should work with unpaired quotes when not at the start",
       "should work with paired quotes in the middle of selector",
       "hasText and internal:text should match full node text in strict mode"
-    ]
-  },
-  "page/selectors-vue.spec.ts": {
-    "failing": [
-      "vue2 > should work with single-root elements @smoke",
-      "vue2 > should work with multi-root elements (fragments)",
-      "vue2 > should not crash when there is no match",
-      "vue2 > should compose",
-      "vue2 > should query by props combinations",
-      "vue2 > should exact match by props",
-      "vue2 > should partially match by props",
-      "vue2 > should support all string operators",
-      "vue2 > should support regex",
-      "vue2 > should support truthy querying",
-      "vue2 > should support nested vue trees",
-      "vue2 > should work with multiroot react",
-      "vue2 > should work with multiroot vue inside shadow DOM",
-      "vue3 > should work with single-root elements @smoke",
-      "vue3 > should work with multi-root elements (fragments)",
-      "vue3 > should not crash when there is no match",
-      "vue3 > should compose",
-      "vue3 > should query by props combinations",
-      "vue3 > should exact match by props",
-      "vue3 > should partially match by props",
-      "vue3 > should support all string operators",
-      "vue3 > should support regex",
-      "vue3 > should support truthy querying",
-      "vue3 > should support nested vue trees",
-      "vue3 > should work with multiroot react",
-      "vue3 > should work with multiroot vue inside shadow DOM"
     ]
   },
   "page/to-match-aria-snapshot.spec.ts": {

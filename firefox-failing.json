@@ -228,7 +228,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should accept userDataDir",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -384,7 +383,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -400,6 +398,7 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -463,7 +462,6 @@
   "library/tracing.spec.ts": {
     "failing": [
       "should collect trace with resources, but no js",
-      "should not include trace resources from the previous chunks",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
@@ -492,7 +490,9 @@
       "screencast > should wait for video to finish if page was closed",
       "screencast > should capture full viewport",
       "screencast > should capture full viewport on hidpi",
-      "screencast > should work with video+trace"
+      "screencast > should work with video+trace",
+      "screencast > video.start/stop twice",
+      "screencast > should fail when recordVideo is set"
     ],
     "skipped": [
       "screencast > should work for popups",
@@ -563,11 +563,6 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -750,16 +745,17 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -868,18 +864,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/selectors-react.spec.ts": {
-    "skipped": [
-      "react15 > should work with multi-root elements (fragments)",
-      "react15 > should work with react memo",
-      "react16 > should work with react memo"
-    ]
-  },
-  "page/selectors-vue.spec.ts": {
-    "skipped": [
-      "vue2 > should work with multi-root elements (fragments)"
     ]
   },
   "page/wheel.spec.ts": {
