@@ -1,24 +1,24 @@
 {
-  "library/agent-limits.spec.ts": {
+  "library/agent-perform.spec.ts": {
     "failing": [
-      "should respect max actions limit"
-    ]
-  },
-  "library/browser.spec.ts": {
-    "failing": [
-      "should create new page @smoke"
-    ],
-    "skipped": [
-      "should return browserType",
-      "should throw upon second create new page",
-      "version should work",
-      "should dispatch page.on(close) upon browser.close and reject evaluate",
-      "newContext should not leave a context upon failure"
+      "retrieve a secret"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
+    ]
+  },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "should work without navigation, after all bindings"
+    ],
+    "skipped": [
+      "should work with browser context scripts @smoke",
+      "should work without navigation in popup",
+      "should work with browser context scripts with a path",
+      "should work with browser context scripts for already created pages",
+      "init script should run only once in popup"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -122,6 +122,7 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should reset tracing",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -383,6 +384,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -398,7 +400,6 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -452,7 +453,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -749,7 +751,7 @@
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
@@ -812,11 +814,7 @@
   "page/page-request-continue.spec.ts": {
     "failing": [
       "should not throw if request was cancelled by the page",
-      "should respect set-cookie in redirect response",
-      "continue should drop content-length on redirects",
-      "redirected requests should report overridden headers",
-      "propagate headers cross origin redirect after interception",
-      "should not forward Host header on cross-origin redirect"
+      "continue should drop content-length on redirects"
     ]
   },
   "page/page-request-fulfill.spec.ts": {

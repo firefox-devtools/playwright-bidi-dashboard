@@ -2386,7 +2386,11 @@
       "toBeInViewport > should work",
       "toBeInViewport > should respect ratio option",
       "toBeInViewport > should have good stack",
-      "toBeInViewport > should report intersection even if fully covered by other element"
+      "toBeInViewport > should report intersection even if fully covered by other element",
+      "toHaveCSS > fail with bad arguments",
+      "toHaveCSS > pass with object",
+      "toHaveCSS > does not support custom properties inside object",
+      "toHaveCSS > fail with object"
     ]
   },
   "page/expect-timeout.spec.ts": {
