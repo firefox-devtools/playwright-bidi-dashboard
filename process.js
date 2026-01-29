@@ -79,6 +79,8 @@ function processArtifacts() {
     }
     fs.writeFileSync(`../gh-pages/${browser}-failing.json`, JSON.stringify(suites, null, 2));
   }
+
+  processFirefoxFailures();
 }
 
 function processPullRequestArtifacts(prNumber) {
@@ -139,6 +141,81 @@ function processPullRequestArtifact(data, filename) {
         results[suite.title][specPath].pullRequests[browser][prNumber] = RESULTS.indexOf(result);
       });
     }
+}
+
+function stripAnsiCodes(str) {
+  return str.replace(/\x1b\[[0-9;]*m/g, '');
+}
+
+function processFirefoxFailures() {
+  const failuresFile = "../gh-pages/firefox-failures.json";
+  let failures = {};
+  let lastProcessedDay = -1;
+
+  // Read existing failures file if it exists
+  if (fs.existsSync(failuresFile)) {
+    failures = JSON.parse(fs.readFileSync(failuresFile));
+    // Find the last processed day
+    for (const suiteTests of Object.values(failures)) {
+      for (const testErrors of Object.values(suiteTests)) {
+        for (const errorEntry of testErrors) {
+          const dateParts = errorEntry.date.split("-");
+          const dayIndex = getIndexForDate(dateParts);
+          lastProcessedDay = Math.max(lastProcessedDay, dayIndex);
+        }
+      }
+    }
+  }
+
+  // Process firefox zip files after lastProcessedDay
+  const firefoxFiles = fs.readdirSync("./data")
+    .filter(file => {
+      const parsed = parseFilename(file);
+      return parsed && parsed.browser === "firefox" && parsed.day > lastProcessedDay;
+    })
+    .sort((a, b) => parseFilename(a).day - parseFilename(b).day);
+
+  firefoxFiles.forEach(filename => {
+    console.log(`Processing failures from ${filename}`);
+
+    const report = readArtifact(`./data/${filename}`);
+    // Extract date from filename (e.g., "2025-09-25-firefox.zip" -> "2025-09-25")
+    const date = filename.substring(0, filename.length - 12);
+
+    for (const suite of report.suites) {
+      forEachSpec(suite, (spec, path) => {
+        const result = spec.tests[0].results[0];
+
+        if (result.status === "failed" || result.status === "timedOut") {
+          const errorText = result.error?.stack || result.error?.message || "Unknown error";
+          const error = stripAnsiCodes(errorText);
+
+          // Group by suite (top-level), then by spec path
+          const suiteName = suite.title;
+          const testName = [...path, spec.title].join(" > ");
+
+          if (!failures[suiteName]) {
+            failures[suiteName] = {};
+          }
+          if (!failures[suiteName][testName]) {
+            failures[suiteName][testName] = [];
+          }
+
+          failures[suiteName][testName].push({
+            date: date,
+            error: error
+          });
+
+          // Keep only last 5 failures per test
+          if (failures[suiteName][testName].length > 5) {
+            failures[suiteName][testName].shift();
+          }
+        }
+      });
+    }
+  });
+
+  fs.writeFileSync(failuresFile, JSON.stringify(failures, null, 2));
 }
 
 function forEachSpec(report, cb) {
