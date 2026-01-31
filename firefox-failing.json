@@ -447,7 +447,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -553,6 +552,9 @@
   "page/expect-misc.spec.ts": {
     "failing": [
       "strict mode violation error format"
+    ],
+    "skipped": [
+      "toHaveURL > support URLPattern"
     ]
   },
   "page/frame-evaluate.spec.ts": {
@@ -746,7 +748,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -755,8 +756,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -848,7 +848,7 @@
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -862,6 +862,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {

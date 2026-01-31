@@ -2390,7 +2390,8 @@
       "toHaveCSS > fail with bad arguments",
       "toHaveCSS > pass with object",
       "toHaveCSS > does not support custom properties inside object",
-      "toHaveCSS > fail with object"
+      "toHaveCSS > fail with object",
+      "toHaveURL > support URLPattern"
     ]
   },
   "page/expect-timeout.spec.ts": {
