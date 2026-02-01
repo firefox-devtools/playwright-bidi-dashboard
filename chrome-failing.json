@@ -1963,7 +1963,6 @@
       "screencast > should capture static page",
       "screencast > should continue recording main page after popup closes",
       "screencast > should expose video path",
-      "screencast > saveAs should throw when no video frames",
       "screencast > should delete video",
       "screencast > should expose video path blank page",
       "screencast > should work with weird screen resolution",
@@ -1984,8 +1983,11 @@
       "screencast > should not create video for internal pages",
       "screencast > should work with video+trace",
       "screencast > video.start/stop twice",
-      "screencast > should fail when recordVideo is set",
-      "screencast > should fail when another recording is in progress"
+      "screencast > video.start should fail when recordVideo is set, but stop should work",
+      "screencast > video.start should fail when another recording is in progress",
+      "screencast > video.stop should fail when no recording is in progress",
+      "screencast > video.start should finish when page is closed",
+      "screencast > empty video"
     ],
     "skipped": [
       "screencast > should capture full viewport",
