@@ -24,9 +24,9 @@ function normalizeStatus(status) {
   if (status === 3) {
     return 2;
   }
-  // skipped (1) and undefined/null are considered the same (ignored)
-  if (status === 1 || status === undefined || status === null) {
-    return undefined;
+  // skipped (1) and undefined/null are considered the same
+  if (status === undefined || status === null) {
+    return 1;
   }
   return status;
 }
@@ -39,12 +39,10 @@ function countStatusChanges(specResults, browser, days) {
   let changeCount = 0;
   for (const day of days) {
     const currentStatus = normalizeStatus(specResults[browser][day]);
-    if (previousStatus !== undefined && currentStatus !== undefined && previousStatus !== currentStatus) {
+    if (previousStatus !== undefined && previousStatus !== currentStatus) {
       changeCount++;
     }
-    if (currentStatus !== undefined) {
-      previousStatus = currentStatus;
-    }
+    previousStatus = currentStatus;
   }
   return changeCount;
 }
