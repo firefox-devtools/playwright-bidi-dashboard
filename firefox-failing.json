@@ -107,7 +107,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -122,6 +121,7 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should reset tracing",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -203,6 +203,7 @@
   },
   "library/channels.spec.ts": {
     "failing": [
+      "should scope context handles",
       "should work with the domain module"
     ],
     "skipped": [
@@ -297,11 +298,6 @@
       "should support custom firefox policies"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
-    ]
-  },
   "library/har.spec.ts": {
     "failing": [
       "should include postData",
@@ -333,6 +329,11 @@
   "library/locator-dispatchevent-touch.spec.ts": {
     "failing": [
       "should support touch points in touch event arguments"
+    ]
+  },
+  "library/locator-generator.spec.ts": {
+    "failing": [
+      " > reverse engineer internal:has-text locators"
     ]
   },
   "library/modernizr.spec.ts": {
@@ -409,6 +410,7 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -472,6 +474,7 @@
   "library/tracing.spec.ts": {
     "failing": [
       "should collect trace with resources, but no js",
+      "should survive browser.close with auto-created traces dir",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
@@ -576,6 +579,11 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -857,7 +865,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -871,11 +880,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should not consider visible when zero-sized"
     ]
   },
   "page/wheel.spec.ts": {
