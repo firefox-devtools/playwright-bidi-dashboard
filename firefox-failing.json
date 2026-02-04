@@ -121,7 +121,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
-      "reuse connect > should reset tracing",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -203,7 +202,6 @@
   },
   "library/channels.spec.ts": {
     "failing": [
-      "should scope context handles",
       "should work with the domain module"
     ],
     "skipped": [
@@ -213,6 +211,11 @@
   "library/client-certificates.spec.ts": {
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
+    ]
+  },
+  "library/debug-controller.spec.ts": {
+    "failing": [
+      "should pick element"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -331,11 +334,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/locator-generator.spec.ts": {
-    "failing": [
-      " > reverse engineer internal:has-text locators"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -356,11 +354,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -394,7 +387,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -410,11 +402,13 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -463,8 +457,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -474,7 +467,6 @@
   "library/tracing.spec.ts": {
     "failing": [
       "should collect trace with resources, but no js",
-      "should survive browser.close with auto-created traces dir",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
@@ -648,6 +640,7 @@
   },
   "page/page-basic.spec.ts": {
     "failing": [
+      "page.frame should respect url",
       "frame.press should work"
     ],
     "skipped": [
@@ -766,9 +759,11 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
@@ -840,11 +835,6 @@
       "should fulfill with gzip and readback"
     ]
   },
-  "page/page-request-gc.spec.ts": {
-    "failing": [
-      "should work"
-    ]
-  },
   "page/page-request-intercept.spec.ts": {
     "failing": [
       "should intercept multipart/form-data request body",
@@ -865,8 +855,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -880,6 +869,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
