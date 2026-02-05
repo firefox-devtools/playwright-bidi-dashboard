@@ -35,16 +35,12 @@
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
-      "third party non-partitioned cookies",
       "save/load third party non-partitioned cookies",
-      "third party 'Partitioned;' cookies",
-      "add 'Partitioned;' cookie via API",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
-      "top level 'Partitioned;' cookie and same origin iframe",
-      "should be able to send third party cookies via an iframe"
+      "save/load third party 'Partitioned;' cookies",
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
     ],
     "skipped": [
-      "save/load third party 'Partitioned;' cookies"
+      "should be able to send third party cookies via an iframe"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
@@ -100,6 +96,7 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
+      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -107,6 +104,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -213,11 +211,6 @@
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
-  "library/debug-controller.spec.ts": {
-    "failing": [
-      "should pick element"
-    ]
-  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
@@ -232,6 +225,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should support timezoneId option",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -356,6 +350,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -387,6 +386,7 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -453,11 +453,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -573,11 +575,6 @@
       "should work in iframes that failed initial navigation"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should send \"framenavigated\" when navigating on anchor URLs",
@@ -640,7 +637,6 @@
   },
   "page/page-basic.spec.ts": {
     "failing": [
-      "page.frame should respect url",
       "frame.press should work"
     ],
     "skipped": [
@@ -762,8 +758,7 @@
       "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
@@ -825,8 +820,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "should not throw if request was cancelled by the page",
-      "continue should drop content-length on redirects"
+      "should not throw if request was cancelled by the page"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
@@ -855,7 +849,9 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -869,11 +865,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
