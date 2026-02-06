@@ -6,19 +6,31 @@
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should set cookies with SameSite attribute and no secure attribute"
-    ]
-  },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "should work without navigation, after all bindings"
+      "should work with expires=-1"
     ],
     "skipped": [
-      "should work with browser context scripts @smoke",
-      "should work without navigation in popup",
-      "should work with browser context scripts with a path",
-      "should work with browser context scripts for already created pages",
-      "init script should run only once in popup"
+      "should work @smoke",
+      "should add cookies with empty value",
+      "should set cookies with SameSite attribute and no secure attribute",
+      "should roundtrip cookie",
+      "should send cookie header",
+      "should isolate cookies in browser contexts",
+      "should isolate session cookies",
+      "should isolate persistent cookies",
+      "should isolate send cookie header",
+      "should isolate cookies between launches",
+      "should set multiple cookies",
+      "should have |expires| set to |-1| for session cookies",
+      "should set cookie with reasonable defaults",
+      "should set a cookie with a path",
+      "should not set a cookie with blank page URL",
+      "should not set a cookie on a data URL page",
+      "should default to setting secure cookie for HTTPS websites",
+      "should be able to set unsecure cookie for HTTP website",
+      "should set a cookie on a different domain",
+      "should set cookies for a frame",
+      "should allow unnamed cookies",
+      "should set secure cookies on secure WebSocket"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -91,7 +103,7 @@
   },
   "library/browsercontext-locale.spec.ts": {
     "failing": [
-      "should format number in workers"
+      "should propagate locale to workers"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -104,7 +116,6 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -126,6 +137,11 @@
     "failing": [
       "should set local storage in third-party context",
       "should roundtrip local storage in third-party context"
+    ]
+  },
+  "library/browsercontext-timezone-id.spec.ts": {
+    "failing": [
+      "should propagate timezone to workers"
     ]
   },
   "library/browsercontext-user-agent.spec.ts": {
@@ -213,6 +229,7 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
+      "should support viewport option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -225,7 +242,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support timezoneId option",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -313,9 +329,23 @@
     ]
   },
   "library/headful.spec.ts": {
-    "failing": [
+    "skipped": [
+      "should have default url when launching browser @smoke",
+      "should close browser with beforeunload page",
+      "should close browsercontext with pending beforeunload dialog",
+      "should not crash when creating second context",
+      "should click when viewport size is larger than screen",
+      "should dispatch click events to oversized viewports",
+      "should click background tab",
+      "should close browser after context menu was triggered",
+      "should(not) block third party cookies",
+      "should not block third party SameSite=None cookies",
+      "should not override viewport size when passed null",
+      "Page.bringToFront should work",
       "should click in OOPIF",
-      "should click bottom row w/ infobar in OOPIF"
+      "should click bottom row w/ infobar in OOPIF",
+      "headless and headful should use same default fonts",
+      "should have the same hyphen rendering on headless and headed"
     ]
   },
   "library/hit-target.spec.ts": {
@@ -402,13 +432,11 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -755,7 +783,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should fail when server returns 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -849,9 +877,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
