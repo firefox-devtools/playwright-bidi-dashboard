@@ -6,31 +6,19 @@
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should work with expires=-1"
+      "should set cookies with SameSite attribute and no secure attribute"
+    ]
+  },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "should work without navigation, after all bindings"
     ],
     "skipped": [
-      "should work @smoke",
-      "should add cookies with empty value",
-      "should set cookies with SameSite attribute and no secure attribute",
-      "should roundtrip cookie",
-      "should send cookie header",
-      "should isolate cookies in browser contexts",
-      "should isolate session cookies",
-      "should isolate persistent cookies",
-      "should isolate send cookie header",
-      "should isolate cookies between launches",
-      "should set multiple cookies",
-      "should have |expires| set to |-1| for session cookies",
-      "should set cookie with reasonable defaults",
-      "should set a cookie with a path",
-      "should not set a cookie with blank page URL",
-      "should not set a cookie on a data URL page",
-      "should default to setting secure cookie for HTTPS websites",
-      "should be able to set unsecure cookie for HTTP website",
-      "should set a cookie on a different domain",
-      "should set cookies for a frame",
-      "should allow unnamed cookies",
-      "should set secure cookies on secure WebSocket"
+      "should work with browser context scripts @smoke",
+      "should work without navigation in popup",
+      "should work with browser context scripts with a path",
+      "should work with browser context scripts for already created pages",
+      "init script should run only once in popup"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -229,7 +217,6 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "should support viewport option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -380,9 +367,9 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
+  "library/page-clock.spec.ts": {
     "failing": [
-      "should not treat navigations as new popups"
+      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -432,7 +419,6 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -481,7 +467,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -783,7 +768,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -877,7 +861,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
