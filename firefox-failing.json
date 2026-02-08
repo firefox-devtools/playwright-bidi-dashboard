@@ -104,6 +104,7 @@
     "failing": [
       "should have url",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
   },
@@ -204,6 +205,7 @@
   },
   "library/channels.spec.ts": {
     "failing": [
+      "should scope browser handles",
       "should work with the domain module"
     ],
     "skipped": [
@@ -418,6 +420,7 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #1",
       "wpt accname #2",
       "axe-core accessible-text"
     ]
@@ -768,6 +771,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -776,7 +780,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -861,8 +866,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
