@@ -194,6 +194,16 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
+  "library/browsertype-launch-server.spec.ts": {
+    "failing": [
+      "launch server > should work with port"
+    ]
+  },
+  "library/browsertype-launch.spec.ts": {
+    "failing": [
+      "should accept objects as options"
+    ]
+  },
   "library/capabilities.spec.ts": {
     "failing": [
       "should play video @smoke"
@@ -369,9 +379,9 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
+  "library/page-close.spec.ts": {
     "failing": [
-      "popup > should run time before popup"
+      "should reject all promises when page is closed"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -405,7 +415,6 @@
       "should inherit touch support from browser context",
       "should inherit viewport size from browser context",
       "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should expose function from browser context",
       "should not dispatch binding on a closed page"
     ],
@@ -420,8 +429,8 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #1",
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -470,6 +479,7 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -485,6 +495,7 @@
   "library/tracing.spec.ts": {
     "failing": [
       "should collect trace with resources, but no js",
+      "should survive browser.close with auto-created traces dir",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale"
@@ -771,7 +782,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -780,8 +790,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -866,7 +875,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
