@@ -215,7 +215,13 @@ function processFirefoxFailures() {
     }
   });
 
-  fs.writeFileSync(failuresFile, JSON.stringify(failures, null, 2));
+  // Sort top-level properties alphabetically
+  const sortedFailures = {};
+  for (const key of Object.keys(failures).sort()) {
+    sortedFailures[key] = failures[key];
+  }
+
+  fs.writeFileSync(failuresFile, JSON.stringify(sortedFailures, null, 2));
 }
 
 function forEachSpec(report, cb) {
