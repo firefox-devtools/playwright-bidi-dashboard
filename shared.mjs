@@ -321,6 +321,11 @@ export const suiteNames = [
   "page/wheel.spec.ts",
   "page/workers.spec.ts",
   "page/network-request-body.spec.ts",
+  "page/perform-task.spec.ts",
+  "library/perform-task.spec.ts",
+  "library/agent-expect.spec.ts",
+  "library/agent-perform.spec.ts",
+  "library/agent-limits.spec.ts",
 ];
 
 export const disabledSuites = [
