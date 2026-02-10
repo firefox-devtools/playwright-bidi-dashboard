@@ -27,6 +27,9 @@ function processArtifacts() {
       }
       forEachSpec(suite, (spec, path) => {
         const specPath = [...path, spec.title].join(" > ");
+        if (!spec.tests[0].results[0]) {
+          return;
+        }
         const result = spec.tests[0].results[0].status;
         if (!results[suite.title][specPath]) {
           results[suite.title][specPath] = {};
@@ -186,7 +189,7 @@ function processFirefoxFailures() {
       forEachSpec(suite, (spec, path) => {
         const result = spec.tests[0].results[0];
 
-        if (result.status === "failed" || result.status === "timedOut") {
+        if (result && (result.status === "failed" || result.status === "timedOut")) {
           const errorText = result.error?.stack || result.error?.message || "Unknown error";
           const error = stripAnsiCodes(errorText);
 
