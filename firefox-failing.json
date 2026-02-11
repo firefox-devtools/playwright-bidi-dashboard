@@ -62,6 +62,13 @@
       "should bypass CSP in iframes as well"
     ]
   },
+  "library/browsercontext-devtools.spec.ts": {
+    "failing": [
+      "should close tab via close button",
+      "should show no-pages placeholder when all tabs are closed",
+      "should display screencast image"
+    ]
+  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles"
@@ -96,7 +103,6 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
-      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -229,7 +235,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have default URL when launching browser",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -408,24 +413,18 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should use proxy for second page"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #1",
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should emit close upon frame detach"
-    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -536,12 +535,34 @@
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
+      "should show only one pointer with multilevel iframes",
+      "should show a popover",
+      "should show a modal dialog",
+      "should open settings dialog",
+      "should toggle theme color",
+      "should toggle canvas rendering",
+      "should render blob trace received from message",
+      "shouldn't render not-blob trace received from message",
+      "should not trip over complex urls in style tags",
+      "should render locator descriptions",
+      "should load trace from HTTP with progress indicator",
+      "should filter actions",
+      "should survive service worker restart",
+      " > should handle failed snapshots due to dialog",
       "should open v6 trace file",
       "should filter network requests by multiple resource types",
       "should show snapshot URL and copy button",
       "should open uncompressed trace directory",
       "should syntax highlight body",
-      "should generate aria snapshot with unaltered urls"
+      "should generate aria snapshot with unaltered urls",
+      "should reflect system color scheme changes in document theme",
+      "should not navigate on anchor clicks",
+      "should respect CSSOM changes",
+      "should preserve custom doctype",
+      "should replace meta charset attr that specifies charset",
+      "should replace meta content attr that specifies charset",
+      "should capture iframe with srcdoc",
+      "take trace paths via stdin"
     ],
     "skipped": [
       "should handle src=blob",
@@ -837,7 +858,7 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should work with subframes return 204",
+      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -932,8 +953,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
