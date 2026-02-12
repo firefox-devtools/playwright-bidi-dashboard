@@ -4,6 +4,11 @@
       "retrieve a secret"
     ]
   },
+  "library/beforeunload.spec.ts": {
+    "failing": [
+      "should be able to navigate away from page with beforeunload"
+    ]
+  },
   "library/browser.spec.ts": {
     "failing": [
       "version should work"
@@ -13,6 +18,7 @@
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute",
       "should roundtrip cookie",
+      "should isolate persistent cookies",
       "should set cookie with reasonable defaults"
     ]
   },
@@ -55,7 +61,6 @@
     "failing": [
       "should get a cookie @smoke",
       "should get a non-session cookie",
-      "should properly report \"Strict\" sameSite cookie",
       "should get multiple cookies",
       "should parse cookie with large Max-Age correctly",
       "iframe should inherit cookies from parent"
@@ -86,10 +91,9 @@
   },
   "library/browsercontext-devtools.spec.ts": {
     "failing": [
-      "should show tab title after navigation",
+      "should switch active tab on click",
       "should close tab via close button",
       "should show no-pages placeholder when all tabs are closed",
-      "should update omnibox on navigation",
       "should display screencast image"
     ]
   },
@@ -117,7 +121,7 @@
   },
   "library/browsercontext-locale.spec.ts": {
     "failing": [
-      "should work for multiple pages sharing same process"
+      "should affect navigator.language in popups"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -145,11 +149,13 @@
   },
   "library/browsercontext-proxy.spec.ts": {
     "failing": [
+      "should use proxy twice",
       "should use proxy for https urls",
       "should authenticate",
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
+      "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -157,13 +163,17 @@
   },
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
+      "reuse launch > should reset serviceworker",
       "reuse launch > should not cache resources",
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
+      "reuse connect > should reset serviceworker that hangs in importScripts",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -255,9 +265,6 @@
     ]
   },
   "library/capabilities.spec.ts": {
-    "failing": [
-      "service worker should register in an iframe"
-    ],
     "skipped": [
       "webkit should define window.safari"
     ]
@@ -434,6 +441,11 @@
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
+  "library/debug-controller.spec.ts": {
+    "failing": [
+      "should pick element"
+    ]
+  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
@@ -526,7 +538,7 @@
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should focus popups by default",
-      "should change document.activeElement",
+      "should provide target for keyboard events",
       "should not affect screenshots"
     ]
   },
@@ -547,17 +559,15 @@
   },
   "library/har.spec.ts": {
     "failing": [
+      "should have browser",
       "should have pages in persistent context",
-      "should include query params",
       "should include postData",
       "should include binary postData",
       "should include form params",
       "should include set-cookies",
-      "should skip invalid Expires",
       "should include set-cookies with comma",
+      "should include secure set-cookies",
       "should include sizes",
-      "should calculate time",
-      "should return receive time",
       "should report the correct response body size when the bodySize is 0",
       "should have popup requests",
       "should have connection details",
@@ -565,8 +575,7 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response",
-      "should not hang on resources served from cache"
+      "should return security details directly from response"
     ],
     "skipped": [
       "should filter favicon and favicon redirects"
@@ -594,6 +603,9 @@
   },
   "library/hit-target.spec.ts": {
     "failing": [
+      "should not block programmatic events",
+      "should work with block inside inline in shadow dom",
+      "should click an element inside closed shadow root",
       "should detect overlaid element in a transformed iframe"
     ]
   },
@@ -619,6 +631,8 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should remove exposed bindings upon disconnect",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -665,12 +679,12 @@
   "library/permissions.spec.ts": {
     "failing": [
       "storage access",
-      " > should be able to use the local-fonts API",
       "local network request is allowed from public origin"
     ]
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit offline from browser context",
       "should inherit http credentials from browser context",
@@ -683,9 +697,9 @@
   },
   "library/proxy.spec.ts": {
     "failing": [
-      "should use proxy for second page",
       "should authenticate",
-      "should work with authenticate followed by redirect"
+      "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > loopback address"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -701,11 +715,6 @@
       "wpt accname #0",
       "wpt accname #1",
       "wpt accname #3"
-    ]
-  },
-  "library/route-web-socket.spec.ts": {
-    "failing": [
-      "should work without server"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -799,6 +808,11 @@
       "selector generator > should not use icon fonts aria name"
     ]
   },
+  "library/slowmo.spec.ts": {
+    "failing": [
+      "slowMo > Frame SlowMo uncheck"
+    ]
+  },
   "library/tap.spec.ts": {
     "failing": [
       "should send all of the correct events @smoke",
@@ -813,24 +827,52 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should open trace viewer on specific host",
-      "should complain about newer version of trace in old viewer",
-      "should render console",
-      "should open console errors on click",
-      "should have correct stack trace",
-      "should have network requests",
-      "should contain adopted style sheets",
-      "should restore scroll positions",
-      "should handle multiple headers",
-      "should highlight target elements",
-      "should not crash with broken locator",
-      "should open v6 trace file",
-      "should filter network requests by multiple resource types",
-      "should open uncompressed trace directory",
-      "should syntax highlight body"
+      "should show empty trace viewer"
     ],
     "skipped": [
+      "should open two trace viewers",
+      "should open trace viewer on specific host",
+      "should show tracing.group in the action list with location",
+      "should open simple trace viewer",
+      "should show action context on locators and other common actions",
+      "should complain about newer version of trace in old viewer",
+      "should properly synchronize local and remote time",
+      "should contain action info",
+      "should render network bars",
+      "should render console",
+      "should open console errors on click",
+      "should show params and return value",
+      "should show null as a param",
+      "should have correct snapshot size",
+      "should have correct stack trace",
+      "should have network requests",
+      "should filter network requests by resource type",
+      "should show font preview",
+      "should filter network requests by url",
+      "should have network request overrides",
+      "should have network request overrides 2",
+      "should popup snapshot",
+      "should capture iframe with sandbox attribute",
+      "should capture data-url svg iframe",
+      "should contain adopted style sheets",
+      "should work with adopted style sheets and replace/replaceSync",
       "should work with adopted style sheets and all: unset",
+      "should work with nesting CSS selectors",
+      "should restore scroll positions",
+      "should restore control values",
+      "should work with meta CSP",
+      "should handle multiple headers",
+      "should handle src=blob",
+      "should handle file URIs",
+      "should preserve currentSrc",
+      "should register custom elements",
+      "should highlight target elements",
+      "should highlight target element in shadow dom",
+      "should highlight expect failure",
+      "should show action source",
+      "should follow redirects",
+      "should include metainfo",
+      "should not crash with broken locator",
       "should serve overridden request",
       "should display waitForLoadState even if did not wait for it",
       "should display language-specific locators",
@@ -871,9 +913,15 @@
       "should filter actions",
       "should survive service worker restart",
       " > should handle failed snapshots due to dialog",
+      "should open v6 trace file",
+      "should filter network requests by multiple resource types",
+      "should show snapshot URL and copy button",
+      "should open uncompressed trace directory",
+      "should syntax highlight body",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
+      "empty adopted style sheets should not prevent node refs",
       "should respect CSSOM changes",
       "should preserve custom doctype",
       "should replace meta charset attr that specifies charset",
@@ -884,7 +932,8 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should collect trace with resources, but no js"
+      "should collect trace with resources, but no js",
+      "should respect tracesDir and name"
     ],
     "skipped": [
       "should produce screencast frames fit",
@@ -944,7 +993,6 @@
   },
   "page/elementhandle-bounding-box.spec.ts": {
     "failing": [
-      "should handle nested frames",
       "should return null for invisible elements"
     ]
   },
@@ -956,6 +1004,12 @@
   "page/elementhandle-content-frame.spec.ts": {
     "failing": [
       "should work for cross-frame evaluations"
+    ]
+  },
+  "page/elementhandle-owner-frame.spec.ts": {
+    "failing": [
+      "should work for detached elements",
+      "should work for adopted elements"
     ]
   },
   "page/elementhandle-query-selector.spec.ts": {
@@ -991,12 +1045,24 @@
     "failing": [
       "should dispose context on navigation",
       "should dispose context on cross-origin navigation",
+      "should not allow cross-frame js handles",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
     "skipped": [
       "should work in iframes that failed initial navigation",
       "should work in iframes that interrupted initial javascript url navigation"
+    ]
+  },
+  "page/frame-frame-element.spec.ts": {
+    "failing": [
+      "should work inside closed shadow root"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should reject when frame detaches",
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -1032,6 +1098,11 @@
       "should return page"
     ]
   },
+  "page/locator-misc-1.spec.ts": {
+    "failing": [
+      "should fill input when Node is removed"
+    ]
+  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
@@ -1047,14 +1118,10 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
-      "should work with toHaveScreenshot"
+      "should work with toHaveScreenshot",
+      "should removeLocatorHandler"
     ]
   },
   "page/page-add-script-tag.spec.ts": {
@@ -1062,26 +1129,30 @@
       "should throw when added with content to the CSP page"
     ]
   },
+  "page/page-add-style-tag.spec.ts": {
+    "failing": [
+      "should work with a url @smoke"
+    ]
+  },
   "page/page-aria-snapshot-ai.spec.ts": {
     "failing": [
-      "should stitch all frame snapshots",
-      "should auto-wait for navigation"
+      "should stitch all frame snapshots"
     ]
   },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
+      "should await cross-process navigation when clicking anchor",
       "should await form-get on click",
       "should await form-post on click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "clicking in the middle of navigation that aborts"
+      "assigning location to about:blank"
     ]
   },
   "page/page-basic.spec.ts": {
     "failing": [
-      "page.frame should respect url",
       "frame.press should work"
     ],
     "skipped": [
@@ -1100,9 +1171,9 @@
     "failing": [
       "should click button inside frameset",
       "should issue clicks in parallel in page and popup",
-      "should select the text by triple clicking",
-      "should scroll and click the button with smooth scroll behavior",
-      "should retry when navigating during the click",
+      "should waitFor visible when already visible",
+      "should fire contextmenu event on right click",
+      "trial run should not double click",
       "should not hang when frame is detached",
       "should click in a transformed iframe",
       "should click in a transformed iframe with force",
@@ -1117,7 +1188,7 @@
   },
   "page/page-dispatchevent.spec.ts": {
     "failing": [
-      "should dispatch absolute device orientation event"
+      "should throw if argument is from different frame"
     ]
   },
   "page/page-drag.spec.ts": {
@@ -1151,6 +1222,7 @@
   "page/page-evaluate.spec.ts": {
     "failing": [
       "should throw when evaluation triggers reload",
+      "should work right after a cross-origin navigation",
       "should throw for too deep reference chain",
       "should throw a nice error after a navigation"
     ]
@@ -1162,12 +1234,6 @@
       "should not throw when there are console messages in detached iframes"
     ]
   },
-  "page/page-event-load.spec.ts": {
-    "failing": [
-      "should fire once",
-      "should fire once with iframe navigation"
-    ]
-  },
   "page/page-event-network.spec.ts": {
     "skipped": [
       "should resolve responses after a navigation"
@@ -1175,14 +1241,13 @@
   },
   "page/page-event-pageerror.spec.ts": {
     "failing": [
-      "should contain sourceURL",
       "should handle object",
       "should handle window"
     ]
   },
   "page/page-event-popup.spec.ts": {
     "failing": [
-      "should work with clicking target=_blank and rel=noopener",
+      "should work with clicking target=_blank",
       "should report popup opened from iframes"
     ]
   },
@@ -1191,9 +1256,7 @@
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
-      "should fire requestfailed when intercepting race",
-      "should not expose preflight OPTIONS request",
-      "should not expose preflight OPTIONS request with network interception"
+      "should fire requestfailed when intercepting race"
     ],
     "skipped": [
       "should finish 204 request"
@@ -1205,10 +1268,16 @@
       "should work with busted Array.prototype.map/push"
     ]
   },
+  "page/page-filechooser.spec.ts": {
+    "failing": [
+      "should not throw when frame is detached immediately"
+    ]
+  },
   "page/page-fill.spec.ts": {
     "failing": [
       "should not double-fill in contenteditable with beforeinput handler in Firefox",
-      "should retry on invisible element"
+      "should be able to clear using fill()",
+      "should not throw when fill causes navigation"
     ]
   },
   "page/page-focus.spec.ts": {
@@ -1227,26 +1296,25 @@
       "should work with subframes return 204",
       "should work with subframes return 204 with domcontentloaded",
       "should fail when replaced by another navigation",
-      "should not leak listeners during navigation",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
       "should fail when canceled by another navigation",
-      "should work with lazy loading iframes"
+      "should work with lazy loading iframes",
+      "should not crash when RTCPeerConnection is used",
+      "should return when navigation is committed if commit is specified"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
-      "page.goBack should work @smoke",
       "goBack/goForward should work with bfcache-able pages",
-      "page.reload should work with same origin redirect",
+      "page.goForward during renderer-initiated navigation",
       "regression test for issue 20791",
       "should reload proper page"
     ]
   },
   "page/page-keyboard.spec.ts": {
     "failing": [
-      "should move with the arrow keys",
       "should send a character with insertText",
       "insertText should only emit input event",
       "should shift raw codes",
@@ -1265,7 +1333,6 @@
   },
   "page/page-network-idle.spec.ts": {
     "failing": [
-      "should wait for networkidle in setContent",
       "should wait for networkidle from the popup"
     ]
   },
@@ -1274,7 +1341,6 @@
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
-      "should not get preflight CORS requests when intercepting",
       "should return postData",
       "should work with binary post data",
       "should work with binary post data and interception",
@@ -1283,10 +1349,9 @@
       "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
       "should return multipart/form-data",
       "should return event source",
-      "should return navigation bit",
       "should report raw headers",
-      "should report raw response headers in redirects",
       "should not allow to access frame on popup main request",
+      "page.reload return 304 status code",
       "should handle mixed-content blocked requests"
     ]
   },
@@ -1295,11 +1360,10 @@
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
+      "should provide a Response with a file URL",
       "should return set-cookie header after route.fulfill",
       "should return headers after route.fulfill",
-      "should report if request was fromServiceWorker",
-      "should bypass disk cache when page interception is enabled",
-      "should bypass disk cache when context interception is enabled"
+      "should report if request was fromServiceWorker"
     ]
   },
   "page/page-network-sizes.spec.ts": {
@@ -1358,10 +1422,7 @@
       "should be abortable with custom error codes",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
-      "should not auto-intercept non-preflight OPTIONS with network interception",
-      "should support cors with POST",
-      "should support cors with credentials",
-      "should support cors for different methods",
+      "should not auto-intercept non-preflight OPTIONS without network interception",
       "should contain raw request header",
       "should intercept when postData is more than 1MB"
     ],
@@ -1371,12 +1432,17 @@
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
-      "page screenshot > should allow transparency",
-      "page screenshot > should work while navigating"
+      "page screenshot > should allow transparency"
+    ]
+  },
+  "page/page-select-option.spec.ts": {
+    "failing": [
+      "should not allow null items"
     ]
   },
   "page/page-set-extra-http-headers.spec.ts": {
     "failing": [
+      "should work with extra headers from browser context",
       "should not duplicate referer header"
     ]
   },
@@ -1391,18 +1457,25 @@
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
-      "should wait for load state of newPage"
+      "should work with clicking target=_blank",
+      "should wait for load state of newPage",
+      "should work for frame"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
     "failing": [
-      "should throw on waitFor",
       "should throw when frame is detached"
     ]
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should work when navigating before node adoption"
+    ]
+  },
+  "page/page-wait-for-url.spec.ts": {
+    "failing": [
+      "should work on frame"
     ]
   },
   "page/wheel.spec.ts": {
@@ -1414,7 +1487,6 @@
     "failing": [
       "should emit created and destroyed events",
       "should have JSHandles for console logs",
-      "should clear upon navigation",
       "should report network activity",
       "should report network activity on worker creation",
       "should report and intercept network from nested worker",

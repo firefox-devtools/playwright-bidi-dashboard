@@ -351,6 +351,11 @@
       "should support touch points in touch event arguments"
     ]
   },
+  "library/logger.spec.ts": {
+    "failing": [
+      "should log @smoke"
+    ]
+  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -371,6 +376,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -816,9 +826,7 @@
   "page/page-event-request.spec.ts": {
     "failing": [
       "should report requests and responses handled by service worker",
-      "should report requests and responses handled by service worker with routing",
-      "should not expose preflight OPTIONS request",
-      "should not expose preflight OPTIONS request with network interception"
+      "should report requests and responses handled by service worker with routing"
     ],
     "skipped": [
       "should fire requestfailed when intercepting race"
@@ -858,7 +866,6 @@
   "page/page-goto.spec.ts": {
     "failing": [
       "should work with anchor navigation",
-      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -867,8 +874,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -891,7 +897,6 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should not get preflight CORS requests when intercepting",
       "should return postData",
       "should work with binary post data",
       "should work with binary post data and interception",
