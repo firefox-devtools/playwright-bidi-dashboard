@@ -62,13 +62,6 @@
       "should bypass CSP in iframes as well"
     ]
   },
-  "library/browsercontext-devtools.spec.ts": {
-    "failing": [
-      "should close tab via close button",
-      "should show no-pages placeholder when all tabs are closed",
-      "should display screencast image"
-    ]
-  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles"
@@ -103,6 +96,7 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
+      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -125,6 +119,11 @@
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
+    ]
+  },
+  "library/browsercontext-service-worker-policy.spec.ts": {
+    "failing": [
+      "block > should not throw error on about:blank"
     ]
   },
   "library/browsercontext-storage-state.spec.ts": {
@@ -304,6 +303,11 @@
       "should support custom firefox policies"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har.spec.ts": {
     "failing": [
       "should include postData",
@@ -351,11 +355,6 @@
       "should support touch points in touch event arguments"
     ]
   },
-  "library/logger.spec.ts": {
-    "failing": [
-      "should log @smoke"
-    ]
-  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -364,7 +363,8 @@
   },
   "library/multiclient.spec.ts": {
     "failing": [
-      "last emulateMedia wins"
+      "last emulateMedia wins",
+      "should unroute websockets"
     ],
     "skipped": [
       "should not allow parallel js coverage and cleanup upon disconnect",
@@ -376,11 +376,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -412,11 +407,8 @@
     "failing": [
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
-      "should inherit viewport size from browser context",
-      "BrowserContext.addInitScript should apply to an in-process popup",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
-      "should expose function from browser context",
-      "should not dispatch binding on a closed page"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -430,11 +422,13 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -832,11 +826,6 @@
       "should fire requestfailed when intercepting race"
     ]
   },
-  "page/page-expose-function.spec.ts": {
-    "failing": [
-      "should work with setContent"
-    ]
-  },
   "page/page-filechooser.spec.ts": {
     "failing": [
       "should emit event for iframe",
@@ -958,7 +947,10 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot > should take fullPage screenshots during navigation",
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
