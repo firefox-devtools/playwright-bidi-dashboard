@@ -222,6 +222,7 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
+      "should support deviceScaleFactor option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -301,6 +302,11 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -409,6 +415,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should proxy local network requests > by default > localhost"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -465,11 +474,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -585,11 +596,6 @@
       "should work in iframes that failed initial navigation"
     ]
   },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
-    ]
-  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should support framesets"
@@ -602,7 +608,6 @@
   },
   "page/interception.spec.ts": {
     "failing": [
-      "should intercept worker requests when enabled after worker creation",
       "should disable memory cache when intercepting"
     ],
     "skipped": [
@@ -761,7 +766,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204",
+      "should work with anchor navigation",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -870,6 +876,11 @@
       "should upload a folder"
     ]
   },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
+    ]
+  },
   "page/wheel.spec.ts": {
     "failing": [
       "should dispatch wheel events after popup was opened @smoke"
@@ -881,11 +892,9 @@
       "should emit created and destroyed events",
       "should have JSHandles for console logs",
       "should evaluate",
-      "should clear upon navigation",
       "should clear upon cross-process navigation",
       "should attribute network activity for worker inside iframe to the iframe",
       "should report network activity",
-      "should dispatch console messages when page has workers",
       "should report and intercept network from nested worker",
       "should support extra http headers",
       "should support offline",
