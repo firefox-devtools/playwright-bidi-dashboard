@@ -326,6 +326,7 @@ export const suiteNames = [
   "library/agent-expect.spec.ts",
   "library/agent-perform.spec.ts",
   "library/agent-limits.spec.ts",
+  "library/browsercontext-devtools.spec.ts",
 ];
 
 export const disabledSuites = [
