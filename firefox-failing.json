@@ -222,7 +222,6 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "should support deviceScaleFactor option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -302,11 +301,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -415,17 +409,14 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should proxy local network requests > by default > localhost"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #1",
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -474,7 +465,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -492,7 +482,8 @@
       "should collect trace with resources, but no js",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
-      "should produce screencast frames scale"
+      "should produce screencast frames scale",
+      "should not emit after w/o before"
     ]
   },
   "library/video.spec.ts": {
@@ -766,8 +757,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with anchor navigation",
-      "should work with subframes return 204 with domcontentloaded",
+      "should work with file URL with subframes",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -860,7 +850,9 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot > should take fullPage screenshots during navigation",
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -874,11 +866,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/wheel.spec.ts": {
