@@ -3,8 +3,17 @@ import { startDate, msPerDay, resultClassnames, resultNames, decodeFilter, parse
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
 
-  if (!searchParams.has('browser') || (!searchParams.has('date') && !searchParams.has('pr'))) {
-    return;
+  let urlChanged = false;
+  if (!searchParams.has('browser')) {
+    searchParams.set('browser', 'firefox');
+    urlChanged = true;
+  }
+  if (!searchParams.has('date') && !searchParams.has('pr')) {
+    searchParams.set('date', formatDate(new Date()));
+    urlChanged = true;
+  }
+  if (urlChanged) {
+    history.replaceState(null, '', `${location.pathname}?${searchParams}`);
   }
 
   const response = await fetch('./data.json');
