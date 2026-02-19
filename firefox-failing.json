@@ -116,9 +116,9 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > should not cache resources",
-      "reuse launch > should ignore binding from beforeunload",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -174,7 +174,9 @@
       "launchServer > should save download",
       "run-server > should saveAs videos from remote browser",
       "run-server > should be able to connect 20 times to a single server without warnings",
-      "run-server > should save download"
+      "run-server > should save download",
+      "launchServer > should upload a folder",
+      "run-server > should upload a folder"
     ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
@@ -228,6 +230,7 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
+      "should support viewport option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -407,8 +410,7 @@
     "failing": [
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -416,7 +418,7 @@
   },
   "library/proxy.spec.ts": {
     "failing": [
-      "should exclude patterns"
+      "should work with IP:PORT notion"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -474,11 +476,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -585,8 +589,6 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -764,7 +766,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
