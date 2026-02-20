@@ -118,7 +118,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
-      "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -223,14 +222,8 @@
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
-  "library/debug-controller.spec.ts": {
-    "failing": [
-      "should record"
-    ]
-  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "should support viewport option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support acceptDownloads option"
@@ -367,7 +360,8 @@
   },
   "library/multiclient.spec.ts": {
     "failing": [
-      "last emulateMedia wins"
+      "last emulateMedia wins",
+      "should unroute websockets"
     ],
     "skipped": [
       "should not allow parallel js coverage and cleanup upon disconnect",
@@ -410,16 +404,14 @@
     "failing": [
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should not throw when click closes popup"
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should work with IP:PORT notion"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -427,11 +419,13 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
   "library/route-web-socket.spec.ts": {
+    "failing": [
+      "should emit close upon frame detach"
+    ],
     "skipped": [
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
@@ -476,12 +470,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
+      "should show only one pointer with multilevel iframes",
       "should filter network requests by multiple resource types"
     ],
     "skipped": [
@@ -581,7 +575,8 @@
   },
   "page/expect-misc.spec.ts": {
     "failing": [
-      "strict mode violation error format"
+      "strict mode violation error format",
+      "toHaveCount > eventually pass not non-zero"
     ],
     "skipped": [
       "toHaveURL > support URLPattern"
@@ -589,6 +584,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -642,6 +638,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-script-tag.spec.ts": {
@@ -766,6 +767,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -774,7 +776,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
