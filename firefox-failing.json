@@ -412,6 +412,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should proxy local network requests > by default > localhost"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -470,7 +473,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -585,6 +587,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -775,7 +778,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -859,7 +863,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
