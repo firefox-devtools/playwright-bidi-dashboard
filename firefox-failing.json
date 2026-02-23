@@ -172,7 +172,6 @@
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
       "run-server > should saveAs videos from remote browser",
-      "run-server > should be able to connect 20 times to a single server without warnings",
       "run-server > should save download",
       "launchServer > should upload a folder",
       "run-server > should upload a folder"
@@ -236,7 +235,8 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "should have passed URL when launching with ignoreDefaultArgs: true",
+      "should support har option"
     ],
     "skipped": [
       "should work in persistent context",
@@ -303,6 +303,11 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -412,9 +417,6 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should proxy local network requests > by default > localhost"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -473,13 +475,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -726,8 +728,7 @@
     "failing": [
       "should work for different console API calls",
       "should trigger correct Log",
-      "should have location for console API calls",
-      "should not throw when there are console messages in detached iframes"
+      "should have location for console API calls"
     ],
     "skipped": [
       "should format the message correctly with time/timeLog/timeEnd"
@@ -770,6 +771,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with subframes return 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -778,8 +780,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -863,8 +864,7 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -878,6 +878,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
