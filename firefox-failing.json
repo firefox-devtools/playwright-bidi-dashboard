@@ -172,6 +172,7 @@
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
       "run-server > should saveAs videos from remote browser",
+      "run-server > should be able to connect 20 times to a single server without warnings",
       "run-server > should save download",
       "launchServer > should upload a folder",
       "run-server > should upload a folder"
@@ -236,7 +237,7 @@
       "should support forcedColors option",
       "should support contrast option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
-      "should support har option"
+      "dialog.accept should work"
     ],
     "skipped": [
       "should work in persistent context",
@@ -303,11 +304,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -380,6 +376,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should reject all promises when page is closed"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -409,8 +410,7 @@
     "failing": [
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -423,6 +423,7 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #1",
       "wpt accname #2",
       "axe-core accessible-text"
     ]
@@ -589,7 +590,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -728,7 +728,8 @@
     "failing": [
       "should work for different console API calls",
       "should trigger correct Log",
-      "should have location for console API calls"
+      "should have location for console API calls",
+      "should not throw when there are console messages in detached iframes"
     ],
     "skipped": [
       "should format the message correctly with time/timeLog/timeEnd"
@@ -771,10 +772,11 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
@@ -864,7 +866,8 @@
     "failing": [
       "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -878,11 +881,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
