@@ -81,7 +81,6 @@
   "library/browsercontext-har.spec.ts": {
     "failing": [
       "should change document URL after redirected navigation",
-      "should change document URL after redirected navigation on click",
       "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should reload redirected navigation",
@@ -236,8 +235,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true",
-      "dialog.accept should work"
+      "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
       "should work in persistent context",
@@ -252,6 +250,7 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
+      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -280,7 +279,6 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
-      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -304,6 +302,11 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -376,11 +379,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should reject all promises when page is closed"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -410,21 +408,23 @@
     "failing": [
       "should inherit offline from browser context",
       "should inherit touch support from browser context",
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should not throw when click closes popup"
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should authenticate"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #1",
-      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -772,17 +772,17 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
-      "should work with lazy loading iframes"
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -842,8 +842,7 @@
   },
   "page/page-request-fulfill.spec.ts": {
     "failing": [
-      "should not throw if request was cancelled by the page",
-      "should fulfill with gzip and readback"
+      "should not throw if request was cancelled by the page"
     ]
   },
   "page/page-request-intercept.spec.ts": {
@@ -864,7 +863,6 @@
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
-      "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
       "page screenshot animations > should not capture css animations in shadow DOM"
