@@ -9,18 +9,6 @@
       "should set cookies with SameSite attribute and no secure attribute"
     ]
   },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "should work without navigation, after all bindings"
-    ],
-    "skipped": [
-      "should work with browser context scripts @smoke",
-      "should work without navigation in popup",
-      "should work with browser context scripts with a path",
-      "should work with browser context scripts for already created pages",
-      "init script should run only once in popup"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should close all belonging pages once closing context",
@@ -250,7 +238,6 @@
       "should download successfully when routing",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
-      "download event > should report downloads with acceptDownloads: false",
       "download event > should report downloads with acceptDownloads: true",
       "download event > should report downloads for download attribute",
       "download event > should save to user-specified path without updating original path",
@@ -279,6 +266,7 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
+      "downloads path > should keep downloadsPath folder",
       "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
@@ -302,11 +290,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -416,15 +399,14 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should authenticate"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #1",
+      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -476,7 +458,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -772,10 +753,10 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should use http for no protocol",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
@@ -864,8 +845,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
