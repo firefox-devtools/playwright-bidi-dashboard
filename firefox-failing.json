@@ -4,38 +4,21 @@
       "retrieve a secret"
     ]
   },
-  "library/browser.spec.ts": {
-    "failing": [
-      "should create new page @smoke"
-    ]
-  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should work with expires=-1"
+      "should set cookies with SameSite attribute and no secure attribute"
+    ]
+  },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "should work without navigation, after all bindings"
     ],
     "skipped": [
-      "should work @smoke",
-      "should add cookies with empty value",
-      "should set cookies with SameSite attribute and no secure attribute",
-      "should roundtrip cookie",
-      "should send cookie header",
-      "should isolate cookies in browser contexts",
-      "should isolate session cookies",
-      "should isolate persistent cookies",
-      "should isolate send cookie header",
-      "should isolate cookies between launches",
-      "should set multiple cookies",
-      "should have |expires| set to |-1| for session cookies",
-      "should set cookie with reasonable defaults",
-      "should set a cookie with a path",
-      "should not set a cookie with blank page URL",
-      "should not set a cookie on a data URL page",
-      "should default to setting secure cookie for HTTPS websites",
-      "should be able to set unsecure cookie for HTTP website",
-      "should set a cookie on a different domain",
-      "should set cookies for a frame",
-      "should allow unnamed cookies",
-      "should set secure cookies on secure WebSocket"
+      "should work with browser context scripts @smoke",
+      "should work without navigation in popup",
+      "should work with browser context scripts with a path",
+      "should work with browser context scripts for already created pages",
+      "init script should run only once in popup"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -185,12 +168,12 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
-      "launchServer > should save download",
       "run-server > should saveAs videos from remote browser",
       "run-server > should be able to connect 20 times to a single server without warnings",
-      "run-server > should save download",
       "launchServer > should upload a folder",
-      "run-server > should upload a folder"
+      "run-server > should upload a folder",
+      "launchServer > should save videos to artifactsDir",
+      "run-server > should save videos to artifactsDir"
     ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
@@ -240,9 +223,7 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "should support bypassCSP option",
-      "should support javascriptEnabled option",
-      "should support httpCredentials option",
-      "should support acceptDownloads option"
+      "should support javascriptEnabled option"
     ]
   },
   "library/defaultbrowsercontext-2.spec.ts": {
@@ -261,44 +242,14 @@
   },
   "library/download.spec.ts": {
     "failing": [
-      "should be able to download a PDF file",
-      "should be able to download a inline PDF file via response interception",
-      "should save to user-specified path",
-      "should download successfully when routing",
-      "download event > should report download when navigation turns into download @smoke",
-      "download event > should work with Cross-Origin-Opener-Policy",
-      "download event > should report downloads with acceptDownloads: true",
-      "download event > should report downloads for download attribute",
-      "download event > should save to user-specified path without updating original path",
-      "download event > should save to two different paths with multiple saveAs calls",
-      "download event > should save to overwritten filepath",
-      "download event > should create subdirectories when saving to non-existent user-specified path",
-      "download event > should report non-navigation downloads",
-      "download event > should report download path within page.on('download', …) handler for Files",
       "download event > should report download path within page.on('download', …) handler for Blobs",
       "download event > should report new window downloads",
-      "download event > should delete file",
-      "download event > should expose stream",
-      "download event > should delete downloads on context destruction",
-      "download event > should delete downloads on browser gone",
-      "download event > should download large binary.zip",
-      "download event > should be able to cancel pending downloads",
-      "download event > should not fail explicitly to cancel a download even if that is already finished",
-      "download event > should report downloads with interception",
-      "download event > should emit download event from nested iframes"
+      "download event > should be able to cancel pending downloads"
     ],
     "skipped": [
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
-    ]
-  },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should keep downloadsPath folder",
-      "downloads path > should delete downloads when context closes",
-      "downloads path > should accept downloads in persistent context",
-      "downloads path > should delete downloads when persistent context closes"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -319,11 +270,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -433,14 +379,15 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should use proxy for second page"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #1",
-      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -492,14 +439,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -606,7 +551,6 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on navigation",
       "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
@@ -790,9 +734,11 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "should override referrer-policy",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
@@ -880,9 +826,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
