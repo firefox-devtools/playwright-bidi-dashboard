@@ -25,10 +25,7 @@
     "failing": [
       "should close all belonging pages once closing context",
       "should disable javascript",
-      "should work with offline option",
       "fetch with keepalive should throw when offline",
-      "should emulate navigator.onLine",
-      "should emulate offline event",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -117,7 +114,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -376,7 +372,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit offline from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to a cross-process popup"
@@ -386,6 +381,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should proxy local network requests > by default > loopback address"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -450,8 +448,7 @@
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -564,6 +561,11 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -741,6 +743,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -832,7 +835,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -848,6 +852,11 @@
       "should upload a folder"
     ]
   },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for detached"
+    ]
+  },
   "page/wheel.spec.ts": {
     "failing": [
       "should dispatch wheel events after popup was opened @smoke"
@@ -859,6 +868,7 @@
       "should emit created and destroyed events",
       "should have JSHandles for console logs",
       "should evaluate",
+      "should clear upon cross-process navigation",
       "should attribute network activity for worker inside iframe to the iframe",
       "should report network activity",
       "should report and intercept network from nested worker",
