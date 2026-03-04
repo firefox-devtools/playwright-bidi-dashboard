@@ -113,6 +113,7 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -289,7 +290,8 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response"
+      "should return security details directly from response",
+      "should not hang on slow chunked response"
     ]
   },
   "library/headful.spec.ts": {
@@ -345,6 +347,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -381,9 +388,6 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should proxy local network requests > by default > loopback address"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -391,6 +395,8 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
+      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -448,7 +454,8 @@
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes"
+      "should show only one pointer with multilevel iframes",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -743,7 +750,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -752,8 +758,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -850,11 +855,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for detached"
     ]
   },
   "page/wheel.spec.ts": {
