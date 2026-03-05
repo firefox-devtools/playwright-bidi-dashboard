@@ -18,7 +18,9 @@
       "should work without navigation in popup",
       "should work with browser context scripts with a path",
       "should work with browser context scripts for already created pages",
-      "init script should run only once in popup"
+      "init script should run only once in popup",
+      "should remove context init script after dispose",
+      "should remove context init script and keep working in new pages"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -113,7 +115,6 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -232,6 +233,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should accept relative userDataDir",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -290,8 +292,7 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response",
-      "should not hang on slow chunked response"
+      "should return security details directly from response"
     ]
   },
   "library/headful.spec.ts": {
@@ -324,6 +325,11 @@
       "should support touch points in touch event arguments"
     ]
   },
+  "library/logger.spec.ts": {
+    "failing": [
+      "should log context-level"
+    ]
+  },
   "library/modernizr.spec.ts": {
     "skipped": [
       "Safari Desktop",
@@ -345,11 +351,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -394,9 +395,6 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
-      "wpt accname #3",
-      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -448,14 +446,12 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -496,7 +492,8 @@
       "screencast > should capture full viewport on hidpi",
       "screencast > should work with video+trace",
       "screencast > video.start/stop twice",
-      "screencast > video.start should fail when recordVideo is set, but stop should work"
+      "screencast > video.start should fail when recordVideo is set, but stop should work",
+      "screencast > inspector.startScreencast emits screencastframe events"
     ],
     "skipped": [
       "screencast > should work for popups",
@@ -563,16 +560,12 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -750,6 +743,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -840,8 +834,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
