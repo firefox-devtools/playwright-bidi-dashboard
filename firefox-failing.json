@@ -126,6 +126,7 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should ignore binding from beforeunload",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -232,7 +233,6 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "context.cookies() should work @smoke",
       "should support bypassCSP option",
       "should support javascriptEnabled option"
     ]
@@ -244,7 +244,8 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "should have passed URL when launching with ignoreDefaultArgs: true",
+      "exposes browser"
     ],
     "skipped": [
       "should work in persistent context",
@@ -261,11 +262,6 @@
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
-    ]
-  },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should accept downloads in persistent context"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -363,11 +359,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -411,6 +402,7 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
+      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -462,7 +454,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -577,6 +568,8 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -759,7 +752,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -864,11 +857,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
