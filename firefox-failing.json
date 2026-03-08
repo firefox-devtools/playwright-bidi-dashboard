@@ -6,31 +6,21 @@
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should work with expires=-1"
+      "should set cookies with SameSite attribute and no secure attribute"
+    ]
+  },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "should work without navigation, after all bindings"
     ],
     "skipped": [
-      "should work @smoke",
-      "should add cookies with empty value",
-      "should set cookies with SameSite attribute and no secure attribute",
-      "should roundtrip cookie",
-      "should send cookie header",
-      "should isolate cookies in browser contexts",
-      "should isolate session cookies",
-      "should isolate persistent cookies",
-      "should isolate send cookie header",
-      "should isolate cookies between launches",
-      "should set multiple cookies",
-      "should have |expires| set to |-1| for session cookies",
-      "should set cookie with reasonable defaults",
-      "should set a cookie with a path",
-      "should not set a cookie with blank page URL",
-      "should not set a cookie on a data URL page",
-      "should default to setting secure cookie for HTTPS websites",
-      "should be able to set unsecure cookie for HTTP website",
-      "should set a cookie on a different domain",
-      "should set cookies for a frame",
-      "should allow unnamed cookies",
-      "should set secure cookies on secure WebSocket"
+      "should work with browser context scripts @smoke",
+      "should work without navigation in popup",
+      "should work with browser context scripts with a path",
+      "should work with browser context scripts for already created pages",
+      "init script should run only once in popup",
+      "should remove context init script after dispose",
+      "should remove context init script and keep working in new pages"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -104,7 +94,6 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
-      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -126,7 +115,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
-      "reuse connect > should ignore binding from beforeunload",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -244,8 +232,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true",
-      "exposes browser"
+      "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
       "should work in persistent context",
@@ -387,8 +374,7 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -401,8 +387,8 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #1",
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -454,13 +440,13 @@
     "failing": [
       "should render console",
       "should open console errors on click",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -752,7 +738,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -843,6 +828,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
+      "page screenshot > should take fullPage screenshots during navigation",
       "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
