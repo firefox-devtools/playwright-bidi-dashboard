@@ -94,6 +94,7 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
+      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -197,6 +198,11 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
+  "library/browsertype-launch.spec.ts": {
+    "failing": [
+      "should fire close event for all contexts"
+    ]
+  },
   "library/capabilities.spec.ts": {
     "failing": [
       "should play video @smoke"
@@ -269,11 +275,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -374,7 +375,8 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit touch support from browser context",
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -387,7 +389,6 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #1",
       "wpt accname #2",
       "axe-core accessible-text"
     ]
@@ -440,7 +441,6 @@
     "failing": [
       "should render console",
       "should open console errors on click",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -738,6 +738,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should fail when server returns 204",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -828,8 +829,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot > should take fullPage screenshots during navigation",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
