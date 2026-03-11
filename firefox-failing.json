@@ -6,31 +6,21 @@
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should work with expires=-1"
+      "should set cookies with SameSite attribute and no secure attribute"
+    ]
+  },
+  "library/browsercontext-add-init-script.spec.ts": {
+    "failing": [
+      "should work without navigation, after all bindings"
     ],
     "skipped": [
-      "should work @smoke",
-      "should add cookies with empty value",
-      "should set cookies with SameSite attribute and no secure attribute",
-      "should roundtrip cookie",
-      "should send cookie header",
-      "should isolate cookies in browser contexts",
-      "should isolate session cookies",
-      "should isolate persistent cookies",
-      "should isolate send cookie header",
-      "should isolate cookies between launches",
-      "should set multiple cookies",
-      "should have |expires| set to |-1| for session cookies",
-      "should set cookie with reasonable defaults",
-      "should set a cookie with a path",
-      "should not set a cookie with blank page URL",
-      "should not set a cookie on a data URL page",
-      "should default to setting secure cookie for HTTPS websites",
-      "should be able to set unsecure cookie for HTTP website",
-      "should set a cookie on a different domain",
-      "should set cookies for a frame",
-      "should allow unnamed cookies",
-      "should set secure cookies on secure WebSocket"
+      "should work with browser context scripts @smoke",
+      "should work without navigation in popup",
+      "should work with browser context scripts with a path",
+      "should work with browser context scripts for already created pages",
+      "init script should run only once in popup",
+      "should remove context init script after dispose",
+      "should remove context init script and keep working in new pages"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -208,6 +198,11 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
+  "library/browsertype-launch-server.spec.ts": {
+    "failing": [
+      "launch server > should default to random wsPath"
+    ]
+  },
   "library/capabilities.spec.ts": {
     "failing": [
       "should play video @smoke"
@@ -259,6 +254,11 @@
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
+    ]
+  },
+  "library/downloads-path.spec.ts": {
+    "failing": [
+      "downloads path > should accept downloads in persistent context"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -392,11 +392,9 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should bypass proxy for localhost when localhost is in bypass list"
-    ],
     "skipped": [
-      "should use proxy with emulated user agent"
+      "should use proxy with emulated user agent",
+      "should allow bypassing [::1] requests"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -459,7 +457,8 @@
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes"
+      "should show only one pointer with multilevel iframes",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -471,8 +470,7 @@
       "should collect trace with resources, but no js",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
-      "should produce screencast frames scale",
-      "should not emit after w/o before"
+      "should produce screencast frames scale"
     ]
   },
   "library/video.spec.ts": {
@@ -750,11 +748,10 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204 with domcontentloaded",
+      "should work with subframes return 204",
       "should send referer",
       "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should report raw buffer for main resource"
+      "should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
@@ -767,7 +764,8 @@
     "failing": [
       "should send a character with insertText",
       "insertText should only emit input event",
-      "should press Enter"
+      "should press Enter",
+      "should press audio and media control keys"
     ],
     "skipped": [
       "should support MacOS shortcuts",
@@ -842,7 +840,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -856,11 +855,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/wheel.spec.ts": {
