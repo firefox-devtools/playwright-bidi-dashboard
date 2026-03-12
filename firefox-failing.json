@@ -1,26 +1,7 @@
 {
-  "library/agent-perform.spec.ts": {
-    "failing": [
-      "retrieve a secret"
-    ]
-  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
-    ]
-  },
-  "library/browsercontext-add-init-script.spec.ts": {
-    "failing": [
-      "should work without navigation, after all bindings"
-    ],
-    "skipped": [
-      "should work with browser context scripts @smoke",
-      "should work without navigation in popup",
-      "should work with browser context scripts with a path",
-      "should work with browser context scripts for already created pages",
-      "init script should run only once in popup",
-      "should remove context init script after dispose",
-      "should remove context init script and keep working in new pages"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -198,11 +179,6 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
-  "library/browsertype-launch-server.spec.ts": {
-    "failing": [
-      "launch server > should default to random wsPath"
-    ]
-  },
   "library/capabilities.spec.ts": {
     "failing": [
       "should play video @smoke"
@@ -238,7 +214,8 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "should have passed URL when launching with ignoreDefaultArgs: true",
+      "exposes browser"
     ],
     "skipped": [
       "should work in persistent context",
@@ -279,11 +256,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -393,13 +365,11 @@
   },
   "library/proxy.spec.ts": {
     "skipped": [
-      "should use proxy with emulated user agent",
-      "should allow bypassing [::1] requests"
+      "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -411,6 +381,11 @@
       "no-mock > should work with error after successful open",
       "no-match > should work with error after successful open",
       "pass-through > should work with error after successful open"
+    ]
+  },
+  "library/screencast.spec.ts": {
+    "failing": [
+      "screencast.start emits screencastframe events"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -499,8 +474,7 @@
       "screencast > should capture full viewport on hidpi",
       "screencast > should work with video+trace",
       "screencast > video.start/stop twice",
-      "screencast > video.start should fail when recordVideo is set, but stop should work",
-      "screencast > inspector.startScreencast emits screencastframe events"
+      "screencast > video.start should fail when recordVideo is set, but stop should work"
     ],
     "skipped": [
       "screencast > should work for popups",
@@ -566,6 +540,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -748,7 +723,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work with subframes return 204",
+      "should use http for no protocol",
+      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
