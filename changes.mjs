@@ -61,6 +61,8 @@ function renderChanges() {
   const endDateInput = document.getElementById('endDate').value;
   const browser = document.getElementById('browser').value;
   const minChanges = parseInt(document.getElementById('minChanges').value) || 1;
+  const maxPassedPctInput = document.getElementById('maxPassedPct').value;
+  const maxPassedPct = maxPassedPctInput !== '' ? parseFloat(maxPassedPctInput) : null;
 
   if (!startDateInput || !endDateInput) {
     return;
@@ -73,6 +75,9 @@ function renderChanges() {
   searchParams.set('browser', browser);
   if (minChanges !== 1) {
     searchParams.set('minChanges', minChanges);
+  }
+  if (maxPassedPct !== null) {
+    searchParams.set('maxPassedPct', maxPassedPct);
   }
   window.history.replaceState({}, '', `?${searchParams.toString()}`);
 
@@ -93,9 +98,21 @@ function renderChanges() {
       if (specResults[browser]?.[lastDay] == null) {
         continue;
       }
-      if (hasStatusChanged(specResults, browser, days, minChanges)) {
-        changedTests.push({ suite, spec, specResults });
+      if (!hasStatusChanged(specResults, browser, days, minChanges)) {
+        continue;
       }
+      if (maxPassedPct !== null) {
+        const runDays = days.filter(day => {
+          const s = specResults[browser]?.[day];
+          return s != null && s !== 1;
+        });
+        const passedDays = runDays.filter(day => specResults[browser][day] === 0);
+        const pct = runDays.length > 0 ? (passedDays.length / runDays.length) * 100 : 0;
+        if (pct > maxPassedPct) {
+          continue;
+        }
+      }
+      changedTests.push({ suite, spec, specResults });
     }
   }
 
@@ -181,6 +198,10 @@ function initializeDateInputs() {
   if (searchParams.has('minChanges')) {
     document.getElementById('minChanges').value = searchParams.get('minChanges');
   }
+
+  if (searchParams.has('maxPassedPct')) {
+    document.getElementById('maxPassedPct').value = searchParams.get('maxPassedPct');
+  }
 }
 
 async function init() {
@@ -196,8 +217,11 @@ async function init() {
     if (e.key === 'Enter') renderChanges();
   });
 
-  // Also render on Enter key in minChanges input
+  // Also render on Enter key in minChanges and maxPassedPct inputs
   document.getElementById('minChanges').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') renderChanges();
+  });
+  document.getElementById('maxPassedPct').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') renderChanges();
   });
 
