@@ -209,8 +209,8 @@ function processFirefoxFailures() {
             error: error
           });
 
-          // Keep only last 5 failures per test
-          if (failures[suiteName][testName].length > 5) {
+          // Keep only last 10 failures per test
+          if (failures[suiteName][testName].length > 10) {
             failures[suiteName][testName].shift();
           }
         }
