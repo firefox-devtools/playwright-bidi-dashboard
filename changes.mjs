@@ -89,6 +89,10 @@ function renderChanges() {
   for (const suite in data.results) {
     for (const spec of Object.keys(data.results[suite]).sort()) {
       const specResults = data.results[suite][spec];
+      const lastDay = days[days.length - 1];
+      if (specResults[browser]?.[lastDay] == null) {
+        continue;
+      }
       if (hasStatusChanged(specResults, browser, days, minChanges)) {
         changedTests.push({ suite, spec, specResults });
       }
