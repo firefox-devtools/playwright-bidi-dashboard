@@ -2,14 +2,17 @@ import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, la
 
 let data;
 let firefoxFailures;
+let diagnosedTests;
 
 async function loadData() {
-  const [dataResponse, failuresResponse] = await Promise.all([
+  const [dataResponse, failuresResponse, diagnosedResponse] = await Promise.all([
     fetch('./data.json'),
     fetch('./firefox-failures.json'),
+    fetch('./diagnosed.json'),
   ]);
   data = await dataResponse.json();
   firefoxFailures = await failuresResponse.json();
+  diagnosedTests = new Set(await diagnosedResponse.json());
 }
 
 function getDaysBetween(startDateStr, endDateStr) {
@@ -63,6 +66,7 @@ function renderChanges() {
   const minChanges = parseInt(document.getElementById('minChanges').value) || 1;
   const maxPassedPctInput = document.getElementById('maxPassedPct').value;
   const maxPassedPct = maxPassedPctInput !== '' ? parseFloat(maxPassedPctInput) : null;
+  const hideDiagnosed = document.getElementById('hideDiagnosed').checked;
 
   if (!startDateInput || !endDateInput) {
     return;
@@ -78,6 +82,9 @@ function renderChanges() {
   }
   if (maxPassedPct !== null) {
     searchParams.set('maxPassedPct', maxPassedPct);
+  }
+  if (hideDiagnosed) {
+    searchParams.set('hideDiagnosed', '1');
   }
   window.history.replaceState({}, '', `?${searchParams.toString()}`);
 
@@ -111,6 +118,9 @@ function renderChanges() {
         if (pct > maxPassedPct) {
           continue;
         }
+      }
+      if (hideDiagnosed && diagnosedTests.has(`${suite} > ${spec}`)) {
+        continue;
       }
       changedTests.push({ suite, spec, specResults });
     }
@@ -201,6 +211,10 @@ function initializeDateInputs() {
 
   if (searchParams.has('maxPassedPct')) {
     document.getElementById('maxPassedPct').value = searchParams.get('maxPassedPct');
+  }
+
+  if (searchParams.has('hideDiagnosed')) {
+    document.getElementById('hideDiagnosed').checked = true;
   }
 }
 
