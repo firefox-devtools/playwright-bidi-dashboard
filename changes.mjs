@@ -1,10 +1,15 @@
 import { startDate, msPerDay, resultNames, resultClassnames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
 
 let data;
+let firefoxFailures;
 
 async function loadData() {
-  const response = await fetch('./data.json');
-  data = await response.json();
+  const [dataResponse, failuresResponse] = await Promise.all([
+    fetch('./data.json'),
+    fetch('./firefox-failures.json'),
+  ]);
+  data = await dataResponse.json();
+  firefoxFailures = await failuresResponse.json();
 }
 
 function getDaysBetween(startDateStr, endDateStr) {
@@ -98,12 +103,20 @@ function renderChanges() {
     for (const day of days) {
       const result = specResults[browser]?.[day];
       const resultDiv = document.createElement('div');
+      const dateStr = formatDate(new Date(startDate + day * msPerDay));
       if (typeof result === 'number') {
         resultDiv.className = `result ${resultClassnames[result]}`;
-        resultDiv.title = `${formatDate(new Date(startDate + day * msPerDay))}: ${resultNames[result]}`;
+        let title = `${dateStr}: ${resultNames[result]}`;
+        if ((result === 2 || result === 3) && browser === 'firefox') {
+          const errorEntry = firefoxFailures?.[suite]?.[spec]?.find(e => e.date === dateStr);
+          if (errorEntry) {
+            title += `\n${errorEntry.error}`;
+          }
+        }
+        resultDiv.title = title;
       } else {
         resultDiv.className = 'result notrun';
-        resultDiv.title = `${formatDate(new Date(startDate + day * msPerDay))}: not run`;
+        resultDiv.title = `${dateStr}: not run`;
       }
       specEl.appendChild(resultDiv);
     }
