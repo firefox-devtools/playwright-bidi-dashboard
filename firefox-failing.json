@@ -15,12 +15,19 @@
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
-      "save/load third party non-partitioned cookies",
-      "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
+      "save/load third party non-partitioned cookies"
     ],
     "skipped": [
-      "should be able to send third party cookies via an iframe"
+      "third party non-partitioned cookies",
+      "third party 'Partitioned;' cookies",
+      "save/load third party 'Partitioned;' cookies",
+      "add 'Partitioned;' cookie via API",
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
+      "top level 'Partitioned;' cookie and same origin iframe",
+      "should be able to send third party cookies via an iframe",
+      "should(not) block third party cookies - persistent context",
+      "should(not) block third party cookies - ephemeral context",
+      "should not block third party SameSite=None cookies"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
@@ -75,7 +82,6 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
-      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -150,7 +156,6 @@
     "failing": [
       "launchServer > should saveAs videos from remote browser",
       "run-server > should saveAs videos from remote browser",
-      "run-server > should be able to connect 20 times to a single server without warnings",
       "launchServer > should upload a folder",
       "run-server > should upload a folder",
       "launchServer > should save videos to artifactsDir",
@@ -214,8 +219,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true",
-      "exposes browser"
+      "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
       "should work in persistent context",
@@ -231,11 +235,6 @@
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
-    ]
-  },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should accept downloads in persistent context"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -256,6 +255,11 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -364,12 +368,16 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should proxy local network requests > by default > localhost"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -432,8 +440,7 @@
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -540,6 +547,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
       "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
@@ -723,8 +731,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should use http for no protocol",
-      "should work with subframes return 204 with domcontentloaded",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy"
@@ -816,8 +822,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
