@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultNames, resultClassnames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
+import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
 
 let data;
 let firefoxFailures;
@@ -109,7 +109,7 @@ function renderChanges() {
       const resultDiv = document.createElement('div');
       const dateStr = formatDate(new Date(startDate + day * msPerDay));
       if (typeof result === 'number') {
-        resultDiv.className = `result ${resultClassnames[result]}`;
+        resultDiv.className = `result ${resultNames[result]}`;
         let title = `${dateStr}: ${resultNames[result]}`;
         let errorMessage = null;
         if ((result === 2 || result === 3) && browser === 'firefox') {

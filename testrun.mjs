@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultClassnames, resultNames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay, labels } from './shared.mjs';
+import { startDate, msPerDay, resultNames, decodeFilter, parseDate, formatDate, capitalize, countSuiteResults, disabledSuites, getLastDay, labels } from './shared.mjs';
 
 async function renderTestRun() {
   const searchParams = new URLSearchParams(location.search);
@@ -88,12 +88,12 @@ async function renderTestRun() {
     }
 
     const passingEl = document.createElement('div');
-    passingEl.className = 'passing';
+    passingEl.className = resultNames[0];
     passingEl.style.width = `${suiteCounts.passingShare * 100}%`;
     resultEl.appendChild(passingEl);
 
     const skippingEl = document.createElement('div');
-    skippingEl.className = 'skipping';
+    skippingEl.className = resultNames[1];
     skippingEl.style.width = `${suiteCounts.skipping / suiteCounts.total * 100}%`
     resultEl.appendChild(skippingEl);
 
@@ -107,7 +107,7 @@ async function renderTestRun() {
 
       const resultEl = document.createElement('div');
       const result = getResult(specResults[spec]);
-      resultEl.className = `result ${resultClassnames[result]}`;
+      resultEl.className = `result ${resultNames[result]}`;
       resultEl.title = resultNames[result];
       specEl.appendChild(resultEl);
       specEl.append(spec);

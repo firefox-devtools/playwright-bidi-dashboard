@@ -31,14 +31,14 @@
               background-color: #f00;
               margin-right: 0.3rem;
 
-              .passing {
+              .passed {
                 display: inline-block;
                 vertical-align: top;
                 height: 100%;
                 background-color: #0f0;
               }
 
-              .skipping {
+              .skipped {
                 display: inline-block;
                 vertical-align: top;
                 height: 100%;
@@ -64,15 +64,19 @@
               border: 1px solid #000;
               margin-right: 0.3rem;
 
-              &.failing {
+              &.failed {
                 background-color: #f00;
               }
 
-              &.passing {
+              &.timedOut {
+                background-color: #a00;
+              }
+
+              &.passed {
                 background-color: #0f0;
               }
 
-              &.skipping {
+              &.skipped {
                 background-color: #ddd;
               }
             }

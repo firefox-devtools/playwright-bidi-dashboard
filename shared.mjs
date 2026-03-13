@@ -1,7 +1,6 @@
 export const startDate = Date.UTC(2025, 8, 25);
 export const msPerDay = 24 * 60 * 60 * 1000;
 export const resultNames = ["passed", "skipped", "failed", "timedOut"];
-export const resultClassnames = ["passing", "skipping", "failing", "failing"];
 
 export function getLastDay(results) {
   return Math.max(...Object.values(results).map(suite => Math.max(...Object.values(suite).map(spec => Math.max(spec.firefox?.length ?? 0, spec.chrome?.length ?? 0))))) - 1;

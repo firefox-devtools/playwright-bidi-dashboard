@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultNames, resultClassnames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
+import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
 
 async function renderDiff() {
   const searchParams = new URLSearchParams(location.search);
@@ -72,12 +72,12 @@ async function renderDiff() {
       specEl.className = intermittent ? 'test intermittent' : 'test';
 
       const previousEl = document.createElement('div');
-      previousEl.className = `previous result ${resultClassnames[previousResult]}`;
+      previousEl.className = `previous result ${resultNames[previousResult]}`;
       previousEl.title = resultNames[previousResult];
       specEl.appendChild(previousEl);
 
       const currentEl = document.createElement('div');
-      currentEl.className = `current result ${resultClassnames[currentResult]}`;
+      currentEl.className = `current result ${resultNames[currentResult]}`;
       currentEl.title = resultNames[currentResult];
       specEl.appendChild(currentEl);
 
