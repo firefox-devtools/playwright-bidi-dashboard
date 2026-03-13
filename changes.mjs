@@ -107,13 +107,21 @@ function renderChanges() {
       if (typeof result === 'number') {
         resultDiv.className = `result ${resultClassnames[result]}`;
         let title = `${dateStr}: ${resultNames[result]}`;
+        let errorMessage = null;
         if ((result === 2 || result === 3) && browser === 'firefox') {
           const errorEntry = firefoxFailures?.[suite]?.[spec]?.find(e => e.date === dateStr);
           if (errorEntry) {
-            title += `\n${errorEntry.error}`;
+            errorMessage = errorEntry.error;
+            title += `\n${errorMessage}`;
           }
         }
         resultDiv.title = title;
+        if (errorMessage) {
+          resultDiv.style.cursor = 'pointer';
+          resultDiv.addEventListener('click', () => {
+            navigator.clipboard.writeText(errorMessage);
+          });
+        }
       } else {
         resultDiv.className = 'result notrun';
         resultDiv.title = `${dateStr}: not run`;
