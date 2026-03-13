@@ -326,6 +326,9 @@ export const suiteNames = [
   "library/agent-perform.spec.ts",
   "library/agent-limits.spec.ts",
   "library/browsercontext-devtools.spec.ts",
+  "library/browser-server.spec.ts",
+  "library/webrtc.spec.ts",
+  "library/screencast.spec.ts",
 ];
 
 export const disabledSuites = [
