@@ -329,6 +329,8 @@ export const suiteNames = [
   "library/browser-server.spec.ts",
   "library/webrtc.spec.ts",
   "library/screencast.spec.ts",
+  "library/trace-viewer-scrub.spec.ts",
+  "library/debugger.spec.ts",
 ];
 
 export const disabledSuites = [
@@ -363,6 +365,7 @@ export const labels = {
       "page/page-request-continue.spec.ts",
       "page/page-set-extra-http-headers.spec.ts",
       "library/video.spec.ts",
+      "library/screencast.spec.ts",
     ],
   },
   P2: {
