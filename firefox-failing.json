@@ -12,21 +12,27 @@
       "should emulate media in cross-process iframe"
     ]
   },
-  "library/browsercontext-cookies-third-party.spec.ts": {
+  "library/browsercontext-clearcookies.spec.ts": {
     "failing": [
-      "save/load third party non-partitioned cookies"
+      "should isolate cookies when clearing"
     ],
     "skipped": [
-      "third party non-partitioned cookies",
-      "third party 'Partitioned;' cookies",
+      "should clear cookies",
+      "should remove cookies by name",
+      "should remove cookies by name regex",
+      "should remove cookies by domain",
+      "should remove cookies by path",
+      "should remove cookies by name and domain"
+    ]
+  },
+  "library/browsercontext-cookies-third-party.spec.ts": {
+    "failing": [
+      "save/load third party non-partitioned cookies",
       "save/load third party 'Partitioned;' cookies",
-      "add 'Partitioned;' cookie via API",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
-      "top level 'Partitioned;' cookie and same origin iframe",
-      "should be able to send third party cookies via an iframe",
-      "should(not) block third party cookies - persistent context",
-      "should(not) block third party cookies - ephemeral context",
-      "should not block third party SameSite=None cookies"
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
+    ],
+    "skipped": [
+      "should be able to send third party cookies via an iframe"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
@@ -81,6 +87,7 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
+      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -100,6 +107,7 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > should not cache resources",
+      "reuse launch > should reset tracing",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
@@ -208,7 +216,6 @@
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "context.addCookies() should work",
       "should support bypassCSP option",
       "should support javascriptEnabled option"
     ]
@@ -236,12 +243,6 @@
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
-    ]
-  },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should keep downloadsPath folder",
-      "downloads path > should accept downloads in persistent context"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -552,7 +553,6 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -742,8 +742,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -826,7 +825,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
