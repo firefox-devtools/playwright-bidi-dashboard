@@ -12,27 +12,21 @@
       "should emulate media in cross-process iframe"
     ]
   },
-  "library/browsercontext-clearcookies.spec.ts": {
-    "failing": [
-      "should isolate cookies when clearing"
-    ],
-    "skipped": [
-      "should clear cookies",
-      "should remove cookies by name",
-      "should remove cookies by name regex",
-      "should remove cookies by domain",
-      "should remove cookies by path",
-      "should remove cookies by name and domain"
-    ]
-  },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
-      "save/load third party non-partitioned cookies",
-      "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
+      "save/load third party non-partitioned cookies"
     ],
     "skipped": [
-      "should be able to send third party cookies via an iframe"
+      "third party non-partitioned cookies",
+      "third party 'Partitioned;' cookies",
+      "save/load third party 'Partitioned;' cookies",
+      "add 'Partitioned;' cookie via API",
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
+      "top level 'Partitioned;' cookie and same origin iframe",
+      "should be able to send third party cookies via an iframe",
+      "should(not) block third party cookies - persistent context",
+      "should(not) block third party cookies - ephemeral context",
+      "should not block third party SameSite=None cookies"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
@@ -87,7 +81,6 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
-      "should not fire events for favicon or favicon redirects",
       "should reject response.finished if context closes"
     ]
   },
@@ -107,7 +100,6 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > should not cache resources",
-      "reuse launch > should reset tracing",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
@@ -190,6 +182,11 @@
       "selenium grid 4.8.3 standalone chromium broken driver",
       "selenium grid 3.141.59 standalone non-chromium",
       "selenium grid 3.141.59 standalone chromium through run-driver"
+    ]
+  },
+  "library/browsertype-launch-server.spec.ts": {
+    "failing": [
+      "launch server > should log protocol"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -367,11 +364,11 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit touch support from browser context",
       "should use viewport size from window features",
       "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
+      "should inherit touch support from browser context",
       "should not throw when click closes popup"
     ]
   },
@@ -438,15 +435,13 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should open console errors on click",
       "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "should show only one pointer with multilevel iframes"
     ],
     "skipped": [
       "should handle src=blob",
@@ -553,6 +548,8 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -689,7 +686,6 @@
   },
   "page/page-event-console.spec.ts": {
     "failing": [
-      "should work for different console API calls",
       "should trigger correct Log",
       "should have location for console API calls"
     ],
@@ -825,8 +821,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
