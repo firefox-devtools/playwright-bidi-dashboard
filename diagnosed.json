@@ -289,5 +289,11 @@
   "library/geolocation.spec.ts > should use context options for popup",
   "page/page-basic.spec.ts > page.frame should respect url",
   "library/multiclient.spec.ts > should unroute websockets",
-  "library/downloads-path.spec.ts > downloads path > should accept downloads in persistent context"
+  "library/downloads-path.spec.ts > downloads path > should accept downloads in persistent context",
+  "page/page-add-locator-handler.spec.ts > should work",
+  "page/page-add-script-tag.spec.ts > should throw an error if no options are provided",
+  "page/page-basic.spec.ts > should have sane user agent",
+  "page/page-goto.spec.ts > should work with subframes return 204",
+  "page/page-goto.spec.ts > should work with anchor navigation",
+  "page/page-goto.spec.ts > should capture cross-process iframe navigation request"
 ]
