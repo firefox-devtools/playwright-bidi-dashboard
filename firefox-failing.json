@@ -1,4 +1,9 @@
 {
+  "library/beforeunload.spec.ts": {
+    "failing": [
+      "does not get stalled by beforeUnload"
+    ]
+  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
@@ -6,7 +11,6 @@
   },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
-      "should close all belonging pages once closing context",
       "should disable javascript",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
@@ -14,19 +18,12 @@
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
-      "save/load third party non-partitioned cookies"
+      "save/load third party non-partitioned cookies",
+      "save/load third party 'Partitioned;' cookies",
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
     ],
     "skipped": [
-      "third party non-partitioned cookies",
-      "third party 'Partitioned;' cookies",
-      "save/load third party 'Partitioned;' cookies",
-      "add 'Partitioned;' cookie via API",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
-      "top level 'Partitioned;' cookie and same origin iframe",
-      "should be able to send third party cookies via an iframe",
-      "should(not) block third party cookies - persistent context",
-      "should(not) block third party cookies - ephemeral context",
-      "should not block third party SameSite=None cookies"
+      "should be able to send third party cookies via an iframe"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
@@ -81,7 +78,7 @@
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
-      "should reject response.finished if context closes"
+      "should not fire events for favicon or favicon redirects"
     ]
   },
   "library/browsercontext-page-event.spec.ts": {
@@ -184,11 +181,6 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
-  "library/browsertype-launch-server.spec.ts": {
-    "failing": [
-      "launch server > should log protocol"
-    ]
-  },
   "library/capabilities.spec.ts": {
     "failing": [
       "should play video @smoke"
@@ -240,6 +232,12 @@
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
+    ]
+  },
+  "library/downloads-path.spec.ts": {
+    "failing": [
+      "downloads path > should report downloads in downloadsPath folder",
+      "downloads path > should accept downloads in persistent context"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -395,7 +393,8 @@
   },
   "library/screencast.spec.ts": {
     "failing": [
-      "screencast.start emits screencastframe events"
+      "screencast.start emits screencastframe events",
+      "screencast.start dispose stops screencast"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -482,7 +481,8 @@
       "screencast > should capture full viewport on hidpi",
       "screencast > should work with video+trace",
       "screencast > video.start/stop twice",
-      "screencast > video.start should fail when recordVideo is set, but stop should work"
+      "screencast > video.start should fail when recordVideo is set, but stop should work",
+      "screencast > video.start dispose stops recording"
     ],
     "skipped": [
       "screencast > should work for popups",
@@ -696,7 +696,8 @@
   "page/page-event-request.spec.ts": {
     "failing": [
       "should report requests and responses handled by service worker",
-      "should report requests and responses handled by service worker with routing"
+      "should report requests and responses handled by service worker with routing",
+      "should not expose preflight OPTIONS request"
     ],
     "skipped": [
       "should fire requestfailed when intercepting race"
@@ -738,7 +739,8 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "goBack/goForward should work with bfcache-able pages",
+      "regression test for issue 20791"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -762,6 +764,7 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
+      "should get the same headers as the server",
       "should return postData",
       "should work with binary post data",
       "should work with binary post data and interception",
@@ -780,8 +783,7 @@
     "failing": [
       "should report all headers",
       "should report multiple set-cookie headers",
-      "should report if request was fromServiceWorker",
-      "should bypass disk cache when context interception is enabled"
+      "should report if request was fromServiceWorker"
     ],
     "skipped": [
       "should provide a Response with a file URL"
@@ -794,7 +796,8 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "should not throw if request was cancelled by the page"
+      "should not throw if request was cancelled by the page",
+      "propagate headers cross origin redirect"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
@@ -812,6 +815,7 @@
     "failing": [
       "should be abortable with custom error codes",
       "should not throw if request was cancelled by the page",
+      "should not auto-intercept non-preflight OPTIONS without network interception",
       "should intercept when postData is more than 1MB"
     ],
     "skipped": [
