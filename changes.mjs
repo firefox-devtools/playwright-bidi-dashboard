@@ -2,17 +2,17 @@ import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, la
 
 let data;
 let firefoxFailures;
-let diagnosedTests;
+let testsToDiagnose;
 
 async function loadData() {
-  const [dataResponse, failuresResponse, diagnosedResponse] = await Promise.all([
+  const [dataResponse, failuresResponse, toDiagnoseResponse] = await Promise.all([
     fetch('./data.json'),
     fetch('./firefox-failures.json'),
-    fetch('./diagnosed.json'),
+    fetch('./to-diagnose.json'),
   ]);
   data = await dataResponse.json();
   firefoxFailures = await failuresResponse.json();
-  diagnosedTests = new Set(await diagnosedResponse.json());
+  testsToDiagnose = new Set(await toDiagnoseResponse.json());
 }
 
 function getDaysBetween(startDateStr, endDateStr) {
@@ -119,7 +119,7 @@ function renderChanges() {
           continue;
         }
       }
-      if (hideDiagnosed && diagnosedTests.has(`${suite} > ${spec}`)) {
+      if (hideDiagnosed && !testsToDiagnose.has(`${suite} > ${spec}`)) {
         continue;
       }
       changedTests.push({ suite, spec, specResults });
