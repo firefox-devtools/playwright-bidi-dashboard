@@ -205,8 +205,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true",
-      "exposes browser"
+      "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
       "should work in persistent context",
@@ -222,11 +221,6 @@
       "should be able to download a inline PDF file via navigation",
       "download event > should report alt-click downloads",
       "download event > should close the context without awaiting the failed download"
-    ]
-  },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should accept downloads in persistent context"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -351,7 +345,8 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -359,18 +354,15 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should work with IP:PORT notion"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "should work when serving from memory cache"
-    ]
-  },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -428,13 +420,13 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes"
+      "should show only one pointer with multilevel iframes",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -542,11 +534,17 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -730,8 +728,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -827,11 +824,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
