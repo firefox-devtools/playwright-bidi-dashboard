@@ -1,9 +1,4 @@
 {
-  "library/beforeunload.spec.ts": {
-    "failing": [
-      "does not get stalled by beforeUnload"
-    ]
-  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
@@ -223,6 +218,11 @@
       "download event > should close the context without awaiting the failed download"
     ]
   },
+  "library/downloads-path.spec.ts": {
+    "failing": [
+      "downloads path > should accept downloads in persistent context"
+    ]
+  },
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should think that all pages are focused @smoke",
@@ -345,8 +345,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -354,15 +353,18 @@
     ]
   },
   "library/proxy.spec.ts": {
-    "failing": [
-      "should work with IP:PORT notion"
-    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
   },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "should work when serving from memory cache"
+    ]
+  },
   "library/role-utils.spec.ts": {
     "failing": [
+      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -424,9 +426,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should show only one pointer with multilevel iframes",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -540,11 +540,6 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
