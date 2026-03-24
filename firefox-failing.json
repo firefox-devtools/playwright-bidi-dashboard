@@ -225,7 +225,6 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
-      "downloads path > should report downloads in downloadsPath folder with a relative path",
       "downloads path > should accept downloads in persistent context"
     ]
   },
@@ -247,11 +246,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -324,6 +318,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -367,7 +366,6 @@
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "wpt accname #3",
       "axe-core accessible-text"
     ]
   },
@@ -430,7 +428,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -538,7 +537,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on cross-origin navigation",
+      "should dispose context on navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -727,8 +726,7 @@
   "page/page-history.spec.ts": {
     "failing": [
       "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages",
-      "regression test for issue 20791"
+      "goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
