@@ -331,6 +331,7 @@ export const suiteNames = [
   "library/screencast.spec.ts",
   "library/trace-viewer-scrub.spec.ts",
   "library/debugger.spec.ts",
+  "library/overlay.spec.ts",
 ];
 
 export const disabledSuites = [
