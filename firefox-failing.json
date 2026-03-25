@@ -4,6 +4,11 @@
       "does not get stalled by beforeUnload"
     ]
   },
+  "library/browser.spec.ts": {
+    "failing": [
+      "should dispatch page.on(close) upon browser.close and reject evaluate"
+    ]
+  },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute"
@@ -205,7 +210,8 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "should have passed URL when launching with ignoreDefaultArgs: true",
+      "should fire close event for a persistent context"
     ],
     "skipped": [
       "should work in persistent context",
@@ -318,11 +324,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -359,6 +360,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should use socks proxy"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -428,8 +432,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -538,6 +541,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -808,7 +812,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
