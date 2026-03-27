@@ -124,7 +124,9 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed"
+      "should not crash while redirecting of original request was missed",
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -134,7 +136,6 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
-      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
@@ -152,7 +153,6 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -208,10 +208,11 @@
       "launchServer > should saveAs videos from remote browser",
       "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
-      "run-server > should record trace with sources",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
-      "run-server > should save videos to artifactsDir"
+      "run-server > should save videos to artifactsDir",
+      "launchServer > should name video file after page guid when connecting to remote browser with artifactsDir",
+      "run-server > should name video file after page guid when connecting to remote browser with artifactsDir"
     ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
@@ -586,6 +587,9 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -916,6 +920,8 @@
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
+      "should persist mainFrame on cross-process navigation",
+      "should not send attach/detach events for main frame",
       "should support framesets",
       "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
@@ -940,11 +946,6 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
@@ -958,6 +959,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -988,6 +994,10 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "page.url should work",
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1036,11 +1046,6 @@
       "should keep reduced motion and color emulation after reload",
       "should emulate forcedColors ",
       "should emulate contrast "
-    ]
-  },
-  "page/page-evaluate-no-stall.spec.ts": {
-    "failing": [
-      "should work"
     ]
   },
   "page/page-evaluate.spec.ts": {
@@ -1105,6 +1110,7 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1125,11 +1131,6 @@
       "should override referrer-policy",
       "should fail when canceled by another navigation",
       "should work with lazy loading iframes"
-    ]
-  },
-  "page/page-history.spec.ts": {
-    "failing": [
-      "page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1213,7 +1214,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1268,6 +1268,7 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "should detect mime type",
       "should emit input and change events"
     ]
   },
@@ -1283,7 +1284,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with no timeout"
+      "should work with url match regular expression from a different context"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
