@@ -82,6 +82,7 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -188,6 +189,9 @@
     ]
   },
   "library/client-certificates.spec.ts": {
+    "failing": [
+      "browser > persistentContext > should pass with matching certificates"
+    ],
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
     ]
@@ -318,6 +322,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -418,13 +427,11 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -818,6 +825,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/wheel.spec.ts": {

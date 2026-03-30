@@ -1,7 +1,8 @@
 {
   "library/browser.spec.ts": {
     "failing": [
-      "version should work"
+      "version should work",
+      "should dispatch page.on(close) upon browser.close and reject evaluate"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
@@ -21,7 +22,6 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
-      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -79,8 +79,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -98,11 +97,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -124,7 +118,9 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed"
+      "should not crash while redirecting of original request was missed",
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -134,6 +130,8 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
@@ -203,7 +201,6 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -423,7 +420,6 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -584,7 +580,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
       "should remove init scripts upon disconnect",
       "should launch persistent"
@@ -639,13 +634,11 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -780,7 +773,6 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -993,9 +985,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1108,7 +1097,6 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1186,8 +1174,6 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should return multiple header value",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1216,7 +1202,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
+      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1250,6 +1236,7 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
+      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1277,6 +1264,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1287,8 +1275,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with no timeout",
-      "should work with url match regular expression from a different context"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
