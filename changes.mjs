@@ -64,6 +64,8 @@ function renderChanges() {
   const endDateInput = document.getElementById('endDate').value;
   const browser = document.getElementById('browser').value;
   const minChanges = parseInt(document.getElementById('minChanges').value) || 1;
+  const minPassedPctInput = document.getElementById('minPassedPct').value;
+  const minPassedPct = minPassedPctInput !== '' ? parseFloat(minPassedPctInput) : null;
   const maxPassedPctInput = document.getElementById('maxPassedPct').value;
   const maxPassedPct = maxPassedPctInput !== '' ? parseFloat(maxPassedPctInput) : null;
   const hideDiagnosed = document.getElementById('hideDiagnosed').checked;
@@ -79,6 +81,9 @@ function renderChanges() {
   searchParams.set('browser', browser);
   if (minChanges !== 1) {
     searchParams.set('minChanges', minChanges);
+  }
+  if (minPassedPct !== null) {
+    searchParams.set('minPassedPct', minPassedPct);
   }
   if (maxPassedPct !== null) {
     searchParams.set('maxPassedPct', maxPassedPct);
@@ -108,14 +113,17 @@ function renderChanges() {
       if (!hasStatusChanged(specResults, browser, days, minChanges)) {
         continue;
       }
-      if (maxPassedPct !== null) {
+      if (minPassedPct !== null || maxPassedPct !== null) {
         const runDays = days.filter(day => {
           const s = specResults[browser]?.[day];
           return s != null && s !== 1;
         });
         const passedDays = runDays.filter(day => specResults[browser][day] === 0);
         const pct = runDays.length > 0 ? (passedDays.length / runDays.length) * 100 : 0;
-        if (pct > maxPassedPct) {
+        if (minPassedPct !== null && pct < minPassedPct) {
+          continue;
+        }
+        if (maxPassedPct !== null && pct > maxPassedPct) {
           continue;
         }
       }
@@ -209,6 +217,10 @@ function initializeDateInputs() {
     document.getElementById('minChanges').value = searchParams.get('minChanges');
   }
 
+  if (searchParams.has('minPassedPct')) {
+    document.getElementById('minPassedPct').value = searchParams.get('minPassedPct');
+  }
+
   if (searchParams.has('maxPassedPct')) {
     document.getElementById('maxPassedPct').value = searchParams.get('maxPassedPct');
   }
@@ -231,8 +243,11 @@ async function init() {
     if (e.key === 'Enter') renderChanges();
   });
 
-  // Also render on Enter key in minChanges and maxPassedPct inputs
+  // Also render on Enter key in minChanges, minPassedPct, and maxPassedPct inputs
   document.getElementById('minChanges').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') renderChanges();
+  });
+  document.getElementById('minPassedPct').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') renderChanges();
   });
   document.getElementById('maxPassedPct').addEventListener('keypress', (e) => {
