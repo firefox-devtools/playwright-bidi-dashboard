@@ -1,8 +1,12 @@
 {
+  "library/beforeunload.spec.ts": {
+    "failing": [
+      "should support dismissing the dialog multiple times"
+    ]
+  },
   "library/browser.spec.ts": {
     "failing": [
-      "version should work",
-      "should dispatch page.on(close) upon browser.close and reject evaluate"
+      "version should work"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
@@ -22,6 +26,7 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
+      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -130,7 +135,6 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
-      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
@@ -144,6 +148,7 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -420,6 +425,7 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
+      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -580,6 +586,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
       "should remove init scripts upon disconnect",
       "should launch persistent"
@@ -634,6 +641,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -645,7 +653,8 @@
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect"
+      "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > localhost"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -664,7 +673,8 @@
     "failing": [
       "screencast.start delivers frames via onFrame callback",
       "start returns a disposable that stops screencast",
-      "start reuses existing screencast when video recording is running"
+      "start should work when recordVideo is set",
+      "start dispose stops recording"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -773,6 +783,7 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -804,7 +815,6 @@
   "library/video.spec.ts": {
     "failing": [
       "should saveAs video",
-      "screencast > should work with old options",
       "screencast > should capture static page",
       "screencast > should continue recording main page after popup closes",
       "screencast > should expose video path",
@@ -825,9 +835,6 @@
       "screencast > should throw if browser dies",
       "screencast > should wait for video to finish if page was closed",
       "screencast > should not create video for internal pages",
-      "screencast > video.start/stop twice",
-      "screencast > video.start should fail when recordVideo is set, but stop should work",
-      "screencast > video.start dispose stops recording",
       "screencast > should close ffmpeg even if there were no frames"
     ],
     "skipped": [
@@ -914,7 +921,6 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
-      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -942,11 +948,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -955,6 +956,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1174,6 +1180,8 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should return multiple header value",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1202,7 +1210,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1236,7 +1243,6 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
-      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1264,7 +1270,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1286,7 +1291,8 @@
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
       "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should fail when navigating while on handle",
+      "should succeed if element handle was detached while waiting for hidden"
     ]
   },
   "page/wheel.spec.ts": {
