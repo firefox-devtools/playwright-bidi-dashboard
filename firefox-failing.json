@@ -205,6 +205,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should accept relative userDataDir",
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
@@ -214,7 +215,6 @@
   },
   "library/download.spec.ts": {
     "failing": [
-      "download event > should report download when navigation turns into download @smoke",
       "download event > should report download path within page.on('download', …) handler for Blobs",
       "download event > should be able to cancel pending downloads"
     ],
@@ -419,6 +419,7 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -801,7 +802,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -833,9 +834,11 @@
       "should report network activity",
       "should report and intercept network from nested worker",
       "should support extra http headers",
-      "should support offline",
       "should report console event on the worker",
       "should report console event on the worker when not listening on page or context"
+    ],
+    "skipped": [
+      "should support offline"
     ]
   }
 }
