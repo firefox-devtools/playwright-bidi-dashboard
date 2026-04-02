@@ -14,8 +14,6 @@
   },
   "library/browsercontext-base-url.spec.ts": {
     "failing": [
-      "should construct a new URL when a baseURL in browser.newContext is passed to page.goto @smoke",
-      "should construct a new URL when a baseURL in browser.newPage is passed to page.goto",
       "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
     ]
   },
@@ -50,7 +48,6 @@
       "should get a cookie @smoke",
       "should get a non-session cookie",
       "should get multiple cookies",
-      "should return cookies with empty value",
       "should parse cookie with large Max-Age correctly",
       "iframe should inherit cookies from parent"
     ],
@@ -82,7 +79,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -100,6 +98,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -173,8 +176,7 @@
   },
   "library/browsercontext-user-agent.spec.ts": {
     "failing": [
-      "should work for navigator.userAgentData and sec-ch-ua headers",
-      "should override navigator.platform to match custom user agent"
+      "should work for navigator.userAgentData and sec-ch-ua headers"
     ]
   },
   "library/browsercontext-viewport-mobile.spec.ts": {
@@ -586,6 +588,8 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should remove exposed bindings upon disconnect",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -605,6 +609,7 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
+      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -650,8 +655,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local"
+      "should proxy local network requests > by default > localhost"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -917,6 +921,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -944,11 +949,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -957,6 +957,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1113,7 +1118,6 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1267,7 +1271,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1278,7 +1281,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with url match regular expression from a different context"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
