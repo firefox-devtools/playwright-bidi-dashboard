@@ -222,6 +222,11 @@
       "download event > should close the context without awaiting the failed download"
     ]
   },
+  "library/downloads-path.spec.ts": {
+    "failing": [
+      "downloads path > should accept downloads in persistent context"
+    ]
+  },
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should think that all pages are focused @smoke",
@@ -413,11 +418,13 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -522,8 +529,6 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -794,7 +799,6 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [

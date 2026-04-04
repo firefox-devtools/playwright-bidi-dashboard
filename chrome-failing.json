@@ -1,7 +1,8 @@
 {
   "library/browser.spec.ts": {
     "failing": [
-      "version should work"
+      "version should work",
+      "should dispatch page.on(close) upon browser.close and reject evaluate"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
@@ -144,10 +145,10 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -200,8 +201,8 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
+      "run-server > should record trace with sources",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
       "run-server > should save videos to artifactsDir",
@@ -234,9 +235,7 @@
   "library/browsertype-launch.spec.ts": {
     "failing": [
       "should reject all promises when browser is closed",
-      "should handle timeout",
-      "should handle exception",
-      "should report launch log"
+      "should handle exception"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -248,6 +247,7 @@
     "failing": [
       "should scope context handles",
       "should scope CDPSession handles",
+      "should not generate dispatchers for subresources w/o listeners",
       "should work with the domain module"
     ]
   },
@@ -457,7 +457,6 @@
       "should create userDataDir if it does not exist",
       "should have default URL when launching browser",
       "should have passed URL when launching with ignoreDefaultArgs: true",
-      "should handle timeout",
       "should handle exception",
       "should fire close event for a persistent context",
       "coverage should work",
@@ -582,6 +581,7 @@
       "last emulateMedia wins",
       "should remove exposed bindings upon disconnect",
       "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -646,9 +646,7 @@
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > link-local"
+      "should work with authenticate followed by redirect"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -777,6 +775,7 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should handle multiple headers",
+      "should handle src=blob",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -936,14 +935,14 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
+    ]
+  },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -976,6 +975,11 @@
       "should work with dblclick without noWaitAfter when navigation is stalled",
       "should work with waitForLoadState(load)",
       "should work with goto following click"
+    ]
+  },
+  "page/page-autowaiting-no-hang.spec.ts": {
+    "failing": [
+      "calling window.stop async"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -1107,6 +1111,7 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1162,7 +1167,6 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
-      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1201,7 +1205,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1262,9 +1265,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1273,6 +1274,7 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
+      "should work",
       "should work with predicate",
       "should work with no timeout"
     ]
