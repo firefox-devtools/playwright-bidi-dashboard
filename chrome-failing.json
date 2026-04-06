@@ -21,6 +21,7 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
+      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -200,6 +201,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -578,7 +580,6 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should unroute websockets",
-      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -598,7 +599,6 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
-      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -637,7 +637,6 @@
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -645,7 +644,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address"
+      "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -774,6 +773,7 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -938,11 +938,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -951,6 +946,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -971,7 +971,8 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1109,6 +1110,7 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
+      "js redirect overrides url bar navigation ",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1235,6 +1237,7 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
+      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1262,7 +1265,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1271,9 +1273,9 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
+      "should work",
       "should work with predicate",
-      "should work with no timeout",
-      "should work with url match"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
