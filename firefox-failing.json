@@ -344,7 +344,8 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -356,15 +357,9 @@
       "should use proxy with emulated user agent"
     ]
   },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "should work when serving from memory cache"
-    ]
-  },
   "library/role-utils.spec.ts": {
     "failing": [
       "wpt accname #2",
-      "axe-core implicit-role",
       "axe-core accessible-text"
     ]
   },
@@ -428,8 +423,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
