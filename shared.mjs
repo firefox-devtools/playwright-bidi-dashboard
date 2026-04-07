@@ -333,6 +333,8 @@ export const suiteNames = [
   "library/debugger.spec.ts",
   "library/overlay.spec.ts",
   "library/unit/json-schema.spec.ts",
+  "library/screencast-actions.spec.ts",
+  "library/screencast-overlay.spec.ts",
 ];
 
 export const disabledSuites = [
