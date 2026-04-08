@@ -1,9 +1,4 @@
 {
-  "library/browsercontext-add-cookies.spec.ts": {
-    "failing": [
-      "should set cookies with SameSite attribute and no secure attribute"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -43,9 +38,6 @@
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
-    "failing": [
-      "should support set-cookie with SameSite and without Secure attribute over HTTP"
-    ],
     "skipped": [
       "should work with connectOverCDP"
     ]
@@ -247,6 +239,11 @@
       "should support custom firefox policies"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har.spec.ts": {
     "failing": [
       "should include postData",
@@ -418,12 +415,12 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -667,9 +664,6 @@
   "page/page-event-console.spec.ts": {
     "failing": [
       "should trigger correct Log"
-    ],
-    "skipped": [
-      "should format the message correctly with time/timeLog/timeEnd"
     ]
   },
   "page/page-event-request.spec.ts": {

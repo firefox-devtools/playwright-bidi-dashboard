@@ -48,6 +48,7 @@
       "should get a cookie @smoke",
       "should get a non-session cookie",
       "should get multiple cookies",
+      "should return cookies with empty value",
       "should parse cookie with large Max-Age correctly",
       "iframe should inherit cookies from parent"
     ],
@@ -79,8 +80,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -119,9 +119,7 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
-      "should have an opener",
-      "should fire page lifecycle events"
+      "should not crash while redirecting of original request was missed"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -143,7 +141,9 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should reset mouse position",
+      "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -199,6 +199,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -576,9 +577,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
-      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -598,6 +597,7 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
+      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -642,6 +642,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local"
     ],
@@ -980,9 +981,7 @@
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "calling window.stop async",
-      "calling window.stop sync",
-      "assigning location to about:blank after non-about:blank"
+      "calling window.stop async"
     ]
   },
   "page/page-basic.spec.ts": {
@@ -1068,6 +1067,7 @@
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
+      "should return response body when Cross-Origin-Opener-Policy is set",
       "should fire requestfailed when intercepting race"
     ],
     "skipped": [
@@ -1101,12 +1101,12 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1181,6 +1181,7 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
+      "should throw when requesting body of redirected response",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1242,6 +1243,7 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
+      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1263,14 +1265,12 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
       "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
@@ -1282,8 +1282,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with no timeout",
-      "should work with url match regular expression from a different context"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
@@ -1294,8 +1293,7 @@
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
       "should throw when frame is detached xpath",
-      "should fail when navigating while on handle",
-      "should succeed if element handle was detached while waiting for hidden"
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
