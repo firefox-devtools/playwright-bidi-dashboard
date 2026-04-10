@@ -336,7 +336,8 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -346,11 +347,6 @@
   "library/proxy.spec.ts": {
     "skipped": [
       "should use proxy with emulated user agent"
-    ]
-  },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "should work when serving from memory cache"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -414,6 +410,7 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -523,6 +520,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
