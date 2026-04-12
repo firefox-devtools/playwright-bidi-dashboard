@@ -48,7 +48,6 @@
     "failing": [
       "should get a cookie @smoke",
       "should get a non-session cookie",
-      "should properly report \"Strict\" sameSite cookie",
       "should get multiple cookies",
       "should parse cookie with large Max-Age correctly",
       "iframe should inherit cookies from parent"
@@ -81,7 +80,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -99,6 +99,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -120,7 +125,6 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener",
       "should fire page lifecycle events"
     ]
@@ -132,6 +136,7 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
+      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
@@ -147,7 +152,7 @@
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
-      "reuse connect > should work with routeWebSocket",
+      "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -200,7 +205,6 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -418,6 +422,7 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
+      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -630,6 +635,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -641,7 +647,9 @@
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect"
+      "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -935,6 +943,11 @@
       "should take screenshot"
     ]
   },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -973,9 +986,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1047,7 +1057,8 @@
   "page/page-event-pageerror.spec.ts": {
     "failing": [
       "should handle object",
-      "should handle window"
+      "should handle window",
+      "should fire illegal character error"
     ]
   },
   "page/page-event-request.spec.ts": {
@@ -1094,6 +1105,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1194,6 +1206,8 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should delete headers on redirects",
+      "propagate headers cross origin redirect after interception",
       "should not delete the origin header"
     ]
   },
@@ -1254,6 +1268,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1264,8 +1279,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with no timeout",
-      "should work with url match regular expression from a different context"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
