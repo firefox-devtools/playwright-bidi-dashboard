@@ -130,7 +130,6 @@
     "failing": [
       "launchServer > should saveAs videos from remote browser",
       "run-server > should saveAs videos from remote browser",
-      "run-server > should be able to connect 20 times to a single server without warnings",
       "launchServer > should upload a folder",
       "run-server > should upload a folder",
       "launchServer > should save videos to artifactsDir",
@@ -216,6 +215,7 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
+      "downloads path > should keep downloadsPath folder",
       "downloads path > should accept downloads in persistent context"
     ]
   },
@@ -355,7 +355,6 @@
   },
   "library/role-utils.spec.ts": {
     "failing": [
-      "wpt accname #2",
       "axe-core accessible-text"
     ]
   },
@@ -419,8 +418,7 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -525,6 +523,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -791,8 +790,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"

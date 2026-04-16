@@ -1,8 +1,7 @@
 {
   "library/browser.spec.ts": {
     "failing": [
-      "version should work",
-      "should dispatch page.on(close) upon browser.close and reject evaluate"
+      "version should work"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
@@ -80,7 +79,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -98,6 +98,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -120,7 +125,8 @@
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
-      "should have an opener"
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -130,9 +136,6 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
-      "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -147,6 +150,7 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -199,6 +203,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -413,7 +418,6 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -495,6 +499,11 @@
       "should send correct ALPN protocol to HTTPS proxy"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har.spec.ts": {
     "failing": [
       "should have pages in persistent context",
@@ -568,8 +577,8 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
-      "should remove init scripts upon disconnect",
       "should launch persistent"
     ],
     "skipped": [
@@ -634,6 +643,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
@@ -642,8 +652,6 @@
   },
   "library/resource-timing.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should work for subresource",
       "should work for SSL",
       "should work for redirect",
       "should work when serving from memory cache"
@@ -897,6 +905,8 @@
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
+      "should persist mainFrame on cross-process navigation",
+      "should not send attach/detach events for main frame",
       "should support framesets",
       "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
@@ -921,9 +931,19 @@
       "should beautifully render sparse arrays"
     ]
   },
+  "page/locator-convenience.spec.ts": {
+    "failing": [
+      "should return page"
+    ]
+  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
+    ]
+  },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -958,8 +978,8 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -968,9 +988,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1083,6 +1100,7 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1097,11 +1115,13 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
       "should fail when canceled by another navigation",
-      "should work with lazy loading iframes"
+      "should work with lazy loading iframes",
+      "should report raw buffer for main resource"
     ]
   },
   "page/page-history.spec.ts": {
@@ -1160,6 +1180,8 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should return multiple header value",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1188,7 +1210,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
+      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1222,7 +1244,6 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
-      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1270,8 +1291,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
@@ -1285,7 +1305,6 @@
       "should have JSHandles for console logs",
       "should clear upon cross-process navigation",
       "should report network activity",
-      "should report network activity on worker creation",
       "should report and intercept network from nested worker",
       "should support extra http headers",
       "should report console event on the worker",
