@@ -335,6 +335,9 @@ export const suiteNames = [
   "library/unit/json-schema.spec.ts",
   "library/screencast-actions.spec.ts",
   "library/screencast-overlay.spec.ts",
+  "library/chromium/connect-to-worker.spec.ts",
+  "library/locator-highlight.spec.ts",
+  "page/page-drop.spec.ts",
 ];
 
 export const disabledSuites = [
