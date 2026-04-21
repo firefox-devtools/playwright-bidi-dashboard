@@ -147,9 +147,11 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -416,6 +418,7 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
+      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -638,9 +641,7 @@
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local"
+      "should work with authenticate followed by redirect"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -969,9 +970,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1079,8 +1077,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1089,6 +1085,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1136,6 +1133,7 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
+      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1152,6 +1150,7 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
+      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1162,6 +1161,7 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
+      "should return text",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",

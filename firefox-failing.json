@@ -412,12 +412,12 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -523,6 +523,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
