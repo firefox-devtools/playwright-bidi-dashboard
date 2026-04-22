@@ -335,6 +335,7 @@ export const suiteNames = [
   "library/chromium/connect-to-worker.spec.ts",
   "library/locator-highlight.spec.ts",
   "page/page-drop.spec.ts",
+  "page/expect-builtins.spec.ts",
 ];
 
 export const disabledSuites = [
