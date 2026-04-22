@@ -211,12 +211,6 @@
       "download event > should close the context without awaiting the failed download"
     ]
   },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should keep downloadsPath folder",
-      "downloads path > should accept downloads in persistent context"
-    ]
-  },
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should think that all pages are focused @smoke",
@@ -235,11 +229,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -412,12 +401,12 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",

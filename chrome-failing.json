@@ -79,8 +79,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -119,8 +118,6 @@
   },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
-      "should have url",
-      "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
@@ -136,6 +133,9 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -151,7 +151,6 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -204,6 +203,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -307,7 +307,9 @@
       "setInputFiles should preserve lastModified timestamp",
       "should not reuse utility worlds between two clients",
       "setInputFiles should use local path when isLocal is set",
-      "should get title and URL of existing page"
+      "should get title and URL of existing page",
+      "should skip default overrides with noDefaults",
+      "noDefaults should not affect new contexts"
     ],
     "skipped": [
       "emulate media should not be affected by second connectOverCDP"
@@ -578,6 +580,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should unroute websockets",
       "should launch persistent"
     ],
     "skipped": [
@@ -641,7 +644,10 @@
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect"
+      "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -750,7 +756,12 @@
       "selector generator > should prioritize attributes correctly > placeholder",
       "selector generator > should prioritize attributes correctly > name",
       "selector generator > should prioritize attributes correctly > type",
-      "selector generator > should not use icon fonts aria name"
+      "selector generator > should not use icon fonts aria name",
+      "selector generator > should use description when name is not unique",
+      "selector generator > should not use description when name is unique",
+      "selector generator > should use description from aria-describedby",
+      "selector generator > should fall back to nth when name and description are both not unique",
+      "selector generator > should use description when role has no name"
     ]
   },
   "library/tap.spec.ts": {
@@ -932,6 +943,11 @@
       "should take screenshot"
     ]
   },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -1041,7 +1057,8 @@
   "page/page-event-pageerror.spec.ts": {
     "failing": [
       "should handle object",
-      "should handle window"
+      "should handle window",
+      "should fire illegal character error"
     ]
   },
   "page/page-event-request.spec.ts": {
@@ -1161,7 +1178,6 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
-      "should return text",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
