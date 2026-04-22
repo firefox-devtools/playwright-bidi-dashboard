@@ -309,6 +309,9 @@ async function main() {
   if (searchParams.has('filter')) {
     decodeFilter(searchParams.get('filter'), setValue);
   } else if (searchParams.has('label')) {
+    for (const suite of suiteCheckboxes.keys()) {
+      setValue(suite, false);
+    }
     label = filterForLabel(searchParams.get('label'), setValue);
   }
 

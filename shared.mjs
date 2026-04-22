@@ -28,9 +28,6 @@ export function decodeFilter(base64Encoded, setValue) {
 }
 
 export function filterForLabel(label, setValue) {
-  for (const suite of suiteNames) {
-    setValue(suite, false);
-  }
   let displayLabel = label;
   while (label) {
     for (const suite of labels[label].suites) {
