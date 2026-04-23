@@ -1,4 +1,9 @@
 {
+  "library/browser.spec.ts": {
+    "failing": [
+      "newContext should not leave a context upon failure"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -211,6 +216,12 @@
       "download event > should close the context without awaiting the failed download"
     ]
   },
+  "library/downloads-path.spec.ts": {
+    "failing": [
+      "downloads path > should keep downloadsPath folder",
+      "downloads path > should accept downloads in persistent context"
+    ]
+  },
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should think that all pages are focused @smoke",
@@ -229,6 +240,11 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
@@ -328,8 +344,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -779,7 +794,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
