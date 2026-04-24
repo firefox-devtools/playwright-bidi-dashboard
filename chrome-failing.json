@@ -1,8 +1,7 @@
 {
   "library/browser.spec.ts": {
     "failing": [
-      "version should work",
-      "newContext should not leave a context upon failure"
+      "version should work"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
@@ -21,7 +20,6 @@
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
-      "should be able to navigate after disabling javascript",
       "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
@@ -77,12 +75,6 @@
       "should bypass CSP in iframes as well"
     ]
   },
-  "library/browsercontext-dsf.spec.ts": {
-    "failing": [
-      "should fetch lodpi assets @smoke",
-      "should fetch hidpi assets"
-    ]
-  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
@@ -130,9 +122,7 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
-      "should have an opener",
-      "should fire page lifecycle events"
+      "should have an opener"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -211,6 +201,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -254,7 +245,6 @@
   },
   "library/channels.spec.ts": {
     "failing": [
-      "should scope context handles",
       "should scope CDPSession handles",
       "should not generate dispatchers for subresources w/o listeners",
       "should work with the domain module"
@@ -427,7 +417,6 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -587,8 +576,8 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
-      "should launch persistent"
+      "should launch persistent",
+      "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -639,20 +628,17 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
-      "should respect routes from browser context when using window.open",
       "should not throttle rAF in the opener page"
     ]
   },
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > link-local"
+      "should work with authenticate followed by redirect"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -958,11 +944,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -975,10 +956,10 @@
   },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
-      "should await cross-process navigation when clicking anchor",
+      "should await navigation when clicking anchor",
       "should await form-get on click",
       "should await form-post on click",
-      "should work with noWaitAfter: true",
+      "should work with dblclick without noWaitAfter when navigation is stalled",
       "should work with waitForLoadState(load)",
       "should work with goto following click"
     ]
@@ -989,6 +970,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1098,9 +1082,7 @@
     "failing": [
       "should work @smoke",
       "should use http for no protocol",
-      "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
-      "should work with Cross-Origin-Opener-Policy after redirect",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1118,8 +1100,7 @@
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
-      "should fail when canceled by another navigation",
-      "should work with lazy loading iframes"
+      "should fail when canceled by another navigation"
     ]
   },
   "page/page-history.spec.ts": {
@@ -1164,7 +1145,6 @@
       "should parse the json post data",
       "should parse the data if content-type is application/x-www-form-urlencoded",
       "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
-      "should get |undefined| with postDataJSON() when there is no post data",
       "should return multipart/form-data",
       "should return event source",
       "should return navigation bit",
@@ -1180,6 +1160,7 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
+      "should wait until response completes",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1208,7 +1189,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1278,6 +1258,7 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
+      "should work with predicate",
       "should work with no timeout"
     ]
   },

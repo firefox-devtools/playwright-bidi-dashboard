@@ -1,9 +1,4 @@
 {
-  "library/browser.spec.ts": {
-    "failing": [
-      "newContext should not leave a context upon failure"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -230,9 +225,6 @@
     ]
   },
   "library/fetch-proxy.spec.ts": {
-    "failing": [
-      "context request should pick up proxy credentials"
-    ],
     "skipped": [
       "should send correct ALPN protocol to HTTPS proxy"
     ]
@@ -303,7 +295,8 @@
   "library/multiclient.spec.ts": {
     "failing": [
       "last emulateMedia wins",
-      "should unroute websockets"
+      "should unroute websockets",
+      "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
       "should not allow parallel js coverage and cleanup upon disconnect",
@@ -344,7 +337,8 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -416,12 +410,12 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -527,7 +521,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles",
       "should not allow cross-frame element handles when frames do not script each other"
     ],
@@ -795,7 +788,8 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture css animations in shadow DOM",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -809,6 +803,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/wheel.spec.ts": {
