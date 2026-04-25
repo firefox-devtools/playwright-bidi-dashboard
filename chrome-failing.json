@@ -20,6 +20,7 @@
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
+      "should be able to navigate after disabling javascript",
       "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
@@ -122,7 +123,9 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should have an opener"
+      "should not crash while redirecting of original request was missed",
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -132,9 +135,6 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
-      "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -245,6 +245,7 @@
   },
   "library/channels.spec.ts": {
     "failing": [
+      "should scope context handles",
       "should scope CDPSession handles",
       "should not generate dispatchers for subresources w/o listeners",
       "should work with the domain module"
@@ -632,13 +633,15 @@
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
+      "should respect routes from browser context when using window.open",
       "should not throttle rAF in the opener page"
     ]
   },
   "library/proxy.spec.ts": {
     "failing": [
       "should authenticate",
-      "should work with authenticate followed by redirect"
+      "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -907,6 +910,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -944,6 +948,11 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
+    ]
+  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -957,8 +966,10 @@
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
       "should await navigation when clicking anchor",
+      "should await cross-process navigation when clicking anchor",
       "should await form-get on click",
       "should await form-post on click",
+      "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
       "should work with waitForLoadState(load)",
       "should work with goto following click"
@@ -1082,12 +1093,15 @@
     "failing": [
       "should work @smoke",
       "should use http for no protocol",
+      "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
+      "should work with Cross-Origin-Opener-Policy after redirect",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1100,7 +1114,8 @@
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
-      "should fail when canceled by another navigation"
+      "should fail when canceled by another navigation",
+      "should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
@@ -1134,7 +1149,6 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1145,6 +1159,7 @@
       "should parse the json post data",
       "should parse the data if content-type is application/x-www-form-urlencoded",
       "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
+      "should get |undefined| with postDataJSON() when there is no post data",
       "should return multipart/form-data",
       "should return event source",
       "should return navigation bit",
@@ -1160,7 +1175,6 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
-      "should wait until response completes",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1189,6 +1203,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
