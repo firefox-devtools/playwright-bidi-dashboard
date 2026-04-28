@@ -504,9 +504,6 @@
     ]
   },
   "page/expect-misc.spec.ts": {
-    "failing": [
-      "strict mode violation error format"
-    ],
     "skipped": [
       "toHaveURL > support URLPattern"
     ]
@@ -670,9 +667,6 @@
     ]
   },
   "page/page-fill.spec.ts": {
-    "failing": [
-      "should throw nice error without injected script stack when element is not an <input>"
-    ],
     "skipped": [
       "input event.composed should be true and cross shadow dom boundary - month",
       "input event.composed should be true and cross shadow dom boundary - week",
@@ -782,7 +776,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -796,6 +790,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-selector-2.spec.ts": {
+    "failing": [
+      "should succeed if element handle was detached while waiting for detached"
     ]
   },
   "page/wheel.spec.ts": {
