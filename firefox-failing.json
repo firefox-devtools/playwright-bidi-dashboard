@@ -1,4 +1,9 @@
 {
+  "library/browsercontext-add-cookies.spec.ts": {
+    "failing": [
+      "should allow unnamed cookies"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -471,11 +476,6 @@
       "should turn off when offline"
     ]
   },
-  "page/elementhandle-bounding-box.spec.ts": {
-    "failing": [
-      "should return null for invisible elements"
-    ]
-  },
   "page/elementhandle-click.spec.ts": {
     "failing": [
       "should work for TextNodes",
@@ -511,12 +511,15 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
-      "should allow cross-frame element handles",
-      "should not allow cross-frame element handles when frames do not script each other"
+      "should allow cross-frame element handles"
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -648,6 +651,7 @@
   },
   "page/page-event-console.spec.ts": {
     "failing": [
+      "should format the message correctly with time/timeLog/timeEnd",
       "should trigger correct Log"
     ]
   },
@@ -776,6 +780,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
@@ -790,11 +795,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-selector-2.spec.ts": {
-    "failing": [
-      "should succeed if element handle was detached while waiting for detached"
     ]
   },
   "page/wheel.spec.ts": {
