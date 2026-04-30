@@ -79,7 +79,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -97,11 +98,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -123,7 +119,9 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed"
+      "should not crash while redirecting of original request was missed",
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -133,8 +131,6 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
-      "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -149,6 +145,7 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -201,23 +198,15 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "launchServer > should save download",
+      "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "run-server > should saveAs videos from remote browser",
+      "run-server > should save download",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
       "run-server > should save videos to artifactsDir",
       "launchServer > should name video file after page guid when connecting to remote browser with artifactsDir",
       "run-server > should name video file after page guid when connecting to remote browser with artifactsDir"
-    ],
-    "skipped": [
-      "launchServer > socks proxy > should forward non-forwarded requests",
-      "launchServer > socks proxy > should proxy localhost requests @smoke",
-      "launchServer > socks proxy > should proxy ipv6 localhost requests @smoke",
-      "launchServer > socks proxy > should proxy requests from fetch api",
-      "launchServer > socks proxy > should proxy requests from fetch api over ipv6",
-      "launchServer > socks proxy > should proxy local.playwright requests",
-      "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
-      "launchServer > socks proxy > should proxy based on the pattern",
-      "launchServer > socks proxy > should check proxy pattern on the client"
     ]
   },
   "library/browsertype-launch-selenium.spec.ts": {
@@ -468,10 +457,32 @@
   },
   "library/download.spec.ts": {
     "failing": [
+      "should be able to download a PDF file",
+      "should be able to download a inline PDF file via response interception",
+      "should save to user-specified path",
       "download event > should report download when navigation turns into download @smoke",
       "download event > should work with Cross-Origin-Opener-Policy",
+      "download event > should report downloads with acceptDownloads: true",
+      "download event > should report downloads for download attribute",
+      "download event > should save to user-specified path without updating original path",
+      "download event > should save to two different paths with multiple saveAs calls",
+      "download event > should save to overwritten filepath",
+      "download event > should create subdirectories when saving to non-existent user-specified path",
+      "download event > should report non-navigation downloads",
+      "download event > should report download path within page.on('download', …) handler for Files",
+      "download event > should report download path within page.on('download', …) handler for Blobs",
+      "download event > should report alt-click downloads",
       "download event > should report new window downloads",
-      "download event > should be able to cancel pending downloads"
+      "download event > should delete file",
+      "download event > should expose stream",
+      "download event > should delete downloads on context destruction",
+      "download event > should delete downloads on browser gone",
+      "download event > should download large binary.zip",
+      "download event > should be able to cancel pending downloads",
+      "download event > should not fail explicitly to cancel a download even if that is already finished",
+      "download event > should report downloads with interception",
+      "download event > should emit download event from nested iframes",
+      "download event > should save downloads to artifactsDir"
     ],
     "skipped": [
       "should be able to download a inline PDF file via navigation"
@@ -479,6 +490,7 @@
   },
   "library/downloads-path.spec.ts": {
     "failing": [
+      "downloads path > should delete downloads when context closes",
       "downloads path > should accept downloads in persistent context",
       "downloads path > should delete downloads when persistent context closes"
     ]
@@ -604,7 +616,8 @@
     "failing": [
       "expect should not print timed out error message when page closes",
       "should reject all promises when page is closed",
-      "interrupt request.response() and request.allHeaders() on page.close"
+      "interrupt request.response() and request.allHeaders() on page.close",
+      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -629,7 +642,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -642,7 +654,9 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address"
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -960,8 +974,7 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -970,9 +983,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1091,6 +1101,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1138,7 +1149,6 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1165,8 +1175,6 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
-      "should return text",
-      "should throw when requesting body of redirected response",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1195,6 +1203,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1228,6 +1237,7 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
+      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1255,7 +1265,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
