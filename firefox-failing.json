@@ -538,7 +538,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ],
     "skipped": [

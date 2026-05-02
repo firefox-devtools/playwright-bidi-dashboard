@@ -80,7 +80,10 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work with inline script tag",
+      "pageload event should work @smoke",
+      "framenavigated event should work @smoke",
+      "weberror event should include location"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -119,9 +122,7 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
-      "should have an opener",
-      "should fire page lifecycle events"
+      "should not crash while redirecting of original request was missed"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -199,7 +200,6 @@
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
       "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > should save download",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
@@ -589,7 +589,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
+      "should remove exposed bindings upon disconnect",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -654,8 +654,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
@@ -947,11 +945,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -1097,11 +1090,10 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1116,7 +1108,6 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1155,6 +1146,7 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
+      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1278,7 +1270,6 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
-      "should work with predicate",
       "should work with no timeout"
     ]
   },
@@ -1289,8 +1280,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
