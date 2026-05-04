@@ -48,6 +48,7 @@
       "should get a cookie @smoke",
       "should get a non-session cookie",
       "should get multiple cookies",
+      "should return cookies with empty value",
       "should parse cookie with large Max-Age correctly",
       "iframe should inherit cookies from parent"
     ],
@@ -114,10 +115,9 @@
   },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
-      "should have url",
-      "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
+      "should not crash while redirecting of original request was missed",
       "should have an opener",
       "should fire page lifecycle events"
     ]
@@ -197,6 +197,7 @@
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
       "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > should save download",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
@@ -638,6 +639,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -784,7 +786,6 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -913,6 +914,8 @@
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
+      "should persist mainFrame on cross-process navigation",
+      "should not send attach/detach events for main frame",
       "should support framesets",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
@@ -946,6 +949,11 @@
       "should take screenshot"
     ]
   },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -954,11 +962,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -989,6 +992,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1107,7 +1113,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1117,6 +1122,7 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1182,7 +1188,7 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
-      "should throw when requesting body of redirected response",
+      "should return text",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1212,11 +1218,6 @@
   "page/page-request-continue.spec.ts": {
     "failing": [
       "should not delete the origin header"
-    ]
-  },
-  "page/page-request-fallback.spec.ts": {
-    "failing": [
-      "should chain once"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
@@ -1249,7 +1250,6 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
-      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1285,6 +1285,7 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
+      "should work",
       "should work with predicate",
       "should work with no timeout"
     ]
@@ -1296,8 +1297,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
