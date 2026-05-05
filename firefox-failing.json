@@ -1,9 +1,4 @@
 {
-  "library/browsercontext-add-cookies.spec.ts": {
-    "failing": [
-      "should allow unnamed cookies"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -133,9 +128,6 @@
     "failing": [
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
-      "launchServer > socks proxy > should proxy localhost requests @smoke",
-      "launchServer > socks proxy > should proxy ipv6 localhost requests @smoke",
-      "launchServer > socks proxy > should proxy based on the pattern",
       "run-server > should saveAs videos from remote browser",
       "run-server > should save download",
       "run-server > socks proxy > should proxy localhost requests @smoke",
@@ -147,6 +139,17 @@
       "run-server > should save videos to artifactsDir",
       "launchServer > should name video file after page guid when connecting to remote browser with artifactsDir",
       "run-server > should name video file after page guid when connecting to remote browser with artifactsDir"
+    ],
+    "skipped": [
+      "launchServer > socks proxy > should forward non-forwarded requests",
+      "launchServer > socks proxy > should proxy localhost requests @smoke",
+      "launchServer > socks proxy > should proxy ipv6 localhost requests @smoke",
+      "launchServer > socks proxy > should proxy requests from fetch api",
+      "launchServer > socks proxy > should proxy requests from fetch api over ipv6",
+      "launchServer > socks proxy > should proxy local.playwright requests",
+      "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
+      "launchServer > socks proxy > should proxy based on the pattern",
+      "launchServer > socks proxy > should check proxy pattern on the client"
     ]
   },
   "library/browsertype-launch-selenium.spec.ts": {
@@ -545,6 +548,11 @@
       "should work in iframes that failed initial navigation"
     ]
   },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
+    ]
+  },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
       "should support framesets"
@@ -665,11 +673,6 @@
       "should keep reduced motion and color emulation after reload",
       "should emulate forcedColors ",
       "should emulate contrast "
-    ]
-  },
-  "page/page-evaluate.spec.ts": {
-    "skipped": [
-      "should throw for too deep reference chain"
     ]
   },
   "page/page-event-console.spec.ts": {
@@ -800,9 +803,9 @@
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
-      "should throw if screenshot size is too large",
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
