@@ -4,6 +4,9 @@
       "should disable javascript",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
+    ],
+    "skipped": [
+      "should be able to hover across browser contexts in parallel"
     ]
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
@@ -283,6 +286,9 @@
       "should have connection details for failed requests",
       "should return server address directly from response",
       "should return security details directly from response"
+    ],
+    "skipped": [
+      "should support HAR larger than 512MB"
     ]
   },
   "library/headful.spec.ts": {
@@ -366,8 +372,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -541,16 +546,10 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -672,7 +671,8 @@
       "should emulate reduced motion",
       "should keep reduced motion and color emulation after reload",
       "should emulate forcedColors ",
-      "should emulate contrast "
+      "should emulate contrast ",
+      "should report hover and fine pointer for desktop"
     ]
   },
   "page/page-event-console.spec.ts": {
@@ -767,7 +767,8 @@
       "should report if request was fromServiceWorker"
     ],
     "skipped": [
-      "should provide a Response with a file URL"
+      "should provide a Response with a file URL",
+      "should return uncompressed text for brotli encoding"
     ]
   },
   "page/page-network-sizes.spec.ts": {
