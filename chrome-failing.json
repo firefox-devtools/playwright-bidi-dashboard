@@ -1,8 +1,7 @@
 {
   "library/browser.spec.ts": {
     "failing": [
-      "version should work",
-      "should dispatch page.on(close) upon browser.close and reject evaluate"
+      "version should work"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
@@ -146,7 +145,6 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -200,7 +198,6 @@
     "failing": [
       "launchServer > should saveAs videos from remote browser",
       "launchServer > should save download",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > should save download",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
@@ -235,7 +232,7 @@
   "library/browsertype-launch.spec.ts": {
     "failing": [
       "should reject all promises when browser is closed",
-      "should handle exception"
+      "should handle exception and report launch log"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -601,6 +598,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should unroute websockets",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -658,7 +656,6 @@
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -666,7 +663,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local"
     ],
@@ -686,7 +682,8 @@
       "screencast.start delivers frames via onFrame callback",
       "start returns a disposable that stops screencast",
       "start should work when recordVideo is set",
-      "start dispose stops recording"
+      "start dispose stops recording",
+      "onFrame receives viewport size"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -959,11 +956,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -972,6 +964,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1002,9 +999,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1064,7 +1058,8 @@
   },
   "page/page-event-console.spec.ts": {
     "failing": [
-      "should trigger correct Log"
+      "should trigger correct Log",
+      "should not throw when there are console messages in detached iframes"
     ]
   },
   "page/page-event-network.spec.ts": {
@@ -1116,7 +1111,6 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1197,7 +1191,6 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
-      "should throw when requesting body of redirected response",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1307,7 +1300,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {

@@ -372,7 +372,8 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -404,7 +405,8 @@
       "screencast.start delivers frames via onFrame callback",
       "start returns a disposable that stops screencast",
       "start should work when recordVideo is set",
-      "start dispose stops recording"
+      "start dispose stops recording",
+      "onFrame receives viewport size"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -444,11 +446,13 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should update highlight when typing locator",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
@@ -805,8 +809,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
