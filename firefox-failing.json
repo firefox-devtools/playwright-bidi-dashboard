@@ -334,8 +334,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should inherit touch support from browser context",
@@ -345,6 +344,11 @@
   "library/proxy.spec.ts": {
     "skipped": [
       "should use proxy with emulated user agent"
+    ]
+  },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "should work when serving from memory cache"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -769,7 +773,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"

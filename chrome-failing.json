@@ -79,7 +79,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -97,11 +98,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -146,9 +142,11 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -201,6 +199,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -417,6 +416,7 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
+      "browser > should handle rejected certificate in handshake with HTTP/2",
       "browser > persistentContext > should pass with matching certificates"
     ]
   },
@@ -577,7 +577,6 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should remove exposed bindings upon disconnect",
-      "should unroute websockets",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -630,11 +629,13 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -962,7 +963,8 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1033,7 +1035,8 @@
   },
   "page/page-event-console.spec.ts": {
     "failing": [
-      "should trigger correct Log"
+      "should trigger correct Log",
+      "should not throw when there are console messages in detached iframes"
     ]
   },
   "page/page-event-network.spec.ts": {
@@ -1110,8 +1113,7 @@
   },
   "page/page-history.spec.ts": {
     "failing": [
-      "page.reload during renderer-initiated navigation",
-      "page.goBack during renderer-initiated navigation"
+      "page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1140,7 +1142,6 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1157,7 +1158,6 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
-      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1196,7 +1196,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "propagate headers cross origin redirect after interception",
       "should not delete the origin header"
     ]
   },
@@ -1292,6 +1291,7 @@
       "should have JSHandles for console logs",
       "should clear upon cross-process navigation",
       "should report network activity",
+      "should report network activity on worker creation",
       "should report and intercept network from nested worker",
       "should support extra http headers",
       "should report console event on the worker",
