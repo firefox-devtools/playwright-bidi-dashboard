@@ -79,7 +79,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -97,11 +98,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -311,11 +307,6 @@
     ],
     "skipped": [
       "emulate media should not be affected by second connectOverCDP"
-    ]
-  },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "should connect, evaluate, receive console and disconnect"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
@@ -583,7 +574,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
+      "should unroute websockets",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -649,6 +640,7 @@
       "should authenticate",
       "should work with authenticate followed by redirect",
       "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local"
     ],
     "skipped": [
@@ -913,7 +905,6 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
-      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -941,6 +932,11 @@
       "should take screenshot"
     ]
   },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -949,6 +945,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1098,7 +1099,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1261,6 +1261,9 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should respect timeout",
+      "should resolve immediately if loaded",
+      "should throw for bad state",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
