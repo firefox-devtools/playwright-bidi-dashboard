@@ -21,7 +21,6 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
-      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -79,8 +78,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -98,6 +96,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -131,6 +134,7 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
+      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -145,6 +149,7 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -177,6 +182,7 @@
       "mobile viewport > should fire orientationchange event",
       "mobile viewport > default mobile viewports to 980 width",
       "mobile viewport > should emulate the hover media feature",
+      "mobile viewport > mouse should work with mobile viewports and cross process navigations",
       "mobile viewport > should preserve window.orientation override after navigation"
     ]
   },
@@ -574,7 +580,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -601,7 +606,8 @@
   "library/page-close.spec.ts": {
     "failing": [
       "should reject all promises when page is closed",
-      "interrupt request.response() and request.allHeaders() on page.close"
+      "interrupt request.response() and request.allHeaders() on page.close",
+      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -626,7 +632,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -641,7 +646,8 @@
       "should work with authenticate followed by redirect",
       "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local"
+      "should proxy local network requests > by default > link-local",
+      "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
       "should use proxy with emulated user agent"
@@ -980,9 +986,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1161,7 +1164,6 @@
       "should return multipart/form-data",
       "should return event source",
       "should return navigation bit",
-      "should return navigation bit when navigating to image",
       "should report raw headers",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
@@ -1261,9 +1263,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1273,6 +1273,7 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
+      "should work with predicate",
       "should work with no timeout"
     ]
   },

@@ -343,6 +343,9 @@
     ]
   },
   "library/proxy.spec.ts": {
+    "failing": [
+      "should reconnect with credentials after CONNECT 407 closes the socket"
+    ],
     "skipped": [
       "should use proxy with emulated user agent"
     ]
@@ -408,7 +411,6 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -511,6 +513,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ],
     "skipped": [
@@ -769,7 +772,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
