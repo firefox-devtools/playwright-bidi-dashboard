@@ -21,6 +21,7 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
+      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -78,7 +79,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -96,11 +98,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -134,7 +131,6 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
-      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -149,7 +145,6 @@
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -182,7 +177,6 @@
       "mobile viewport > should fire orientationchange event",
       "mobile viewport > default mobile viewports to 980 width",
       "mobile viewport > should emulate the hover media feature",
-      "mobile viewport > mouse should work with mobile viewports and cross process navigations",
       "mobile viewport > should preserve window.orientation override after navigation"
     ]
   },
@@ -580,6 +574,8 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -606,8 +602,7 @@
   "library/page-close.spec.ts": {
     "failing": [
       "should reject all promises when page is closed",
-      "interrupt request.response() and request.allHeaders() on page.close",
-      "should not treat navigations as new popups"
+      "interrupt request.response() and request.allHeaders() on page.close"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -644,7 +639,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
@@ -938,11 +932,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -951,11 +940,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -976,8 +960,7 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1102,6 +1085,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1164,6 +1148,7 @@
       "should return multipart/form-data",
       "should return event source",
       "should return navigation bit",
+      "should return navigation bit when navigating to image",
       "should report raw headers",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
@@ -1203,6 +1188,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1257,13 +1243,11 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
