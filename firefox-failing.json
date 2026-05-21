@@ -1,4 +1,14 @@
 {
+  "library/browser.spec.ts": {
+    "failing": [
+      "should dispatch page.on(close) upon browser.close and reject evaluate"
+    ]
+  },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -8,9 +18,12 @@
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
+      "third party non-partitioned cookies",
       "save/load third party non-partitioned cookies",
+      "third party 'Partitioned;' cookies",
       "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
+      "should(not) block third party cookies - persistent context"
     ],
     "skipped": [
       "should be able to send third party cookies via an iframe"
@@ -57,11 +70,19 @@
       "should propagate locale to workers"
     ]
   },
+  "library/browsercontext-network-event.spec.ts": {
+    "failing": [
+      "should not fire events for favicon or favicon redirects"
+    ]
+  },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
       "should have url",
+      "should have about:blank url with domcontentloaded",
+      "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should have an opener"
+      "should have an opener",
+      "should work with Ctrl-clicking"
     ]
   },
   "library/browsercontext-pages.spec.ts": {
@@ -72,8 +93,12 @@
   },
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
+      "reuse launch > should reset serviceworker",
+      "reuse launch > should reset serviceworker that hangs in importScripts",
       "reuse launch > should not cache resources",
       "reuse launch > should update viewport and media",
+      "reuse connect > should reset serviceworker",
+      "reuse connect > should reset serviceworker that hangs in importScripts",
       "reuse connect > should not cache resources",
       "reuse connect > should update viewport and media"
     ]
@@ -158,8 +183,14 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
+  "library/browsertype-launch.spec.ts": {
+    "failing": [
+      "should reject all promises when browser is closed"
+    ]
+  },
   "library/capabilities.spec.ts": {
     "failing": [
+      "SharedArrayBuffer should work @smoke",
       "should play video @smoke"
     ],
     "skipped": [
@@ -176,14 +207,26 @@
     ]
   },
   "library/client-certificates.spec.ts": {
+    "failing": [
+      "browser > persistentContext > should pass with matching certificates"
+    ],
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
+      "context.cookies() should work @smoke",
+      "context.addCookies() should work",
+      "context.clearCookies() should work",
+      "should support viewport option",
+      "should support deviceScaleFactor option",
+      "should support userAgent option",
       "should support bypassCSP option",
-      "should support javascriptEnabled option"
+      "should support javascriptEnabled option",
+      "should support httpCredentials option",
+      "should support offline option",
+      "should support acceptDownloads option"
     ]
   },
   "library/defaultbrowsercontext-2.spec.ts": {
@@ -193,7 +236,24 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "should support timezoneId option",
+      "should support locale option",
+      "should support geolocation and permissions options",
+      "should support ignoreHTTPSErrors option",
+      "should support extraHTTPHeaders option",
+      "should accept userDataDir",
+      "should accept relative userDataDir",
+      "should restore state from userDataDir",
+      "should create userDataDir if it does not exist",
+      "should have default URL when launching browser",
+      "should have passed URL when launching with ignoreDefaultArgs: true",
+      "should fire close event for a persistent context",
+      "should respect selectors",
+      "should connect to a browser with the default page",
+      "should support har option",
+      "user agent is up to date",
+      "dialog.accept should work",
+      "exposes browser"
     ],
     "skipped": [
       "should work in persistent context",
@@ -211,6 +271,12 @@
       "download event > should close the context without awaiting the failed download"
     ]
   },
+  "library/downloads-path.spec.ts": {
+    "failing": [
+      "downloads path > should accept downloads in persistent context",
+      "downloads path > should delete downloads when persistent context closes"
+    ]
+  },
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should think that all pages are focused @smoke",
@@ -225,6 +291,7 @@
   },
   "library/firefox/launcher.spec.ts": {
     "failing": [
+      "should pass firefox user preferences in persistent",
       "should support custom firefox policies"
     ]
   },
@@ -235,6 +302,7 @@
   },
   "library/har.spec.ts": {
     "failing": [
+      "should have pages in persistent context",
       "should include postData",
       "should include binary postData",
       "should include form params",
@@ -292,7 +360,9 @@
   "library/multiclient.spec.ts": {
     "failing": [
       "last emulateMedia wins",
+      "should chain routes",
       "should unroute websockets",
+      "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -411,12 +481,12 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe",
-      "should filter network requests by multiple resource types"
+      "canvas clipping in iframe"
     ],
     "skipped": [
       "should handle src=blob",
@@ -788,6 +858,14 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-load-state.spec.ts": {
+    "failing": [
+      "should wait for load state of empty url popup",
+      "should wait for load state of about:blank popup ",
+      "should wait for load state of about:blank popup with noopener ",
+      "should wait for load state of newPage"
     ]
   },
   "page/wheel.spec.ts": {
