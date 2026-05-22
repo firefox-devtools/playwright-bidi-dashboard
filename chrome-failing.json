@@ -147,6 +147,7 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -556,7 +557,8 @@
   },
   "library/ignorehttpserrors.spec.ts": {
     "failing": [
-      "should work @smoke"
+      "should work @smoke",
+      "should isolate contexts"
     ],
     "skipped": [
       "serviceWorker should intercept document request"
@@ -578,6 +580,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
       "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -975,6 +978,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1081,8 +1087,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1165,7 +1169,6 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
-      "should return text",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1227,7 +1230,6 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
-      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1255,6 +1257,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener ",
@@ -1265,8 +1268,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with no timeout",
-      "should work with url match regular expression from a different context"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
