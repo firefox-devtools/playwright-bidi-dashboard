@@ -40,8 +40,7 @@
     "failing": [
       "save/load third party 'Partitioned;' cookies",
       "add 'Partitioned;' cookie via API",
-      "top level 'Partitioned;' cookie and same origin iframe",
-      "should(not) block third party cookies - persistent context"
+      "top level 'Partitioned;' cookie and same origin iframe"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
@@ -136,6 +135,9 @@
       "should authenticate with empty password",
       "should isolate proxy credentials between contexts",
       "should isolate proxy credentials between contexts on navigation",
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > link-local",
       "should proxy local network requests > with other bypasses > localhost",
       "should proxy local network requests > with other bypasses > loopback address",
       "should proxy local network requests > with other bypasses > link-local"
@@ -147,7 +149,6 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -266,9 +267,6 @@
       "should emit console messages from service worker",
       "should capture console.log from ServiceWorker start",
       "should close service worker together with the context",
-      "should pass args with spaces",
-      "should throw when connecting twice to an already running persistent context (--remote-debugging-port)",
-      "should throw when connecting twice to an already running persistent context (--remote-debugging-pipe)",
       "http credentials > httpCredentials",
       "serviceWorker(), and fromServiceWorker() work",
       "should intercept service worker requests (main and within)",
@@ -307,6 +305,7 @@
       "should not reuse utility worlds between two clients",
       "setInputFiles should use local path when isLocal is set",
       "should get title and URL of existing page",
+      "should connect over CDP using a ConnectionTransport",
       "should skip default overrides with noDefaults",
       "noDefaults should not affect new contexts",
       "should write traces to provided artifactsDir on connectOverCDP"
@@ -418,25 +417,12 @@
       "should support a buffer without a path"
     ]
   },
-  "library/client-certificates.spec.ts": {
-    "failing": [
-      "browser > should handle rejected certificate in handshake with HTTP/2",
-      "browser > persistentContext > should pass with matching certificates"
-    ]
-  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
-      "context.addCookies() should work",
-      "context.clearCookies() should work",
-      "should support viewport option",
-      "should support deviceScaleFactor option",
-      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
-      "should support httpCredentials option",
-      "should support offline option",
-      "should support acceptDownloads option"
+      "should support httpCredentials option"
     ]
   },
   "library/defaultbrowsercontext-2.spec.ts": {
@@ -447,26 +433,11 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support timezoneId option",
-      "should support locale option",
-      "should support geolocation and permissions options",
       "should support ignoreHTTPSErrors option",
       "should support extraHTTPHeaders option",
-      "should accept userDataDir",
-      "should accept relative userDataDir",
-      "should restore state from userDataDir",
-      "should create userDataDir if it does not exist",
-      "should have default URL when launching browser",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
-      "should fire close event for a persistent context",
-      "coverage should work",
-      "should respect selectors",
-      "should connect to a browser with the default page",
-      "should support har option",
-      "user agent is up to date",
-      "dialog.accept should work",
-      "exposes browser"
+      "coverage should work"
     ]
   },
   "library/download.spec.ts": {
@@ -478,12 +449,6 @@
     ],
     "skipped": [
       "should be able to download a inline PDF file via navigation"
-    ]
-  },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should accept downloads in persistent context",
-      "downloads path > should delete downloads when persistent context closes"
     ]
   },
   "library/emulation-focus.spec.ts": {
@@ -509,7 +474,6 @@
   },
   "library/har.spec.ts": {
     "failing": [
-      "should have pages in persistent context",
       "should include postData",
       "should include binary postData",
       "should include form params",
@@ -581,7 +545,8 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should remove exposed bindings upon disconnect",
-      "should launch persistent",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -646,6 +611,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
@@ -909,10 +875,7 @@
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
-      "should persist mainFrame on cross-process navigation",
-      "should not send attach/detach events for main frame",
       "should support framesets",
-      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -933,6 +896,11 @@
   "page/jshandle-to-string.spec.ts": {
     "failing": [
       "should beautifully render sparse arrays"
+    ]
+  },
+  "page/locator-convenience.spec.ts": {
+    "failing": [
+      "should return page"
     ]
   },
   "page/locator-misc-2.spec.ts": {
@@ -978,9 +946,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1087,6 +1052,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1095,6 +1062,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1200,6 +1168,11 @@
       "should not delete the origin header"
     ]
   },
+  "page/page-request-fallback.spec.ts": {
+    "failing": [
+      "should chain once"
+    ]
+  },
   "page/page-request-fulfill.spec.ts": {
     "failing": [
       "should allow mocking binary responses",
@@ -1260,8 +1233,7 @@
       "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
-      "should wait for load state of about:blank popup with noopener ",
-      "should wait for load state of newPage"
+      "should wait for load state of about:blank popup with noopener "
     ]
   },
   "page/page-wait-for-request.spec.ts": {

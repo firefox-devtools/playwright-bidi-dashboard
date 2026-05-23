@@ -4,11 +4,6 @@
       "should dispatch page.on(close) upon browser.close and reject evaluate"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -22,8 +17,7 @@
       "save/load third party non-partitioned cookies",
       "third party 'Partitioned;' cookies",
       "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
-      "should(not) block third party cookies - persistent context"
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
     ],
     "skipped": [
       "should be able to send third party cookies via an iframe"
@@ -207,26 +201,14 @@
     ]
   },
   "library/client-certificates.spec.ts": {
-    "failing": [
-      "browser > persistentContext > should pass with matching certificates"
-    ],
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "context.cookies() should work @smoke",
-      "context.addCookies() should work",
-      "context.clearCookies() should work",
-      "should support viewport option",
-      "should support deviceScaleFactor option",
-      "should support userAgent option",
       "should support bypassCSP option",
-      "should support javascriptEnabled option",
-      "should support httpCredentials option",
-      "should support offline option",
-      "should support acceptDownloads option"
+      "should support javascriptEnabled option"
     ]
   },
   "library/defaultbrowsercontext-2.spec.ts": {
@@ -236,24 +218,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support timezoneId option",
-      "should support locale option",
-      "should support geolocation and permissions options",
-      "should support ignoreHTTPSErrors option",
-      "should support extraHTTPHeaders option",
-      "should accept userDataDir",
-      "should accept relative userDataDir",
-      "should restore state from userDataDir",
-      "should create userDataDir if it does not exist",
-      "should have default URL when launching browser",
-      "should have passed URL when launching with ignoreDefaultArgs: true",
-      "should fire close event for a persistent context",
-      "should respect selectors",
-      "should connect to a browser with the default page",
-      "should support har option",
-      "user agent is up to date",
-      "dialog.accept should work",
-      "exposes browser"
+      "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
       "should work in persistent context",
@@ -271,12 +236,6 @@
       "download event > should close the context without awaiting the failed download"
     ]
   },
-  "library/downloads-path.spec.ts": {
-    "failing": [
-      "downloads path > should accept downloads in persistent context",
-      "downloads path > should delete downloads when persistent context closes"
-    ]
-  },
   "library/emulation-focus.spec.ts": {
     "failing": [
       "should think that all pages are focused @smoke",
@@ -291,18 +250,11 @@
   },
   "library/firefox/launcher.spec.ts": {
     "failing": [
-      "should pass firefox user preferences in persistent",
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har.spec.ts": {
     "failing": [
-      "should have pages in persistent context",
       "should include postData",
       "should include binary postData",
       "should include form params",
@@ -362,7 +314,6 @@
       "last emulateMedia wins",
       "should chain routes",
       "should unroute websockets",
-      "should launch persistent",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -481,7 +432,6 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
@@ -584,7 +534,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ],
     "skipped": [
@@ -849,7 +798,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -869,8 +818,7 @@
     "failing": [
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
-      "should wait for load state of about:blank popup with noopener ",
-      "should wait for load state of newPage"
+      "should wait for load state of about:blank popup with noopener "
     ]
   },
   "page/wheel.spec.ts": {
