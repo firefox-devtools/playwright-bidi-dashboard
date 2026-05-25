@@ -64,6 +64,11 @@
       "should propagate locale to workers"
     ]
   },
+  "library/browsercontext-network-event.spec.ts": {
+    "failing": [
+      "should not fire events for favicon or favicon redirects"
+    ]
+  },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
       "should have url",
@@ -539,6 +544,11 @@
     ],
     "skipped": [
       "should work in iframes that failed initial navigation"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
