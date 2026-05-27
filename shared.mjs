@@ -336,6 +336,10 @@ export const suiteNames = [
   "library/locator-highlight.spec.ts",
   "page/page-drop.spec.ts",
   "page/expect-builtins.spec.ts",
+  "library/browsercontext-webauthn.spec.ts",
+  "library/snapshot-renderer.spec.ts",
+  "page/expect-with-snapshot.spec.ts",
+  "page/page-localstorage.spec.ts",
 ];
 
 export const disabledSuites = [
