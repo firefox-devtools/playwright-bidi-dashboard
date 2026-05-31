@@ -431,7 +431,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",
