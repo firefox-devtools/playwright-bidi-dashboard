@@ -22,7 +22,6 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
-      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -78,16 +77,11 @@
       "should bypass CSP in iframes as well"
     ]
   },
-  "library/browsercontext-dsf.spec.ts": {
-    "failing": [
-      "should fetch lodpi assets @smoke",
-      "should fetch hidpi assets"
-    ]
-  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -105,11 +99,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -131,9 +120,7 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
-      "should have an opener",
-      "should fire page lifecycle events"
+      "should not crash while redirecting of original request was missed"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -152,6 +139,7 @@
     "failing": [
       "reuse launch > should not cache resources",
       "reuse launch > should reset mouse position",
+      "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
@@ -208,7 +196,6 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
@@ -422,11 +409,6 @@
       "should support a buffer without a path"
     ]
   },
-  "library/client-certificates.spec.ts": {
-    "failing": [
-      "browser > should handle rejected certificate in handshake with HTTP/2"
-    ]
-  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
@@ -483,6 +465,18 @@
       "should use context options for popup"
     ]
   },
+  "library/har-websocket.spec.ts": {
+    "failing": [
+      "should only have one websocket entry",
+      "should include websocket handshake headers and status",
+      "should include websocket messages",
+      "should include binary websocket messages",
+      "should record websocket connection failure",
+      "should record websocket handshake failure",
+      "should still capture websocket when route passes messages through",
+      "should still allow routeWebSocket to modify messages when capturing HAR"
+    ]
+  },
   "library/har.spec.ts": {
     "failing": [
       "should include postData",
@@ -499,7 +493,8 @@
       "should have connection details for redirects",
       "should have connection details for failed requests",
       "should return server address directly from response",
-      "should return security details directly from response"
+      "should return security details directly from response",
+      "should record resource type"
     ],
     "skipped": [
       "should filter favicon and favicon redirects"
@@ -523,6 +518,21 @@
       "should click bottom row w/ infobar in OOPIF",
       "headless and headful should use same default fonts",
       "should have the same hyphen rendering on headless and headed"
+    ]
+  },
+  "library/heap.spec.ts": {
+    "failing": [
+      "test #0 to request page and context"
+    ],
+    "skipped": [
+      "test #1 to request page and context",
+      "test #2 to request page and context",
+      "test to request page and context",
+      "should not leak fixtures w/ page",
+      "should not leak fixtures w/o page",
+      "should not leak server-side objects",
+      "should not leak dispatchers after closing page",
+      " > should collect stale handles"
     ]
   },
   "library/hit-target.spec.ts": {
@@ -556,7 +566,7 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should remove exposed bindings upon disconnect",
-      "should remove init scripts upon disconnect",
+      "should unroute websockets",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -608,13 +618,11 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -912,11 +920,6 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
@@ -955,8 +958,7 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1071,11 +1073,10 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1090,6 +1091,7 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1183,13 +1185,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
       "should not delete the origin header"
-    ]
-  },
-  "page/page-request-fallback.spec.ts": {
-    "failing": [
-      "should chain once"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
@@ -1249,6 +1245,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1258,8 +1255,7 @@
     "failing": [
       "should work",
       "should work with predicate",
-      "should work with no timeout",
-      "should work with url match regular expression from a different context"
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
