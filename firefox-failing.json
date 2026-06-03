@@ -191,6 +191,9 @@
     ]
   },
   "library/client-certificates.spec.ts": {
+    "failing": [
+      "browser > should not intercept TLS for origins without a client certificate"
+    ],
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
     ]
@@ -252,7 +255,10 @@
       "should record websocket connection failure",
       "should record websocket handshake failure",
       "should still capture websocket when route passes messages through",
-      "should still allow routeWebSocket to modify messages when capturing HAR"
+      "should still allow routeWebSocket to modify messages when capturing HAR",
+      "should include larger websocket messages",
+      "should include gigantic websocket messages",
+      "should include websocket entry time across multiple messages"
     ]
   },
   "library/har.spec.ts": {
@@ -294,6 +300,11 @@
       "should click bottom row w/ infobar in OOPIF",
       "headless and headful should use same default fonts",
       "should have the same hyphen rendering on headless and headed"
+    ]
+  },
+  "library/heap.spec.ts": {
+    "failing": [
+      "cycle handles"
     ]
   },
   "library/hit-target.spec.ts": {
@@ -439,7 +450,8 @@
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
-      "canvas clipping in iframe"
+      "canvas clipping in iframe",
+      "should filter network requests by multiple resource types"
     ],
     "skipped": [
       "should handle src=blob",

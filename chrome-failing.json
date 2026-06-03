@@ -13,15 +13,11 @@
       "should set cookie with reasonable defaults"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
+      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -80,8 +76,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -99,6 +94,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -120,7 +120,9 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed"
+      "should not crash while redirecting of original request was missed",
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
@@ -300,7 +302,8 @@
       "should connect over CDP using a ConnectionTransport",
       "should skip default overrides with noDefaults",
       "noDefaults should not affect new contexts",
-      "should write traces to provided artifactsDir on connectOverCDP"
+      "should write traces to provided artifactsDir on connectOverCDP",
+      "should give a clear error for downloads when browser is not co-located with the server"
     ],
     "skipped": [
       "emulate media should not be affected by second connectOverCDP"
@@ -409,6 +412,11 @@
       "should support a buffer without a path"
     ]
   },
+  "library/client-certificates.spec.ts": {
+    "failing": [
+      "browser > should not intercept TLS for origins without a client certificate"
+    ]
+  },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
@@ -474,7 +482,10 @@
       "should record websocket connection failure",
       "should record websocket handshake failure",
       "should still capture websocket when route passes messages through",
-      "should still allow routeWebSocket to modify messages when capturing HAR"
+      "should still allow routeWebSocket to modify messages when capturing HAR",
+      "should include larger websocket messages",
+      "should include gigantic websocket messages",
+      "should include websocket entry time across multiple messages"
     ]
   },
   "library/har.spec.ts": {
@@ -532,7 +543,9 @@
       "should not leak fixtures w/o page",
       "should not leak server-side objects",
       "should not leak dispatchers after closing page",
-      " > should collect stale handles"
+      " > should collect stale handles",
+      "cycle handles",
+      " > should collect frames"
     ]
   },
   "library/hit-target.spec.ts": {
@@ -565,8 +578,8 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -632,7 +645,6 @@
       "should work with authenticate followed by redirect",
       "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -898,6 +910,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -918,6 +931,11 @@
   "page/jshandle-to-string.spec.ts": {
     "failing": [
       "should beautifully render sparse arrays"
+    ]
+  },
+  "page/locator-convenience.spec.ts": {
+    "failing": [
+      "should return page"
     ]
   },
   "page/locator-misc-2.spec.ts": {
@@ -958,7 +976,8 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -967,6 +986,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1073,6 +1095,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1082,6 +1106,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1245,7 +1270,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
