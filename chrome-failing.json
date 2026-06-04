@@ -9,8 +9,12 @@
     "failing": [
       "should set cookies with SameSite attribute and no secure attribute",
       "should roundtrip cookie",
-      "should send cookie header",
       "should set cookie with reasonable defaults"
+    ]
+  },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -73,10 +77,17 @@
       "should bypass CSP in iframes as well"
     ]
   },
+  "library/browsercontext-dsf.spec.ts": {
+    "failing": [
+      "should fetch lodpi assets @smoke",
+      "should fetch hidpi assets"
+    ]
+  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -96,18 +107,12 @@
       "should record multiple set-cookie headers"
     ]
   },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
-    ]
-  },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
       "BrowserContext.Events.Request",
       "BrowserContext.Events.Response",
       "BrowserContext.Events.RequestFailed",
-      "BrowserContext.Events.RequestFinished",
-      "should fire events in proper order"
+      "BrowserContext.Events.RequestFinished"
     ],
     "skipped": [
       "should not fire events for favicon or favicon redirects"
@@ -578,8 +583,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
-      "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -631,11 +634,13 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -644,7 +649,8 @@
       "should authenticate",
       "should work with authenticate followed by redirect",
       "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > link-local",
+      "should bypass proxy for 127.0.0.1 when 127.0.0.1 is in bypass list",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -791,7 +797,8 @@
       "canvas clipping in iframe",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
-      "should not navigate on anchor clicks"
+      "should not navigate on anchor clicks",
+      "should capture attribute mutations inside a popup window"
     ],
     "skipped": [
       "should work with adopted style sheets and all: unset"
@@ -933,19 +940,9 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
-    ]
-  },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -956,6 +953,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1100,18 +1102,15 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
       "should fail when exceeding browser context navigation timeout",
-      "should fail when exceeding default maximum timeout",
       "should fail when exceeding browser context timeout",
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
@@ -1166,10 +1165,8 @@
       "should parse the json post data",
       "should parse the data if content-type is application/x-www-form-urlencoded",
       "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
-      "should get |undefined| with postDataJSON() when there is no post data",
       "should return multipart/form-data",
       "should return event source",
-      "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
       "should report all cookies in one header",
@@ -1243,6 +1240,7 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
+      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1303,6 +1301,7 @@
       "should emit created and destroyed events",
       "should have JSHandles for console logs",
       "should clear upon cross-process navigation",
+      "should attribute network activity for worker inside iframe to the iframe",
       "should report network activity",
       "should report network activity on worker creation",
       "should report and intercept network from nested worker",
@@ -1311,7 +1310,6 @@
       "should report console event on the worker when not listening on page or context"
     ],
     "skipped": [
-      "should attribute network activity for worker inside iframe to the iframe",
       "should report worker script as network request after redirect"
     ]
   }
