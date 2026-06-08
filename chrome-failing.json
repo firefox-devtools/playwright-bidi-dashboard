@@ -122,10 +122,11 @@
   },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
+      "should have url",
+      "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
       "should have an opener",
       "should fire page lifecycle events"
     ]
@@ -148,6 +149,7 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -203,9 +205,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
-      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
-      "run-server > should record trace with sources",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
       "run-server > should save videos to artifactsDir",
@@ -442,6 +442,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should support ignoreHTTPSErrors option",
       "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
@@ -585,6 +586,9 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -954,11 +958,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -987,9 +986,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1096,10 +1092,11 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1115,6 +1112,7 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1170,6 +1168,7 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
+      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1208,7 +1207,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1269,6 +1267,9 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should respect timeout",
+      "should resolve immediately if loaded",
+      "should throw for bad state",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1277,8 +1278,7 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
-      "should work with predicate",
-      "should work with no timeout"
+      "should work with predicate"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
