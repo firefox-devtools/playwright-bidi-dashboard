@@ -246,19 +246,23 @@
       "should support custom firefox policies"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
       "should include websocket handshake headers and status",
-      "should include websocket messages",
-      "should include binary websocket messages",
       "should record websocket connection failure",
       "should record websocket handshake failure",
       "should still capture websocket when route passes messages through",
       "should still allow routeWebSocket to modify messages when capturing HAR",
-      "should include larger websocket messages",
-      "should include gigantic websocket messages",
-      "should include websocket entry time across multiple messages"
+      "should embed websocket messages",
+      "should attach websocket messages",
+      "should attach websocket messages for a still open websocket after stopping",
+      "should omit websocket messages"
     ]
   },
   "library/har.spec.ts": {
@@ -549,6 +553,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ],
     "skipped": [
@@ -813,7 +818,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
@@ -827,6 +833,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {

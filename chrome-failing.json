@@ -88,7 +88,9 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work with inline script tag",
+      "pageload event should work @smoke",
+      "framenavigated event should work @smoke"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -127,6 +129,7 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
+      "should not crash while redirecting of original request was missed",
       "should have an opener",
       "should fire page lifecycle events"
     ]
@@ -149,7 +152,6 @@
       "reuse launch > should reset mouse position",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should reset mouse position",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -159,7 +161,8 @@
   "library/browsercontext-route.spec.ts": {
     "failing": [
       "should support Set-Cookie header",
-      "should use Set-Cookie header in future requests"
+      "should use Set-Cookie header in future requests",
+      "should fulfill popup main request using alias"
     ]
   },
   "library/browsercontext-set-extra-http-headers.spec.ts": {
@@ -485,15 +488,14 @@
     "failing": [
       "should only have one websocket entry",
       "should include websocket handshake headers and status",
-      "should include websocket messages",
-      "should include binary websocket messages",
       "should record websocket connection failure",
       "should record websocket handshake failure",
       "should still capture websocket when route passes messages through",
       "should still allow routeWebSocket to modify messages when capturing HAR",
-      "should include larger websocket messages",
-      "should include gigantic websocket messages",
-      "should include websocket entry time across multiple messages"
+      "should embed websocket messages",
+      "should attach websocket messages",
+      "should attach websocket messages for a still open websocket after stopping",
+      "should omit websocket messages"
     ]
   },
   "library/har.spec.ts": {
@@ -586,9 +588,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
-      "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -640,7 +640,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -653,8 +652,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > localhost",
-      "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -921,6 +918,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -946,6 +944,11 @@
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
+    ]
+  },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -1102,7 +1105,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1112,7 +1114,6 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1168,7 +1169,6 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
-      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1207,6 +1207,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1228,7 +1229,6 @@
   "page/page-request-intercept.spec.ts": {
     "failing": [
       "should override with defaults when intercepted response not provided",
-      "should fulfill popup main request using alias",
       "request.postData is not null when fetching FormData with a Blob",
       "should abort favicon requests if interception is enabled"
     ],
@@ -1267,9 +1267,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1277,8 +1274,8 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
-      "should work",
-      "should work with predicate"
+      "should work with predicate",
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
