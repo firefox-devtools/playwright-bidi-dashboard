@@ -208,6 +208,7 @@
     "failing": [
       "launchServer > should saveAs videos from remote browser",
       "run-server > should saveAs videos from remote browser",
+      "run-server > should record trace with sources",
       "run-server > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
       "launchServer > should save videos to artifactsDir",
       "run-server > should save videos to artifactsDir",
@@ -441,7 +442,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support ignoreHTTPSErrors option",
       "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
@@ -491,7 +491,8 @@
       "should embed websocket messages",
       "should attach websocket messages",
       "should attach websocket messages for a still open websocket after stopping",
-      "should omit websocket messages"
+      "should omit websocket messages",
+      "should respect PLAYWRIGHT_HAR_NO_WEBSOCKET_FRAMES"
     ]
   },
   "library/har.spec.ts": {
@@ -584,7 +585,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
+      "should remove exposed bindings upon disconnect",
       "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
@@ -650,6 +651,8 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -947,6 +950,11 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
+    ]
+  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -976,6 +984,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1045,8 +1056,7 @@
   "page/page-event-pageerror.spec.ts": {
     "failing": [
       "should handle object",
-      "should handle window",
-      "should fire illegal character error"
+      "should handle window"
     ]
   },
   "page/page-event-request.spec.ts": {
@@ -1082,6 +1092,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1100,7 +1112,6 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1156,6 +1167,7 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
+      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1166,6 +1178,7 @@
     "failing": [
       "should work @smoke",
       "should return multiple header value",
+      "should return text",
       "should report all headers",
       "should report multiple set-cookie headers",
       "should behave the same way for headers and allHeaders",
@@ -1247,7 +1260,6 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should detect mime type",
       "should emit input and change events"
     ]
   },
@@ -1261,7 +1273,6 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
-      "should work with predicate",
       "should work with no timeout"
     ]
   },

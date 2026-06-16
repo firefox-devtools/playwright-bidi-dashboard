@@ -1,9 +1,4 @@
 {
-  "library/browser.spec.ts": {
-    "failing": [
-      "should dispatch page.on(close) upon browser.close and reject evaluate"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -161,11 +156,6 @@
       "selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
-  "library/browsertype-launch.spec.ts": {
-    "failing": [
-      "should reject all promises when browser is closed"
-    ]
-  },
   "library/capabilities.spec.ts": {
     "failing": [
       "should play video @smoke"
@@ -239,11 +229,6 @@
       "should support custom firefox policies"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -255,7 +240,8 @@
       "should embed websocket messages",
       "should attach websocket messages",
       "should attach websocket messages for a still open websocket after stopping",
-      "should omit websocket messages"
+      "should omit websocket messages",
+      "should respect PLAYWRIGHT_HAR_NO_WEBSOCKET_FRAMES"
     ]
   },
   "library/har.spec.ts": {
@@ -441,11 +427,13 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should render console",
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "canvas disabled title",
       "canvas clipping",
       "canvas clipping in iframe",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -804,7 +792,6 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
