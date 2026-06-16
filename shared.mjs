@@ -340,6 +340,8 @@ export const suiteNames = [
   "library/snapshot-renderer.spec.ts",
   "page/expect-with-snapshot.spec.ts",
   "page/page-localstorage.spec.ts",
+  "library/har-websocket.spec.ts",
+  "library/heap.spec.ts",
 ];
 
 export const disabledSuites = [
