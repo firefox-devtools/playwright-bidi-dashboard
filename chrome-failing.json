@@ -88,10 +88,7 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag",
-      "pageload event should work @smoke",
-      "framenavigated event should work @smoke",
-      "weberror event should include location"
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -585,8 +582,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
-      "should unroute websockets",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -622,7 +617,10 @@
       "should throw on any action after page crashes",
       "should cancel waitForEvent when page crashes",
       "should cancel navigation when page crashes",
-      "should be able to close context when page crashes"
+      "should be able to close context when page crashes",
+      "expect should not hang when page crashed",
+      "should be able to close page after crash",
+      "should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
@@ -638,6 +636,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -650,7 +649,8 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > link-local",
+      "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > loopback address",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -804,7 +804,8 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should collect trace with resources, but no js"
+      "should collect trace with resources, but no js",
+      "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
       "should produce screencast frames fit",
@@ -933,6 +934,11 @@
       "should beautifully render sparse arrays"
     ]
   },
+  "page/locator-convenience.spec.ts": {
+    "failing": [
+      "should return page"
+    ]
+  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
@@ -966,8 +972,7 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1198,6 +1203,8 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
+      "propagate headers cross origin redirect after interception",
       "should not delete the origin header"
     ]
   },

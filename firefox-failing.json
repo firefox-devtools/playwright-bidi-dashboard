@@ -323,13 +323,22 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
       "should throw on any action after page crashes",
       "should cancel waitForEvent when page crashes",
       "should cancel navigation when page crashes",
-      "should be able to close context when page crashes"
+      "should be able to close context when page crashes",
+      "should be able to close page after crash"
+    ],
+    "skipped": [
+      "should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
@@ -441,7 +450,8 @@
       "should collect trace with resources, but no js",
       "should produce screencast frames fit",
       "should produce screencast frames crop",
-      "should produce screencast frames scale"
+      "should produce screencast frames scale",
+      "should save trace while a WebSocket keeps streaming frames"
     ]
   },
   "library/video.spec.ts": {
@@ -527,6 +537,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -785,9 +796,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for"
