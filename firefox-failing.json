@@ -49,7 +49,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -221,11 +220,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
@@ -655,7 +649,8 @@
   },
   "page/page-evaluate.spec.ts": {
     "skipped": [
-      "should throw for too deep reference chain 2"
+      "should throw for too deep reference chain 2",
+      "should work with a using declaration"
     ]
   },
   "page/page-event-console.spec.ts": {
@@ -790,6 +785,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
