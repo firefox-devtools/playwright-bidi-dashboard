@@ -87,8 +87,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -102,6 +101,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -418,7 +422,6 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
-      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support httpCredentials option"
@@ -646,6 +649,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > loopback address",
       "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
@@ -781,6 +785,7 @@
   "library/trace-viewer.spec.ts": {
     "failing": [
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -908,6 +913,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -935,11 +941,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -948,11 +949,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -984,6 +980,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1103,7 +1102,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1113,7 +1111,6 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1154,6 +1151,7 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
+      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1185,7 +1183,8 @@
       "should behave the same way for headers and allHeaders",
       "should return set-cookie header after route.fulfill",
       "should return headers after route.fulfill",
-      "should report if request was fromServiceWorker"
+      "should report if request was fromServiceWorker",
+      "should give a readable error when response.body() races with navigation"
     ]
   },
   "page/page-network-sizes.spec.ts": {
