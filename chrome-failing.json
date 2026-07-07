@@ -13,6 +13,11 @@
       "should set cookie with reasonable defaults"
     ]
   },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -72,16 +77,11 @@
       "should bypass CSP in iframes as well"
     ]
   },
-  "library/browsercontext-dsf.spec.ts": {
-    "failing": [
-      "should fetch lodpi assets @smoke",
-      "should fetch hidpi assets"
-    ]
-  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -95,11 +95,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -198,6 +193,7 @@
   "library/browsertype-connect.spec.ts": {
     "failing": [
       "launchServer > should saveAs videos from remote browser",
+      "run-server > should be able to reconnect to a browser",
       "run-server > should saveAs videos from remote browser",
       "launchServer > should save videos to artifactsDir",
       "run-server > should save videos to artifactsDir",
@@ -431,6 +427,7 @@
       "should support forcedColors option",
       "should support contrast option",
       "should support ignoreHTTPSErrors option",
+      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -461,6 +458,11 @@
   "library/fetch-proxy.spec.ts": {
     "skipped": [
       "should send correct ALPN protocol to HTTPS proxy"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
@@ -570,7 +572,6 @@
       "should not allow parallel css coverage",
       "last emulateMedia wins",
       "should unroute websockets",
-      "should remove init scripts upon disconnect",
       "screencast should deliver cached last frame to a new client"
     ],
     "skipped": [
@@ -901,6 +902,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -923,9 +925,19 @@
       "should beautifully render sparse arrays"
     ]
   },
+  "page/locator-convenience.spec.ts": {
+    "failing": [
+      "should return page"
+    ]
+  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
+    ]
+  },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -956,8 +968,7 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -967,9 +978,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1079,12 +1087,9 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1117,7 +1122,6 @@
       "should send a character with insertText",
       "insertText should only emit input event",
       "should shift raw codes",
-      "should press Enter",
       "should press audio and media control keys"
     ],
     "skipped": [
@@ -1140,6 +1144,7 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
+      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1195,6 +1200,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
