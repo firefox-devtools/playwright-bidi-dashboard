@@ -22,6 +22,7 @@
     "failing": [
       "should disable javascript",
       "should be able to navigate after disabling javascript",
+      "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
     ]
@@ -75,6 +76,12 @@
       "should bypass CSP header",
       "should bypass after cross-process navigation",
       "should bypass CSP in iframes as well"
+    ]
+  },
+  "library/browsercontext-dsf.spec.ts": {
+    "failing": [
+      "should fetch lodpi assets @smoke",
+      "should fetch hidpi assets"
     ]
   },
   "library/browsercontext-events.spec.ts": {
@@ -138,6 +145,7 @@
       "reuse launch > should not cache resources",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
@@ -191,15 +199,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "launchServer > should saveAs videos from remote browser",
-      "run-server > should be able to reconnect to a browser",
-      "run-server > should saveAs videos from remote browser",
-      "launchServer > should save videos to artifactsDir",
-      "run-server > should save videos to artifactsDir",
-      "launchServer > should name video file after page guid when connecting to remote browser with artifactsDir",
-      "run-server > should name video file after page guid when connecting to remote browser with artifactsDir"
-    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -571,8 +570,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
-      "screencast should deliver cached last frame to a new client"
+      "should unroute websockets"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -639,7 +637,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address",
+      "should proxy local network requests > by default > localhost",
       "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
@@ -656,11 +654,7 @@
   },
   "library/screencast.spec.ts": {
     "failing": [
-      "screencast.start delivers frames via onFrame callback",
-      "start returns a disposable that stops screencast",
-      "start should work when recordVideo is set",
-      "start dispose stops recording",
-      "onFrame receives viewport size"
+      "screencast.start delivers frames via onFrame callback"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -782,9 +776,6 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas disabled title",
-      "canvas clipping",
-      "canvas clipping in iframe",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -794,7 +785,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -804,30 +794,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "should saveAs video",
-      "screencast > should capture static page",
-      "screencast > should continue recording main page after popup closes",
-      "screencast > should expose video path",
-      "screencast > should delete video",
-      "screencast > should expose video path blank page",
-      "screencast > should work with weird screen resolution",
-      "screencast > should work with relative path for recordVideo.dir",
-      "screencast > should expose video path blank popup",
-      "screencast > should capture navigation",
-      "screencast > should capture css transformation",
-      "screencast > should work for popups",
-      "screencast > should use viewport scaled down to fit into 800x800 as default size",
-      "screencast > should be 800x450 by default",
-      "screencast > should be 800x600 with null viewport",
-      "screencast > should capture static page in persistent context @smoke",
-      "screencast > should emulate an iphone",
-      "screencast > should throw on browser close",
-      "screencast > should throw if browser dies",
-      "screencast > should wait for video to finish if page was closed",
-      "screencast > should not create video for internal pages",
-      "screencast > should close ffmpeg even if there were no frames"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -902,7 +868,6 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
-      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -925,19 +890,9 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
-    ]
-  },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -948,6 +903,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -968,7 +928,8 @@
       "should await form-post on click",
       "should work with noWaitAfter: true",
       "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1095,6 +1056,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when exceeding maximum navigation timeout",
       "should fail when exceeding default maximum navigation timeout",
@@ -1104,7 +1066,6 @@
       "should prioritize default navigation timeout over default timeout",
       "should disable timeout when its set to 0",
       "should fail when replaced by another navigation",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1200,7 +1161,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
+      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1260,9 +1221,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
       "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
