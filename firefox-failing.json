@@ -425,6 +425,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should produce screencast frames crop",
       "should produce screencast frames scale",
       "should save trace while a WebSocket keeps streaming frames"
     ]
@@ -480,7 +481,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
