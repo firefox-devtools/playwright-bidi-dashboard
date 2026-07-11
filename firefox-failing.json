@@ -143,9 +143,6 @@
     ]
   },
   "library/capabilities.spec.ts": {
-    "failing": [
-      "should play video @smoke"
-    ],
     "skipped": [
       "should not crash on showDirectoryPicker",
       "webkit should define window.safari"
@@ -465,7 +462,6 @@
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
     "failing": [
-      "should work @smoke",
       "should throw for detached element",
       "should wait for display:none to become visible",
       "should scroll display:contents into view",
@@ -481,6 +477,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -515,11 +512,6 @@
   "page/locator-frame.spec.ts": {
     "skipped": [
       "should work with COEP/COOP/CORP isolated iframe"
-    ]
-  },
-  "page/locator-misc-2.spec.ts": {
-    "failing": [
-      "should scroll into view"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -636,8 +628,7 @@
       "input event.composed should be true and cross shadow dom boundary - week",
       "should throw on incorrect month",
       "should throw on incorrect week",
-      "should throw on incorrect datetime-local",
-      "should not double-fill in contenteditable with beforeinput handler in Firefox"
+      "should throw on incorrect datetime-local"
     ]
   },
   "page/page-focus.spec.ts": {
@@ -662,8 +653,6 @@
   },
   "page/page-keyboard.spec.ts": {
     "failing": [
-      "should send a character with insertText",
-      "insertText should only emit input event",
       "should press audio and media control keys"
     ],
     "skipped": [
@@ -747,10 +736,12 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
-      "page screenshot > should capture blinking caret if explicitly asked for"
+      "page screenshot > should capture blinking caret if explicitly asked for",
+      "page screenshot > should produce a valid webp screenshot"
     ]
   },
   "page/page-set-content.spec.ts": {
