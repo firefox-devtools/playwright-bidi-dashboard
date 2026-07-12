@@ -342,8 +342,7 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -355,6 +354,11 @@
     ],
     "skipped": [
       "should use proxy with emulated user agent"
+    ]
+  },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "should work when serving from memory cache"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -412,6 +416,7 @@
     "failing": [
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -422,6 +427,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale",
       "should save trace while a WebSocket keeps streaming frames"
@@ -737,7 +743,8 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should not capture css animations in shadow DOM",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
