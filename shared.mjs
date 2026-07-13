@@ -410,3 +410,7 @@ export const labels = {
     extends: "P2",
   },
 };
+
+export const noLabels = [
+  "continue with headers should send fresh cookie from the browser cookie store"
+];

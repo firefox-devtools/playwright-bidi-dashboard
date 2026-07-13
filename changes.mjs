@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
+import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, labels, noLabels } from './shared.mjs';
 
 let data;
 let firefoxFailures;
@@ -174,7 +174,7 @@ function renderChanges() {
 
     // Add labels
     for (const [label, { color, suites }] of Object.entries(labels)) {
-      if (suites.includes(suite)) {
+      if (suites.includes(suite) && !noLabels.includes(spec)) {
         const labelEl = document.createElement('span');
         labelEl.className = 'label';
         labelEl.textContent = label;

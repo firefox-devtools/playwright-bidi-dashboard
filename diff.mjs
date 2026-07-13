@@ -1,4 +1,4 @@
-import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, labels } from './shared.mjs';
+import { startDate, msPerDay, resultNames, parseDate, formatDate, capitalize, labels, noLabels } from './shared.mjs';
 
 async function renderDiff() {
   const searchParams = new URLSearchParams(location.search);
@@ -88,7 +88,7 @@ async function renderDiff() {
       specEl.append(specText);
 
       for (const [label, { color, suites }] of Object.entries(labels)) {
-        if (suites.includes(suite)) {
+        if (suites.includes(suite) && !noLabels.includes(spec)) {
           const labelEl = document.createElement('span');
           labelEl.className = 'label';
           labelEl.textContent = label;
