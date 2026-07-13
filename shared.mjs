@@ -342,6 +342,9 @@ export const suiteNames = [
   "page/page-localstorage.spec.ts",
   "library/har-websocket.spec.ts",
   "library/heap.spec.ts",
+  "library/playwright-client.spec.ts",
+  "page/locator-wait-for-function.spec.ts",
+  "page/page-cache-storage.spec.ts",
 ];
 
 export const disabledSuites = [
@@ -349,6 +352,7 @@ export const disabledSuites = [
   "library/chromium/bfcache.spec.ts",
   "library/chromium/chromium.spec.ts",
   "library/chromium/connect-over-cdp.spec.ts",
+  "library/chromium/connect-to-worker.spec.ts",
   "library/chromium/css-coverage.spec.ts",
   "library/chromium/disable-web-security.spec.ts",
   "library/chromium/extensions.spec.ts",
