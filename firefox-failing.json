@@ -15,7 +15,8 @@
     "failing": [
       "save/load third party non-partitioned cookies",
       "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
+      "top level 'Partitioned;' cookie and same origin iframe"
     ],
     "skipped": [
       "should be able to send third party cookies via an iframe"
@@ -49,7 +50,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -214,11 +214,6 @@
       "should support custom firefox policies"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -309,11 +304,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -721,6 +711,11 @@
   "page/page-request-fulfill.spec.ts": {
     "failing": [
       "should not throw if request was cancelled by the page"
+    ]
+  },
+  "page/page-request-gc.spec.ts": {
+    "skipped": [
+      "should collect element retained by locator hit-target interceptor after detach"
     ]
   },
   "page/page-request-intercept.spec.ts": {

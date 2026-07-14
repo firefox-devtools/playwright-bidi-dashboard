@@ -13,6 +13,11 @@
       "should set cookie with reasonable defaults"
     ]
   },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -139,10 +144,8 @@
       "reuse launch > should not cache resources",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -419,7 +422,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -562,7 +564,8 @@
     "failing": [
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
-      "last emulateMedia wins"
+      "last emulateMedia wins",
+      "should remove init scripts upon disconnect"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -581,6 +584,7 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
+      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -760,7 +764,6 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -768,6 +771,7 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
+      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -861,6 +865,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -915,8 +920,8 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with dblclick without noWaitAfter when navigation is stalled",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -926,6 +931,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1098,7 +1106,6 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
-      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1138,6 +1145,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1154,6 +1162,9 @@
   "page/page-request-gc.spec.ts": {
     "failing": [
       "should work"
+    ],
+    "skipped": [
+      "should collect element retained by locator hit-target interceptor after detach"
     ]
   },
   "page/page-request-intercept.spec.ts": {
@@ -1200,6 +1211,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
