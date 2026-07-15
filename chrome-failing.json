@@ -13,11 +13,6 @@
       "should set cookie with reasonable defaults"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -298,6 +293,11 @@
       "emulate media should not be affected by second connectOverCDP with noDefaults"
     ]
   },
+  "library/chromium/connect-to-worker.spec.ts": {
+    "failing": [
+      "should connect, evaluate, receive console and disconnect"
+    ]
+  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -565,6 +565,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should unroute websockets",
       "should remove init scripts upon disconnect"
     ],
     "skipped": [
@@ -584,7 +585,6 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
-      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -633,6 +633,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > loopback address",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -762,6 +763,7 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should open two trace viewers",
       "should filter network requests by url",
       "should handle multiple headers",
       "should highlight target elements",
@@ -771,7 +773,7 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas clipping",
+      "canvas disabled title",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -832,6 +834,9 @@
   "page/elementhandle-screenshot.spec.ts": {
     "failing": [
       "element screenshot > should not issue resize event"
+    ],
+    "skipped": [
+      "element screenshot > should work with webp"
     ]
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
@@ -903,6 +908,11 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
+    ]
+  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -920,6 +930,7 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
+      "should work with dblclick without noWaitAfter when navigation is stalled",
       "should work with waitForLoadState(load)",
       "should work with goto following click"
     ]
@@ -1090,6 +1101,7 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
+      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1195,7 +1207,11 @@
       "page screenshot > should allow transparency"
     ],
     "skipped": [
-      "page screenshot > should produce a valid webp screenshot"
+      "page screenshot > should produce a valid webp screenshot",
+      "page screenshot > path option should detect webp",
+      "page screenshot > quality option should work for webp",
+      "page screenshot > webp screenshots should be lossless by default",
+      "page screenshot > should allow transparency with webp"
     ]
   },
   "page/page-set-extra-http-headers.spec.ts": {
@@ -1211,7 +1227,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1220,7 +1235,6 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
-      "should work with predicate",
       "should work with no timeout",
       "should work with url match",
       "should work with url match regular expression from a different context"
@@ -1233,8 +1247,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
@@ -1253,12 +1266,12 @@
       "should support extra http headers",
       "should report console event on the worker",
       "should report console event on the worker when not listening on page or context",
-      "should resolve worker script allHeaders in main frame"
-    ],
-    "skipped": [
-      "should report worker script as network request after redirect",
+      "should resolve worker script allHeaders in main frame",
       "should resolve worker script allHeaders in iframe",
       "should resolve worker script allHeaders in nested worker inside iframe"
+    ],
+    "skipped": [
+      "should report worker script as network request after redirect"
     ]
   }
 }

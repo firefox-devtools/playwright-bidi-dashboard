@@ -15,8 +15,7 @@
     "failing": [
       "save/load third party non-partitioned cookies",
       "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe",
-      "top level 'Partitioned;' cookie and same origin iframe"
+      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
     ],
     "skipped": [
       "should be able to send third party cookies via an iframe"
@@ -50,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -212,6 +212,11 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
+    ]
+  },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
@@ -406,8 +411,10 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -418,7 +425,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale",
       "should save trace while a WebSocket keeps streaming frames"
@@ -455,6 +461,9 @@
     "failing": [
       "element screenshot > should work with a rotated element",
       "element screenshot > should work for an element with an offset"
+    ],
+    "skipped": [
+      "element screenshot > should work with webp"
     ]
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
@@ -741,7 +750,11 @@
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
-      "page screenshot > should produce a valid webp screenshot"
+      "page screenshot > should produce a valid webp screenshot",
+      "page screenshot > path option should detect webp",
+      "page screenshot > quality option should work for webp",
+      "page screenshot > webp screenshots should be lossless by default",
+      "page screenshot > should allow transparency with webp"
     ]
   },
   "page/page-set-content.spec.ts": {
