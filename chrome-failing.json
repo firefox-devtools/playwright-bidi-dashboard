@@ -293,11 +293,6 @@
       "emulate media should not be affected by second connectOverCDP with noDefaults"
     ]
   },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "should connect, evaluate, receive console and disconnect"
-    ]
-  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -564,9 +559,7 @@
     "failing": [
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
-      "last emulateMedia wins",
-      "should unroute websockets",
-      "should remove init scripts upon disconnect"
+      "last emulateMedia wins"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -620,12 +613,12 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -633,7 +626,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -763,9 +755,9 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should open two trace viewers",
       "should filter network requests by url",
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -774,6 +766,7 @@
       "should highlight locator in iframe while typing",
       "should not leak recorders",
       "canvas disabled title",
+      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -784,6 +777,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -793,6 +787,9 @@
     ]
   },
   "library/video.spec.ts": {
+    "failing": [
+      "screencast > should capture navigation"
+    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -942,9 +939,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1023,6 +1017,7 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
+      "should fire for navigation requests",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
@@ -1054,16 +1049,15 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1157,7 +1151,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1204,7 +1197,9 @@
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
-      "page screenshot > should allow transparency"
+      "page screenshot > should allow transparency",
+      "page screenshot animations > should not capture css animations in shadow DOM",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should produce a valid webp screenshot",
@@ -1227,6 +1222,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1235,9 +1231,8 @@
   "page/page-wait-for-request.spec.ts": {
     "failing": [
       "should work",
-      "should work with no timeout",
-      "should work with url match",
-      "should work with url match regular expression from a different context"
+      "should work with predicate",
+      "should work with no timeout"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
@@ -1247,7 +1242,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
