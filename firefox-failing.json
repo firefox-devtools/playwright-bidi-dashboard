@@ -60,8 +60,7 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should have an opener",
-      "should work with Ctrl-clicking"
+      "should have an opener"
     ]
   },
   "library/browsercontext-pages.spec.ts": {
@@ -181,13 +180,11 @@
       "should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
-      "coverage should work",
-      "should goto about:blank on relaunched persistent context"
+      "coverage should work"
     ]
   },
   "library/download.spec.ts": {
     "failing": [
-      "download event > should report download path within page.on('download', …) handler for Blobs",
       "download event > should be able to cancel pending downloads"
     ],
     "skipped": [
@@ -341,7 +338,11 @@
     ],
     "skipped": [
       "storage access",
-      " > should be able to use the local-fonts API"
+      " > should be able to use the local-fonts API",
+      "camera and microphone > should capture when camera and microphone are granted",
+      "camera and microphone > should reject when no permission is granted",
+      "camera and microphone > should gate audio and video independently",
+      "camera and microphone > should stop capturing after permissions are cleared"
     ]
   },
   "library/popup.spec.ts": {
@@ -415,9 +416,9 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -463,9 +464,6 @@
     "failing": [
       "element screenshot > should work with a rotated element",
       "element screenshot > should work for an element with an offset"
-    ],
-    "skipped": [
-      "element screenshot > should work with webp"
     ]
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
@@ -485,6 +483,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -665,8 +664,7 @@
     "skipped": [
       "should support MacOS shortcuts",
       "should expose keyIdentifier in webkit",
-      "should move to the start of the document",
-      "should dispatch key events in separate tasks"
+      "should move to the start of the document"
     ]
   },
   "page/page-mouse.spec.ts": {
@@ -748,14 +746,11 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
-      "page screenshot > should produce a valid webp screenshot",
-      "page screenshot > path option should detect webp",
-      "page screenshot > quality option should work for webp",
-      "page screenshot > webp screenshots should be lossless by default",
       "page screenshot > should allow transparency with webp"
     ]
   },
