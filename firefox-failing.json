@@ -210,11 +210,6 @@
       "should support custom firefox policies"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -307,11 +302,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -348,8 +338,7 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -361,6 +350,11 @@
     ],
     "skipped": [
       "should use proxy with emulated user agent"
+    ]
+  },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "should work when serving from memory cache"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -419,6 +413,7 @@
       "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -429,6 +424,8 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should produce screencast frames fit",
+      "should produce screencast frames crop",
       "should produce screencast frames scale",
       "should save trace while a WebSocket keeps streaming frames"
     ]
@@ -483,7 +480,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
