@@ -2,6 +2,6 @@
   "name": "playwright-bidi-dashboard",
   "author": "Holger Benl <hbenl@evandor.de>",
   "dependencies": {
-    "adm-zip": "^0.5.16"
+    "adm-zip": "^0.6.0"
   }
 }
