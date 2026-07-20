@@ -345,6 +345,8 @@ export const suiteNames = [
   "library/playwright-client.spec.ts",
   "page/locator-wait-for-function.spec.ts",
   "page/page-cache-storage.spec.ts",
+  "library/unit/cache-proxy.spec.ts",
+  "page/page-evaluate-callback.spec.ts",
 ];
 
 export const disabledSuites = [
