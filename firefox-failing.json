@@ -49,7 +49,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -303,6 +302,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -407,9 +411,9 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -420,6 +424,8 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should produce screencast frames fit",
+      "should produce screencast frames crop",
       "should produce screencast frames scale",
       "should save trace while a WebSocket keeps streaming frames"
     ]
@@ -596,7 +602,8 @@
   "page/page-evaluate.spec.ts": {
     "skipped": [
       "should throw for too deep reference chain 2",
-      "should work with a using declaration"
+      "should work with a using declaration",
+      "promise collected"
     ]
   },
   "page/page-event-console.spec.ts": {

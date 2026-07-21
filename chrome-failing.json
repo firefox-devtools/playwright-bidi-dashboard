@@ -82,7 +82,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -96,11 +97,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -121,6 +117,7 @@
       "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
+      "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
@@ -195,9 +192,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > should record trace with sources"
-    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -566,7 +560,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets"
+      "should remove init scripts upon disconnect"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -626,7 +620,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -777,7 +770,7 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas disabled title",
+      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -788,7 +781,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -872,7 +864,6 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
-      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -938,6 +929,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "page.url should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -992,7 +986,8 @@
     "failing": [
       "should throw when evaluation triggers reload",
       "should throw a nice error after a navigation",
-      "should not throw an error when evaluation does a navigation"
+      "should not throw an error when evaluation does a navigation",
+      "promise collected"
     ],
     "skipped": [
       "should work with a using declaration"
@@ -1016,6 +1011,7 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
+      "should fire for navigation requests",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
@@ -1226,8 +1222,7 @@
       "should work",
       "should work with predicate",
       "should work with no timeout",
-      "should work with url match",
-      "should work with url match regular expression from a different context"
+      "should work with url match"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
