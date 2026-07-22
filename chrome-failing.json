@@ -192,6 +192,9 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
+    "failing": [
+      "run-server > should record trace with sources"
+    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -560,7 +563,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove init scripts upon disconnect"
+      "should unroute websockets"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -761,8 +764,10 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should open two trace viewers",
       "should filter network requests by url",
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -770,7 +775,7 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas clipping",
+      "canvas disabled title",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -781,6 +786,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -925,12 +931,13 @@
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
+      "calling window.stop async",
       "clicking a link intercepted by the Navigation API same-document"
     ]
   },
   "page/page-basic.spec.ts": {
     "failing": [
-      "page.url should work"
+      "frame.press should work"
     ],
     "skipped": [
       "page.frame should respect name"
@@ -1011,7 +1018,6 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "should fire for navigation requests",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
@@ -1048,7 +1054,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1212,6 +1217,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1222,7 +1228,8 @@
       "should work",
       "should work with predicate",
       "should work with no timeout",
-      "should work with url match"
+      "should work with url match",
+      "should work with url match regular expression from a different context"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
