@@ -82,8 +82,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -97,6 +96,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -192,9 +196,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > should record trace with sources"
-    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -294,6 +295,11 @@
       "noDefaults should not affect new contexts",
       "should write traces to provided artifactsDir on connectOverCDP",
       "emulate media should not be affected by second connectOverCDP with noDefaults"
+    ]
+  },
+  "library/chromium/connect-to-worker.spec.ts": {
+    "failing": [
+      "should connect, evaluate, receive console and disconnect"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
@@ -407,6 +413,7 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
+      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support httpCredentials option"
@@ -420,6 +427,8 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should support ignoreHTTPSErrors option",
+      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -563,7 +572,9 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets"
+      "should remove exposed bindings upon disconnect",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -623,6 +634,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -764,10 +776,8 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should open two trace viewers",
       "should filter network requests by url",
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -776,6 +786,7 @@
       "should highlight locator in iframe while typing",
       "should not leak recorders",
       "canvas disabled title",
+      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -1049,6 +1060,7 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1094,7 +1106,6 @@
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should work for main frame navigation request",
       "should get the same headers as the server",
       "should not return allHeaders() until they are available",
       "should get the same headers as the server CORS",
@@ -1211,13 +1222,11 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
