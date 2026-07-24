@@ -13,6 +13,11 @@
       "should set cookie with reasonable defaults"
     ]
   },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -297,11 +302,6 @@
       "emulate media should not be affected by second connectOverCDP with noDefaults"
     ]
   },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "should connect, evaluate, receive console and disconnect"
-    ]
-  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -413,7 +413,6 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
-      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support httpCredentials option"
@@ -427,8 +426,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support ignoreHTTPSErrors option",
-      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -572,8 +569,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
-      "should unroute websockets",
       "should remove init scripts upon disconnect"
     ],
     "skipped": [
@@ -785,8 +780,6 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas disabled title",
-      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -916,6 +909,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1060,7 +1058,6 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1237,7 +1234,6 @@
       "should work",
       "should work with predicate",
       "should work with no timeout",
-      "should work with url match",
       "should work with url match regular expression from a different context"
     ]
   },
