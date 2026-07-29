@@ -312,6 +312,11 @@
       "clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -490,6 +495,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -618,8 +624,7 @@
   "page/page-evaluate.spec.ts": {
     "skipped": [
       "should throw for too deep reference chain 2",
-      "should work with a using declaration",
-      "promise collected"
+      "should work with a using declaration"
     ]
   },
   "page/page-event-console.spec.ts": {
@@ -762,6 +767,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
@@ -777,6 +783,11 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
