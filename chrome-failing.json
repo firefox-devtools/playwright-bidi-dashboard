@@ -80,8 +80,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -95,6 +94,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -137,10 +141,8 @@
       "reuse launch > should not cache resources",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -560,7 +562,9 @@
     "failing": [
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
-      "last emulateMedia wins"
+      "last emulateMedia wins",
+      "should unroute websockets",
+      "should remove init scripts upon disconnect"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -632,6 +636,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -729,10 +734,6 @@
       "selector generator > should generate exact role when necessary",
       "selector generator > should generate exact label when necessary",
       "selector generator > should generate relative selector",
-      "selector generator > should generate multiple: noText in role",
-      "selector generator > should generate multiple: noText in text",
-      "selector generator > should generate multiple: noId",
-      "selector generator > should generate multiple: noId noText",
       "selector generator > should prefer role with hasText to css with hasText",
       "selector generator > should prioritize attributes correctly > role",
       "selector generator > should prioritize attributes correctly > placeholder",
@@ -744,7 +745,15 @@
       "selector generator > should use description from aria-describedby",
       "selector generator > should fall back to nth when name and description are both not unique",
       "selector generator > should use description when role has no name",
-      "selector generator > should use consistent exactness for name and description"
+      "selector generator > should use consistent exactness for name and description",
+      "selector generator > should generate noText: no text engine",
+      "selector generator > should generate noText: no name from content",
+      "selector generator > should generate noText: name from aria-label",
+      "selector generator > should generate noText: name from external aria-labelledby",
+      "selector generator > should generate noText: ignore aria-labelledby pointing inside the element",
+      "selector generator > should generate noText: contenteditable heading",
+      "selector generator > should generate noText: description from external aria-describedby",
+      "selector generator > should generate noText: ignore aria-describedby pointing inside the element"
     ]
   },
   "library/tap.spec.ts": {
@@ -763,6 +772,7 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -780,7 +790,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -790,9 +799,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "screencast > should capture navigation"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -905,11 +911,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -927,14 +928,12 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with dblclick without noWaitAfter when navigation is stalled",
       "should work with waitForLoadState(load)",
       "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "calling window.stop async",
       "clicking a link intercepted by the Navigation API same-document"
     ]
   },
@@ -1057,7 +1056,6 @@
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1217,6 +1215,7 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
