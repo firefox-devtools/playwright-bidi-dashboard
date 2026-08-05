@@ -55,6 +55,11 @@
       "should record overridden requests to har"
     ]
   },
+  "library/browsercontext-locale.spec.ts": {
+    "skipped": [
+      "should send Accept-Language header on WebSocket handshake from a worker"
+    ]
+  },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
       "should have url",
@@ -308,11 +313,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should reject all promises when page is closed"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -419,7 +419,6 @@
       "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -449,7 +448,8 @@
       "should reject waitForEvent on page close"
     ],
     "skipped": [
-      "should turn off when offline"
+      "should turn off when offline",
+      "should send extra HTTP headers on WebSocket handshake from a worker"
     ]
   },
   "page/elementhandle-click.spec.ts": {
@@ -486,7 +486,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -757,8 +756,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
