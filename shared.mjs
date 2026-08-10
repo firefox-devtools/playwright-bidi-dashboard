@@ -347,6 +347,12 @@ export const suiteNames = [
   "page/page-cache-storage.spec.ts",
   "library/unit/cache-proxy.spec.ts",
   "page/page-evaluate-callback.spec.ts",
+  "page/page-add-init-script-callback.spec.ts",
+  "library/browsers-path.spec.ts",
+  "page/locator-pierce-frames.spec.ts",
+  "library/browsercontext-pierce-frames.spec.ts",
+  "page/page-aria-snapshot-json.spec.ts",
+  "page/locator-get.spec.ts",
 ];
 
 export const disabledSuites = [
