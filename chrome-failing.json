@@ -141,7 +141,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
@@ -264,10 +263,14 @@
       "setOffline",
       "setExtraHTTPHeaders",
       "PLAYWRIGHT_DISABLE_SERVICE_WORKER_NETWORK",
-      "should fire dialogclosed event when dialog is closed out of band"
+      "should fire dialogclosed event when dialog is closed out of band",
+      "WebUI navigation > should refuse WebUI pages that crash the browser in an isolated context"
     ],
     "skipped": [
-      "should intercept service worker update requests"
+      "should intercept service worker update requests",
+      "WebUI navigation > should refuse WebUI pages that crash Edge in an isolated context",
+      "WebUI navigation > should navigate to WebUI pages that work in an isolated context",
+      "WebUI navigation > should navigate to any WebUI page in a persistent context"
     ]
   },
   "library/chromium/connect-over-cdp.spec.ts": {
@@ -564,6 +567,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
       "should unroute websockets"
     ],
     "skipped": [
@@ -771,7 +775,6 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -779,6 +782,7 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
+      "canvas disabled title",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -789,6 +793,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -910,16 +915,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
-    ]
-  },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -943,14 +938,10 @@
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "calling window.stop async",
       "clicking a link intercepted by the Navigation API same-document"
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1029,7 +1020,6 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "should fire for navigation requests",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
@@ -1061,6 +1051,7 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1162,6 +1153,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1229,7 +1221,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
