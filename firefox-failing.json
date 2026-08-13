@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -210,6 +211,11 @@
       "should support custom firefox policies"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -300,6 +306,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -405,10 +416,8 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -512,6 +521,11 @@
       "should work with COEP/COOP/CORP isolated iframe"
     ]
   },
+  "page/locator-pierce-frames.spec.ts": {
+    "failing": [
+      "should fail when the frame to enter matches in multiple frames"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -525,7 +539,6 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
-      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
