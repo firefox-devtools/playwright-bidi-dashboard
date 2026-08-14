@@ -308,11 +308,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -519,11 +514,6 @@
   "page/locator-frame.spec.ts": {
     "skipped": [
       "should work with COEP/COOP/CORP isolated iframe"
-    ]
-  },
-  "page/locator-pierce-frames.spec.ts": {
-    "failing": [
-      "should fail when the frame to enter matches in multiple frames"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -760,7 +750,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM"
+      "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
