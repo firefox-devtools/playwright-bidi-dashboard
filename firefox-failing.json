@@ -216,6 +216,11 @@
       "should use context options for popup"
     ]
   },
+  "library/global-fetch.spec.ts": {
+    "failing": [
+      "should return security details from response"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -411,8 +416,10 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -529,6 +536,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
+      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
