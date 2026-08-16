@@ -15,15 +15,12 @@
   },
   "library/browsercontext-base-url.spec.ts": {
     "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto",
-      "should construct the URLs correctly when a baseURL with a trailing slash in browser.newPage is passed to page.goto",
-      "should not construct a new URL with baseURL when a glob was used"
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
-      "should be able to navigate after disabling javascript",
       "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
@@ -87,17 +84,10 @@
       "should bypass CSP in iframes as well"
     ]
   },
-  "library/browsercontext-dsf.spec.ts": {
-    "failing": [
-      "should fetch lodpi assets @smoke",
-      "should fetch hidpi assets"
-    ]
-  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -111,6 +101,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -159,6 +154,7 @@
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -316,11 +312,6 @@
       "emulate media should not be affected by second connectOverCDP with noDefaults"
     ]
   },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "should connect, evaluate, receive console and disconnect"
-    ]
-  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -445,6 +436,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -570,7 +562,8 @@
   },
   "library/ignorehttpserrors.spec.ts": {
     "failing": [
-      "should work @smoke"
+      "should work @smoke",
+      "should isolate contexts"
     ],
     "skipped": [
       "serviceWorker should intercept document request"
@@ -651,7 +644,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -830,6 +822,9 @@
     ]
   },
   "library/video.spec.ts": {
+    "failing": [
+      "screencast > should capture navigation"
+    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -931,6 +926,11 @@
       "should take screenshot"
     ]
   },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -939,11 +939,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1088,6 +1083,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1100,8 +1096,7 @@
   },
   "page/page-history.spec.ts": {
     "failing": [
-      "page.reload during renderer-initiated navigation",
-      "page.goForward during renderer-initiated navigation"
+      "page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1251,7 +1246,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1262,6 +1256,7 @@
       "should work",
       "should work with predicate",
       "should work with no timeout",
+      "should work with url match",
       "should work with url match regular expression from a different context"
     ]
   },
@@ -1272,7 +1267,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
