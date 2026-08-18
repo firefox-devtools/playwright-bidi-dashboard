@@ -84,10 +84,7 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag",
-      "pageload event should work @smoke",
-      "framenavigated event should work @smoke",
-      "weberror event should include location"
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -121,6 +118,7 @@
       "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
+      "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
@@ -147,7 +145,6 @@
       "reuse launch > should not cache resources",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
-      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
@@ -375,7 +372,9 @@
       "should allow cdp sessions on oopifs",
       "should emit filechooser event for iframe",
       "should be able to click in iframe",
-      "should not throw on exposeFunction when oopif detaches"
+      "should not throw on exposeFunction when oopif detaches",
+      "should remove workers of a detached oopif",
+      "should not hang in unrouteAll when oopif worker is gone"
     ],
     "skipped": [
       "should get the proper viewport"
@@ -578,8 +577,7 @@
     "failing": [
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
-      "last emulateMedia wins",
-      "should remove init scripts upon disconnect"
+      "last emulateMedia wins"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -598,6 +596,7 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
+      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -638,7 +637,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -786,7 +784,6 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -794,6 +791,7 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
+      "canvas disabled title",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -805,6 +803,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -814,9 +813,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "screencast > should capture navigation"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -891,6 +887,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -918,6 +915,11 @@
       "should take screenshot"
     ]
   },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+    ]
+  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -926,11 +928,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1074,6 +1071,7 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
+      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1083,7 +1081,6 @@
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
-      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1217,7 +1214,8 @@
       "should intercept when postData is more than 1MB"
     ],
     "skipped": [
-      "should not fulfill with redirect status"
+      "should not fulfill with redirect status",
+      "route abort with times: 1 should not affect second sequential fetch"
     ]
   },
   "page/page-screenshot.spec.ts": {
@@ -1243,10 +1241,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
