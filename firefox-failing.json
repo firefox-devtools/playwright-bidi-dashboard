@@ -307,11 +307,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -415,10 +410,8 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -432,7 +425,9 @@
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale",
-      "should save trace while a WebSocket keeps streaming frames"
+      "should save trace while a WebSocket keeps streaming frames",
+      "should produce screencast frames of the requested size",
+      "should respect screencast quality"
     ]
   },
   "library/web-socket.spec.ts": {
@@ -535,6 +530,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
+      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
@@ -770,11 +766,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
