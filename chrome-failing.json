@@ -69,7 +69,8 @@
       "should work with setHTTPCredentials and multiple credentials",
       "should work with a single credential in an array",
       "should work with multiple credentials for different origins",
-      "should fall back to credentials without origin"
+      "should fall back to credentials without origin",
+      "should not override Authorization header set by the page"
     ]
   },
   "library/browsercontext-csp.spec.ts": {
@@ -84,7 +85,10 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work with inline script tag",
+      "pageload event should work @smoke",
+      "framenavigated event should work @smoke",
+      "weberror event should include location"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -147,7 +151,6 @@
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -305,11 +308,6 @@
       "emulate media should not be affected by second connectOverCDP with noDefaults"
     ]
   },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "should connect, evaluate, receive console and disconnect"
-    ]
-  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -436,7 +434,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support ignoreHTTPSErrors option",
+      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -585,7 +583,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove init scripts upon disconnect"
+      "should unroute websockets"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -792,6 +790,7 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
+      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -800,6 +799,7 @@
       "should highlight locator in iframe while typing",
       "should not leak recorders",
       "canvas disabled title",
+      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -811,6 +811,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames",
       "should produce screencast frames of the requested size"
     ],
@@ -821,6 +822,9 @@
     ]
   },
   "library/video.spec.ts": {
+    "failing": [
+      "screencast > should capture navigation"
+    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -932,6 +936,16 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/page-add-init-script-callback.spec.ts": {
+    "failing": [
+      "should work in a child frame"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
+    ]
+  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -944,7 +958,6 @@
   },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
-      "should await navigation when clicking anchor",
       "should await cross-process navigation when clicking anchor",
       "should await form-get on click",
       "should await form-post on click",
@@ -1041,6 +1054,7 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
+      "should fire for navigation requests",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
