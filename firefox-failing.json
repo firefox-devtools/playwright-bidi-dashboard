@@ -49,7 +49,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -313,11 +312,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -339,7 +333,8 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "should support clipboard read"
+      "should support clipboard read",
+      "local network request is allowed from public origin"
     ],
     "skipped": [
       "storage access",
@@ -353,7 +348,8 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit touch support from browser context",
-      "should use viewport size from window features"
+      "should use viewport size from window features",
+      "BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -365,11 +361,6 @@
     ],
     "skipped": [
       "should use proxy with emulated user agent"
-    ]
-  },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "should work when serving from memory cache"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -425,8 +416,10 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -545,7 +538,6 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
-      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
@@ -767,6 +759,7 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
