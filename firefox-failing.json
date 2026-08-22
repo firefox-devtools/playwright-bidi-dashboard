@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -215,11 +216,6 @@
       "should use context options for popup"
     ]
   },
-  "library/global-fetch.spec.ts": {
-    "failing": [
-      "should return security details from response"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -333,8 +329,7 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "should support clipboard read",
-      "local network request is allowed from public origin"
+      "should support clipboard read"
     ],
     "skipped": [
       "storage access",
@@ -425,7 +420,8 @@
     ],
     "skipped": [
       "should handle src=blob",
-      "should handle file URIs"
+      "should handle file URIs",
+      "should attribute network requests to service workers"
     ]
   },
   "library/tracing.spec.ts": {
@@ -759,7 +755,6 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
       "page screenshot animations > should wait for fonts to load"
     ],
     "skipped": [
