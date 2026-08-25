@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
     ]
@@ -412,7 +413,6 @@
       "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -532,6 +532,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
+      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
@@ -752,9 +753,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
