@@ -302,11 +302,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -413,6 +408,7 @@
       "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -427,9 +423,7 @@
       "should produce screencast frames fit",
       "should produce screencast frames crop",
       "should produce screencast frames scale",
-      "should save trace while a WebSocket keeps streaming frames",
-      "should produce screencast frames of the requested size",
-      "should respect screencast quality"
+      "should save trace while a WebSocket keeps streaming frames"
     ]
   },
   "library/web-socket.spec.ts": {
@@ -532,7 +526,6 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
-      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
@@ -753,7 +746,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",

@@ -85,7 +85,9 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work with inline script tag",
+      "pageload event should work @smoke",
+      "framenavigated event should work @smoke"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -306,6 +308,11 @@
       "emulate media should not be affected by second connectOverCDP with noDefaults"
     ]
   },
+  "library/chromium/connect-to-worker.spec.ts": {
+    "failing": [
+      "should connect, evaluate, receive console and disconnect"
+    ]
+  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -419,7 +426,6 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
-      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support httpCredentials option"
@@ -433,7 +439,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -577,7 +582,8 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets"
+      "should unroute websockets",
+      "should remove init scripts upon disconnect"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -636,6 +642,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -802,8 +809,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should save trace while a WebSocket keeps streaming frames",
-      "should produce screencast frames of the requested size"
+      "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
       "should produce screencast frames fit",
@@ -812,9 +818,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "screencast > should capture navigation"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -927,11 +930,6 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "init script should run only once in iframe"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -944,6 +942,7 @@
   },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
+      "should await navigation when clicking anchor",
       "should await cross-process navigation when clicking anchor",
       "should await form-get on click",
       "should await form-post on click",
@@ -1076,6 +1075,7 @@
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1168,6 +1168,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1203,7 +1204,6 @@
     "failing": [
       "should not override cookie header",
       "should be abortable with custom error codes",
-      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1245,6 +1245,7 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
+      "should work",
       "should work with predicate",
       "should work with no timeout",
       "should work with url match",
