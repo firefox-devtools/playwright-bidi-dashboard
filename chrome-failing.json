@@ -13,11 +13,6 @@
       "should set cookie with reasonable defaults"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -89,8 +84,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -104,6 +98,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -204,9 +203,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > should be able to reconnect to a browser"
-    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -439,7 +435,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support extraHTTPHeaders option",
+      "should support ignoreHTTPSErrors option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -583,7 +579,8 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets"
+      "should unroute websockets",
+      "should remove init scripts upon disconnect"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -642,11 +639,13 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -797,7 +796,6 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -819,9 +817,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "screencast > should capture navigation"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -896,7 +891,6 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
-      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -934,6 +928,11 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
+  "page/page-add-init-script-callback.spec.ts": {
+    "failing": [
+      "should work in a child frame"
+    ]
+  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "should work with toHaveScreenshot"
@@ -951,7 +950,8 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -961,9 +961,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1068,8 +1065,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1079,7 +1074,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1089,6 +1083,11 @@
       "should override referrer-policy",
       "should fail when canceled by another navigation",
       "should work with lazy loading iframes"
+    ]
+  },
+  "page/page-history.spec.ts": {
+    "failing": [
+      "page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1207,6 +1206,7 @@
       "should not override cookie header",
       "should work with custom referer headers",
       "should be abortable with custom error codes",
+      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1279,6 +1279,7 @@
       "should have JSHandles for console logs",
       "should clear upon cross-process navigation",
       "should attribute network activity for worker inside iframe to the iframe",
+      "should report network activity",
       "should report network activity on worker creation",
       "should report and intercept network from nested worker",
       "should support extra http headers",
