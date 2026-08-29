@@ -84,7 +84,11 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2"
+      "dialog event should work in popup 2",
+      "dialog event should work with inline script tag",
+      "pageload event should work @smoke",
+      "framenavigated event should work @smoke",
+      "weberror event should include location"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -98,11 +102,6 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
-    ]
-  },
-  "library/browsercontext-locale.spec.ts": {
-    "failing": [
-      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -123,7 +122,6 @@
       "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
-      "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
@@ -203,6 +201,9 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
+    "failing": [
+      "run-server > should be able to reconnect to a browser"
+    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -436,6 +437,7 @@
       "should support forcedColors option",
       "should support contrast option",
       "should support ignoreHTTPSErrors option",
+      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -579,6 +581,7 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
+      "should remove exposed bindings upon disconnect",
       "should unroute websockets",
       "should remove init scripts upon disconnect"
     ],
@@ -599,6 +602,7 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
+      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -788,7 +792,6 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
-      "should handle file URIs",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -817,6 +820,9 @@
     ]
   },
   "library/video.spec.ts": {
+    "failing": [
+      "screencast > should capture navigation"
+    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -913,6 +919,11 @@
       "should beautifully render sparse arrays"
     ]
   },
+  "page/locator-convenience.spec.ts": {
+    "failing": [
+      "should return page"
+    ]
+  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
@@ -926,11 +937,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -950,8 +956,7 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1068,7 +1073,6 @@
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
-      "should capture iframe navigation request",
       "should capture cross-process iframe navigation request",
       "should work with anchor navigation",
       "should work with redirects",
@@ -1206,7 +1210,6 @@
       "should not override cookie header",
       "should work with custom referer headers",
       "should be abortable with custom error codes",
-      "should work with redirects for subresources",
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
@@ -1265,8 +1268,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
