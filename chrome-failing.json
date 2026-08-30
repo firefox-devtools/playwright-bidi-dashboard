@@ -85,10 +85,7 @@
     "failing": [
       "console event should work with element handles",
       "dialog event should work in popup 2",
-      "dialog event should work with inline script tag",
-      "pageload event should work @smoke",
-      "framenavigated event should work @smoke",
-      "weberror event should include location"
+      "dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -122,6 +119,7 @@
       "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
+      "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
@@ -148,8 +146,10 @@
       "reuse launch > should not cache resources",
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
+      "reuse connect > should re-add binding after reset",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
+      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -581,8 +581,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should remove exposed bindings upon disconnect",
-      "should unroute websockets",
       "should remove init scripts upon disconnect"
     ],
     "skipped": [
@@ -602,7 +600,6 @@
       "runFor > creates updated Date while ticking",
       "runFor > passes 8 seconds",
       "runFor > passes 1 minute",
-      "runFor > passes 2 hours, 34 minutes and 10 seconds",
       "stubTimers > replaces global setInterval"
     ]
   },
@@ -649,7 +646,6 @@
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -820,9 +816,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "screencast > should capture navigation"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -897,6 +890,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -919,11 +913,6 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
@@ -937,6 +926,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -956,7 +950,8 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -966,6 +961,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -981,7 +979,6 @@
   "page/page-click.spec.ts": {
     "failing": [
       "should issue clicks in parallel in page and popup",
-      "should not hang when frame is detached",
       "should click in a transformed iframe",
       "should click in a transformed iframe with force",
       "should click in a nested transformed iframe",
@@ -1078,6 +1075,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1237,15 +1235,11 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
       "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
@@ -1268,7 +1262,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
