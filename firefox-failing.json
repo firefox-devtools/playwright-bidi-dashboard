@@ -213,6 +213,11 @@
       "should support custom firefox policies"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -303,11 +308,6 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -417,10 +417,8 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -774,11 +772,6 @@
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "should upload a folder"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
