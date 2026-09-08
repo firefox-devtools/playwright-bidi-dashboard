@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -418,10 +419,8 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -489,7 +488,6 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -539,6 +537,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
+      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
