@@ -13,11 +13,6 @@
       "should set cookie with reasonable defaults"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -89,11 +84,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag",
-      "pageload event should work @smoke",
-      "framenavigated event should work @smoke",
-      "weberror event should include location"
+      "dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -107,6 +98,11 @@
       "should record overridden requests to har",
       "should record single set-cookie headers",
       "should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -127,7 +123,6 @@
       "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
-      "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
@@ -175,9 +170,6 @@
     "failing": [
       "should round-trip through the file",
       "should capture cookies"
-    ],
-    "skipped": [
-      "should round-trip OPFS in a persistent WebKit context"
     ]
   },
   "library/browsercontext-user-agent.spec.ts": {
@@ -197,7 +189,8 @@
   },
   "library/browsercontext-viewport.spec.ts": {
     "failing": [
-      "should support touch with null viewport"
+      "should support touch with null viewport",
+      "should keep touch emulation after screenshot beyond viewport"
     ],
     "skipped": [
       "WebKit Windows headed should have a minimal viewport"
@@ -442,6 +435,7 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
+      "should support ignoreHTTPSErrors option",
       "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
@@ -586,7 +580,6 @@
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
       "last emulateMedia wins",
-      "should unroute websockets",
       "should remove init scripts upon disconnect"
     ],
     "skipped": [
@@ -646,12 +639,12 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -659,7 +652,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > localhost",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -960,8 +952,7 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -1078,8 +1069,6 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should work with Cross-Origin-Opener-Policy after redirect",
@@ -1223,7 +1212,8 @@
       "should add Access-Control-Allow-Origin by default when fulfill",
       "should allow null origin for about:blank",
       "should contain raw request header",
-      "should intercept when postData is more than 1MB"
+      "should intercept when postData is more than 1MB",
+      "should contain sec-fetch headers in route"
     ],
     "skipped": [
       "should not fulfill with redirect status",
@@ -1242,12 +1232,12 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1269,7 +1259,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {

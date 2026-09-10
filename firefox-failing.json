@@ -49,7 +49,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -82,9 +81,6 @@
     "failing": [
       "should set local storage in third-party context",
       "should roundtrip local storage in third-party context"
-    ],
-    "skipped": [
-      "should round-trip OPFS in a persistent WebKit context"
     ]
   },
   "library/browsercontext-user-agent.spec.ts": {
@@ -106,7 +102,8 @@
   "library/browsercontext-viewport.spec.ts": {
     "failing": [
       "should support touch with null viewport",
-      "should drag with high dpi"
+      "should drag with high dpi",
+      "should keep touch emulation after screenshot beyond viewport"
     ],
     "skipped": [
       "WebKit Windows headed should have a minimal viewport"
@@ -311,11 +308,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -419,6 +411,7 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
+      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should filter network requests by websocket type",
@@ -488,6 +481,7 @@
   "page/frame-evaluate.spec.ts": {
     "failing": [
       "should dispose context on navigation",
+      "should dispose context on cross-origin navigation",
       "should allow cross-frame element handles"
     ]
   },
