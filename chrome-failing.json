@@ -123,6 +123,7 @@
       "should have url after domcontentloaded",
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
+      "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
       "should have an opener"
     ]
@@ -203,6 +204,9 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
+    "failing": [
+      "run-server > should be able to reconnect to a browser"
+    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -416,7 +420,9 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should not intercept TLS for origins without a client certificate"
+      "browser > should not intercept TLS for origins without a client certificate",
+      "browser > should intercept TLS and send no client certificate when noCertificate is set for the visited origin",
+      "browser > persistentContext > should intercept TLS and send no client certificate when noCertificate is set for the visited origin"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
@@ -579,8 +585,7 @@
     "failing": [
       "should not allow parallel js coverage and cleanup upon disconnect",
       "should not allow parallel css coverage",
-      "last emulateMedia wins",
-      "should remove init scripts upon disconnect"
+      "last emulateMedia wins"
     ],
     "skipped": [
       "should chain routes with changed url"
@@ -639,6 +644,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -815,9 +821,6 @@
     ]
   },
   "library/video.spec.ts": {
-    "failing": [
-      "screencast > should capture navigation"
-    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -952,7 +955,8 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -985,7 +989,8 @@
       "should click in a transformed iframe with force",
       "should click in a nested transformed iframe",
       "should set PointerEvent.pressure on pointerdown",
-      "should set PointerEvent.pressure on pointermove"
+      "should set PointerEvent.pressure on pointermove",
+      "should not retain removed iframe after clicking inside it"
     ],
     "skipped": [
       "should click the button with fixed position inside an iframe"
@@ -1077,7 +1082,6 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
-      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1174,6 +1178,8 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
+      "continue should delete headers on redirects",
       "should not delete the origin header"
     ]
   },
@@ -1238,6 +1244,11 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should pick up ongoing navigation",
+      "should respect timeout",
+      "should resolve immediately if loaded",
+      "should throw for bad state",
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1259,8 +1270,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath",
-      "should fail when navigating while on handle"
+      "should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {

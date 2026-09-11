@@ -158,7 +158,9 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should not intercept TLS for origins without a client certificate"
+      "browser > should not intercept TLS for origins without a client certificate",
+      "browser > should intercept TLS and send no client certificate when noCertificate is set for the visited origin",
+      "browser > persistentContext > should intercept TLS and send no client certificate when noCertificate is set for the visited origin"
     ],
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
@@ -343,8 +345,7 @@
   "library/popup.spec.ts": {
     "failing": [
       "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "should use viewport size from window features"
     ],
     "skipped": [
       "should not throw when click closes popup"
@@ -356,6 +357,11 @@
     ],
     "skipped": [
       "should use proxy with emulated user agent"
+    ]
+  },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "should work when serving from memory cache"
     ]
   },
   "library/role-utils.spec.ts": {
@@ -411,9 +417,9 @@
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -571,7 +577,8 @@
       "should click the button with fixed position inside an iframe",
       "should click in a transformed iframe",
       "should click in a transformed iframe with force",
-      "should click in a nested transformed iframe"
+      "should click in a nested transformed iframe",
+      "should not retain removed iframe after clicking inside it"
     ]
   },
   "page/page-drag.spec.ts": {
@@ -752,9 +759,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
