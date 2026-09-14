@@ -353,6 +353,12 @@ export const suiteNames = [
   "library/browsercontext-pierce-frames.spec.ts",
   "page/page-aria-snapshot-json.spec.ts",
   "page/locator-get.spec.ts",
+  "library/unit/android-webviews.spec.ts",
+  "library/unit/timeout-runner.spec.ts",
+  "page/locator-any-frame.spec.ts",
+  "page/page-evaluate-world.spec.ts",
+  "page/page-transition.spec.ts",
+  "library/network-timeout.spec.ts",
 ];
 
 export const disabledSuites = [
