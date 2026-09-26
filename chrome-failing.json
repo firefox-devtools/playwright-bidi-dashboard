@@ -13,6 +13,11 @@
       "should set cookie with reasonable defaults"
     ]
   },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -20,9 +25,6 @@
       "should work with offline option",
       "should emulate media in popup",
       "should emulate media in cross-process iframe"
-    ],
-    "skipped": [
-      "should emulate navigator.onLine across navigations"
     ]
   },
   "library/browsercontext-clearcookies.spec.ts": {
@@ -87,7 +89,8 @@
       "dialog event should work in popup 2",
       "dialog event should work with inline script tag",
       "pageload event should work @smoke",
-      "framenavigated event should work @smoke"
+      "framenavigated event should work @smoke",
+      "weberror event should include location"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
@@ -123,7 +126,8 @@
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
       "should not crash while redirecting of original request was missed",
-      "should have an opener"
+      "should have an opener",
+      "should fire page lifecycle events"
     ]
   },
   "library/browsercontext-pages.spec.ts": {
@@ -146,6 +150,7 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > should not cache resources",
+      "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
@@ -205,9 +210,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > should be able to reconnect to a browser"
-    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -312,6 +314,11 @@
       "noDefaults should not affect new contexts",
       "should write traces to provided artifactsDir on connectOverCDP",
       "emulate media should not be affected by second connectOverCDP with noDefaults"
+    ]
+  },
+  "library/chromium/connect-to-worker.spec.ts": {
+    "failing": [
+      "should connect, evaluate, receive console and disconnect"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
@@ -429,7 +436,6 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
-      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support httpCredentials option"
@@ -443,7 +449,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support ignoreHTTPSErrors option",
       "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
@@ -657,6 +662,7 @@
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -664,6 +670,7 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
+      "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -679,7 +686,8 @@
   },
   "library/screencast.spec.ts": {
     "failing": [
-      "screencast.start delivers frames via onFrame callback"
+      "screencast.start delivers frames via onFrame callback",
+      "start should record video with the requested fps"
     ]
   },
   "library/screenshot.spec.ts": {
@@ -828,6 +836,13 @@
     ]
   },
   "library/video.spec.ts": {
+    "failing": [
+      "screencast > should capture navigation",
+      "screencast > should use viewport scaled down to fit into 800x800 as default size",
+      "screencast > should be 800x450 by default",
+      "screencast > should emulate an iphone",
+      "screencast > should record video with the requested fps"
+    ],
     "skipped": [
       "screencast > should scale frames down to the requested size ",
       "screencast > should capture full viewport",
@@ -905,6 +920,7 @@
       "should persist mainFrame on cross-process navigation",
       "should not send attach/detach events for main frame",
       "should support framesets",
+      "should report different frame instance when frame re-attaches",
       "should refuse to display x-frame-options:deny iframe",
       "should return frame.page()"
     ],
@@ -927,14 +943,14 @@
       "should beautifully render sparse arrays"
     ]
   },
-  "page/locator-convenience.spec.ts": {
-    "failing": [
-      "should return page"
-    ]
-  },
   "page/locator-misc-2.spec.ts": {
     "failing": [
       "should take screenshot"
+    ]
+  },
+  "page/locator-query.spec.ts": {
+    "failing": [
+      "should enforce same frame for has/leftOf/rightOf/above/below/near"
     ]
   },
   "page/network-post-data.spec.ts": {
@@ -945,6 +961,11 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
+    ]
+  },
+  "page/page-add-init-script.spec.ts": {
+    "failing": [
+      "init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -964,7 +985,8 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)"
+      "should work with waitForLoadState(load)",
+      "should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
@@ -974,9 +996,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1079,6 +1098,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "should work @smoke",
+      "should use http for no protocol",
       "should work cross-process",
       "should work with Cross-Origin-Opener-Policy",
       "should capture cross-process iframe navigation request",
@@ -1086,6 +1107,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1095,11 +1117,6 @@
       "should override referrer-policy",
       "should fail when canceled by another navigation",
       "should work with lazy loading iframes"
-    ]
-  },
-  "page/page-history.spec.ts": {
-    "failing": [
-      "page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1226,7 +1243,6 @@
     ],
     "skipped": [
       "should not fulfill with redirect status",
-      "route abort with times: 1 should not affect second sequential fetch",
       "should respect URLPattern ignoreCase"
     ]
   },
@@ -1242,11 +1258,16 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "should respect timeout",
+      "should resolve immediately if loaded",
+      "should throw for bad state",
+      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1254,6 +1275,7 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
+      "should work",
       "should work with predicate",
       "should work with no timeout",
       "should work with url match",
