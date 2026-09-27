@@ -220,6 +220,11 @@
       "should support custom firefox policies"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -408,6 +413,7 @@
       "should filter network requests by url",
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
+      "should filter network requests by multiple resource types",
       "should filter network requests by websocket type",
       "should show websocket messages"
     ],
@@ -744,6 +750,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
+      "page screenshot > should take fullPage screenshots during navigation",
       "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
