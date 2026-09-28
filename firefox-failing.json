@@ -49,7 +49,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -333,7 +332,8 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "should support clipboard read"
+      "should support clipboard read",
+      "local network request is allowed from public origin"
     ],
     "skipped": [
       "storage access",
@@ -751,7 +751,8 @@
     "failing": [
       "page screenshot > should allow transparency",
       "page screenshot > should take fullPage screenshots during navigation",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot animations > should not capture pseudo element css animation",
+      "page screenshot animations > should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
