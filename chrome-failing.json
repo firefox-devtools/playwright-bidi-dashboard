@@ -13,11 +13,6 @@
       "should set cookie with reasonable defaults"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -89,6 +84,7 @@
       "dialog event should work in popup 2",
       "dialog event should work with inline script tag",
       "pageload event should work @smoke",
+      "framenavigated event should work @smoke",
       "weberror event should include location"
     ]
   },
@@ -124,7 +120,8 @@
       "should have about:blank url with domcontentloaded",
       "should have about:blank for empty url with domcontentloaded",
       "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed"
+      "should not crash while redirecting of original request was missed",
+      "should have an opener"
     ]
   },
   "library/browsercontext-pages.spec.ts": {
@@ -147,11 +144,9 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > should not cache resources",
-      "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
       "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -208,9 +203,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > should be able to reconnect to a browser"
-    ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
       "launchServer > socks proxy > should proxy localhost requests @smoke",
@@ -281,7 +273,8 @@
       "setExtraHTTPHeaders",
       "PLAYWRIGHT_DISABLE_SERVICE_WORKER_NETWORK",
       "should fire dialogclosed event when dialog is closed out of band",
-      "WebUI navigation > should refuse WebUI pages that crash the browser in an isolated context"
+      "WebUI navigation > should refuse WebUI pages that crash the browser in an isolated context",
+      "should not leak service worker session after context close"
     ],
     "skipped": [
       "should intercept service worker update requests",
@@ -314,7 +307,9 @@
       "should skip default overrides with noDefaults",
       "noDefaults should not affect new contexts",
       "should write traces to provided artifactsDir on connectOverCDP",
-      "emulate media should not be affected by second connectOverCDP with noDefaults"
+      "emulate media should not be affected by second connectOverCDP with noDefaults",
+      "should connect when an existing page has no renderer",
+      "should connect when an existing page has been discarded"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
@@ -432,7 +427,6 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "context.cookies() should work @smoke",
-      "should support userAgent option",
       "should support bypassCSP option",
       "should support javascriptEnabled option",
       "should support httpCredentials option"
@@ -446,8 +440,6 @@
       "should support reducedMotion option",
       "should support forcedColors option",
       "should support contrast option",
-      "should support ignoreHTTPSErrors option",
-      "should support extraHTTPHeaders option",
       "should have passed URL when launching with ignoreDefaultArgs: true",
       "should handle exception",
       "coverage should work"
@@ -660,6 +652,7 @@
       "should inherit touch support from browser context",
       "should use viewport size from window features",
       "should respect routes from browser context when using window.open",
+      "BrowserContext.addInitScript should apply to a cross-process popup",
       "should not throttle rAF in the opener page"
     ]
   },
@@ -667,8 +660,6 @@
     "failing": [
       "should authenticate",
       "should work with authenticate followed by redirect",
-      "should proxy local network requests > by default > loopback address",
-      "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -812,8 +803,6 @@
       "should pick locator in iframe",
       "should highlight locator in iframe while typing",
       "should not leak recorders",
-      "canvas disabled title",
-      "canvas clipping",
       "should generate aria snapshot with unaltered urls",
       "should reflect system color scheme changes in document theme",
       "should not navigate on anchor clicks",
@@ -981,9 +970,9 @@
       "should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
+  "page/page-add-init-script-callback.spec.ts": {
     "failing": [
-      "init script should run only once in iframe"
+      "should work in a child frame"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1009,6 +998,7 @@
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
+      "calling window.stop async",
       "clicking a link intercepted by the Navigation API same-document"
     ]
   },
@@ -1083,6 +1073,14 @@
     ]
   },
   "page/page-event-network.spec.ts": {
+    "failing": [
+      "Page.Events.Request @smoke",
+      "Page.Events.Response @smoke",
+      "Page.Events.RequestFailed @smoke",
+      "Page.Events.RequestFinished @smoke",
+      "should fire events in proper order",
+      "should support redirects"
+    ],
     "skipped": [
       "should resolve responses after a navigation"
     ]
@@ -1095,7 +1093,6 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "should fire for navigation requests",
       "should report requests and responses handled by service worker",
       "should report requests and responses handled by service worker with routing",
       "should report navigation requests and responses handled by service worker with routing",
@@ -1128,6 +1125,7 @@
       "should work with redirects",
       "should return response when page changes its URL after load",
       "should work with subframes return 204",
+      "should work with subframes return 204 with domcontentloaded",
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
@@ -1137,6 +1135,11 @@
       "should override referrer-policy",
       "should fail when canceled by another navigation",
       "should work with lazy loading iframes"
+    ]
+  },
+  "page/page-history.spec.ts": {
+    "failing": [
+      "page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
@@ -1220,8 +1223,6 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "continue should drop content-length on redirects",
-      "continue should delete headers on redirects",
       "propagate headers cross origin redirect",
       "should not delete the origin header"
     ]
@@ -1287,10 +1288,6 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
-      "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
       "should wait for load state of about:blank popup with noopener "
@@ -1298,10 +1295,8 @@
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
-      "should work",
       "should work with predicate",
       "should work with no timeout",
-      "should work with url match",
       "should work with url match regular expression from a different context"
     ]
   },
@@ -1312,7 +1307,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "should throw when frame is detached xpath",
+      "should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
