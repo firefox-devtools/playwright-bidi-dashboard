@@ -359,6 +359,10 @@ export const suiteNames = [
   "page/page-evaluate-world.spec.ts",
   "page/page-transition.spec.ts",
   "library/network-timeout.spec.ts",
+  "library/coverage.spec.ts",
+  "page/page-evaluate-serialization.spec.ts",
+  "library/webmcp-disabled.spec.ts",
+  "library/webmcp.spec.ts",
 ];
 
 export const disabledSuites = [
