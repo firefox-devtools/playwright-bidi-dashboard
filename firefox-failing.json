@@ -165,9 +165,7 @@
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should not intercept TLS for origins without a client certificate",
-      "browser > should intercept TLS and send no client certificate when noCertificate is set for the visited origin",
-      "browser > persistentContext > should intercept TLS and send no client certificate when noCertificate is set for the visited origin"
+      "browser > should not intercept TLS for origins without a client certificate"
     ],
     "skipped": [
       "browser > support http2 if the browser only supports http1.1"
@@ -219,11 +217,6 @@
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "should support custom firefox policies"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
@@ -311,6 +304,11 @@
     "skipped": [
       "clock should be frozen",
       "clock should be realtime"
+    ]
+  },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -461,15 +459,12 @@
       "should throw for an unknown tool",
       "should time out when the tool does not settle",
       "should drop tools after navigation",
-      "should emit toolschanged when navigating away from the tools",
-      "should list tools registered before enable",
-      "should throw when used before enable",
-      "should stop after disable and resume after enable",
-      "should emit toolschanged when the page unregisters a tool",
-      "should emit toolschanged when the page registers a tool",
       "should list declarative tools",
       "should scope tools to their frame",
-      "should call same-name tools in their own frame"
+      "should call same-name tools in their own frame",
+      "should list a tool registered after load",
+      "should list tools while a tool is running",
+      "should list and call tools in cross-origin and nested frames"
     ]
   },
   "page/elementhandle-click.spec.ts": {
@@ -556,6 +551,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "should call a function passed as an argument",
+      "should pass arguments to the callback",
       "should work in a child frame"
     ]
   },
@@ -780,6 +776,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
+      "page screenshot > should take fullPage screenshots during navigation",
       "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
