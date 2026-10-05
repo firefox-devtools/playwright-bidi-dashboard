@@ -46,7 +46,7 @@ async function downloadLatestCsv(id) {
     headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
   });
   const zip = new AdmZip(Buffer.from(await archive.arrayBuffer()));
-  const csv = zip.readAsText("moz-firefox-nightly.csv");
+  const csv = zip.readAsText("report.csv");
   if (!csv) {
     console.log(`csv file not found in ${csvArtifactName} - skipping`);
     return;
