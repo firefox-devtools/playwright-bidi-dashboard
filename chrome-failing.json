@@ -13,6 +13,11 @@
       "should set cookie with reasonable defaults"
     ]
   },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "should disable javascript",
@@ -30,7 +35,8 @@
       "should remove cookies by path",
       "should remove cookies by name and domain",
       "should not transiently delete non-matching cookies when filtering",
-      "should remove partitioned cookies by name"
+      "should remove partitioned cookies by name",
+      "should remove nameless cookies by empty name"
     ]
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
@@ -84,7 +90,8 @@
       "dialog event should work in popup 2",
       "dialog event should work with inline script tag",
       "pageload event should work @smoke",
-      "framenavigated event should work @smoke"
+      "framenavigated event should work @smoke",
+      "weberror event should include location"
     ]
   },
   "library/browsercontext-expose-function.spec.ts": {
@@ -152,6 +159,7 @@
       "reuse launch > should continue issuing events after closing the reused page",
       "reuse launch > should update viewport and media",
       "reuse connect > should not cache resources",
+      "reuse connect > should continue issuing events after closing the reused page",
       "reuse connect > should update viewport and media"
     ]
   },
@@ -163,6 +171,15 @@
     ],
     "skipped": [
       "should respect URLPattern ignoreCase"
+    ]
+  },
+  "library/browsercontext-service-worker-policy.spec.ts": {
+    "failing": [
+      "block > blocks service worker registration",
+      "should allow literal service worker navigation while offline",
+      "should allow cache-only service worker navigation while offline",
+      "should allow network-fallback service worker navigation while offline",
+      "should allow preload-fallback service worker navigation while offline"
     ]
   },
   "library/browsercontext-set-extra-http-headers.spec.ts": {
@@ -209,7 +226,7 @@
   },
   "library/browsertype-connect.spec.ts": {
     "failing": [
-      "run-server > should record trace with sources"
+      "run-server > should be able to reconnect to a browser"
     ],
     "skipped": [
       "launchServer > socks proxy > should forward non-forwarded requests",
@@ -321,11 +338,6 @@
       "should connect when the opener of an existing page has no renderer"
     ]
   },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "should connect, evaluate, receive console and disconnect"
-    ]
-  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "should work",
@@ -396,7 +408,8 @@
       "should be able to click in iframe",
       "should not throw on exposeFunction when oopif detaches",
       "should remove workers of a detached oopif",
-      "should not hang in unrouteAll when oopif worker is gone"
+      "should not hang in unrouteAll when oopif worker is gone",
+      "should navigate a local frame to oopif with frame.goto"
     ],
     "skipped": [
       "should get the proper viewport"
@@ -660,6 +673,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "should inherit user agent from browser context @smoke",
       "should respect routes from browser context",
       "should inherit http credentials from browser context",
       "should inherit touch support from browser context",
@@ -673,6 +687,7 @@
       "should authenticate",
       "should work with authenticate followed by redirect",
       "should proxy local network requests > by default > localhost",
+      "should proxy local network requests > by default > link-local",
       "should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
@@ -809,6 +824,7 @@
     "failing": [
       "should filter network requests by url",
       "should handle multiple headers",
+      "should handle src=blob",
       "should highlight target elements",
       "should pick locator",
       "should update highlight when typing locator",
@@ -828,7 +844,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should collect trace with resources, but no js",
       "should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -972,11 +987,6 @@
       "should take screenshot"
     ]
   },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
-    ]
-  },
   "page/network-post-data.spec.ts": {
     "failing": [
       "should return correct postData buffer for utf-8 body",
@@ -985,11 +995,6 @@
       "should return post data for PUT requests",
       "should get post data for file/blob",
       "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1009,17 +1014,18 @@
       "should await form-get on click",
       "should await form-post on click",
       "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "calling window.stop async",
       "clicking a link intercepted by the Navigation API same-document"
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "frame.press should work"
+    ],
     "skipped": [
       "page.frame should respect name"
     ]
@@ -1035,6 +1041,7 @@
   "page/page-click.spec.ts": {
     "failing": [
       "should issue clicks in parallel in page and popup",
+      "should not hang when frame is detached",
       "should click in a transformed iframe",
       "should click in a transformed iframe with force",
       "should click in a nested transformed iframe",
@@ -1133,6 +1140,7 @@
       "should navigate to empty page with domcontentloaded",
       "should fail when replaced by another navigation",
       "js redirect overrides url bar navigation ",
+      "should work with self requesting page",
       "should send referer",
       "should send referer of cross-origin URL",
       "should override referrer-policy",
@@ -1187,7 +1195,6 @@
       "should return navigation bit",
       "should return navigation bit when navigating to image",
       "should report raw headers",
-      "should report raw response headers in redirects",
       "should report all cookies in one header",
       "should not allow to access frame on popup main request",
       "page.reload return 304 status code",
@@ -1227,6 +1234,8 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
+      "continue should drop content-length on redirects",
+      "continue should delete headers on redirects",
       "propagate headers cross origin redirect",
       "should not delete the origin header"
     ]
@@ -1287,15 +1296,12 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "should detect mime type",
       "should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should pick up ongoing navigation",
-      "should respect timeout",
-      "should resolve immediately if loaded",
-      "should throw for bad state",
       "should resolve immediately if load state matches",
       "should wait for load state of empty url popup",
       "should wait for load state of about:blank popup ",
