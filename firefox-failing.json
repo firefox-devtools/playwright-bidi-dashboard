@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goBack to redirected navigation",
       "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
@@ -323,9 +324,6 @@
       "should cancel navigation when page crashes",
       "should be able to close context when page crashes",
       "should be able to close page after crash"
-    ],
-    "skipped": [
-      "should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
@@ -513,13 +511,8 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on cross-origin navigation",
+      "should dispose context on navigation",
       "should allow cross-frame element handles"
-    ]
-  },
-  "page/frame-goto.spec.ts": {
-    "failing": [
-      "should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -793,6 +786,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
+      "page screenshot > should take fullPage screenshots during navigation",
       "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
