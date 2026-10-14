@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "should goForward to redirected navigation",
       "should round-trip har with postData",
       "should record overridden requests to har"
     ]
@@ -312,11 +313,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -324,8 +320,7 @@
       "should cancel waitForEvent when page crashes",
       "should cancel navigation when page crashes",
       "should be able to close context when page crashes",
-      "should be able to close page after crash",
-      "should reject in-flight worker.evaluate when page crashes"
+      "should be able to close page after crash"
     ]
   },
   "library/pdf.spec.ts": {
@@ -513,6 +508,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "should dispose context on navigation",
       "should allow cross-frame element handles"
     ]
   },
@@ -786,9 +782,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > should allow transparency",
-      "page screenshot > should take fullPage screenshots during navigation",
-      "page screenshot animations > should not capture pseudo element css animation",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot > should work while navigating",
+      "page screenshot animations > should not capture pseudo element css animation"
     ],
     "skipped": [
       "page screenshot > should capture blinking caret if explicitly asked for",
