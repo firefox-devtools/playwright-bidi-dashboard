@@ -236,6 +236,11 @@
       "should resize viewport with fractional device scale factor"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "should only have one websocket entry",
@@ -321,16 +326,6 @@
       "clock should be realtime"
     ]
   },
-  "library/page-clock.spec.ts": {
-    "failing": [
-      "popup > should run time before popup"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "should emit crash event when page crashes",
@@ -349,7 +344,8 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "should support clipboard read"
+      "should support clipboard read",
+      "local network request is allowed from public origin"
     ],
     "skipped": [
       "storage access",
