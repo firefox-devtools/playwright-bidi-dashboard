@@ -1,1366 +1,1337 @@
 {
   "library/browser.spec.ts": {
     "failing": [
-      "version should work",
-      "should dispatch page.on(close) upon browser.close and reject evaluate"
+      "BR-004 version should work",
+      "BR-005 should dispatch page.on(close) upon browser.close and reject evaluate"
     ]
   },
   "library/browsercontext-add-cookies.spec.ts": {
     "failing": [
-      "should set cookies with SameSite attribute and no secure attribute",
-      "should roundtrip cookie",
-      "should send cookie header",
-      "should set cookie with reasonable defaults"
-    ]
-  },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+      "CO-022 should set cookies with SameSite attribute and no secure attribute",
+      "CO-023 should roundtrip cookie",
+      "CO-024 should send cookie header",
+      "CO-032 should set cookie with reasonable defaults"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
-      "should disable javascript",
-      "should be able to navigate after disabling javascript",
-      "should work with offline option",
-      "should emulate media in popup",
-      "should emulate media in cross-process iframe"
+      "BC-018 should disable javascript",
+      "BC-019 should be able to navigate after disabling javascript",
+      "BC-023 should work with offline option",
+      "BC-028 should emulate media in popup",
+      "BC-029 should emulate media in cross-process iframe"
     ]
   },
   "library/browsercontext-clearcookies.spec.ts": {
     "failing": [
-      "should remove cookies by name",
-      "should remove cookies by name regex",
-      "should remove cookies by domain",
-      "should remove cookies by path",
-      "should remove cookies by name and domain",
-      "should not transiently delete non-matching cookies when filtering",
-      "should remove partitioned cookies by name",
-      "should remove nameless cookies by empty name"
+      "CO-044 should remove cookies by name",
+      "CO-045 should remove cookies by name regex",
+      "CO-046 should remove cookies by domain",
+      "CO-047 should remove cookies by path",
+      "CO-048 should remove cookies by name and domain",
+      "CO-049 should not transiently delete non-matching cookies when filtering",
+      "CO-050 should remove partitioned cookies by name",
+      "CO-051 should remove nameless cookies by empty name"
     ]
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
-      "save/load third party 'Partitioned;' cookies",
-      "add 'Partitioned;' cookie via API",
-      "top level 'Partitioned;' cookie and same origin iframe"
+      "CO-055 save/load third party 'Partitioned;' cookies",
+      "CO-056 add 'Partitioned;' cookie via API",
+      "CO-058 top level 'Partitioned;' cookie and same origin iframe"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
     "failing": [
-      "should get a cookie @smoke",
-      "should get a non-session cookie",
-      "should get multiple cookies",
-      "should parse cookie with large Max-Age correctly",
-      "iframe should inherit cookies from parent"
+      "CO-002 should get a cookie @smoke",
+      "CO-003 should get a non-session cookie",
+      "CO-008 should get multiple cookies",
+      "CO-017 should parse cookie with large Max-Age correctly",
+      "CO-018 iframe should inherit cookies from parent"
     ],
     "skipped": [
-      "should support requestStorageAccess"
+      "CO-016 should support requestStorageAccess"
     ]
   },
   "library/browsercontext-credentials.spec.ts": {
     "failing": [
-      "should fail without credentials",
-      "should work with setHTTPCredentials",
-      "should fail with correct credentials and mismatching scheme",
-      "should fail with correct credentials and mismatching hostname",
-      "should fail with correct credentials and mismatching port"
+      "AU-001 should fail without credentials",
+      "AU-002 should work with setHTTPCredentials",
+      "AU-013 should fail with correct credentials and mismatching scheme",
+      "AU-014 should fail with correct credentials and mismatching hostname",
+      "AU-015 should fail with correct credentials and mismatching port"
     ]
   },
   "library/browsercontext-csp.spec.ts": {
     "failing": [
-      "should bypass CSP meta tag @smoke",
-      "should bypass CSP header",
-      "should bypass after cross-process navigation",
-      "should bypass CSP in iframes as well"
-    ]
-  },
-  "library/browsercontext-dsf.spec.ts": {
-    "failing": [
-      "should fetch lodpi assets @smoke",
-      "should fetch hidpi assets"
+      "CS-001 should bypass CSP meta tag @smoke",
+      "CS-002 should bypass CSP header",
+      "CS-003 should bypass after cross-process navigation",
+      "CS-004 should bypass CSP in iframes as well"
     ]
   },
   "library/browsercontext-events.spec.ts": {
     "failing": [
-      "console event should work with element handles",
-      "dialog event should work in popup 2",
-      "dialog event should work with inline script tag"
+      "BC-033 console event should work with element handles",
+      "BC-040 dialog event should work in popup 2",
+      "BC-042 dialog event should work with inline script tag",
+      "BC-045 pageload event should work @smoke",
+      "BC-046 framenavigated event should work @smoke"
     ]
   },
   "library/browsercontext-expose-function.spec.ts": {
     "skipped": [
-      "should call binding from pagehide handler when navigating away"
+      "EF-028 should call binding from pagehide handler when navigating away"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
     "failing": [
-      "should work with connectOverCDP",
-      "page.request.clearCookies should clear browser context cookies"
+      "FE-110 page.request.clearCookies should clear browser context cookies",
+      "FE-169 should work with connectOverCDP"
     ]
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should round-trip har with postData",
-      "should record overridden requests to har",
-      "should record single set-cookie headers",
-      "should record multiple set-cookie headers"
+      "HA-088 should round-trip har with postData",
+      "HA-089 should record overridden requests to har",
+      "HA-093 should record single set-cookie headers",
+      "HA-094 should record multiple set-cookie headers"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
-      "BrowserContext.Events.Request",
-      "BrowserContext.Events.Response",
-      "BrowserContext.Events.RequestFailed",
-      "BrowserContext.Events.RequestFinished",
-      "should fire events in proper order"
+      "NE-121 BrowserContext.Events.Request",
+      "NE-122 BrowserContext.Events.Response",
+      "NE-123 BrowserContext.Events.RequestFailed",
+      "NE-124 BrowserContext.Events.RequestFinished",
+      "NE-125 should fire events in proper order"
     ],
     "skipped": [
-      "should not fire events for favicon or favicon redirects"
+      "NE-126 should not fire events for favicon or favicon redirects"
     ]
   },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
-      "should have url",
-      "should have url after domcontentloaded",
-      "should have about:blank url with domcontentloaded",
-      "should have about:blank for empty url with domcontentloaded",
-      "should report when a new page is created and closed",
-      "should not crash while redirecting of original request was missed",
-      "should have an opener"
+      "BC-062 should have url",
+      "BC-063 should have url after domcontentloaded",
+      "BC-064 should have about:blank url with domcontentloaded",
+      "BC-065 should have about:blank for empty url with domcontentloaded",
+      "BC-066 should report when a new page is created and closed",
+      "BC-068 should not crash while redirecting of original request was missed",
+      "BC-069 should have an opener"
     ]
   },
   "library/browsercontext-pages.spec.ts": {
     "skipped": [
-      "should close page while a reload is committing"
+      "BC-060 should close page while a reload is committing"
     ]
   },
   "library/browsercontext-proxy.spec.ts": {
     "failing": [
-      "should use proxy for https urls",
-      "should proxy local network requests > with other bypasses > localhost",
-      "should proxy local network requests > with other bypasses > loopback address",
-      "should proxy local network requests > with other bypasses > link-local"
+      "PR-028 should use proxy for https urls",
+      "should proxy local network requests > with other bypasses > PR-024 localhost",
+      "should proxy local network requests > with other bypasses > PR-024 loopback address",
+      "should proxy local network requests > with other bypasses > PR-024 link-local"
     ]
   },
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
-      "reuse launch > should not cache resources",
-      "reuse launch > should continue issuing events after closing the reused page",
-      "reuse launch > should update viewport and media",
-      "reuse connect > should not cache resources",
-      "reuse connect > should continue issuing events after closing the reused page",
-      "reuse connect > should work with routeWebSocket",
-      "reuse connect > should update viewport and media"
+      "reuse launch > BC-076 should not cache resources",
+      "reuse launch > BC-081 should continue issuing events after closing the reused page",
+      "reuse launch > BC-083 should update viewport and media",
+      "reuse connect > BC-076 should not cache resources",
+      "reuse connect > BC-081 should continue issuing events after closing the reused page",
+      "reuse connect > BC-082 should work with routeWebSocket",
+      "reuse connect > BC-083 should update viewport and media"
     ]
   },
   "library/browsercontext-route.spec.ts": {
     "failing": [
-      "should support Set-Cookie header",
-      "should use Set-Cookie header in future requests",
-      "should fulfill popup main request using alias"
+      "RO-169 should support Set-Cookie header",
+      "RO-171 should use Set-Cookie header in future requests",
+      "RO-184 should fulfill popup main request using alias"
     ],
     "skipped": [
-      "should respect URLPattern ignoreCase"
+      "RO-185 should respect URLPattern ignoreCase"
     ]
   },
   "library/browsercontext-service-worker-policy.spec.ts": {
     "failing": [
-      "block > blocks service worker registration",
-      "should allow literal service worker navigation while offline",
-      "should allow cache-only service worker navigation while offline",
-      "should allow network-fallback service worker navigation while offline",
-      "should allow preload-fallback service worker navigation while offline"
+      "WO-028 should allow literal service worker navigation while offline",
+      "WO-028 should allow cache-only service worker navigation while offline",
+      "WO-028 should allow network-fallback service worker navigation while offline",
+      "WO-028 should allow preload-fallback service worker navigation while offline",
+      "block > WO-029 blocks service worker registration"
     ]
   },
   "library/browsercontext-set-extra-http-headers.spec.ts": {
     "failing": [
-      "should override extra headers from browser context"
+      "NE-119 should override extra headers from browser context"
     ]
   },
   "library/browsercontext-storage-state.spec.ts": {
     "failing": [
-      "should round-trip through the file",
-      "should capture cookies",
-      "should work when service worker is intefering and the origin is not open"
+      "ST-004 should round-trip through the file",
+      "ST-006 should capture cookies",
+      "ST-013 should work when service worker is intefering and the origin is not open"
     ]
   },
   "library/browsercontext-user-agent.spec.ts": {
     "failing": [
-      "should work for navigator.userAgentData and sec-ch-ua headers"
+      "UA-006 should work for navigator.userAgentData and sec-ch-ua headers"
     ]
   },
   "library/browsercontext-viewport-mobile.spec.ts": {
     "failing": [
-      "mobile viewport > should support touch emulation",
-      "mobile viewport > should support window.orientation emulation",
-      "mobile viewport > should fire orientationchange event",
-      "mobile viewport > default mobile viewports to 980 width",
-      "mobile viewport > should emulate the hover media feature",
-      "mobile viewport > should preserve window.orientation override after navigation"
+      "mobile viewport > DV-012 should support touch emulation",
+      "mobile viewport > DV-016 should support window.orientation emulation",
+      "mobile viewport > DV-017 should preserve window.orientation override after navigation",
+      "mobile viewport > DV-019 should fire orientationchange event",
+      "mobile viewport > DV-020 default mobile viewports to 980 width",
+      "mobile viewport > DV-022 should emulate the hover media feature"
     ]
   },
   "library/browsercontext-viewport.spec.ts": {
     "failing": [
-      "should support touch with null viewport",
-      "should keep touch emulation after screenshot beyond viewport"
+      "VP-010 should support touch with null viewport",
+      "VP-011 should keep touch emulation after screenshot beyond viewport"
     ],
     "skipped": [
-      "WebKit Windows headed should have a minimal viewport"
+      "VP-015 WebKit Windows headed should have a minimal viewport"
     ]
   },
   "library/browsertype-basic.spec.ts": {
     "skipped": [
-      "browserType.executablePath should work",
-      "should throw when trying to connect with not-chromium"
+      "BT-001 browserType.executablePath should work",
+      "BT-003 should throw when trying to connect with not-chromium"
     ]
   },
   "library/browsertype-connect.spec.ts": {
     "skipped": [
-      "launchServer > socks proxy > should forward non-forwarded requests",
-      "launchServer > socks proxy > should proxy localhost requests @smoke",
-      "launchServer > socks proxy > should proxy ipv6 localhost requests @smoke",
-      "launchServer > socks proxy > should proxy requests from fetch api",
-      "launchServer > socks proxy > should proxy requests from fetch api over ipv6",
-      "launchServer > socks proxy > should proxy local.playwright requests",
-      "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
-      "launchServer > socks proxy > should proxy based on the pattern",
-      "launchServer > socks proxy > should check proxy pattern on the client"
+      "launchServer > socks proxy > BT-080 should forward non-forwarded requests",
+      "launchServer > socks proxy > BT-081 should proxy localhost requests @smoke",
+      "launchServer > socks proxy > BT-082 should proxy ipv6 localhost requests @smoke",
+      "launchServer > socks proxy > BT-083 should proxy requests from fetch api",
+      "launchServer > socks proxy > BT-084 should proxy requests from fetch api over ipv6",
+      "launchServer > socks proxy > BT-085 should proxy local.playwright requests",
+      "launchServer > socks proxy > BT-086 should lead to the error page for forwarded requests when the connection is refused",
+      "launchServer > socks proxy > BT-087 should proxy based on the pattern",
+      "launchServer > socks proxy > BT-088 should check proxy pattern on the client"
     ]
   },
   "library/browsertype-launch-selenium.spec.ts": {
     "skipped": [
-      "selenium grid 3.141.59 standalone chromium",
-      "selenium grid 3.141.59 hub + node chromium",
-      "selenium grid 4.8.3 standalone chromium",
-      "selenium grid 4.8.3 hub + node chromium",
-      "selenium grid 4.8.3 standalone chromium broken driver",
-      "selenium grid 3.141.59 standalone non-chromium",
-      "selenium grid 3.141.59 standalone chromium through run-driver"
+      "BT-097 selenium grid 3.141.59 standalone chromium",
+      "BT-098 selenium grid 3.141.59 hub + node chromium",
+      "BT-099 selenium grid 4.8.3 standalone chromium",
+      "BT-100 selenium grid 4.8.3 hub + node chromium",
+      "BT-101 selenium grid 4.8.3 standalone chromium broken driver",
+      "BT-102 selenium grid 3.141.59 standalone non-chromium",
+      "BT-103 selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
   "library/browsertype-launch.spec.ts": {
     "failing": [
-      "should reject all promises when browser is closed",
-      "should handle exception and report launch log"
+      "BT-004 should reject all promises when browser is closed",
+      "BT-013 should handle exception and report launch log"
     ]
   },
   "library/capabilities.spec.ts": {
     "skipped": [
-      "webkit should define window.safari"
+      "CA-016 webkit should define window.safari"
     ]
   },
   "library/channels.spec.ts": {
     "failing": [
-      "should scope context handles",
-      "should scope CDPSession handles",
-      "should not generate dispatchers for subresources w/o listeners",
-      "should work with the domain module"
+      "CN-001 should scope context handles",
+      "CN-002 should scope CDPSession handles",
+      "CN-004 should not generate dispatchers for subresources w/o listeners",
+      "CN-005 should work with the domain module"
     ]
   },
   "library/chromium/bfcache.spec.ts": {
     "failing": [
-      "bindings should work after restoring from bfcache"
+      "CR-042 bindings should work after restoring from bfcache"
     ]
   },
   "library/chromium/chromium.spec.ts": {
     "failing": [
-      "should create a worker from a service worker",
-      "should create a worker from service worker with noop routing",
-      "should emit new service worker on update",
-      "serviceWorkers() should return current workers",
-      "should emit console messages from service worker",
-      "should capture console.log from ServiceWorker start",
-      "should close service worker together with the context",
-      "http credentials > httpCredentials",
-      "serviceWorker(), and fromServiceWorker() work",
-      "should intercept service worker requests (main and within)",
-      "should report failure (due to content-type) of main service worker request",
-      "should report failure (due to redirect) of main service worker request",
-      "should intercept service worker importScripts",
-      "should report intercepted service worker requests in HAR",
-      "should intercept only serviceworker request, not page",
-      "should produce network events, routing, and annotations for Service Worker",
-      "should produce network events, routing, and annotations for Service Worker (advanced)",
-      "setOffline",
-      "setExtraHTTPHeaders",
-      "PLAYWRIGHT_DISABLE_SERVICE_WORKER_NETWORK",
-      "should fire dialogclosed event when dialog is closed out of band",
-      "WebUI navigation > should refuse WebUI pages that crash the browser in an isolated context",
-      "should not leak service worker session after context close"
+      "CR-001 should create a worker from a service worker",
+      "CR-002 should create a worker from service worker with noop routing",
+      "CR-003 should emit new service worker on update",
+      "CR-005 serviceWorkers() should return current workers",
+      "CR-008 should close service worker together with the context",
+      "CR-010 serviceWorker(), and fromServiceWorker() work",
+      "CR-011 should intercept service worker requests (main and within)",
+      "CR-012 should report failure (due to content-type) of main service worker request",
+      "CR-013 should report failure (due to redirect) of main service worker request",
+      "CR-014 should intercept service worker importScripts",
+      "CR-015 should report intercepted service worker requests in HAR",
+      "CR-016 should intercept only serviceworker request, not page",
+      "CR-017 should produce network events, routing, and annotations for Service Worker",
+      "CR-018 should produce network events, routing, and annotations for Service Worker (advanced)",
+      "CR-020 setOffline",
+      "CR-021 setExtraHTTPHeaders",
+      "CR-024 PLAYWRIGHT_DISABLE_SERVICE_WORKER_NETWORK",
+      "CR-025 should emit console messages from service worker",
+      "CR-026 should capture console.log from ServiceWorker start",
+      "CR-031 should fire dialogclosed event when dialog is closed out of band",
+      "CR-032 should not leak service worker session after context close",
+      "http credentials > CR-004 httpCredentials",
+      "WebUI navigation > CR-027 should refuse WebUI pages that crash the browser in an isolated context"
     ],
     "skipped": [
-      "should intercept service worker update requests",
-      "WebUI navigation > should refuse WebUI pages that crash Edge in an isolated context",
-      "WebUI navigation > should navigate to WebUI pages that work in an isolated context",
-      "WebUI navigation > should navigate to any WebUI page in a persistent context"
+      "CR-019 should intercept service worker update requests",
+      "WebUI navigation > CR-028 should refuse WebUI pages that crash Edge in an isolated context",
+      "WebUI navigation > CR-029 should navigate to WebUI pages that work in an isolated context",
+      "WebUI navigation > CR-030 should navigate to any WebUI page in a persistent context"
     ]
   },
   "library/chromium/connect-over-cdp.spec.ts": {
     "failing": [
-      "should connect to an existing cdp session",
-      "should cleanup artifacts dir after connectOverCDP disconnects due to ws close",
-      "should connectOverCDP and manage downloads in default context",
-      "should connect to an existing cdp session twice",
-      "should connect to existing page with iframe and navigate",
-      "should connect to existing service workers",
-      "should connect over a ws endpoint",
-      "should report all pages in an existing browser",
-      "should connect via https",
-      "should return valid browser from context.browser()",
-      "should connect to an existing cdp session when passed as a first argument",
-      "should use proxy with connectOverCDP",
-      "should be able to connect via localhost",
-      "should allow tracing over cdp session",
-      "setInputFiles should preserve lastModified timestamp",
-      "should not reuse utility worlds between two clients",
-      "setInputFiles should use local path when isLocal is set",
-      "should get title and URL of existing page",
-      "should connect over CDP using a ConnectionTransport",
-      "should skip default overrides with noDefaults",
-      "noDefaults should not affect new contexts",
-      "should write traces to provided artifactsDir on connectOverCDP",
-      "emulate media should not be affected by second connectOverCDP with noDefaults",
-      "should connect when an existing page has no renderer",
-      "should connect when an existing page has been discarded",
-      "should connect when the opener of an existing page has no renderer",
-      "should reject pending CDPSession calls when the browser is killed"
+      "CD-001 should connect to an existing cdp session",
+      "CD-002 should connect when an existing page has no renderer",
+      "CD-003 should connect when the opener of an existing page has no renderer",
+      "CD-004 should connect when an existing page has been discarded",
+      "CD-005 should cleanup artifacts dir after connectOverCDP disconnects due to ws close",
+      "CD-006 should reject pending CDPSession calls when the browser is killed",
+      "CD-007 should write traces to provided artifactsDir on connectOverCDP",
+      "CD-008 should connectOverCDP and manage downloads in default context",
+      "CD-009 should connect to an existing cdp session twice",
+      "CD-010 should connect to existing page with iframe and navigate",
+      "CD-011 should connect to existing service workers",
+      "CD-012 should connect over a ws endpoint",
+      "CD-017 should report all pages in an existing browser",
+      "CD-018 should connect via https",
+      "CD-019 should return valid browser from context.browser()",
+      "CD-022 should connect to an existing cdp session when passed as a first argument",
+      "CD-023 should use proxy with connectOverCDP",
+      "CD-026 should be able to connect via localhost",
+      "CD-027 emulate media should not be affected by second connectOverCDP with noDefaults",
+      "CD-028 should allow tracing over cdp session",
+      "CD-029 setInputFiles should preserve lastModified timestamp",
+      "CD-030 setInputFiles should use local path when isLocal is set",
+      "CD-032 should not reuse utility worlds between two clients",
+      "CD-033 should get title and URL of existing page",
+      "CD-034 should skip default overrides with noDefaults",
+      "CD-035 noDefaults should not affect new contexts",
+      "CD-036 should connect over CDP using a ConnectionTransport"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
-      "should work",
-      "should report sourceURLs",
-      "should report multiple stylesheets",
-      "should report stylesheets that have no coverage",
-      "should work with media queries",
-      "should work with complicated usecases",
-      "should ignore injected stylesheets",
-      "should report stylesheets across navigations",
-      "should NOT report scripts across navigations",
-      "should work with a recently loaded stylesheet"
+      "CV-008 should work",
+      "CV-009 should report sourceURLs",
+      "CV-010 should report multiple stylesheets",
+      "CV-011 should report stylesheets that have no coverage",
+      "CV-012 should work with media queries",
+      "CV-013 should work with complicated usecases",
+      "CV-014 should ignore injected stylesheets",
+      "CV-015 should report stylesheets across navigations",
+      "CV-016 should NOT report scripts across navigations",
+      "CV-017 should work with a recently loaded stylesheet"
     ]
   },
   "library/chromium/disable-web-security.spec.ts": {
     "failing": [
-      "test utility world in popup w/ --disable-web-security"
+      "CR-045 test utility world in popup w/ --disable-web-security"
     ]
   },
   "library/chromium/extensions.spec.ts": {
     "failing": [
-      "MV3 > should give access to the service worker",
-      "MV3 > should give access to the service worker when recording video",
-      "MV3 > should support request/response events in the service worker",
-      "MV3 > should report console messages from content script",
-      "MV3 > should support service worker stop and restart lifecycle",
-      "MV3 > should use custom userAgent in service worker fetch requests"
+      "MV3 > CR-036 should support service worker stop and restart lifecycle",
+      "MV3 > CR-037 should give access to the service worker",
+      "MV3 > CR-038 should give access to the service worker when recording video",
+      "MV3 > CR-039 should support request/response events in the service worker",
+      "MV3 > CR-040 should report console messages from content script",
+      "MV3 > CR-041 should use custom userAgent in service worker fetch requests"
     ]
   },
   "library/chromium/js-coverage.spec.ts": {
     "failing": [
-      "should work",
-      "should report sourceURLs",
-      "should ignore eval() scripts by default",
-      "shouldn't ignore eval() scripts if reportAnonymousScripts is true",
-      "should report multiple scripts",
-      "should NOT report scripts across navigations when enabled",
-      "should not hang when there is a debugger statement"
+      "CV-001 should work",
+      "CV-002 should report sourceURLs",
+      "CV-003 should ignore eval() scripts by default",
+      "CV-004 shouldn't ignore eval() scripts if reportAnonymousScripts is true",
+      "CV-005 should report multiple scripts",
+      "CV-006 should NOT report scripts across navigations when enabled",
+      "CV-007 should not hang when there is a debugger statement"
     ]
   },
   "library/chromium/launcher.spec.ts": {
     "failing": [
-      "should not create pages automatically"
+      "CR-035 should not create pages automatically"
     ]
   },
   "library/chromium/oopif.spec.ts": {
     "failing": [
-      "should report oopif frames",
-      "should handle oopif detach",
-      "should handle remote -> local -> remote transitions",
-      "should expose function",
-      "should emulate media",
-      "should emulate offline",
-      "should support context options",
-      "should respect route",
-      "should take screenshot",
-      "should load oopif iframes with subresources and route",
-      "should report main requests",
-      "should support exposeFunction",
-      "should support addInitScript",
-      "should click a button when it overlays oopif",
-      "should report google.com frame with headed",
-      "ElementHandle.boundingBox() should work",
-      "should click",
-      "contentFrame should work",
-      "should allow cdp sessions on oopifs",
-      "should emit filechooser event for iframe",
-      "should be able to click in iframe",
-      "should not throw on exposeFunction when oopif detaches",
-      "should remove workers of a detached oopif",
-      "should not hang in unrouteAll when oopif worker is gone",
-      "should navigate a local frame to oopif with frame.goto"
+      "OO-001 should report oopif frames",
+      "OO-002 should handle oopif detach",
+      "OO-003 should remove workers of a detached oopif",
+      "OO-004 should not hang in unrouteAll when oopif worker is gone",
+      "OO-005 should handle remote -> local -> remote transitions",
+      "OO-007 should expose function",
+      "OO-008 should emulate media",
+      "OO-009 should emulate offline",
+      "OO-010 should support context options",
+      "OO-011 should respect route",
+      "OO-012 should take screenshot",
+      "OO-013 should load oopif iframes with subresources and route",
+      "OO-014 should report main requests",
+      "OO-015 should support exposeFunction",
+      "OO-016 should support addInitScript",
+      "OO-017 should click a button when it overlays oopif",
+      "OO-018 should report google.com frame with headed",
+      "OO-019 ElementHandle.boundingBox() should work",
+      "OO-020 should click",
+      "OO-021 contentFrame should work",
+      "OO-022 should allow cdp sessions on oopifs",
+      "OO-023 should emit filechooser event for iframe",
+      "OO-024 should be able to click in iframe",
+      "OO-025 should not throw on exposeFunction when oopif detaches",
+      "OO-027 should navigate a local frame to oopif with frame.goto"
     ],
     "skipped": [
-      "should get the proper viewport"
+      "OO-006 should get the proper viewport"
     ]
   },
   "library/chromium/session.spec.ts": {
     "failing": [
-      "should work",
-      "should send events",
-      "should enable and disable domains independently",
-      "should be able to detach session",
-      "should throw nice errors",
-      "should work with main frame",
-      "should throw if target is part of main",
-      "should not break page.close()",
-      "should detach when page closes",
-      "should reject protocol calls when page closes",
-      "should work with newBrowserCDPSession",
-      "should emit event for each CDP event",
-      "should emit close event when session is detached",
-      "should emit close event when page closes",
-      "should respect timeout and signal options"
+      "CD-037 should work",
+      "CD-038 should respect timeout and signal options",
+      "CD-039 should send events",
+      "CD-041 should enable and disable domains independently",
+      "CD-042 should be able to detach session",
+      "CD-043 should throw nice errors",
+      "CD-044 should work with main frame",
+      "CD-045 should throw if target is part of main",
+      "CD-046 should not break page.close()",
+      "CD-047 should detach when page closes",
+      "CD-048 should reject protocol calls when page closes",
+      "CD-049 should emit event for each CDP event",
+      "CD-050 should emit close event when session is detached",
+      "CD-051 should emit close event when page closes",
+      "CD-052 should work with newBrowserCDPSession"
     ]
   },
   "library/chromium/tracing.spec.ts": {
     "failing": [
-      "should output a trace",
-      "should create directories as needed",
-      "should run with custom categories if provided",
-      "should throw if tracing on two pages",
-      "should return a buffer",
-      "should work without options",
-      "should support a buffer without a path"
+      "TR-043 should output a trace",
+      "TR-044 should create directories as needed",
+      "TR-045 should run with custom categories if provided",
+      "TR-046 should throw if tracing on two pages",
+      "TR-047 should return a buffer",
+      "TR-048 should work without options",
+      "TR-049 should support a buffer without a path"
     ]
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should not intercept TLS for origins without a client certificate"
+      "browser > CC-016 should not intercept TLS for origins without a client certificate"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "context.cookies() should work @smoke",
-      "should support userAgent option",
-      "should support bypassCSP option",
-      "should support javascriptEnabled option"
+      "DC-001 context.cookies() should work @smoke",
+      "DC-007 should support bypassCSP option",
+      "DC-008 should support javascriptEnabled option"
     ]
   },
   "library/defaultbrowsercontext-2.spec.ts": {
     "failing": [
-      "should support hasTouch option",
-      "should work in persistent context",
-      "should support colorScheme option",
-      "should support reducedMotion option",
-      "should support forcedColors option",
-      "should support contrast option",
-      "should support extraHTTPHeaders option",
-      "should have passed URL when launching with ignoreDefaultArgs: true",
-      "should handle exception",
-      "coverage should work"
+      "DC-012 should support hasTouch option",
+      "DC-013 should work in persistent context",
+      "DC-014 should support colorScheme option",
+      "DC-015 should support reducedMotion option",
+      "DC-016 should support forcedColors option",
+      "DC-017 should support contrast option",
+      "DC-030 should have passed URL when launching with ignoreDefaultArgs: true",
+      "DC-032 should handle exception",
+      "DC-034 coverage should work"
     ]
   },
   "library/download.spec.ts": {
     "failing": [
-      "download event > should report download when navigation turns into download @smoke",
-      "download event > should work with Cross-Origin-Opener-Policy",
-      "download event > should report new window downloads",
-      "download event > should be able to cancel pending downloads"
+      "download event > DO-001 should report download when navigation turns into download @smoke",
+      "download event > DO-002 should work with Cross-Origin-Opener-Policy",
+      "download event > DO-017 should report new window downloads",
+      "download event > DO-027 should be able to cancel pending downloads"
     ],
     "skipped": [
-      "should be able to download a inline PDF file via navigation"
+      "DO-033 should be able to download a inline PDF file via navigation"
     ]
   },
   "library/emulation-coop.spec.ts": {
     "failing": [
-      "emulation with COOP > should preserve context options",
-      "emulation with COOP > should preserve page.emulateMedia",
-      "emulation with COOP > should preserve mobile emulation"
+      "emulation with COOP > EM-025 should preserve context options",
+      "emulation with COOP > EM-026 should preserve page.emulateMedia",
+      "emulation with COOP > EM-027 should preserve mobile emulation"
     ]
   },
   "library/emulation-focus.spec.ts": {
     "failing": [
-      "should focus popups by default",
-      "should not affect screenshots"
+      "EM-015 should focus popups by default",
+      "EM-019 should not affect screenshots"
     ]
   },
   "library/favicon.spec.ts": {
     "skipped": [
-      "should load svg favicon with prefer-color-scheme"
+      "FA-001 should load svg favicon with prefer-color-scheme"
     ]
   },
   "library/fetch-proxy.spec.ts": {
     "skipped": [
-      "should send correct ALPN protocol to HTTPS proxy"
+      "PR-046 should send correct ALPN protocol to HTTPS proxy"
     ]
   },
   "library/geolocation.spec.ts": {
     "failing": [
-      "should use context options for popup"
+      "GE-009 should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
     "failing": [
-      "should only have one websocket entry",
-      "should include websocket handshake headers and status",
-      "should record websocket connection failure",
-      "should record websocket handshake failure",
-      "should still capture websocket when route passes messages through",
-      "should still allow routeWebSocket to modify messages when capturing HAR",
-      "should embed websocket messages",
-      "should attach websocket messages",
-      "should attach websocket messages for a still open websocket after stopping",
-      "should omit websocket messages",
-      "should respect PLAYWRIGHT_HAR_NO_WEBSOCKET_FRAMES"
+      "HA-101 should only have one websocket entry",
+      "HA-102 should include websocket handshake headers and status",
+      "HA-103 should embed websocket messages",
+      "HA-104 should attach websocket messages",
+      "HA-105 should attach websocket messages for a still open websocket after stopping",
+      "HA-106 should omit websocket messages",
+      "HA-107 should record websocket connection failure",
+      "HA-108 should record websocket handshake failure",
+      "HA-109 should still capture websocket when route passes messages through",
+      "HA-111 should still allow routeWebSocket to modify messages when capturing HAR",
+      "HA-112 should respect PLAYWRIGHT_HAR_NO_WEBSOCKET_FRAMES"
     ]
   },
   "library/har.spec.ts": {
     "failing": [
-      "should include postData",
-      "should include binary postData",
-      "should include form params",
-      "should include cookies",
-      "should include set-cookies",
-      "should include set-cookies with comma",
-      "should include sizes",
-      "should report the correct response body size when the bodySize is 0",
-      "should have popup requests",
-      "should have connection details",
-      "should have security details",
-      "should have connection details for redirects",
-      "should have connection details for failed requests",
-      "should return server address directly from response",
-      "should return security details directly from response",
-      "should record resource type"
+      "HA-010 should include postData",
+      "HA-011 should include binary postData",
+      "HA-012 should include form params",
+      "HA-013 should include cookies",
+      "HA-014 should include set-cookies",
+      "HA-018 should include set-cookies with comma",
+      "HA-028 should include sizes",
+      "HA-038 should report the correct response body size when the bodySize is 0",
+      "HA-039 should have popup requests",
+      "HA-041 should have connection details",
+      "HA-042 should have security details",
+      "HA-043 should have connection details for redirects",
+      "HA-044 should have connection details for failed requests",
+      "HA-045 should return server address directly from response",
+      "HA-046 should return security details directly from response",
+      "HA-059 should record resource type"
     ],
     "skipped": [
-      "should filter favicon and favicon redirects"
+      "HA-048 should filter favicon and favicon redirects"
     ]
   },
   "library/headful.spec.ts": {
     "skipped": [
-      "should have default url when launching browser @smoke",
-      "should close browser with beforeunload page",
-      "should close browsercontext with pending beforeunload dialog",
-      "should not crash when creating second context",
-      "should click when viewport size is larger than screen",
-      "should dispatch click events to oversized viewports",
-      "should click background tab",
-      "should close browser after context menu was triggered",
-      "should(not) block third party cookies",
-      "should not block third party SameSite=None cookies",
-      "should not override viewport size when passed null",
-      "Page.bringToFront should work",
-      "should click in OOPIF",
-      "should click bottom row w/ infobar in OOPIF",
-      "headless and headful should use same default fonts",
-      "should have the same hyphen rendering on headless and headed"
+      "HE-001 should have default url when launching browser @smoke",
+      "HE-002 should close browser with beforeunload page",
+      "HE-003 should close browsercontext with pending beforeunload dialog",
+      "HE-004 should not crash when creating second context",
+      "HE-005 should click when viewport size is larger than screen",
+      "HE-006 should dispatch click events to oversized viewports",
+      "HE-007 should click background tab",
+      "HE-008 should close browser after context menu was triggered",
+      "HE-009 should(not) block third party cookies",
+      "HE-010 should not block third party SameSite=None cookies",
+      "HE-011 should not override viewport size when passed null",
+      "HE-012 Page.bringToFront should work",
+      "HE-013 should click in OOPIF",
+      "HE-014 should click bottom row w/ infobar in OOPIF",
+      "HE-015 headless and headful should use same default fonts",
+      "HE-016 should have the same hyphen rendering on headless and headed"
     ]
   },
   "library/heap.spec.ts": {
     "failing": [
-      "test #0 to request page and context"
+      "LE-005 test #0 to request page and context"
     ],
     "skipped": [
-      "test #1 to request page and context",
-      "test #2 to request page and context",
-      "test to request page and context",
-      "should not leak fixtures w/ page",
-      "should not leak fixtures w/o page",
-      "should not leak server-side objects",
-      "should not leak dispatchers after closing page",
-      " > should collect stale handles",
-      "cycle handles",
-      " > should collect frames",
-      "should not leak workers"
+      "LE-005 test #1 to request page and context",
+      "LE-005 test #2 to request page and context",
+      "LE-006 test to request page and context",
+      "LE-007 should not leak fixtures w/ page",
+      "LE-008 should not leak fixtures w/o page",
+      "LE-009 should not leak server-side objects",
+      "LE-010 should not leak dispatchers after closing page",
+      "LE-011 should not leak workers",
+      "LE-014 cycle handles",
+      " > LE-012 should collect stale handles",
+      " > LE-013 should collect frames"
     ]
   },
   "library/hit-target.spec.ts": {
     "failing": [
-      "should detect overlaid element in a transformed iframe"
+      "HT-017 should detect overlaid element in a transformed iframe"
     ]
   },
   "library/ignorehttpserrors.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should isolate contexts"
+      "NE-136 should work @smoke",
+      "NE-137 should isolate contexts"
     ],
     "skipped": [
-      "serviceWorker should intercept document request"
+      "NE-142 serviceWorker should intercept document request"
     ]
   },
   "library/locator-generator.spec.ts": {
     "failing": [
-      " > reverse engineer internal:has-text locators"
+      " > GN-017 reverse engineer internal:has-text locators"
     ]
   },
   "library/locator-highlight.spec.ts": {
     "failing": [
-      "highlight should resolve relative to the frame of the locator"
+      "LO-199 highlight should resolve relative to the frame of the locator"
     ]
   },
   "library/modernizr.spec.ts": {
     "skipped": [
-      "Safari Desktop",
-      "Mobile Safari"
+      "CA-030 Safari Desktop",
+      "CA-031 Mobile Safari"
     ]
   },
   "library/multiclient.spec.ts": {
     "failing": [
-      "should not allow parallel js coverage and cleanup upon disconnect",
-      "should not allow parallel css coverage",
-      "last emulateMedia wins"
+      "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
+      "MC-006 should not allow parallel css coverage",
+      "MC-008 last emulateMedia wins"
     ],
     "skipped": [
-      "should chain routes with changed url"
+      "MC-010 should chain routes with changed url"
     ]
   },
   "library/page-clock.frozen.spec.ts": {
     "skipped": [
-      "clock should be frozen",
-      "clock should be realtime"
+      "CK-055 clock should be frozen",
+      "CK-056 clock should be realtime"
     ]
   },
   "library/page-clock.spec.ts": {
     "failing": [
-      "runFor > triggers simultaneous timers",
-      "runFor > triggers multiple simultaneous timers",
-      "runFor > creates updated Date while ticking",
-      "runFor > passes 8 seconds",
-      "runFor > passes 1 minute",
-      "stubTimers > replaces global setInterval"
+      "runFor > CK-004 triggers simultaneous timers",
+      "runFor > CK-005 triggers multiple simultaneous timers",
+      "runFor > CK-008 creates updated Date while ticking",
+      "runFor > CK-009 passes 8 seconds",
+      "runFor > CK-010 passes 1 minute",
+      "runFor > CK-011 passes 2 hours, 34 minutes and 10 seconds",
+      "stubTimers > CK-022 replaces global setInterval"
     ]
   },
   "library/page-close.spec.ts": {
     "failing": [
-      "expect should not print timed out error message when page closes",
-      "should reject all promises when page is closed",
-      "interrupt request.response() and request.allHeaders() on page.close"
+      "PA-040 expect should not print timed out error message when page closes",
+      "PA-042 should reject all promises when page is closed",
+      "PA-051 interrupt request.response() and request.allHeaders() on page.close"
     ]
   },
   "library/page-event-crash.spec.ts": {
     "skipped": [
-      "should emit crash event when page crashes",
-      "should throw on any action after page crashes",
-      "should cancel waitForEvent when page crashes",
-      "should cancel navigation when page crashes",
-      "should be able to close context when page crashes",
-      "expect should not hang when page crashed",
-      "should be able to close page after crash",
-      "should reject in-flight worker.evaluate when page crashes"
+      "ER-014 should emit crash event when page crashes",
+      "ER-015 should throw on any action after page crashes",
+      "ER-016 expect should not hang when page crashed",
+      "ER-017 should cancel waitForEvent when page crashes",
+      "ER-018 should cancel navigation when page crashes",
+      "ER-019 should be able to close context when page crashes",
+      "ER-020 should be able to close page after crash",
+      "ER-021 should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
     "failing": [
-      "should be able to generate outline"
+      "PD-002 should be able to generate outline"
     ]
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "storage access"
+      "PE-016 storage access"
     ],
     "skipped": [
-      "camera and microphone > should capture when camera and microphone are granted",
-      "camera and microphone > should reject when no permission is granted",
-      "camera and microphone > should gate audio and video independently",
-      "camera and microphone > should stop capturing after permissions are cleared"
+      "camera and microphone > PE-020 should capture when camera and microphone are granted",
+      "camera and microphone > PE-021 should reject when no permission is granted",
+      "camera and microphone > PE-022 should gate audio and video independently",
+      "camera and microphone > PE-023 should stop capturing after permissions are cleared"
     ]
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit user agent from browser context @smoke",
-      "should respect routes from browser context",
-      "should inherit http credentials from browser context",
-      "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "should respect routes from browser context when using window.open",
-      "BrowserContext.addInitScript should apply to a cross-process popup",
-      "should not throttle rAF in the opener page"
+      "PO-014 should inherit user agent from browser context @smoke",
+      "PO-015 should respect routes from browser context",
+      "PO-018 should inherit http credentials from browser context",
+      "PO-019 should inherit touch support from browser context",
+      "PO-021 should use viewport size from window features",
+      "PO-022 should respect routes from browser context when using window.open",
+      "PO-027 should not throttle rAF in the opener page"
     ]
   },
   "library/proxy.spec.ts": {
     "failing": [
-      "should proxy local network requests > by default > loopback address"
+      "PR-007 should authenticate"
     ],
     "skipped": [
-      "should use proxy with emulated user agent"
+      "PR-015 should use proxy with emulated user agent"
     ]
   },
   "library/resource-timing.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should work for subresource",
-      "should work for SSL",
-      "should work for redirect",
-      "should work when serving from memory cache"
+      "NE-131 should work @smoke",
+      "NE-132 should work for subresource",
+      "NE-133 should work for SSL",
+      "NE-134 should work for redirect",
+      "NE-135 should work when serving from memory cache"
     ]
   },
   "library/screencast.spec.ts": {
     "failing": [
-      "screencast.start delivers frames via onFrame callback",
-      "start should record video with the requested fps"
+      "SC-001 screencast.start delivers frames via onFrame callback",
+      "SC-009 start should record video with the requested fps"
     ]
   },
   "library/screenshot.spec.ts": {
     "failing": [
-      "page screenshot > should run in parallel in multiple pages",
-      "page screenshot > should work with a mobile viewport",
-      "page screenshot > should work with a mobile viewport and clip",
-      "page screenshot > should work with a mobile viewport and fullPage",
-      "page screenshot > should work with device scale factor",
-      "page screenshot > should work with device scale factor and clip",
-      "page screenshot > should work with device scale factor and scale:css",
-      "page screenshot > should work with device scale factor, clip and scale:css",
-      "element screenshot > element screenshot should work with a mobile viewport",
-      "element screenshot > element screenshot should work with device scale factor",
-      "element screenshot > should capture full element when larger than viewport with device scale factor",
-      "element screenshot > should capture full element when larger than viewport with device scale factor and scale:css",
-      "element screenshot > page screenshot should capture css transform with device pixels"
+      "page screenshot > SS-068 should run in parallel in multiple pages",
+      "page screenshot > SS-069 should work with a mobile viewport",
+      "page screenshot > SS-070 should work with a mobile viewport and clip",
+      "page screenshot > SS-071 should work with a mobile viewport and fullPage",
+      "page screenshot > SS-072 should work with device scale factor",
+      "page screenshot > SS-073 should work with device scale factor and clip",
+      "page screenshot > SS-074 should work with device scale factor and scale:css",
+      "page screenshot > SS-076 should work with device scale factor, clip and scale:css",
+      "element screenshot > SS-081 element screenshot should work with a mobile viewport",
+      "element screenshot > SS-082 element screenshot should work with device scale factor",
+      "element screenshot > SS-092 should capture full element when larger than viewport with device scale factor",
+      "element screenshot > SS-093 should capture full element when larger than viewport with device scale factor and scale:css",
+      "element screenshot > SS-094 page screenshot should capture css transform with device pixels"
     ],
     "skipped": [
-      "element screenshot > should work if the main resource hangs"
+      "element screenshot > SS-091 should work if the main resource hangs"
     ]
   },
   "library/selector-generator.spec.ts": {
     "failing": [
-      "selector generator > should prefer button over inner span",
-      "selector generator > should prefer role=button over inner span",
-      "selector generator > should not prefer zero-sized button over inner span",
-      "selector generator > should generate text and normalize whitespace",
-      "selector generator > should not escape spaces inside named attr selectors",
-      "selector generator > should generate text for <input type=button>",
-      "selector generator > should trim text",
-      "selector generator > should try to improve role name",
-      "selector generator > should try to improve text",
-      "selector generator > should try to improve text by shortening",
-      "selector generator > should try to improve label text by shortening",
-      "selector generator > should not improve guid text",
-      "selector generator > should not escape text with >>",
-      "selector generator > should escape text with quote",
-      "selector generator > should escape text with slash",
-      "selector generator > should not use text for select",
-      "selector generator > should use ordinal for identical nodes",
-      "selector generator > should prefer data-testid",
-      "selector generator > should use data-testid in strict errors",
-      "selector generator > should handle first non-unique data-testid",
-      "selector generator > should handle second non-unique data-testid",
-      "selector generator > should use readable id",
-      "selector generator > should not use generated id",
-      "selector generator > should use internal:has-text",
-      "selector generator > should use internal:has-text with regexp",
-      "selector generator > should use internal:has-text with regexp with a quote",
-      "selector generator > should chain text after parent",
-      "selector generator > should use parent text",
-      "selector generator > should separate selectors by >>",
-      "selector generator > should trim long text",
-      "selector generator > should use nested ordinals",
-      "selector generator > should prefer class to ordinal",
-      "selector generator > should properly join child selectors under nested ordinals",
-      "selector generator > should not use input[value]",
-      "selector generator > should find text in shadow dom",
-      "selector generator > should match in shadow dom",
-      "selector generator > should match in deep shadow dom",
-      "selector generator > should work in dynamic iframes without navigation",
-      "selector generator > should use the name attributes for elements that can have it",
-      "selector generator > should work with tricky attributes",
-      "selector generator > should work without CSS.escape",
-      "selector generator > should not over-escape for CSS syntax",
-      "selector generator > should ignore empty aria-label for candidate consideration",
-      "selector generator > should accept valid aria-label for candidate consideration",
-      "selector generator > should ignore empty role for candidate consideration",
-      "selector generator > should not accept invalid role for candidate consideration",
-      "selector generator > should ignore empty data-test-id for candidate consideration",
-      "selector generator > should accept valid data-test-id for candidate consideration",
-      "selector generator > should generate label selector",
-      "selector generator > should prefer role other input[type]",
-      "selector generator > should generate title selector",
-      "selector generator > should generate exact text when necessary",
-      "selector generator > should generate exact title when necessary",
-      "selector generator > should generate exact placeholder when necessary",
-      "selector generator > should generate exact role when necessary",
-      "selector generator > should generate exact label when necessary",
-      "selector generator > should generate relative selector",
-      "selector generator > should prefer role with hasText to css with hasText",
-      "selector generator > should prioritize attributes correctly > role",
-      "selector generator > should prioritize attributes correctly > placeholder",
-      "selector generator > should prioritize attributes correctly > name",
-      "selector generator > should prioritize attributes correctly > type",
-      "selector generator > should not use icon fonts aria name",
-      "selector generator > should use description when name is not unique",
-      "selector generator > should not use description when name is unique",
-      "selector generator > should use description from aria-describedby",
-      "selector generator > should fall back to nth when name and description are both not unique",
-      "selector generator > should use description when role has no name",
-      "selector generator > should use consistent exactness for name and description",
-      "selector generator > should generate noText: no text engine",
-      "selector generator > should generate noText: no name from content",
-      "selector generator > should generate noText: name from aria-label",
-      "selector generator > should generate noText: name from external aria-labelledby",
-      "selector generator > should generate noText: ignore aria-labelledby pointing inside the element",
-      "selector generator > should generate noText: contenteditable heading",
-      "selector generator > should generate noText: description from external aria-describedby",
-      "selector generator > should generate noText: ignore aria-describedby pointing inside the element"
+      "selector generator > GN-028 should prefer button over inner span",
+      "selector generator > GN-029 should prefer role=button over inner span",
+      "selector generator > GN-030 should not prefer zero-sized button over inner span",
+      "selector generator > GN-031 should generate text and normalize whitespace",
+      "selector generator > GN-032 should not escape spaces inside named attr selectors",
+      "selector generator > GN-033 should generate text for <input type=button>",
+      "selector generator > GN-034 should trim text",
+      "selector generator > GN-035 should try to improve role name",
+      "selector generator > GN-036 should use description when name is not unique",
+      "selector generator > GN-037 should not use description when name is unique",
+      "selector generator > GN-038 should use description from aria-describedby",
+      "selector generator > GN-039 should fall back to nth when name and description are both not unique",
+      "selector generator > GN-040 should use consistent exactness for name and description",
+      "selector generator > GN-041 should use description when role has no name",
+      "selector generator > GN-042 should try to improve text",
+      "selector generator > GN-043 should try to improve text by shortening",
+      "selector generator > GN-044 should try to improve label text by shortening",
+      "selector generator > GN-045 should not improve guid text",
+      "selector generator > GN-046 should not escape text with >>",
+      "selector generator > GN-047 should escape text with quote",
+      "selector generator > GN-048 should escape text with slash",
+      "selector generator > GN-049 should not use text for select",
+      "selector generator > GN-050 should use ordinal for identical nodes",
+      "selector generator > GN-051 should prefer data-testid",
+      "selector generator > GN-052 should use data-testid in strict errors",
+      "selector generator > GN-053 should handle first non-unique data-testid",
+      "selector generator > GN-054 should handle second non-unique data-testid",
+      "selector generator > GN-055 should use readable id",
+      "selector generator > GN-056 should not use generated id",
+      "selector generator > GN-057 should use internal:has-text",
+      "selector generator > GN-058 should use internal:has-text with regexp",
+      "selector generator > GN-059 should use internal:has-text with regexp with a quote",
+      "selector generator > GN-060 should chain text after parent",
+      "selector generator > GN-061 should use parent text",
+      "selector generator > GN-062 should separate selectors by >>",
+      "selector generator > GN-063 should trim long text",
+      "selector generator > GN-064 should use nested ordinals",
+      "selector generator > GN-065 should prefer class to ordinal",
+      "selector generator > GN-066 should properly join child selectors under nested ordinals",
+      "selector generator > GN-067 should not use input[value]",
+      "selector generator > GN-072 should find text in shadow dom",
+      "selector generator > GN-073 should match in shadow dom",
+      "selector generator > GN-074 should match in deep shadow dom",
+      "selector generator > GN-075 should work in dynamic iframes without navigation",
+      "selector generator > GN-076 should use the name attributes for elements that can have it",
+      "selector generator > GN-077 should work with tricky attributes",
+      "selector generator > GN-078 should work without CSS.escape",
+      "selector generator > GN-079 should not over-escape for CSS syntax",
+      "selector generator > GN-080 should ignore empty aria-label for candidate consideration",
+      "selector generator > GN-081 should accept valid aria-label for candidate consideration",
+      "selector generator > GN-082 should generate title selector",
+      "selector generator > GN-083 should ignore empty role for candidate consideration",
+      "selector generator > GN-084 should not accept invalid role for candidate consideration",
+      "selector generator > GN-085 should ignore empty data-test-id for candidate consideration",
+      "selector generator > GN-086 should accept valid data-test-id for candidate consideration",
+      "selector generator > GN-087 should generate label selector",
+      "selector generator > GN-088 should prefer role other input[type]",
+      "selector generator > GN-089 should generate exact text when necessary",
+      "selector generator > GN-090 should generate exact title when necessary",
+      "selector generator > GN-091 should generate exact placeholder when necessary",
+      "selector generator > GN-092 should generate exact role when necessary",
+      "selector generator > GN-093 should generate exact label when necessary",
+      "selector generator > GN-094 should generate relative selector",
+      "selector generator > GN-095 should generate noText: no text engine",
+      "selector generator > GN-096 should generate noText: no name from content",
+      "selector generator > GN-097 should generate noText: name from aria-label",
+      "selector generator > GN-098 should generate noText: name from external aria-labelledby",
+      "selector generator > GN-099 should generate noText: ignore aria-labelledby pointing inside the element",
+      "selector generator > GN-100 should generate noText: contenteditable heading",
+      "selector generator > GN-101 should generate noText: description from external aria-describedby",
+      "selector generator > GN-102 should generate noText: ignore aria-describedby pointing inside the element",
+      "selector generator > GN-103 should prefer role with hasText to css with hasText",
+      "selector generator > GN-104 should not use icon fonts aria name",
+      "selector generator > should prioritize attributes correctly > GN-068 role",
+      "selector generator > should prioritize attributes correctly > GN-069 placeholder",
+      "selector generator > should prioritize attributes correctly > GN-070 name",
+      "selector generator > should prioritize attributes correctly > GN-071 type"
     ]
   },
   "library/tap.spec.ts": {
     "failing": [
-      "should send all of the correct events @smoke",
-      "trial run should not tap",
-      "should not send mouse events touchstart is canceled",
-      "should not send mouse events when touchend is canceled",
-      "should not wait for a navigation caused by a tap",
-      "should work with modifiers",
-      "should send well formed touch points",
-      "should wait until an element is visible to tap it"
+      "TA-001 should send all of the correct events @smoke",
+      "TA-002 trial run should not tap",
+      "TA-003 should not send mouse events touchstart is canceled",
+      "TA-004 should not send mouse events when touchend is canceled",
+      "TA-005 should not wait for a navigation caused by a tap",
+      "TA-006 should work with modifiers",
+      "TA-007 should send well formed touch points",
+      "TA-008 should wait until an element is visible to tap it"
     ]
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
-      "should handle multiple headers",
-      "should highlight target elements",
-      "should pick locator",
-      "should update highlight when typing locator",
-      "should update highlight when typing snapshot",
-      "should pick locator in iframe",
-      "should highlight locator in iframe while typing",
-      "should not leak recorders",
-      "should generate aria snapshot with unaltered urls",
-      "should reflect system color scheme changes in document theme",
-      "should not navigate on anchor clicks",
-      "should filter actions by text",
-      "should filter network requests by websocket type",
-      "should show websocket messages",
-      "should display aria mode",
-      "should attribute network requests to service workers"
+      "TV-006 should filter actions by text",
+      "TV-025 should attribute network requests to service workers",
+      "TV-031 should filter network requests by url",
+      "TV-035 should filter network requests by websocket type",
+      "TV-036 should show websocket messages",
+      "TV-051 should handle multiple headers",
+      "TV-057 should highlight target elements",
+      "TV-068 should pick locator",
+      "TV-069 should generate aria snapshot with unaltered urls",
+      "TV-070 should update highlight when typing locator",
+      "TV-071 should update highlight when typing snapshot",
+      "TV-076 should pick locator in iframe",
+      "TV-077 should highlight locator in iframe while typing",
+      "TV-087 should not leak recorders",
+      "TV-097 should reflect system color scheme changes in document theme",
+      "TV-099 should display aria mode",
+      "TV-111 should not navigate on anchor clicks"
     ]
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should save trace while a WebSocket keeps streaming frames"
+      "TR-042 should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
-      "should produce screencast frames fit",
-      "should produce screencast frames crop",
-      "should produce screencast frames scale"
+      "TR-023 should produce screencast frames fit",
+      "TR-023 should produce screencast frames crop",
+      "TR-023 should produce screencast frames scale"
     ]
   },
   "library/video.spec.ts": {
     "failing": [
-      "screencast > should use viewport scaled down to fit into 800x800 as default size",
-      "screencast > should be 800x450 by default",
-      "screencast > should emulate an iphone",
-      "screencast > should record video with the requested fps"
+      "screencast > VI-016 should use viewport scaled down to fit into 800x800 as default size",
+      "screencast > VI-017 should be 800x450 by default",
+      "screencast > VI-018 should record video with the requested fps",
+      "screencast > VI-022 should emulate an iphone"
     ],
     "skipped": [
-      "screencast > should scale frames down to the requested size ",
-      "screencast > should capture full viewport",
-      "screencast > should capture full viewport on hidpi",
-      "screencast > should work with video+trace"
+      "screencast > VI-015 should scale frames down to the requested size ",
+      "screencast > VI-028 should capture full viewport",
+      "screencast > VI-029 should capture full viewport on hidpi",
+      "screencast > VI-030 should work with video+trace"
     ]
   },
   "library/web-socket.spec.ts": {
     "failing": [
-      "should emit close events",
-      "should emit frame events",
-      "should filter out the close events when the server closes with a message",
-      "should pass self as argument to close event",
-      "should emit binary frame events",
-      "should emit error",
-      "should not have stray error events",
-      "should reject waitForEvent on socket close",
-      "should reject waitForEvent on page close"
+      "WS-002 should emit close events",
+      "WS-003 should emit frame events",
+      "WS-004 should filter out the close events when the server closes with a message",
+      "WS-005 should pass self as argument to close event",
+      "WS-006 should emit binary frame events",
+      "WS-007 should emit error",
+      "WS-008 should not have stray error events",
+      "WS-009 should reject waitForEvent on socket close",
+      "WS-010 should reject waitForEvent on page close"
     ],
     "skipped": [
-      "should turn off when offline"
+      "WS-012 should turn off when offline"
     ]
   },
   "library/webmcp-disabled.spec.ts": {
     "skipped": [
-      "should throw when the browser was launched without WebMCP"
+      "WM-015 should throw when the browser was launched without WebMCP"
     ]
   },
   "library/webmcp.spec.ts": {
     "skipped": [
-      "should list tools registered by the page",
-      "should report no tools when the page registers none",
-      "should call a tool",
-      "should return isError results as is",
-      "should throw when the tool throws",
-      "should throw for an unknown tool",
-      "should time out when the tool does not settle",
-      "should drop tools after navigation",
-      "should list declarative tools",
-      "should scope tools to their frame",
-      "should call same-name tools in their own frame",
-      "should list a tool registered after load",
-      "should list tools while a tool is running",
-      "should list and call tools in cross-origin and nested frames"
+      "WM-001 should list tools registered by the page",
+      "WM-002 should report no tools when the page registers none",
+      "WM-003 should call a tool",
+      "WM-004 should return isError results as is",
+      "WM-005 should throw when the tool throws",
+      "WM-006 should throw for an unknown tool",
+      "WM-007 should time out when the tool does not settle",
+      "WM-008 should drop tools after navigation",
+      "WM-009 should list a tool registered after load",
+      "WM-010 should list tools while a tool is running",
+      "WM-011 should list declarative tools",
+      "WM-012 should scope tools to their frame",
+      "WM-013 should call same-name tools in their own frame",
+      "WM-014 should list and call tools in cross-origin and nested frames"
     ]
   },
   "page/elementhandle-click.spec.ts": {
     "failing": [
-      "should work for TextNodes"
+      "EH-013 should work for TextNodes"
     ]
   },
   "page/elementhandle-content-frame.spec.ts": {
     "failing": [
-      "should work for cross-frame evaluations"
+      "EH-021 should work for cross-frame evaluations"
     ]
   },
   "page/elementhandle-query-selector.spec.ts": {
     "failing": [
-      "should work for adopted elements"
+      "EH-069 should work for adopted elements"
     ]
   },
   "page/elementhandle-screenshot.spec.ts": {
     "failing": [
-      "element screenshot > should not issue resize event"
+      "element screenshot > EH-092 should not issue resize event"
     ]
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
     "failing": [
-      "should throw for detached element",
-      "should wait for display:none to become visible",
-      "should scroll display:contents into view",
-      "should wait for nested display:none to become visible",
-      "should timeout waiting for visible"
+      "EH-094 should throw for detached element",
+      "EH-095 should wait for display:none to become visible",
+      "EH-096 should scroll display:contents into view",
+      "EH-099 should wait for nested display:none to become visible",
+      "EH-101 should timeout waiting for visible"
     ]
   },
   "page/expect-matcher-result.spec.ts": {
     "failing": [
-      "toHaveScreenshot should populate matcherResult"
+      "EX-180 toHaveScreenshot should populate matcherResult"
     ]
   },
   "page/expect-misc.spec.ts": {
     "failing": [
-      "should report page close reason when page closes during expect"
+      "EX-243 should report page close reason when page closes during expect"
     ],
     "skipped": [
-      "toHaveURL > support URLPattern"
+      "toHaveURL > EX-222 support URLPattern"
     ]
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
-      "should allow cross-frame element handles"
+      "FR-003 should dispose context on navigation",
+      "FR-004 should dispose context on cross-origin navigation",
+      "FR-007 should allow cross-frame element handles"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
-      "should persist mainFrame on cross-process navigation",
-      "should not send attach/detach events for main frame",
-      "should support framesets",
-      "should report different frame instance when frame re-attaches",
-      "should refuse to display x-frame-options:deny iframe",
-      "should return frame.page()"
+      "FR-027 should persist mainFrame on cross-process navigation",
+      "FR-028 should not send attach/detach events for main frame",
+      "FR-030 should support framesets",
+      "FR-034 should report different frame instance when frame re-attaches",
+      "FR-035 should refuse to display x-frame-options:deny iframe",
+      "FR-036 should return frame.page()"
     ],
     "skipped": [
-      "should handle nested frames @smoke",
-      "should report frame.name()"
+      "FR-024 should handle nested frames @smoke",
+      "FR-032 should report frame.name()"
     ]
   },
   "page/interception.spec.ts": {
     "failing": [
-      "should intercept network activity from worker",
-      "should intercept worker requests when enabled after worker creation"
+      "RO-157 should intercept network activity from worker",
+      "RO-158 should intercept worker requests when enabled after worker creation"
     ],
     "skipped": [
-      "should intercept blob url requests"
+      "RO-164 should intercept blob url requests"
     ]
   },
   "page/jshandle-to-string.spec.ts": {
     "failing": [
-      "should beautifully render sparse arrays"
+      "JH-020 should beautifully render sparse arrays"
     ]
   },
   "page/locator-misc-2.spec.ts": {
     "failing": [
-      "should take screenshot"
-    ]
-  },
-  "page/locator-query.spec.ts": {
-    "failing": [
-      "should enforce same frame for has/leftOf/rightOf/above/below/near"
+      "LO-146 should take screenshot"
     ]
   },
   "page/network-post-data.spec.ts": {
     "failing": [
-      "should return correct postData buffer for utf-8 body",
-      "should return post data w/o content-type @smoke",
-      "should throw on invalid JSON in post data",
-      "should return post data for PUT requests",
-      "should get post data for file/blob",
-      "should get post data for navigator.sendBeacon api calls"
-    ]
-  },
-  "page/page-add-init-script-callback.spec.ts": {
-    "failing": [
-      "should work in a child frame"
+      "NE-108 should return correct postData buffer for utf-8 body",
+      "NE-109 should return post data w/o content-type @smoke",
+      "NE-110 should throw on invalid JSON in post data",
+      "NE-111 should return post data for PUT requests",
+      "NE-112 should get post data for file/blob",
+      "NE-113 should get post data for navigator.sendBeacon api calls"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
-      "should work with toHaveScreenshot"
+      "LH-008 should work with toHaveScreenshot"
     ]
   },
   "page/page-add-script-tag.spec.ts": {
     "failing": [
-      "should throw when added with content to the CSP page"
+      "AT-010 should throw when added with content to the CSP page"
     ]
   },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
-      "should await navigation when clicking anchor",
-      "should await cross-process navigation when clicking anchor",
-      "should await form-get on click",
-      "should await form-post on click",
-      "should work with noWaitAfter: true",
-      "should work with waitForLoadState(load)",
-      "should work with goto following click"
+      "AW-001 should await navigation when clicking anchor",
+      "AW-003 should await cross-process navigation when clicking anchor",
+      "AW-004 should await form-get on click",
+      "AW-005 should await form-post on click",
+      "AW-006 should work with noWaitAfter: true",
+      "AW-008 should work with waitForLoadState(load)"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "calling window.stop async",
-      "clicking a link intercepted by the Navigation API same-document"
+      "AW-014 calling window.stop async",
+      "AW-022 clicking a link intercepted by the Navigation API same-document"
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "frame.press should work"
-    ],
     "skipped": [
-      "page.frame should respect name"
+      "PA-012 page.frame should respect name"
     ]
   },
   "page/page-click-scroll.spec.ts": {
     "failing": [
-      "should scroll into view display:contents"
+      "CL-095 should scroll into view display:contents"
     ],
     "skipped": [
-      "should scroll into view display:contents with position"
+      "CL-097 should scroll into view display:contents with position"
     ]
   },
   "page/page-click.spec.ts": {
     "failing": [
-      "should issue clicks in parallel in page and popup",
-      "should click in a transformed iframe",
-      "should click in a transformed iframe with force",
-      "should click in a nested transformed iframe",
-      "should set PointerEvent.pressure on pointerdown",
-      "should set PointerEvent.pressure on pointermove",
-      "should not retain removed iframe after clicking inside it"
+      "CL-003 should issue clicks in parallel in page and popup",
+      "CL-069 should not hang when frame is detached",
+      "CL-076 should not retain removed iframe after clicking inside it",
+      "CL-077 should click in a transformed iframe",
+      "CL-079 should click in a transformed iframe with force",
+      "CL-080 should click in a nested transformed iframe",
+      "CL-085 should set PointerEvent.pressure on pointerdown",
+      "CL-086 should set PointerEvent.pressure on pointermove"
     ],
     "skipped": [
-      "should click the button with fixed position inside an iframe"
+      "CL-035 should click the button with fixed position inside an iframe"
     ]
   },
   "page/page-drag.spec.ts": {
     "failing": [
-      "Drag and drop > should not send dragover on the first mousemove",
-      "Drag and drop > should cancel on escape"
+      "Drag and drop > DD-003 should not send dragover on the first mousemove",
+      "Drag and drop > DD-005 should cancel on escape"
     ],
     "skipped": [
-      "Drag and drop > iframe > should drag into an iframe",
-      "Drag and drop > iframe > should drag out of an iframe"
+      "Drag and drop > iframe > DD-006 should drag into an iframe",
+      "Drag and drop > iframe > DD-007 should drag out of an iframe"
     ]
   },
   "page/page-emulate-media.spec.ts": {
     "failing": [
-      "should emulate type @smoke",
-      "should emulate colorScheme should work @smoke",
-      "should default to light",
-      "should work during navigation",
-      "should change the actual colors in css",
-      "should emulate reduced motion",
-      "should keep reduced motion and color emulation after reload",
-      "should emulate forcedColors ",
-      "should emulate contrast "
+      "EM-001 should emulate type @smoke",
+      "EM-003 should emulate colorScheme should work @smoke",
+      "EM-004 should default to light",
+      "EM-006 should work during navigation",
+      "EM-007 should change the actual colors in css",
+      "EM-008 should emulate reduced motion",
+      "EM-009 should keep reduced motion and color emulation after reload",
+      "EM-010 should emulate forcedColors ",
+      "EM-011 should emulate contrast "
     ]
   },
   "page/page-evaluate.spec.ts": {
     "failing": [
-      "should throw when evaluation triggers reload",
-      "should throw a nice error after a navigation",
-      "should not throw an error when evaluation does a navigation"
+      "EV-022 should throw when evaluation triggers reload",
+      "EV-063 should throw a nice error after a navigation",
+      "EV-064 should not throw an error when evaluation does a navigation"
     ],
     "skipped": [
-      "should work with a using declaration"
+      "EV-099 should work with a using declaration"
     ]
   },
   "page/page-event-console.spec.ts": {
     "failing": [
-      "should trigger correct Log"
+      "CM-008 should trigger correct Log"
     ]
   },
   "page/page-event-network.spec.ts": {
     "skipped": [
-      "should resolve responses after a navigation"
+      "NE-090 should resolve responses after a navigation"
     ]
   },
   "page/page-event-pageerror.spec.ts": {
     "failing": [
-      "should handle object",
-      "should handle window"
+      "ER-001 should fire",
+      "ER-007 should handle object",
+      "ER-008 should handle window"
     ]
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "should report requests and responses handled by service worker",
-      "should report requests and responses handled by service worker with routing",
-      "should report navigation requests and responses handled by service worker with routing",
-      "should fire requestfailed when intercepting race",
-      "should fail 204 navigation request"
+      "NE-095 should report requests and responses handled by service worker",
+      "NE-096 should report requests and responses handled by service worker with routing",
+      "NE-098 should report navigation requests and responses handled by service worker with routing",
+      "NE-100 should fire requestfailed when intercepting race",
+      "NE-103 should fail 204 navigation request"
     ]
   },
   "page/page-expose-function.spec.ts": {
     "failing": [
-      "should work with busted Array.prototype.map/push"
+      "EF-019 should work with busted Array.prototype.map/push"
     ]
   },
   "page/page-focus.spec.ts": {
     "failing": [
-      "should emit blur event"
+      "FO-003 should emit blur event"
     ],
     "skipped": [
-      "should traverse only form elements",
-      "tab should cycle between single input and browser",
-      "tab should cycle between document elements and browser"
+      "FO-006 should traverse only form elements",
+      "FO-008 tab should cycle between single input and browser",
+      "FO-009 tab should cycle between document elements and browser"
     ]
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should use http for no protocol",
-      "should work cross-process",
-      "should work with Cross-Origin-Opener-Policy",
-      "should capture cross-process iframe navigation request",
-      "should work with anchor navigation",
-      "should work with redirects",
-      "should return response when page changes its URL after load",
-      "should work with subframes return 204",
-      "should navigate to empty page with domcontentloaded",
-      "should fail when replaced by another navigation",
-      "js redirect overrides url bar navigation ",
-      "should work with self requesting page",
-      "should send referer",
-      "should send referer of cross-origin URL",
-      "should override referrer-policy",
-      "should fail when canceled by another navigation",
-      "should work with lazy loading iframes"
+      "NA-006 should work cross-process",
+      "NA-008 should work with Cross-Origin-Opener-Policy",
+      "NA-013 should capture cross-process iframe navigation request",
+      "NA-014 should work with anchor navigation",
+      "NA-015 should work with redirects",
+      "NA-017 should return response when page changes its URL after load",
+      "NA-018 should work with subframes return 204",
+      "NA-019 should work with subframes return 204 with domcontentloaded",
+      "NA-021 should navigate to empty page with domcontentloaded",
+      "NA-037 should fail when replaced by another navigation",
+      "NA-038 js redirect overrides url bar navigation ",
+      "NA-049 should work with self requesting page",
+      "NA-052 should send referer",
+      "NA-053 should send referer of cross-origin URL",
+      "NA-055 should override referrer-policy",
+      "NA-056 should fail when canceled by another navigation",
+      "NA-057 should work with lazy loading iframes"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
-      "page.reload during renderer-initiated navigation"
+      "NA-077 page.reload during renderer-initiated navigation"
     ]
   },
   "page/page-keyboard.spec.ts": {
     "failing": [
-      "should shift raw codes",
-      "should press audio and media control keys",
-      "should press NumpadDecimal as Delete"
+      "KB-018 should shift raw codes",
+      "KB-023 should press NumpadDecimal as Delete",
+      "KB-026 should press audio and media control keys"
     ],
     "skipped": [
-      "should support MacOS shortcuts",
-      "should expose keyIdentifier in webkit",
-      "should move to the start of the document"
+      "KB-033 should support MacOS shortcuts",
+      "KB-037 should expose keyIdentifier in webkit",
+      "KB-040 should move to the start of the document"
     ]
   },
   "page/page-navigation.spec.ts": {
     "failing": [
-      "should work with _blank target in form"
+      "NA-069 should work with _blank target in form"
     ]
   },
   "page/page-network-idle.spec.ts": {
     "failing": [
-      "should wait for networkidle from the popup",
-      "should not wait for an open EventSource connection",
-      "should not wait for an open EventSource connection in setContent"
+      "NE-079 should wait for networkidle from the popup",
+      "NE-082 should not wait for an open EventSource connection",
+      "NE-083 should not wait for an open EventSource connection in setContent"
     ]
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should get the same headers as the server",
-      "should not return allHeaders() until they are available",
-      "should get the same headers as the server CORS",
-      "should return postData",
-      "should work with binary post data",
-      "should work with binary post data and interception",
-      "should get |undefined| with postData() when there is no post data",
-      "should parse the json post data",
-      "should parse the data if content-type is application/x-www-form-urlencoded",
-      "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
-      "should get |undefined| with postDataJSON() when there is no post data",
-      "should return multipart/form-data",
-      "should return event source",
-      "should return navigation bit",
-      "should return navigation bit when navigating to image",
-      "should report raw headers",
-      "should report all cookies in one header",
-      "should not allow to access frame on popup main request",
-      "page.reload return 304 status code",
-      "should handle mixed-content blocked requests"
+      "NE-007 should get the same headers as the server",
+      "NE-008 should not return allHeaders() until they are available",
+      "NE-009 should get the same headers as the server CORS",
+      "NE-011 should return postData",
+      "NE-012 should work with binary post data",
+      "NE-013 should work with binary post data and interception",
+      "NE-015 should get |undefined| with postData() when there is no post data",
+      "NE-016 should parse the json post data",
+      "NE-017 should parse the data if content-type is application/x-www-form-urlencoded",
+      "NE-018 should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
+      "NE-019 should get |undefined| with postDataJSON() when there is no post data",
+      "NE-020 should return multipart/form-data",
+      "NE-021 should return event source",
+      "NE-022 should return navigation bit",
+      "NE-023 should return navigation bit when navigating to image",
+      "NE-024 should report raw headers",
+      "NE-025 should report raw response headers in redirects",
+      "NE-026 should report all cookies in one header",
+      "NE-027 should not allow to access frame on popup main request",
+      "NE-028 page.reload return 304 status code",
+      "NE-029 should handle mixed-content blocked requests"
     ]
   },
   "page/page-network-response.spec.ts": {
     "failing": [
-      "should work @smoke",
-      "should return multiple header value",
-      "should report all headers",
-      "should report multiple set-cookie headers",
-      "should behave the same way for headers and allHeaders",
-      "should return set-cookie header after route.fulfill",
-      "should return headers after route.fulfill",
-      "should report if request was fromServiceWorker",
-      "should give a readable error when response.body() races with navigation"
+      "NE-030 should work @smoke",
+      "NE-031 should return multiple header value",
+      "NE-043 should report all headers",
+      "NE-044 should report multiple set-cookie headers",
+      "NE-045 should behave the same way for headers and allHeaders",
+      "NE-047 should return set-cookie header after route.fulfill",
+      "NE-048 should return headers after route.fulfill",
+      "NE-049 should report if request was fromServiceWorker",
+      "NE-057 should give a readable error when response.body() races with navigation"
     ]
   },
   "page/page-network-sizes.spec.ts": {
     "failing": [
-      "should set bodySize, headersSize, and transferSize",
-      "should set bodySize to 0 when there was no response body",
-      "should have the correct responseBodySize",
-      "should have the correct responseBodySize for chunked request",
-      "should have the correct responseBodySize with gzip compression",
-      "should handle redirects",
-      "should work with 200 status code",
-      "should work with 401 status code",
-      "should work with 404 status code",
-      "should work with 500 status code"
+      "NE-060 should set bodySize, headersSize, and transferSize",
+      "NE-061 should set bodySize to 0 when there was no response body",
+      "NE-062 should have the correct responseBodySize",
+      "NE-063 should have the correct responseBodySize for chunked request",
+      "NE-064 should have the correct responseBodySize with gzip compression",
+      "NE-065 should handle redirects",
+      "NE-067 should work with 200 status code",
+      "NE-067 should work with 401 status code",
+      "NE-067 should work with 404 status code",
+      "NE-067 should work with 500 status code"
     ],
     "skipped": [
-      "should have correct responseBodySize for 404 with content",
-      "should return sizes without hanging"
+      "NE-068 should have correct responseBodySize for 404 with content",
+      "NE-069 should return sizes without hanging"
     ]
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "propagate headers cross origin redirect after interception",
-      "should not delete the origin header"
+      "RO-075 should not delete the origin header",
+      "RO-084 continue should drop content-length on redirects"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
     "failing": [
-      "should allow mocking binary responses",
-      "should allow mocking svg with charset",
-      "should include the origin header",
-      "should fulfill with multiple set-cookie",
-      "should fulfill with fetch response that has multiple set-cookie",
-      "headerValue should return set-cookie from intercepted response"
+      "RO-101 should allow mocking binary responses",
+      "RO-102 should allow mocking svg with charset",
+      "RO-106 should include the origin header",
+      "RO-111 should fulfill with multiple set-cookie",
+      "RO-112 should fulfill with fetch response that has multiple set-cookie",
+      "RO-113 headerValue should return set-cookie from intercepted response"
     ]
   },
   "page/page-request-gc.spec.ts": {
     "failing": [
-      "should work"
+      "RO-149 should work"
     ],
     "skipped": [
-      "should collect element retained by locator hit-target interceptor after detach"
+      "RO-150 should collect element retained by locator hit-target interceptor after detach"
     ]
   },
   "page/page-request-intercept.spec.ts": {
     "failing": [
-      "should override with defaults when intercepted response not provided",
-      "request.postData is not null when fetching FormData with a Blob",
-      "should abort favicon requests if interception is enabled"
+      "RO-136 should override with defaults when intercepted response not provided",
+      "RO-147 request.postData is not null when fetching FormData with a Blob",
+      "RO-148 should abort favicon requests if interception is enabled"
     ],
     "skipped": [
-      "should intercept multipart/form-data request body"
+      "RO-141 should intercept multipart/form-data request body"
     ]
   },
   "page/page-route.spec.ts": {
     "failing": [
-      "should not override cookie header",
-      "should be abortable with custom error codes",
-      "should work with redirects for subresources",
-      "should add Access-Control-Allow-Origin by default when fulfill",
-      "should allow null origin for about:blank",
-      "should contain raw request header",
-      "should intercept when postData is more than 1MB",
-      "should contain sec-fetch headers in route",
-      "should not abort preflighted cross-origin redirect when a route is registered"
+      "RO-009 should not override cookie header",
+      "RO-016 should be abortable with custom error codes",
+      "RO-035 should add Access-Control-Allow-Origin by default when fulfill",
+      "RO-036 should allow null origin for about:blank",
+      "RO-042 should not abort preflighted cross-origin redirect when a route is registered",
+      "RO-049 should contain raw request header",
+      "RO-050 should contain sec-fetch headers in route",
+      "RO-054 should intercept when postData is more than 1MB"
     ],
     "skipped": [
-      "should not fulfill with redirect status",
-      "should respect URLPattern ignoreCase"
+      "RO-033 should not fulfill with redirect status",
+      "RO-056 should respect URLPattern ignoreCase"
     ]
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
-      "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture css animations in shadow DOM",
-      "page screenshot animations > should wait for fonts to load"
+      "page screenshot > SS-014 should allow transparency",
+      "page screenshot animations > SS-054 should not capture css animations in shadow DOM",
+      "page screenshot animations > SS-064 should wait for fonts to load"
     ],
     "skipped": [
-      "page screenshot > should allow transparency with webp"
-    ]
-  },
-  "page/page-set-extra-http-headers.spec.ts": {
-    "failing": [
-      "should work @smoke",
-      "should work with redirects",
-      "should work with extra headers from browser context",
-      "should not duplicate referer header"
+      "page screenshot > SS-020 should allow transparency with webp"
     ]
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should detect mime type",
-      "should emit input and change events"
+      "IF-016 should detect mime type",
+      "IF-018 should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should resolve immediately if load state matches",
-      "should wait for load state of empty url popup",
-      "should wait for load state of about:blank popup ",
-      "should wait for load state of about:blank popup with noopener "
+      "WA-078 should respect timeout",
+      "WA-079 should resolve immediately if loaded",
+      "WA-080 should throw for bad state",
+      "WA-083 should wait for load state of empty url popup",
+      "WA-084 should wait for load state of about:blank popup ",
+      "WA-085 should wait for load state of about:blank popup with noopener "
     ]
   },
   "page/page-wait-for-request.spec.ts": {
     "failing": [
-      "should work",
-      "should work with predicate",
-      "should work with no timeout",
-      "should work with url match",
-      "should work with url match regular expression from a different context"
+      "WA-121 should work",
+      "WA-122 should work with predicate",
+      "WA-126 should work with no timeout",
+      "WA-127 should work with url match",
+      "WA-128 should work with url match regular expression from a different context"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
     "failing": [
-      "should throw when frame is detached"
+      "WA-043 should throw when frame is detached"
     ]
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "should throw when frame is detached xpath"
+      "WA-068 should throw when frame is detached xpath",
+      "WA-073 should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
     "failing": [
-      "should dispatch wheel events after popup was opened @smoke"
+      "MO-018 should dispatch wheel events after popup was opened @smoke"
     ]
   },
   "page/workers.spec.ts": {
     "failing": [
-      "should have JSHandles for console logs",
-      "should clear upon cross-process navigation",
-      "should attribute network activity for worker inside iframe to the iframe",
-      "should report network activity",
-      "should report network activity on worker creation",
-      "should report and intercept network from nested worker",
-      "should support extra http headers",
-      "should report console event on the worker",
-      "should report console event on the worker when not listening on page or context",
-      "should resolve worker script allHeaders in main frame",
-      "should resolve worker script allHeaders in iframe",
-      "should resolve worker script allHeaders in nested worker inside iframe"
+      "WO-007 should have JSHandles for console logs",
+      "WO-009 should report console event on the worker",
+      "WO-010 should report console event on the worker when not listening on page or context",
+      "WO-013 should clear upon cross-process navigation",
+      "WO-014 should attribute network activity for worker inside iframe to the iframe",
+      "WO-015 should report network activity",
+      "WO-016 should report network activity on worker creation",
+      "WO-020 should report and intercept network from nested worker",
+      "WO-021 should support extra http headers",
+      "WO-023 should resolve worker script allHeaders in main frame",
+      "WO-024 should resolve worker script allHeaders in iframe",
+      "WO-025 should resolve worker script allHeaders in nested worker inside iframe"
     ],
     "skipped": [
-      "should report worker script as network request after redirect"
+      "WO-018 should report worker script as network request after redirect"
     ]
   }
 }

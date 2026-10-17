@@ -1,846 +1,846 @@
 {
   "library/browsercontext-basic.spec.ts": {
     "failing": [
-      "should disable javascript",
-      "should emulate media in popup",
-      "should emulate media in cross-process iframe"
+      "BC-018 should disable javascript",
+      "BC-028 should emulate media in popup",
+      "BC-029 should emulate media in cross-process iframe"
     ]
   },
   "library/browsercontext-clearcookies.spec.ts": {
     "skipped": [
-      "should remove partitioned cookies by name"
+      "CO-050 should remove partitioned cookies by name"
     ]
   },
   "library/browsercontext-cookies-third-party.spec.ts": {
     "failing": [
-      "save/load third party non-partitioned cookies",
-      "save/load third party 'Partitioned;' cookies",
-      "same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
+      "CO-053 save/load third party non-partitioned cookies",
+      "CO-055 save/load third party 'Partitioned;' cookies",
+      "CO-057 same origin third party 'Partitioned;' cookie with different origin intermediate iframe"
     ],
     "skipped": [
-      "should be able to send third party cookies via an iframe"
+      "CO-059 should be able to send third party cookies via an iframe"
     ]
   },
   "library/browsercontext-cookies.spec.ts": {
     "failing": [
-      "should support requestStorageAccess"
+      "CO-016 should support requestStorageAccess"
     ]
   },
   "library/browsercontext-csp.spec.ts": {
     "failing": [
-      "should bypass CSP meta tag @smoke",
-      "should bypass CSP header",
-      "should bypass after cross-process navigation",
-      "should bypass CSP in iframes as well"
+      "CS-001 should bypass CSP meta tag @smoke",
+      "CS-002 should bypass CSP header",
+      "CS-003 should bypass after cross-process navigation",
+      "CS-004 should bypass CSP in iframes as well"
     ]
   },
   "library/browsercontext-events.spec.ts": {
     "failing": [
-      "console event should work with element handles"
+      "BC-033 console event should work with element handles"
     ],
     "skipped": [
-      "dialog event should work in popup 2"
+      "BC-040 dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-fetch.spec.ts": {
     "skipped": [
-      "should work with connectOverCDP"
+      "FE-169 should work with connectOverCDP"
     ]
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "should goForward to redirected navigation",
-      "should round-trip har with postData",
-      "should record overridden requests to har"
+      "HA-082 should goForward to redirected navigation",
+      "HA-088 should round-trip har with postData",
+      "HA-089 should record overridden requests to har"
     ]
   },
   "library/browsercontext-page-event.spec.ts": {
     "failing": [
-      "should have url",
-      "should have about:blank url with domcontentloaded",
-      "should have about:blank for empty url with domcontentloaded",
-      "should report when a new page is created and closed",
-      "should have an opener"
+      "BC-062 should have url",
+      "BC-064 should have about:blank url with domcontentloaded",
+      "BC-065 should have about:blank for empty url with domcontentloaded",
+      "BC-066 should report when a new page is created and closed",
+      "BC-069 should have an opener"
     ]
   },
   "library/browsercontext-pages.spec.ts": {
     "failing": [
-      "frame.focus should work multiple times",
-      "should click the button with deviceScaleFactor set"
+      "BC-053 frame.focus should work multiple times",
+      "BC-056 should click the button with deviceScaleFactor set"
     ]
   },
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
-      "reuse launch > should not cache resources",
-      "reuse launch > should update viewport and media",
-      "reuse connect > should not cache resources",
-      "reuse connect > should update viewport and media"
+      "reuse launch > BC-076 should not cache resources",
+      "reuse launch > BC-083 should update viewport and media",
+      "reuse connect > BC-076 should not cache resources",
+      "reuse connect > BC-083 should update viewport and media"
     ]
   },
   "library/browsercontext-route.spec.ts": {
     "skipped": [
-      "should respect URLPattern ignoreCase"
+      "RO-185 should respect URLPattern ignoreCase"
     ]
   },
   "library/browsercontext-service-worker-policy.spec.ts": {
     "failing": [
-      "should allow literal service worker navigation while offline",
-      "should allow cache-only service worker navigation while offline"
+      "WO-028 should allow literal service worker navigation while offline",
+      "WO-028 should allow cache-only service worker navigation while offline"
     ],
     "skipped": [
-      "should allow network-fallback service worker navigation while offline",
-      "should allow preload-fallback service worker navigation while offline"
+      "WO-028 should allow network-fallback service worker navigation while offline",
+      "WO-028 should allow preload-fallback service worker navigation while offline"
     ]
   },
   "library/browsercontext-storage-state.spec.ts": {
     "failing": [
-      "should set local storage in third-party context",
-      "should roundtrip local storage in third-party context",
-      "should work when service worker is intefering and the origin is not open"
+      "ST-013 should work when service worker is intefering and the origin is not open",
+      "ST-014 should set local storage in third-party context",
+      "ST-015 should roundtrip local storage in third-party context"
     ]
   },
   "library/browsercontext-user-agent.spec.ts": {
     "skipped": [
-      "should work for navigator.userAgentData and sec-ch-ua headers"
+      "UA-006 should work for navigator.userAgentData and sec-ch-ua headers"
     ]
   },
   "library/browsercontext-viewport-mobile.spec.ts": {
     "failing": [
-      "mobile viewport > should support touch emulation",
-      "mobile viewport > should be detectable",
-      "mobile viewport > should detect touch when applying viewport with touches",
-      "mobile viewport > should support window.orientation emulation",
-      "mobile viewport > default mobile viewports to 980 width",
-      "mobile viewport > should emulate the hover media feature",
-      "mobile viewport > should preserve window.orientation override after navigation"
+      "mobile viewport > DV-012 should support touch emulation",
+      "mobile viewport > DV-013 should be detectable",
+      "mobile viewport > DV-014 should detect touch when applying viewport with touches",
+      "mobile viewport > DV-016 should support window.orientation emulation",
+      "mobile viewport > DV-017 should preserve window.orientation override after navigation",
+      "mobile viewport > DV-020 default mobile viewports to 980 width",
+      "mobile viewport > DV-022 should emulate the hover media feature"
     ]
   },
   "library/browsercontext-viewport.spec.ts": {
     "failing": [
-      "should support touch with null viewport",
-      "should drag with high dpi",
-      "should keep touch emulation after screenshot beyond viewport"
+      "VP-010 should support touch with null viewport",
+      "VP-011 should keep touch emulation after screenshot beyond viewport",
+      "VP-014 should drag with high dpi"
     ],
     "skipped": [
-      "WebKit Windows headed should have a minimal viewport"
+      "VP-015 WebKit Windows headed should have a minimal viewport"
     ]
   },
   "library/browsertype-basic.spec.ts": {
     "skipped": [
-      "browserType.executablePath should work"
+      "BT-001 browserType.executablePath should work"
     ]
   },
   "library/browsertype-connect.spec.ts": {
     "failing": [
-      "launchServer > should upload a folder",
-      "run-server > should upload a folder"
+      "launchServer > BT-077 should upload a folder",
+      "run-server > BT-077 should upload a folder"
     ],
     "skipped": [
-      "launchServer > socks proxy > should forward non-forwarded requests",
-      "launchServer > socks proxy > should proxy localhost requests @smoke",
-      "launchServer > socks proxy > should proxy ipv6 localhost requests @smoke",
-      "launchServer > socks proxy > should proxy requests from fetch api",
-      "launchServer > socks proxy > should proxy requests from fetch api over ipv6",
-      "launchServer > socks proxy > should proxy local.playwright requests",
-      "launchServer > socks proxy > should lead to the error page for forwarded requests when the connection is refused",
-      "launchServer > socks proxy > should proxy based on the pattern",
-      "launchServer > socks proxy > should check proxy pattern on the client"
+      "launchServer > socks proxy > BT-080 should forward non-forwarded requests",
+      "launchServer > socks proxy > BT-081 should proxy localhost requests @smoke",
+      "launchServer > socks proxy > BT-082 should proxy ipv6 localhost requests @smoke",
+      "launchServer > socks proxy > BT-083 should proxy requests from fetch api",
+      "launchServer > socks proxy > BT-084 should proxy requests from fetch api over ipv6",
+      "launchServer > socks proxy > BT-085 should proxy local.playwright requests",
+      "launchServer > socks proxy > BT-086 should lead to the error page for forwarded requests when the connection is refused",
+      "launchServer > socks proxy > BT-087 should proxy based on the pattern",
+      "launchServer > socks proxy > BT-088 should check proxy pattern on the client"
     ]
   },
   "library/browsertype-launch-selenium.spec.ts": {
     "skipped": [
-      "selenium grid 3.141.59 standalone chromium",
-      "selenium grid 3.141.59 hub + node chromium",
-      "selenium grid 4.8.3 standalone chromium",
-      "selenium grid 4.8.3 hub + node chromium",
-      "selenium grid 4.8.3 standalone chromium broken driver",
-      "selenium grid 3.141.59 standalone non-chromium",
-      "selenium grid 3.141.59 standalone chromium through run-driver"
+      "BT-097 selenium grid 3.141.59 standalone chromium",
+      "BT-098 selenium grid 3.141.59 hub + node chromium",
+      "BT-099 selenium grid 4.8.3 standalone chromium",
+      "BT-100 selenium grid 4.8.3 hub + node chromium",
+      "BT-101 selenium grid 4.8.3 standalone chromium broken driver",
+      "BT-102 selenium grid 3.141.59 standalone non-chromium",
+      "BT-103 selenium grid 3.141.59 standalone chromium through run-driver"
     ]
   },
   "library/capabilities.spec.ts": {
     "skipped": [
-      "should not crash on showDirectoryPicker",
-      "webkit should define window.safari"
+      "CA-011 should not crash on showDirectoryPicker",
+      "CA-016 webkit should define window.safari"
     ]
   },
   "library/channels.spec.ts": {
     "failing": [
-      "should work with the domain module"
+      "CN-005 should work with the domain module"
     ],
     "skipped": [
-      "should scope CDPSession handles"
+      "CN-002 should scope CDPSession handles"
     ]
   },
   "library/client-certificates.spec.ts": {
     "failing": [
-      "browser > should not intercept TLS for origins without a client certificate"
+      "browser > CC-016 should not intercept TLS for origins without a client certificate"
     ],
     "skipped": [
-      "browser > support http2 if the browser only supports http1.1"
+      "browser > CC-037 support http2 if the browser only supports http1.1"
     ]
   },
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
-      "should support bypassCSP option",
-      "should support javascriptEnabled option"
+      "DC-007 should support bypassCSP option",
+      "DC-008 should support javascriptEnabled option"
     ]
   },
   "library/defaultbrowsercontext-2.spec.ts": {
     "failing": [
-      "should support hasTouch option",
-      "should work in persistent context",
-      "should support colorScheme option",
-      "should support reducedMotion option",
-      "should support forcedColors option",
-      "should support contrast option",
-      "should have passed URL when launching with ignoreDefaultArgs: true"
+      "DC-012 should support hasTouch option",
+      "DC-013 should work in persistent context",
+      "DC-014 should support colorScheme option",
+      "DC-015 should support reducedMotion option",
+      "DC-016 should support forcedColors option",
+      "DC-017 should support contrast option",
+      "DC-030 should have passed URL when launching with ignoreDefaultArgs: true"
     ],
     "skipped": [
-      "coverage should work"
+      "DC-034 coverage should work"
     ]
   },
   "library/download.spec.ts": {
     "failing": [
-      "download event > should be able to cancel pending downloads"
+      "download event > DO-027 should be able to cancel pending downloads"
     ],
     "skipped": [
-      "should be able to download a inline PDF file via navigation",
-      "download event > should report alt-click downloads",
-      "download event > should close the context without awaiting the failed download"
+      "DO-033 should be able to download a inline PDF file via navigation",
+      "download event > DO-016 should report alt-click downloads",
+      "download event > DO-023 should close the context without awaiting the failed download"
     ]
   },
   "library/emulation-coop.spec.ts": {
     "failing": [
-      "emulation with COOP > should preserve context options",
-      "emulation with COOP > should preserve page.emulateMedia",
-      "emulation with COOP > should preserve mobile emulation"
+      "emulation with COOP > EM-025 should preserve context options",
+      "emulation with COOP > EM-026 should preserve page.emulateMedia",
+      "emulation with COOP > EM-027 should preserve mobile emulation"
     ]
   },
   "library/emulation-focus.spec.ts": {
     "failing": [
-      "should think that all pages are focused @smoke",
-      "should focus popups by default",
-      "should focus with more than one page/context",
-      "should not blur iframe when interacting with another page/context"
+      "EM-014 should think that all pages are focused @smoke",
+      "EM-015 should focus popups by default",
+      "EM-021 should focus with more than one page/context"
+    ],
+    "skipped": [
+      "EM-023 should not blur iframe when interacting with another page/context"
     ]
   },
   "library/fetch-proxy.spec.ts": {
     "skipped": [
-      "should send correct ALPN protocol to HTTPS proxy"
+      "PR-046 should send correct ALPN protocol to HTTPS proxy"
     ]
   },
   "library/firefox/launcher.spec.ts": {
     "failing": [
-      "should support custom firefox policies",
-      "should resize viewport with fractional device scale factor"
+      "FF-003 should support custom firefox policies",
+      "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
   "library/geolocation.spec.ts": {
     "failing": [
-      "should use context options for popup"
+      "GE-009 should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
     "failing": [
-      "should only have one websocket entry",
-      "should include websocket handshake headers and status",
-      "should record websocket connection failure",
-      "should record websocket handshake failure",
-      "should still capture websocket when route passes messages through",
-      "should still allow routeWebSocket to modify messages when capturing HAR",
-      "should embed websocket messages",
-      "should attach websocket messages",
-      "should attach websocket messages for a still open websocket after stopping",
-      "should omit websocket messages",
-      "should respect PLAYWRIGHT_HAR_NO_WEBSOCKET_FRAMES"
+      "HA-101 should only have one websocket entry",
+      "HA-102 should include websocket handshake headers and status",
+      "HA-103 should embed websocket messages",
+      "HA-104 should attach websocket messages",
+      "HA-105 should attach websocket messages for a still open websocket after stopping",
+      "HA-106 should omit websocket messages",
+      "HA-107 should record websocket connection failure",
+      "HA-108 should record websocket handshake failure",
+      "HA-109 should still capture websocket when route passes messages through",
+      "HA-111 should still allow routeWebSocket to modify messages when capturing HAR",
+      "HA-112 should respect PLAYWRIGHT_HAR_NO_WEBSOCKET_FRAMES"
     ]
   },
   "library/har.spec.ts": {
     "failing": [
-      "should include postData",
-      "should include binary postData",
-      "should include form params",
-      "should include sizes",
-      "should report the correct _transferSize with PNG files",
-      "should have connection details",
-      "should have security details",
-      "should have connection details for redirects",
-      "should have connection details for failed requests",
-      "should return server address directly from response",
-      "should return security details directly from response"
+      "HA-010 should include postData",
+      "HA-011 should include binary postData",
+      "HA-012 should include form params",
+      "HA-028 should include sizes",
+      "HA-032 should report the correct _transferSize with PNG files",
+      "HA-041 should have connection details",
+      "HA-042 should have security details",
+      "HA-043 should have connection details for redirects",
+      "HA-044 should have connection details for failed requests",
+      "HA-045 should return server address directly from response",
+      "HA-046 should return security details directly from response"
     ],
     "skipped": [
-      "should support HAR larger than 512MB"
+      "HA-058 should support HAR larger than 512MB"
     ]
   },
   "library/headful.spec.ts": {
     "skipped": [
-      "should have default url when launching browser @smoke",
-      "should close browser with beforeunload page",
-      "should close browsercontext with pending beforeunload dialog",
-      "should not crash when creating second context",
-      "should click when viewport size is larger than screen",
-      "should dispatch click events to oversized viewports",
-      "should click background tab",
-      "should close browser after context menu was triggered",
-      "should(not) block third party cookies",
-      "should not block third party SameSite=None cookies",
-      "should not override viewport size when passed null",
-      "Page.bringToFront should work",
-      "should click in OOPIF",
-      "should click bottom row w/ infobar in OOPIF",
-      "headless and headful should use same default fonts",
-      "should have the same hyphen rendering on headless and headed"
+      "HE-001 should have default url when launching browser @smoke",
+      "HE-002 should close browser with beforeunload page",
+      "HE-003 should close browsercontext with pending beforeunload dialog",
+      "HE-004 should not crash when creating second context",
+      "HE-005 should click when viewport size is larger than screen",
+      "HE-006 should dispatch click events to oversized viewports",
+      "HE-007 should click background tab",
+      "HE-008 should close browser after context menu was triggered",
+      "HE-009 should(not) block third party cookies",
+      "HE-010 should not block third party SameSite=None cookies",
+      "HE-011 should not override viewport size when passed null",
+      "HE-012 Page.bringToFront should work",
+      "HE-013 should click in OOPIF",
+      "HE-014 should click bottom row w/ infobar in OOPIF",
+      "HE-015 headless and headful should use same default fonts",
+      "HE-016 should have the same hyphen rendering on headless and headed"
     ]
   },
   "library/hit-target.spec.ts": {
     "failing": [
-      "should detect overlaid element in a transformed iframe"
+      "HT-017 should detect overlaid element in a transformed iframe"
     ]
   },
   "library/locator-dispatchevent-touch.spec.ts": {
     "failing": [
-      "should support touch points in touch event arguments"
+      "TA-010 should support touch points in touch event arguments"
     ]
   },
   "library/modernizr.spec.ts": {
     "skipped": [
-      "Safari Desktop",
-      "Mobile Safari"
+      "CA-030 Safari Desktop",
+      "CA-031 Mobile Safari"
     ]
   },
   "library/multiclient.spec.ts": {
     "failing": [
-      "last emulateMedia wins"
+      "MC-008 last emulateMedia wins"
     ],
     "skipped": [
-      "should not allow parallel js coverage and cleanup upon disconnect",
-      "should not allow parallel css coverage",
-      "should chain routes with changed url"
+      "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
+      "MC-006 should not allow parallel css coverage",
+      "MC-010 should chain routes with changed url"
     ]
   },
   "library/page-clock.frozen.spec.ts": {
     "skipped": [
-      "clock should be frozen",
-      "clock should be realtime"
+      "CK-055 clock should be frozen",
+      "CK-056 clock should be realtime"
     ]
   },
   "library/page-event-crash.spec.ts": {
     "failing": [
-      "should emit crash event when page crashes",
-      "should throw on any action after page crashes",
-      "should cancel waitForEvent when page crashes",
-      "should cancel navigation when page crashes",
-      "should be able to close context when page crashes",
-      "should be able to close page after crash"
+      "ER-014 should emit crash event when page crashes",
+      "ER-015 should throw on any action after page crashes",
+      "ER-017 should cancel waitForEvent when page crashes",
+      "ER-018 should cancel navigation when page crashes",
+      "ER-019 should be able to close context when page crashes",
+      "ER-020 should be able to close page after crash"
     ]
   },
   "library/pdf.spec.ts": {
     "skipped": [
-      "should be able to save file",
-      "should be able to generate outline"
+      "PD-001 should be able to save file",
+      "PD-002 should be able to generate outline"
     ]
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "should support clipboard read",
-      "local network request is allowed from public origin"
+      "PE-014 should support clipboard read",
+      "PE-018 local network request is allowed from public origin"
     ],
     "skipped": [
-      "storage access",
-      " > should be able to use the local-fonts API",
-      "camera and microphone > should capture when camera and microphone are granted",
-      "camera and microphone > should reject when no permission is granted",
-      "camera and microphone > should gate audio and video independently",
-      "camera and microphone > should stop capturing after permissions are cleared"
+      "PE-016 storage access",
+      " > PE-017 should be able to use the local-fonts API",
+      "camera and microphone > PE-020 should capture when camera and microphone are granted",
+      "camera and microphone > PE-021 should reject when no permission is granted",
+      "camera and microphone > PE-022 should gate audio and video independently",
+      "camera and microphone > PE-023 should stop capturing after permissions are cleared"
     ]
   },
   "library/popup.spec.ts": {
     "failing": [
-      "should inherit touch support from browser context",
-      "should use viewport size from window features",
-      "BrowserContext.addInitScript should apply to a cross-process popup"
+      "PO-019 should inherit touch support from browser context",
+      "PO-021 should use viewport size from window features",
+      "PO-024 BrowserContext.addInitScript should apply to a cross-process popup"
     ],
     "skipped": [
-      "should not throw when click closes popup"
+      "PO-028 should not throw when click closes popup"
     ]
   },
   "library/proxy.spec.ts": {
     "failing": [
-      "should reconnect with credentials after CONNECT 407 closes the socket"
+      "PR-008 should reconnect with credentials after CONNECT 407 closes the socket"
     ],
     "skipped": [
-      "should use proxy with emulated user agent"
+      "PR-015 should use proxy with emulated user agent"
     ]
   },
   "library/route-web-socket.spec.ts": {
     "skipped": [
-      "no-mock > should work with error after successful open",
-      "no-match > should work with error after successful open",
-      "pass-through > should work with error after successful open"
+      "no-mock > WS-019 should work with error after successful open",
+      "no-match > WS-019 should work with error after successful open",
+      "pass-through > WS-019 should work with error after successful open"
     ]
   },
   "library/screencast.spec.ts": {
     "failing": [
-      "onFrame receives viewport size"
+      "SC-003 onFrame receives viewport size"
     ]
   },
   "library/screenshot.spec.ts": {
     "failing": [
-      "page screenshot > should work with device scale factor and scale:css",
-      "page screenshot > should work with device scale factor, clip and scale:css"
+      "page screenshot > SS-074 should work with device scale factor and scale:css",
+      "page screenshot > SS-076 should work with device scale factor, clip and scale:css"
     ],
     "skipped": [
-      "page screenshot > should work with a mobile viewport",
-      "page screenshot > should work with a mobile viewport and clip",
-      "page screenshot > should work with a mobile viewport and fullPage"
+      "page screenshot > SS-069 should work with a mobile viewport",
+      "page screenshot > SS-070 should work with a mobile viewport and clip",
+      "page screenshot > SS-071 should work with a mobile viewport and fullPage"
     ]
   },
   "library/selector-generator.spec.ts": {
     "failing": [
-      "selector generator > should work in dynamic iframes without navigation"
+      "selector generator > GN-075 should work in dynamic iframes without navigation"
     ]
   },
   "library/slowmo.spec.ts": {
     "failing": [
-      "slowMo > Frame SlowMo check",
-      "slowMo > Frame SlowMo uncheck"
+      "slowMo > SL-015 Frame SlowMo check",
+      "slowMo > SL-027 Frame SlowMo uncheck"
     ]
   },
   "library/tap.spec.ts": {
     "failing": [
-      "should send all of the correct events @smoke",
-      "trial run should not tap",
-      "should not send mouse events touchstart is canceled",
-      "should not send mouse events when touchend is canceled",
-      "should not wait for a navigation caused by a tap",
-      "should work with modifiers",
-      "should send well formed touch points",
-      "should wait until an element is visible to tap it"
+      "TA-001 should send all of the correct events @smoke",
+      "TA-002 trial run should not tap",
+      "TA-003 should not send mouse events touchstart is canceled",
+      "TA-004 should not send mouse events when touchend is canceled",
+      "TA-005 should not wait for a navigation caused by a tap",
+      "TA-006 should work with modifiers",
+      "TA-007 should send well formed touch points",
+      "TA-008 should wait until an element is visible to tap it"
     ]
   },
   "library/trace-viewer.spec.ts": {
     "failing": [
-      "should filter network requests by url",
-      "should pick locator in iframe",
-      "should highlight locator in iframe while typing",
-      "should filter network requests by multiple resource types",
-      "should filter network requests by websocket type",
-      "should show websocket messages"
+      "TV-028 should filter network requests by multiple resource types",
+      "TV-031 should filter network requests by url",
+      "TV-035 should filter network requests by websocket type",
+      "TV-036 should show websocket messages",
+      "TV-076 should pick locator in iframe",
+      "TV-077 should highlight locator in iframe while typing"
     ],
     "skipped": [
-      "should handle src=blob",
-      "should handle file URIs",
-      "should attribute network requests to service workers"
+      "TV-025 should attribute network requests to service workers",
+      "TV-052 should handle src=blob",
+      "TV-053 should handle file URIs"
     ]
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "should produce screencast frames scale",
-      "should save trace while a WebSocket keeps streaming frames"
+      "TR-023 should produce screencast frames scale",
+      "TR-042 should save trace while a WebSocket keeps streaming frames"
     ]
   },
   "library/web-socket.spec.ts": {
     "failing": [
-      "should emit close events",
-      "should emit frame events",
-      "should filter out the close events when the server closes with a message",
-      "should pass self as argument to close event",
-      "should emit binary frame events",
-      "should emit error",
-      "should not have stray error events",
-      "should reject waitForEvent on socket close",
-      "should reject waitForEvent on page close"
+      "WS-002 should emit close events",
+      "WS-003 should emit frame events",
+      "WS-004 should filter out the close events when the server closes with a message",
+      "WS-005 should pass self as argument to close event",
+      "WS-006 should emit binary frame events",
+      "WS-007 should emit error",
+      "WS-008 should not have stray error events",
+      "WS-009 should reject waitForEvent on socket close",
+      "WS-010 should reject waitForEvent on page close"
     ],
     "skipped": [
-      "should turn off when offline"
+      "WS-012 should turn off when offline"
     ]
   },
   "library/webmcp-disabled.spec.ts": {
     "skipped": [
-      "should throw when the browser was launched without WebMCP"
+      "WM-015 should throw when the browser was launched without WebMCP"
     ]
   },
   "library/webmcp.spec.ts": {
     "skipped": [
-      "should list tools registered by the page",
-      "should report no tools when the page registers none",
-      "should call a tool",
-      "should return isError results as is",
-      "should throw when the tool throws",
-      "should throw for an unknown tool",
-      "should time out when the tool does not settle",
-      "should drop tools after navigation",
-      "should list declarative tools",
-      "should scope tools to their frame",
-      "should call same-name tools in their own frame",
-      "should list a tool registered after load",
-      "should list tools while a tool is running",
-      "should list and call tools in cross-origin and nested frames"
+      "WM-001 should list tools registered by the page",
+      "WM-002 should report no tools when the page registers none",
+      "WM-003 should call a tool",
+      "WM-004 should return isError results as is",
+      "WM-005 should throw when the tool throws",
+      "WM-006 should throw for an unknown tool",
+      "WM-007 should time out when the tool does not settle",
+      "WM-008 should drop tools after navigation",
+      "WM-009 should list a tool registered after load",
+      "WM-010 should list tools while a tool is running",
+      "WM-011 should list declarative tools",
+      "WM-012 should scope tools to their frame",
+      "WM-013 should call same-name tools in their own frame",
+      "WM-014 should list and call tools in cross-origin and nested frames"
     ]
   },
   "page/elementhandle-click.spec.ts": {
     "failing": [
-      "should work for TextNodes",
-      "should double click the button"
+      "EH-013 should work for TextNodes",
+      "EH-018 should double click the button"
     ]
   },
   "page/elementhandle-content-frame.spec.ts": {
     "failing": [
-      "should work for cross-frame evaluations"
+      "EH-021 should work for cross-frame evaluations"
     ]
   },
   "page/elementhandle-screenshot.spec.ts": {
     "failing": [
-      "element screenshot > should work with a rotated element",
-      "element screenshot > should work for an element with an offset"
+      "element screenshot > EH-082 should work with a rotated element",
+      "element screenshot > EH-087 should work for an element with an offset"
     ]
   },
   "page/elementhandle-scroll-into-view.spec.ts": {
     "failing": [
-      "should throw for detached element",
-      "should wait for display:none to become visible",
-      "should scroll display:contents into view",
-      "should wait for nested display:none to become visible",
-      "should timeout waiting for visible"
+      "EH-094 should throw for detached element",
+      "EH-095 should wait for display:none to become visible",
+      "EH-096 should scroll display:contents into view",
+      "EH-099 should wait for nested display:none to become visible",
+      "EH-101 should timeout waiting for visible"
     ]
   },
   "page/expect-misc.spec.ts": {
     "skipped": [
-      "toHaveURL > support URLPattern"
+      "toHaveURL > EX-222 support URLPattern"
     ]
   },
   "page/firefox-network-response.spec.ts": {
     "skipped": [
-      "should preserve original response header fields for 200 responses",
-      "should preserve original response header fields for 302 responses",
-      "should preserve synthesized response header fields",
-      "should report current effective fields after cache revalidation",
-      "should report a standalone 304 response without waiting for a cache merge"
+      "FF-005 should preserve original response header fields for 200 responses",
+      "FF-005 should preserve original response header fields for 302 responses",
+      "FF-006 should preserve synthesized response header fields",
+      "FF-007 should report current effective fields after cache revalidation",
+      "FF-008 should report a standalone 304 response without waiting for a cache merge"
     ]
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "should dispose context on navigation",
-      "should dispose context on cross-origin navigation",
-      "should allow cross-frame element handles"
+      "FR-007 should allow cross-frame element handles"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
-      "should support framesets"
+      "FR-030 should support framesets"
     ],
     "skipped": [
-      "should handle nested frames @smoke",
-      "should report frame.name()",
-      "should refuse to display x-frame-options:deny iframe"
+      "FR-024 should handle nested frames @smoke",
+      "FR-032 should report frame.name()",
+      "FR-035 should refuse to display x-frame-options:deny iframe"
     ]
   },
   "page/interception.spec.ts": {
     "failing": [
-      "should disable memory cache when intercepting"
+      "RO-163 should disable memory cache when intercepting"
     ],
     "skipped": [
-      "should intercept blob url requests"
+      "RO-164 should intercept blob url requests"
     ]
   },
   "page/jshandle-to-string.spec.ts": {
     "failing": [
-      "should beautifully render sparse arrays"
+      "JH-020 should beautifully render sparse arrays"
     ]
   },
   "page/locator-click.spec.ts": {
     "failing": [
-      "should double click the button"
+      "LO-054 should double click the button"
     ]
   },
   "page/locator-frame.spec.ts": {
     "skipped": [
-      "should work with COEP/COOP/CORP isolated iframe"
+      "LO-108 should work with COEP/COOP/CORP isolated iframe"
     ]
   },
   "page/network-post-data.spec.ts": {
     "failing": [
-      "should return correct postData buffer for utf-8 body",
-      "should return post data w/o content-type @smoke",
-      "should throw on invalid JSON in post data",
-      "should return post data for PUT requests",
-      "should get post data for file/blob",
-      "should get post data for navigator.sendBeacon api calls"
+      "NE-108 should return correct postData buffer for utf-8 body",
+      "NE-109 should return post data w/o content-type @smoke",
+      "NE-110 should throw on invalid JSON in post data",
+      "NE-111 should return post data for PUT requests",
+      "NE-112 should get post data for file/blob",
+      "NE-113 should get post data for navigator.sendBeacon api calls"
     ]
   },
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
-      "should call a function passed as an argument",
-      "should pass arguments to the callback",
-      "should work in a child frame"
+      "IS-014 should call a function passed as an argument",
+      "IS-016 should pass arguments to the callback",
+      "IS-021 should work in a child frame"
     ]
   },
   "page/page-add-init-script.spec.ts": {
     "failing": [
-      "init script should run only once in iframe"
+      "IS-011 init script should run only once in iframe"
     ]
   },
   "page/page-add-script-tag.spec.ts": {
     "failing": [
-      "should throw when added with content to the CSP page"
+      "AT-010 should throw when added with content to the CSP page"
     ]
   },
   "page/page-add-style-tag.spec.ts": {
     "failing": [
-      "should throw when added with content to the CSP page"
+      "AT-019 should throw when added with content to the CSP page"
     ]
   },
   "page/page-basic.spec.ts": {
     "failing": [
-      "frame.press should work"
+      "PA-017 frame.press should work"
     ],
     "skipped": [
-      "page.frame should respect name"
+      "PA-012 page.frame should respect name"
     ]
   },
   "page/page-click-scroll.spec.ts": {
     "failing": [
-      "should scroll into view display:contents",
-      "should scroll into view display:contents with position"
+      "CL-095 should scroll into view display:contents",
+      "CL-097 should scroll into view display:contents with position"
     ]
   },
   "page/page-click.spec.ts": {
     "failing": [
-      "should select the text by triple clicking",
-      "should double click the button",
-      "should click the button with fixed position inside an iframe",
-      "should click in a transformed iframe",
-      "should click in a transformed iframe with force",
-      "should click in a nested transformed iframe",
-      "should not retain removed iframe after clicking inside it"
+      "CL-016 should select the text by triple clicking",
+      "CL-028 should double click the button",
+      "CL-035 should click the button with fixed position inside an iframe",
+      "CL-076 should not retain removed iframe after clicking inside it",
+      "CL-077 should click in a transformed iframe",
+      "CL-079 should click in a transformed iframe with force",
+      "CL-080 should click in a nested transformed iframe"
     ]
   },
   "page/page-drag.spec.ts": {
     "failing": [
-      "should handle custom dataTransfer",
-      "Drag and drop > should work @smoke",
-      "Drag and drop > should send the right events",
-      "Drag and drop > should work inside iframe",
-      "Drag and drop > should cancel on escape",
-      "Drag and drop > should respect the drop effect",
-      "Drag and drop > should work if the drag event is captured but not canceled",
-      "Drag and drop > should work if a frame is stalled",
-      "Drag and drop > should work with the helper method",
-      "Drag and drop > should work with locators"
+      "DD-019 should handle custom dataTransfer",
+      "Drag and drop > DD-001 should work @smoke",
+      "Drag and drop > DD-002 should send the right events",
+      "Drag and drop > DD-004 should work inside iframe",
+      "Drag and drop > DD-005 should cancel on escape",
+      "Drag and drop > DD-008 should respect the drop effect",
+      "Drag and drop > DD-010 should work if the drag event is captured but not canceled",
+      "Drag and drop > DD-012 should work if a frame is stalled",
+      "Drag and drop > DD-013 should work with the helper method",
+      "Drag and drop > DD-016 should work with locators"
     ],
     "skipped": [
-      "Drag and drop > should not send dragover on the first mousemove",
-      "Drag and drop > iframe > should drag into an iframe",
-      "Drag and drop > iframe > should drag out of an iframe"
+      "Drag and drop > DD-003 should not send dragover on the first mousemove",
+      "Drag and drop > iframe > DD-006 should drag into an iframe",
+      "Drag and drop > iframe > DD-007 should drag out of an iframe"
     ]
   },
   "page/page-emulate-media.spec.ts": {
     "failing": [
-      "should emulate type @smoke",
-      "should emulate colorScheme should work @smoke",
-      "should default to light",
-      "should work during navigation",
-      "should change the actual colors in css",
-      "should emulate reduced motion",
-      "should keep reduced motion and color emulation after reload",
-      "should emulate forcedColors ",
-      "should emulate contrast ",
-      "should report hover and fine pointer for desktop"
+      "EM-001 should emulate type @smoke",
+      "EM-003 should emulate colorScheme should work @smoke",
+      "EM-004 should default to light",
+      "EM-006 should work during navigation",
+      "EM-007 should change the actual colors in css",
+      "EM-008 should emulate reduced motion",
+      "EM-009 should keep reduced motion and color emulation after reload",
+      "EM-010 should emulate forcedColors ",
+      "EM-011 should emulate contrast ",
+      "EM-012 should report hover and fine pointer for desktop"
     ]
   },
   "page/page-evaluate.spec.ts": {
     "skipped": [
-      "should throw for too deep reference chain 2",
-      "should work with a using declaration"
+      "EV-049 should throw for too deep reference chain 2",
+      "EV-099 should work with a using declaration"
     ]
   },
   "page/page-event-console.spec.ts": {
     "failing": [
-      "should trigger correct Log"
+      "CM-008 should trigger correct Log"
     ]
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "should report requests and responses handled by service worker",
-      "should report requests and responses handled by service worker with routing"
+      "NE-095 should report requests and responses handled by service worker",
+      "NE-096 should report requests and responses handled by service worker with routing"
     ],
     "skipped": [
-      "should fire requestfailed when intercepting race"
+      "NE-100 should fire requestfailed when intercepting race"
     ]
   },
   "page/page-filechooser.spec.ts": {
     "failing": [
-      "should emit event for iframe",
-      "should be able to reset selected files with empty file list",
-      "user activation > should not open file chooser without user activation"
+      "FC-004 should emit event for iframe",
+      "FC-020 should be able to reset selected files with empty file list",
+      "user activation > FC-026 should not open file chooser without user activation"
     ]
   },
   "page/page-fill.spec.ts": {
     "skipped": [
-      "input event.composed should be true and cross shadow dom boundary - month",
-      "input event.composed should be true and cross shadow dom boundary - week"
+      "FI-009 input event.composed should be true and cross shadow dom boundary - month",
+      "FI-009 input event.composed should be true and cross shadow dom boundary - week"
     ]
   },
   "page/page-focus.spec.ts": {
     "skipped": [
-      "should traverse only form elements",
-      "tab should cycle between single input and browser",
-      "tab should cycle between document elements and browser"
+      "FO-006 should traverse only form elements",
+      "FO-008 tab should cycle between single input and browser",
+      "FO-009 tab should cycle between document elements and browser"
     ]
   },
   "page/page-goto.spec.ts": {
     "failing": [
-      "should send referer",
-      "should send referer of cross-origin URL",
-      "should override referrer-policy"
+      "NA-052 should send referer",
+      "NA-053 should send referer of cross-origin URL",
+      "NA-055 should override referrer-policy"
     ]
   },
   "page/page-history.spec.ts": {
     "failing": [
-      "page.goBack should work for file urls",
-      "goBack/goForward should work with bfcache-able pages"
+      "NA-073 page.goBack should work for file urls",
+      "NA-074 goBack/goForward should work with bfcache-able pages"
     ]
   },
   "page/page-keyboard.spec.ts": {
     "failing": [
-      "should press audio and media control keys",
-      "should press NumpadDecimal as Delete",
-      "should type numpad digits with Shift"
+      "KB-023 should press NumpadDecimal as Delete",
+      "KB-024 should type numpad digits with Shift",
+      "KB-026 should press audio and media control keys"
     ],
     "skipped": [
-      "should support MacOS shortcuts",
-      "should expose keyIdentifier in webkit",
-      "should move to the start of the document"
+      "KB-033 should support MacOS shortcuts",
+      "KB-037 should expose keyIdentifier in webkit",
+      "KB-040 should move to the start of the document"
     ]
   },
   "page/page-mouse.spec.ts": {
     "failing": [
-      "should dblclick the div",
-      "should always round down"
+      "MO-002 should dblclick the div",
+      "MO-013 should always round down"
     ]
   },
   "page/page-network-idle.spec.ts": {
     "failing": [
-      "should not wait for an open EventSource connection",
-      "should not wait for an open EventSource connection in setContent"
+      "NE-082 should not wait for an open EventSource connection",
+      "NE-083 should not wait for an open EventSource connection in setContent"
     ]
   },
   "page/page-network-request.spec.ts": {
     "failing": [
-      "should return postData",
-      "should work with binary post data",
-      "should work with binary post data and interception",
-      "should parse the json post data",
-      "should parse the data if content-type is application/x-www-form-urlencoded",
-      "should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
-      "should return multipart/form-data",
-      "should return event source",
-      "should not allow to access frame on popup main request"
+      "NE-011 should return postData",
+      "NE-012 should work with binary post data",
+      "NE-013 should work with binary post data and interception",
+      "NE-016 should parse the json post data",
+      "NE-017 should parse the data if content-type is application/x-www-form-urlencoded",
+      "NE-018 should parse the data if content-type is application/x-www-form-urlencoded; charset=UTF-8",
+      "NE-020 should return multipart/form-data",
+      "NE-021 should return event source",
+      "NE-027 should not allow to access frame on popup main request"
     ],
     "skipped": [
-      "should handle mixed-content blocked requests"
+      "NE-029 should handle mixed-content blocked requests"
     ]
   },
   "page/page-network-response.spec.ts": {
     "failing": [
-      "should report all headers",
-      "should report if request was fromServiceWorker",
-      "should return non-utf8 body even when content-type says utf8"
+      "NE-041 should return non-utf8 body even when content-type says utf8",
+      "NE-043 should report all headers",
+      "NE-049 should report if request was fromServiceWorker"
     ],
     "skipped": [
-      "should provide a Response with a file URL",
-      "should give a readable error when response.body() races with navigation"
+      "NE-046 should provide a Response with a file URL",
+      "NE-057 should give a readable error when response.body() races with navigation"
     ]
   },
   "page/page-network-sizes.spec.ts": {
     "skipped": [
-      "should have the correct responseBodySize for chunked request"
+      "NE-063 should have the correct responseBodySize for chunked request"
     ]
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "should not throw if request was cancelled by the page",
-      "continue with headers should send fresh cookie from the browser cookie store"
+      "RO-064 should not throw if request was cancelled by the page",
+      "RO-080 continue with headers should send fresh cookie from the browser cookie store"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
     "failing": [
-      "should not throw if request was cancelled by the page"
+      "RO-100 should not throw if request was cancelled by the page"
     ]
   },
   "page/page-request-gc.spec.ts": {
     "skipped": [
-      "should collect element retained by locator hit-target interceptor after detach"
+      "RO-150 should collect element retained by locator hit-target interceptor after detach"
     ]
   },
   "page/page-request-intercept.spec.ts": {
     "failing": [
-      "should intercept multipart/form-data request body",
-      "request.postData is not null when fetching FormData with a Blob"
+      "RO-141 should intercept multipart/form-data request body",
+      "RO-147 request.postData is not null when fetching FormData with a Blob"
     ]
   },
   "page/page-route.spec.ts": {
     "failing": [
-      "should be abortable with custom error codes",
-      "should not throw if request was cancelled by the page",
-      "should intercept when postData is more than 1MB"
+      "RO-016 should be abortable with custom error codes",
+      "RO-017 should not throw if request was cancelled by the page",
+      "RO-054 should intercept when postData is more than 1MB"
     ],
     "skipped": [
-      "should not fulfill with redirect status",
-      "should respect URLPattern ignoreCase"
+      "RO-033 should not fulfill with redirect status",
+      "RO-056 should respect URLPattern ignoreCase"
     ]
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
-      "page screenshot > should allow transparency",
-      "page screenshot animations > should not capture pseudo element css animation"
+      "page screenshot > SS-014 should allow transparency",
+      "page screenshot animations > SS-053 should not capture pseudo element css animation"
     ],
     "skipped": [
-      "page screenshot > should capture blinking caret if explicitly asked for",
-      "page screenshot > should allow transparency with webp"
+      "page screenshot > SS-003 should capture blinking caret if explicitly asked for",
+      "page screenshot > SS-020 should allow transparency with webp"
     ]
   },
   "page/page-set-content.spec.ts": {
     "skipped": [
-      "should handle timeout properly"
+      "PA-036 should handle timeout properly"
     ]
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "should upload a folder",
-      "should upload a folder via label"
+      "IF-002 should upload a folder",
+      "IF-003 should upload a folder via label"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "should wait for load state of empty url popup",
-      "should wait for load state of about:blank popup ",
-      "should wait for load state of about:blank popup with noopener "
+      "WA-083 should wait for load state of empty url popup",
+      "WA-084 should wait for load state of about:blank popup ",
+      "WA-085 should wait for load state of about:blank popup with noopener "
     ]
   },
   "page/wheel.spec.ts": {
     "failing": [
-      "should dispatch wheel events after popup was opened @smoke"
+      "MO-018 should dispatch wheel events after popup was opened @smoke"
     ]
   },
   "page/workers.spec.ts": {
     "failing": [
-      "Page.workers @smoke",
-      "should emit created and destroyed events",
-      "should have JSHandles for console logs",
-      "should evaluate",
-      "should attribute network activity for worker inside iframe to the iframe",
-      "should report network activity",
-      "should report and intercept network from nested worker",
-      "should support extra http headers",
-      "should report console event on the worker",
-      "should report console event on the worker when not listening on page or context"
+      "WO-001 Page.workers @smoke",
+      "WO-002 should emit created and destroyed events",
+      "WO-007 should have JSHandles for console logs",
+      "WO-008 should evaluate",
+      "WO-009 should report console event on the worker",
+      "WO-010 should report console event on the worker when not listening on page or context",
+      "WO-014 should attribute network activity for worker inside iframe to the iframe",
+      "WO-015 should report network activity",
+      "WO-020 should report and intercept network from nested worker",
+      "WO-021 should support extra http headers"
     ],
     "skipped": [
-      "should support offline",
-      "should resolve worker script allHeaders in nested worker inside iframe"
+      "WO-022 should support offline",
+      "WO-025 should resolve worker script allHeaders in nested worker inside iframe"
     ]
   }
 }
