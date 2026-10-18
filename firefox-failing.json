@@ -346,8 +346,7 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "PE-014 should support clipboard read",
-      "PE-018 local network request is allowed from public origin"
+      "PE-014 should support clipboard read"
     ],
     "skipped": [
       "PE-016 storage access",
