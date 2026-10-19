@@ -13,11 +13,6 @@
       "CO-032 should set cookie with reasonable defaults"
     ]
   },
-  "library/browsercontext-base-url.spec.ts": {
-    "failing": [
-      "NA-091 should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
-    ]
-  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "BC-018 should disable javascript",
@@ -142,6 +137,7 @@
       "reuse launch > BC-076 should not cache resources",
       "reuse launch > BC-081 should continue issuing events after closing the reused page",
       "reuse launch > BC-083 should update viewport and media",
+      "reuse connect > BC-073 should re-add binding after reset",
       "reuse connect > BC-076 should not cache resources",
       "reuse connect > BC-081 should continue issuing events after closing the reused page",
       "reuse connect > BC-083 should update viewport and media"
@@ -323,6 +319,11 @@
       "CD-036 should connect over CDP using a ConnectionTransport"
     ]
   },
+  "library/chromium/connect-to-worker.spec.ts": {
+    "failing": [
+      "CR-043 should connect, evaluate, receive console and disconnect"
+    ]
+  },
   "library/chromium/css-coverage.spec.ts": {
     "failing": [
       "CV-008 should work",
@@ -438,6 +439,7 @@
   "library/defaultbrowsercontext-1.spec.ts": {
     "failing": [
       "DC-001 context.cookies() should work @smoke",
+      "DC-006 should support userAgent option",
       "DC-007 should support bypassCSP option",
       "DC-008 should support javascriptEnabled option"
     ]
@@ -450,6 +452,7 @@
       "DC-015 should support reducedMotion option",
       "DC-016 should support forcedColors option",
       "DC-017 should support contrast option",
+      "DC-021 should support ignoreHTTPSErrors option",
       "DC-022 should support extraHTTPHeaders option",
       "DC-030 should have passed URL when launching with ignoreDefaultArgs: true",
       "DC-032 should handle exception",
@@ -819,6 +822,7 @@
       "TV-035 should filter network requests by websocket type",
       "TV-036 should show websocket messages",
       "TV-051 should handle multiple headers",
+      "TV-053 should handle file URIs",
       "TV-057 should highlight target elements",
       "TV-068 should pick locator",
       "TV-069 should generate aria snapshot with unaltered urls",
@@ -949,6 +953,7 @@
       "FR-027 should persist mainFrame on cross-process navigation",
       "FR-028 should not send attach/detach events for main frame",
       "FR-030 should support framesets",
+      "FR-034 should report different frame instance when frame re-attaches",
       "FR-035 should refuse to display x-frame-options:deny iframe",
       "FR-036 should return frame.page()"
     ],
@@ -986,9 +991,9 @@
       "NE-113 should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script-callback.spec.ts": {
+  "page/page-add-init-script.spec.ts": {
     "failing": [
-      "IS-021 should work in a child frame"
+      "IS-011 init script should run only once in iframe"
     ]
   },
   "page/page-add-locator-handler.spec.ts": {
@@ -1019,6 +1024,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "PA-017 frame.press should work"
+    ],
     "skipped": [
       "PA-012 page.frame should respect name"
     ]
@@ -1034,6 +1042,7 @@
   "page/page-click.spec.ts": {
     "failing": [
       "CL-003 should issue clicks in parallel in page and popup",
+      "CL-069 should not hang when frame is detached",
       "CL-076 should not retain removed iframe after clicking inside it",
       "CL-077 should click in a transformed iframe",
       "CL-079 should click in a transformed iframe with force",
@@ -1097,7 +1106,6 @@
   },
   "page/page-event-request.spec.ts": {
     "failing": [
-      "NE-091 should fire for navigation requests",
       "NE-095 should report requests and responses handled by service worker",
       "NE-096 should report requests and responses handled by service worker with routing",
       "NE-098 should report navigation requests and responses handled by service worker with routing",
@@ -1228,8 +1236,7 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "RO-075 should not delete the origin header",
-      "RO-086 continue should delete headers on redirects"
+      "RO-075 should not delete the origin header"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
@@ -1264,6 +1271,7 @@
     "failing": [
       "RO-009 should not override cookie header",
       "RO-016 should be abortable with custom error codes",
+      "RO-022 should work with redirects for subresources",
       "RO-035 should add Access-Control-Allow-Origin by default when fulfill",
       "RO-036 should allow null origin for about:blank",
       "RO-042 should not abort preflighted cross-origin redirect when a route is registered",
@@ -1288,13 +1296,11 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
-      "IF-016 should detect mime type",
       "IF-018 should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
-      "WA-077 should pick up ongoing navigation",
       "WA-078 should respect timeout",
       "WA-079 should resolve immediately if loaded",
       "WA-080 should throw for bad state",
@@ -1320,8 +1326,7 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "WA-068 should throw when frame is detached xpath",
-      "WA-073 should fail when navigating while on handle"
+      "WA-068 should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
@@ -1337,6 +1342,7 @@
       "WO-013 should clear upon cross-process navigation",
       "WO-014 should attribute network activity for worker inside iframe to the iframe",
       "WO-015 should report network activity",
+      "WO-016 should report network activity on worker creation",
       "WO-020 should report and intercept network from nested worker",
       "WO-021 should support extra http headers",
       "WO-023 should resolve worker script allHeaders in main frame",

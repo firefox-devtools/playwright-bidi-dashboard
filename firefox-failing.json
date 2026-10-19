@@ -238,11 +238,6 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "GE-009 should use context options for popup"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
