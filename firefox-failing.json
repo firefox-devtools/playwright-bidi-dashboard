@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "HA-081 should goBack to redirected navigation",
       "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
@@ -238,6 +239,11 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "GE-009 should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -265,7 +271,8 @@
       "HA-043 should have connection details for redirects",
       "HA-044 should have connection details for failed requests",
       "HA-045 should return server address directly from response",
-      "HA-046 should return security details directly from response"
+      "HA-046 should return security details directly from response",
+      "HA-113 should store binary content with a textual mime type as base64"
     ],
     "skipped": [
       "HA-058 should support HAR larger than 512MB"
@@ -321,6 +328,11 @@
     "skipped": [
       "CK-055 clock should be frozen",
       "CK-056 clock should be realtime"
+    ]
+  },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > CK-029 should run time before popup"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -518,6 +530,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
@@ -622,7 +635,8 @@
       "Drag and drop > DD-010 should work if the drag event is captured but not canceled",
       "Drag and drop > DD-012 should work if a frame is stalled",
       "Drag and drop > DD-013 should work with the helper method",
-      "Drag and drop > DD-016 should work with locators"
+      "Drag and drop > DD-016 should work with locators",
+      "Drag and drop > DD-028 should report the default drop effect from effectAllowed"
     ],
     "skipped": [
       "Drag and drop > DD-003 should not send dragover on the first mousemove",

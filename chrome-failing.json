@@ -17,7 +17,6 @@
     "failing": [
       "BC-018 should disable javascript",
       "BC-019 should be able to navigate after disabling javascript",
-      "BC-023 should work with offline option",
       "BC-028 should emulate media in popup",
       "BC-029 should emulate media in cross-process iframe"
     ]
@@ -73,8 +72,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "BC-033 console event should work with element handles",
-      "BC-040 dialog event should work in popup 2",
-      "BC-042 dialog event should work with inline script tag"
+      "BC-040 dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-expose-function.spec.ts": {
@@ -94,6 +92,11 @@
       "HA-089 should record overridden requests to har",
       "HA-093 should record single set-cookie headers",
       "HA-094 should record multiple set-cookie headers"
+    ]
+  },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "LC-001 should affect accept-language header @smoke"
     ]
   },
   "library/browsercontext-network-event.spec.ts": {
@@ -135,7 +138,6 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > BC-076 should not cache resources",
-      "reuse launch > BC-081 should continue issuing events after closing the reused page",
       "reuse launch > BC-083 should update viewport and media",
       "reuse connect > BC-073 should re-add binding after reset",
       "reuse connect > BC-076 should not cache resources",
@@ -205,9 +207,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > BT-038 should be able to reconnect to a browser"
-    ],
     "skipped": [
       "launchServer > socks proxy > BT-080 should forward non-forwarded requests",
       "launchServer > socks proxy > BT-081 should proxy localhost requests @smoke",
@@ -317,11 +316,6 @@
       "CD-034 should skip default overrides with noDefaults",
       "CD-035 noDefaults should not affect new contexts",
       "CD-036 should connect over CDP using a ConnectionTransport"
-    ]
-  },
-  "library/chromium/connect-to-worker.spec.ts": {
-    "failing": [
-      "CR-043 should connect, evaluate, receive console and disconnect"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
@@ -452,7 +446,6 @@
       "DC-015 should support reducedMotion option",
       "DC-016 should support forcedColors option",
       "DC-017 should support contrast option",
-      "DC-021 should support ignoreHTTPSErrors option",
       "DC-022 should support extraHTTPHeaders option",
       "DC-030 should have passed URL when launching with ignoreDefaultArgs: true",
       "DC-032 should handle exception",
@@ -608,8 +601,7 @@
     "failing": [
       "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
       "MC-006 should not allow parallel css coverage",
-      "MC-008 last emulateMedia wins",
-      "MC-012 should unroute websockets"
+      "MC-008 last emulateMedia wins"
     ],
     "skipped": [
       "MC-010 should chain routes with changed url"
@@ -822,7 +814,6 @@
       "TV-035 should filter network requests by websocket type",
       "TV-036 should show websocket messages",
       "TV-051 should handle multiple headers",
-      "TV-053 should handle file URIs",
       "TV-057 should highlight target elements",
       "TV-068 should pick locator",
       "TV-069 should generate aria snapshot with unaltered urls",
@@ -831,6 +822,7 @@
       "TV-076 should pick locator in iframe",
       "TV-077 should highlight locator in iframe while typing",
       "TV-087 should not leak recorders",
+      "TV-090 canvas clipping",
       "TV-097 should reflect system color scheme changes in document theme",
       "TV-099 should display aria mode",
       "TV-111 should not navigate on anchor clicks"
@@ -848,6 +840,7 @@
   },
   "library/video.spec.ts": {
     "failing": [
+      "screencast > VI-012 should capture navigation",
       "screencast > VI-016 should use viewport scaled down to fit into 800x800 as default size",
       "screencast > VI-017 should be 800x450 by default",
       "screencast > VI-018 should record video with the requested fps",
@@ -991,11 +984,6 @@
       "NE-113 should get post data for navigator.sendBeacon api calls"
     ]
   },
-  "page/page-add-init-script.spec.ts": {
-    "failing": [
-      "IS-011 init script should run only once in iframe"
-    ]
-  },
   "page/page-add-locator-handler.spec.ts": {
     "failing": [
       "LH-008 should work with toHaveScreenshot"
@@ -1024,9 +1012,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "PA-017 frame.press should work"
-    ],
     "skipped": [
       "PA-012 page.frame should respect name"
     ]
@@ -1042,7 +1027,6 @@
   "page/page-click.spec.ts": {
     "failing": [
       "CL-003 should issue clicks in parallel in page and popup",
-      "CL-069 should not hang when frame is detached",
       "CL-076 should not retain removed iframe after clicking inside it",
       "CL-077 should click in a transformed iframe",
       "CL-079 should click in a transformed iframe with force",
@@ -1132,6 +1116,7 @@
     "failing": [
       "NA-006 should work cross-process",
       "NA-008 should work with Cross-Origin-Opener-Policy",
+      "NA-012 should capture iframe navigation request",
       "NA-013 should capture cross-process iframe navigation request",
       "NA-014 should work with anchor navigation",
       "NA-015 should work with redirects",
@@ -1236,7 +1221,8 @@
   },
   "page/page-request-continue.spec.ts": {
     "failing": [
-      "RO-075 should not delete the origin header"
+      "RO-075 should not delete the origin header",
+      "RO-084 continue should drop content-length on redirects"
     ]
   },
   "page/page-request-fulfill.spec.ts": {
@@ -1296,6 +1282,7 @@
   },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "IF-016 should detect mime type",
       "IF-018 should emit input and change events"
     ]
   },
@@ -1326,7 +1313,8 @@
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "WA-068 should throw when frame is detached xpath"
+      "WA-068 should throw when frame is detached xpath",
+      "WA-073 should fail when navigating while on handle"
     ]
   },
   "page/wheel.spec.ts": {
