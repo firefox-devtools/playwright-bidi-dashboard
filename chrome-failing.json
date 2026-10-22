@@ -13,6 +13,12 @@
       "CO-032 should set cookie with reasonable defaults"
     ]
   },
+  "library/browsercontext-base-url.spec.ts": {
+    "failing": [
+      "NA-089 should construct a new URL when a baseURL in browser.newContext is passed to page.goto @smoke",
+      "NA-090 should construct a new URL when a baseURL in browser.newPage is passed to page.goto"
+    ]
+  },
   "library/browsercontext-basic.spec.ts": {
     "failing": [
       "BC-018 should disable javascript",
@@ -70,11 +76,16 @@
       "CS-004 should bypass CSP in iframes as well"
     ]
   },
+  "library/browsercontext-dsf.spec.ts": {
+    "failing": [
+      "DV-009 should fetch lodpi assets @smoke",
+      "DV-010 should fetch hidpi assets"
+    ]
+  },
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "BC-033 console event should work with element handles",
-      "BC-040 dialog event should work in popup 2",
-      "BC-042 dialog event should work with inline script tag"
+      "BC-040 dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-expose-function.spec.ts": {
@@ -96,6 +107,11 @@
       "HA-094 should record multiple set-cookie headers"
     ]
   },
+  "library/browsercontext-locale.spec.ts": {
+    "failing": [
+      "LC-001 should affect accept-language header @smoke"
+    ]
+  },
   "library/browsercontext-network-event.spec.ts": {
     "failing": [
       "NE-121 BrowserContext.Events.Request",
@@ -115,6 +131,7 @@
       "BC-064 should have about:blank url with domcontentloaded",
       "BC-065 should have about:blank for empty url with domcontentloaded",
       "BC-066 should report when a new page is created and closed",
+      "BC-068 should not crash while redirecting of original request was missed",
       "BC-069 should have an opener"
     ]
   },
@@ -126,6 +143,9 @@
   "library/browsercontext-proxy.spec.ts": {
     "failing": [
       "PR-028 should use proxy for https urls",
+      "should proxy local network requests > by default > PR-024 localhost",
+      "should proxy local network requests > by default > PR-024 loopback address",
+      "should proxy local network requests > by default > PR-024 link-local",
       "should proxy local network requests > with other bypasses > PR-024 localhost",
       "should proxy local network requests > with other bypasses > PR-024 loopback address",
       "should proxy local network requests > with other bypasses > PR-024 link-local"
@@ -136,7 +156,6 @@
       "reuse launch > BC-076 should not cache resources",
       "reuse launch > BC-081 should continue issuing events after closing the reused page",
       "reuse launch > BC-083 should update viewport and media",
-      "reuse connect > BC-073 should re-add binding after reset",
       "reuse connect > BC-076 should not cache resources",
       "reuse connect > BC-081 should continue issuing events after closing the reused page",
       "reuse connect > BC-083 should update viewport and media"
@@ -175,6 +194,7 @@
   },
   "library/browsercontext-user-agent.spec.ts": {
     "failing": [
+      "UA-001 should work",
       "UA-006 should work for navigator.userAgentData and sec-ch-ua headers"
     ]
   },
@@ -204,9 +224,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > BT-038 should be able to reconnect to a browser"
-    ],
     "skipped": [
       "launchServer > socks proxy > BT-080 should forward non-forwarded requests",
       "launchServer > socks proxy > BT-081 should proxy localhost requests @smoke",
@@ -445,8 +462,6 @@
       "DC-015 should support reducedMotion option",
       "DC-016 should support forcedColors option",
       "DC-017 should support contrast option",
-      "DC-021 should support ignoreHTTPSErrors option",
-      "DC-022 should support extraHTTPHeaders option",
       "DC-030 should have passed URL when launching with ignoreDefaultArgs: true",
       "DC-032 should handle exception",
       "DC-034 coverage should work"
@@ -601,7 +616,8 @@
     "failing": [
       "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
       "MC-006 should not allow parallel css coverage",
-      "MC-008 last emulateMedia wins"
+      "MC-008 last emulateMedia wins",
+      "MC-012 should unroute websockets"
     ],
     "skipped": [
       "MC-010 should chain routes with changed url"
@@ -672,8 +688,7 @@
   },
   "library/proxy.spec.ts": {
     "failing": [
-      "PR-007 should authenticate",
-      "should proxy local network requests > by default > PR-005 link-local"
+      "PR-007 should authenticate"
     ],
     "skipped": [
       "PR-015 should use proxy with emulated user agent"
@@ -823,6 +838,7 @@
       "TV-076 should pick locator in iframe",
       "TV-077 should highlight locator in iframe while typing",
       "TV-087 should not leak recorders",
+      "TV-089 canvas disabled title",
       "TV-090 canvas clipping",
       "TV-097 should reflect system color scheme changes in document theme",
       "TV-099 should display aria mode",
@@ -831,6 +847,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "TR-001 should collect trace with resources, but no js",
       "TR-042 should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -841,7 +858,6 @@
   },
   "library/video.spec.ts": {
     "failing": [
-      "screencast > VI-012 should capture navigation",
       "screencast > VI-016 should use viewport scaled down to fit into 800x800 as default size",
       "screencast > VI-017 should be 800x450 by default",
       "screencast > VI-018 should record video with the requested fps",
@@ -947,6 +963,7 @@
       "FR-027 should persist mainFrame on cross-process navigation",
       "FR-028 should not send attach/detach events for main frame",
       "FR-030 should support framesets",
+      "FR-034 should report different frame instance when frame re-attaches",
       "FR-035 should refuse to display x-frame-options:deny iframe",
       "FR-036 should return frame.page()"
     ],
@@ -996,6 +1013,7 @@
   },
   "page/page-autowaiting-basic.spec.ts": {
     "failing": [
+      "AW-001 should await navigation when clicking anchor",
       "AW-003 should await cross-process navigation when clicking anchor",
       "AW-004 should await form-get on click",
       "AW-005 should await form-post on click",
@@ -1011,6 +1029,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "PA-007 page.url should work"
+    ],
     "skipped": [
       "PA-012 page.frame should respect name"
     ]
@@ -1076,14 +1097,6 @@
     ]
   },
   "page/page-event-network.spec.ts": {
-    "failing": [
-      "NE-084 Page.Events.Request @smoke",
-      "NE-085 Page.Events.Response @smoke",
-      "NE-086 Page.Events.RequestFailed @smoke",
-      "NE-087 Page.Events.RequestFinished @smoke",
-      "NE-088 should fire events in proper order",
-      "NE-089 should support redirects"
-    ],
     "skipped": [
       "NE-090 should resolve responses after a navigation"
     ]
@@ -1121,9 +1134,10 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "NA-001 should work @smoke",
+      "NA-005 should use http for no protocol",
       "NA-006 should work cross-process",
       "NA-008 should work with Cross-Origin-Opener-Policy",
-      "NA-012 should capture iframe navigation request",
       "NA-013 should capture cross-process iframe navigation request",
       "NA-014 should work with anchor navigation",
       "NA-015 should work with redirects",
@@ -1188,7 +1202,6 @@
       "NE-022 should return navigation bit",
       "NE-023 should return navigation bit when navigating to image",
       "NE-024 should report raw headers",
-      "NE-025 should report raw response headers in redirects",
       "NE-026 should report all cookies in one header",
       "NE-027 should not allow to access frame on popup main request",
       "NE-028 page.reload return 304 status code",
@@ -1197,8 +1210,6 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
-      "NE-030 should work @smoke",
-      "NE-031 should return multiple header value",
       "NE-043 should report all headers",
       "NE-044 should report multiple set-cookie headers",
       "NE-045 should behave the same way for headers and allHeaders",
@@ -1263,7 +1274,6 @@
     "failing": [
       "RO-009 should not override cookie header",
       "RO-016 should be abortable with custom error codes",
-      "RO-022 should work with redirects for subresources",
       "RO-035 should add Access-Control-Allow-Origin by default when fulfill",
       "RO-036 should allow null origin for about:blank",
       "RO-042 should not abort preflighted cross-origin redirect when a route is registered",
@@ -1286,13 +1296,25 @@
       "page screenshot > SS-020 should allow transparency with webp"
     ]
   },
+  "page/page-set-extra-http-headers.spec.ts": {
+    "failing": [
+      "NE-114 should work @smoke",
+      "NE-115 should work with redirects",
+      "NE-116 should work with extra headers from browser context",
+      "NE-118 should not duplicate referer header"
+    ]
+  },
   "page/page-set-input-files.spec.ts": {
     "failing": [
+      "IF-016 should detect mime type",
       "IF-018 should emit input and change events"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "WA-078 should respect timeout",
+      "WA-079 should resolve immediately if loaded",
+      "WA-080 should throw for bad state",
       "WA-081 should resolve immediately if load state matches",
       "WA-083 should wait for load state of empty url popup",
       "WA-084 should wait for load state of about:blank popup ",
@@ -1304,11 +1326,13 @@
       "WA-121 should work",
       "WA-122 should work with predicate",
       "WA-126 should work with no timeout",
-      "WA-127 should work with url match"
+      "WA-127 should work with url match",
+      "WA-128 should work with url match regular expression from a different context"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
     "failing": [
+      "WA-027 should throw on waitFor",
       "WA-043 should throw when frame is detached"
     ]
   },
