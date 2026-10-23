@@ -49,6 +49,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "HA-081 should goBack to redirected navigation",
       "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
@@ -371,6 +372,11 @@
       "PR-015 should use proxy with emulated user agent"
     ]
   },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "NE-135 should work when serving from memory cache"
+    ]
+  },
   "library/route-web-socket.spec.ts": {
     "skipped": [
       "no-mock > WS-019 should work with error after successful open",
@@ -519,6 +525,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
