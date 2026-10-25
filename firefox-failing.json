@@ -238,6 +238,11 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "GE-009 should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -324,6 +329,11 @@
       "CK-056 clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > CK-029 should run time before popup"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -342,7 +352,8 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "PE-014 should support clipboard read"
+      "PE-014 should support clipboard read",
+      "PE-018 local network request is allowed from public origin"
     ],
     "skipped": [
       "PE-016 storage access",

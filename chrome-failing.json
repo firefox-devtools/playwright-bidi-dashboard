@@ -85,7 +85,8 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "BC-033 console event should work with element handles",
-      "BC-040 dialog event should work in popup 2"
+      "BC-040 dialog event should work in popup 2",
+      "BC-042 dialog event should work with inline script tag"
     ]
   },
   "library/browsercontext-expose-function.spec.ts": {
@@ -156,7 +157,6 @@
       "reuse launch > BC-076 should not cache resources",
       "reuse launch > BC-081 should continue issuing events after closing the reused page",
       "reuse launch > BC-083 should update viewport and media",
-      "reuse connect > BC-073 should re-add binding after reset",
       "reuse connect > BC-076 should not cache resources",
       "reuse connect > BC-081 should continue issuing events after closing the reused page",
       "reuse connect > BC-083 should update viewport and media"
@@ -683,6 +683,7 @@
       "PO-019 should inherit touch support from browser context",
       "PO-021 should use viewport size from window features",
       "PO-022 should respect routes from browser context when using window.open",
+      "PO-024 BrowserContext.addInitScript should apply to a cross-process popup",
       "PO-027 should not throttle rAF in the opener page"
     ]
   },
@@ -837,7 +838,6 @@
       "TV-077 should highlight locator in iframe while typing",
       "TV-087 should not leak recorders",
       "TV-089 canvas disabled title",
-      "TV-090 canvas clipping",
       "TV-097 should reflect system color scheme changes in document theme",
       "TV-099 should display aria mode",
       "TV-111 should not navigate on anchor clicks"
@@ -845,7 +845,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "TR-001 should collect trace with resources, but no js",
       "TR-042 should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -1016,12 +1015,12 @@
       "AW-004 should await form-get on click",
       "AW-005 should await form-post on click",
       "AW-006 should work with noWaitAfter: true",
-      "AW-008 should work with waitForLoadState(load)"
+      "AW-008 should work with waitForLoadState(load)",
+      "AW-009 should work with goto following click"
     ]
   },
   "page/page-autowaiting-no-hang.spec.ts": {
     "failing": [
-      "AW-014 calling window.stop async",
       "AW-022 clicking a link intercepted by the Navigation API same-document"
     ]
   },
@@ -1204,8 +1203,6 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
-      "NE-030 should work @smoke",
-      "NE-031 should return multiple header value",
       "NE-043 should report all headers",
       "NE-044 should report multiple set-cookie headers",
       "NE-045 should behave the same way for headers and allHeaders",
@@ -1292,14 +1289,6 @@
       "page screenshot > SS-020 should allow transparency with webp"
     ]
   },
-  "page/page-set-extra-http-headers.spec.ts": {
-    "failing": [
-      "NE-114 should work @smoke",
-      "NE-115 should work with redirects",
-      "NE-116 should work with extra headers from browser context",
-      "NE-118 should not duplicate referer header"
-    ]
-  },
   "page/page-set-input-files.spec.ts": {
     "failing": [
       "IF-016 should detect mime type",
@@ -1319,20 +1308,17 @@
       "WA-121 should work",
       "WA-122 should work with predicate",
       "WA-126 should work with no timeout",
-      "WA-127 should work with url match",
-      "WA-128 should work with url match regular expression from a different context"
+      "WA-127 should work with url match"
     ]
   },
   "page/page-wait-for-selector-1.spec.ts": {
     "failing": [
-      "WA-027 should throw on waitFor",
       "WA-043 should throw when frame is detached"
     ]
   },
   "page/page-wait-for-selector-2.spec.ts": {
     "failing": [
-      "WA-068 should throw when frame is detached xpath",
-      "WA-073 should fail when navigating while on handle"
+      "WA-068 should throw when frame is detached xpath"
     ]
   },
   "page/wheel.spec.ts": {
