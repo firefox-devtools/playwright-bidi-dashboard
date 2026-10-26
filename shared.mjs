@@ -363,6 +363,10 @@ export const suiteNames = [
   "page/page-evaluate-serialization.spec.ts",
   "library/webmcp-disabled.spec.ts",
   "library/webmcp.spec.ts",
+  "page/firefox-network-response.spec.ts",
+  "library/locator-parser.spec.ts",
+  "library/unit/code-frame.spec.ts",
+  "library/emulation-coop.spec.ts",
 ];
 
 export const disabledSuites = [
