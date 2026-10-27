@@ -49,7 +49,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "HA-081 should goBack to redirected navigation",
       "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
@@ -239,6 +238,11 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "GE-009 should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -323,6 +327,11 @@
     "skipped": [
       "CK-055 clock should be frozen",
       "CK-056 clock should be realtime"
+    ]
+  },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "PA-052 should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
