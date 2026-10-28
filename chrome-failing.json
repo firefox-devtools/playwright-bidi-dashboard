@@ -16,8 +16,7 @@
   "library/browsercontext-base-url.spec.ts": {
     "failing": [
       "NA-089 should construct a new URL when a baseURL in browser.newContext is passed to page.goto @smoke",
-      "NA-090 should construct a new URL when a baseURL in browser.newPage is passed to page.goto",
-      "NA-091 should construct a new URL when a baseURL in browserType.launchPersistentContext is passed to page.goto"
+      "NA-090 should construct a new URL when a baseURL in browser.newPage is passed to page.goto"
     ]
   },
   "library/browsercontext-basic.spec.ts": {
@@ -335,6 +334,9 @@
       "CD-034 should skip default overrides with noDefaults",
       "CD-035 noDefaults should not affect new contexts",
       "CD-036 should connect over CDP using a ConnectionTransport"
+    ],
+    "skipped": [
+      "CD-053 should connect when another client inspects a terminated shared worker"
     ]
   },
   "library/chromium/css-coverage.spec.ts": {
@@ -678,14 +680,15 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "PO-014 should inherit user agent from browser context @smoke",
       "PO-015 should respect routes from browser context",
       "PO-018 should inherit http credentials from browser context",
       "PO-019 should inherit touch support from browser context",
       "PO-021 should use viewport size from window features",
       "PO-022 should respect routes from browser context when using window.open",
-      "PO-024 BrowserContext.addInitScript should apply to a cross-process popup",
       "PO-027 should not throttle rAF in the opener page"
+    ],
+    "skipped": [
+      "PO-029 should load subresources of an about:blank popup when the opener has routes"
     ]
   },
   "library/proxy.spec.ts": {
@@ -840,6 +843,7 @@
       "TV-076 should pick locator in iframe",
       "TV-077 should highlight locator in iframe while typing",
       "TV-087 should not leak recorders",
+      "TV-089 canvas disabled title",
       "TV-090 canvas clipping",
       "TV-097 should reflect system color scheme changes in document theme",
       "TV-099 should display aria mode",
@@ -1095,7 +1099,8 @@
   },
   "page/page-event-network.spec.ts": {
     "skipped": [
-      "NE-090 should resolve responses after a navigation"
+      "NE-090 should resolve responses after a cross-process navigation",
+      "NE-143 should resolve responses after a same-process navigation"
     ]
   },
   "page/page-event-pageerror.spec.ts": {
@@ -1131,6 +1136,8 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "NA-001 should work @smoke",
+      "NA-005 should use http for no protocol",
       "NA-006 should work cross-process",
       "NA-008 should work with Cross-Origin-Opener-Policy",
       "NA-013 should capture cross-process iframe navigation request",
@@ -1205,6 +1212,8 @@
   },
   "page/page-network-response.spec.ts": {
     "failing": [
+      "NE-030 should work @smoke",
+      "NE-031 should return multiple header value",
       "NE-043 should report all headers",
       "NE-044 should report multiple set-cookie headers",
       "NE-045 should behave the same way for headers and allHeaders",
@@ -1299,6 +1308,9 @@
   },
   "page/page-wait-for-load-state.spec.ts": {
     "failing": [
+      "WA-078 should respect timeout",
+      "WA-079 should resolve immediately if loaded",
+      "WA-080 should throw for bad state",
       "WA-081 should resolve immediately if load state matches",
       "WA-083 should wait for load state of empty url popup",
       "WA-084 should wait for load state of about:blank popup ",
@@ -1316,7 +1328,6 @@
   },
   "page/page-wait-for-selector-1.spec.ts": {
     "failing": [
-      "WA-027 should throw on waitFor",
       "WA-043 should throw when frame is detached"
     ]
   },
