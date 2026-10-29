@@ -1,9 +1,7 @@
 {
   "library/browsercontext-basic.spec.ts": {
     "failing": [
-      "BC-018 should disable javascript",
-      "BC-028 should emulate media in popup",
-      "BC-029 should emulate media in cross-process iframe"
+      "BC-018 should disable javascript"
     ]
   },
   "library/browsercontext-clearcookies.spec.ts": {
@@ -72,9 +70,7 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > BC-076 should not cache resources",
-      "reuse launch > BC-083 should update viewport and media",
-      "reuse connect > BC-076 should not cache resources",
-      "reuse connect > BC-083 should update viewport and media"
+      "reuse connect > BC-076 should not cache resources"
     ]
   },
   "library/browsercontext-route.spec.ts": {
@@ -190,7 +186,6 @@
     "failing": [
       "DC-012 should support hasTouch option",
       "DC-013 should work in persistent context",
-      "DC-014 should support colorScheme option",
       "DC-015 should support reducedMotion option",
       "DC-016 should support forcedColors option",
       "DC-017 should support contrast option",
@@ -322,11 +317,6 @@
     "skipped": [
       "CK-055 clock should be frozen",
       "CK-056 clock should be realtime"
-    ]
-  },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "PA-052 should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -505,7 +495,8 @@
       "EH-095 should wait for display:none to become visible",
       "EH-096 should scroll display:contents into view",
       "EH-099 should wait for nested display:none to become visible",
-      "EH-101 should timeout waiting for visible"
+      "EH-101 should timeout waiting for visible",
+      "EH-124 should scroll nested display:contents into view"
     ]
   },
   "page/expect-misc.spec.ts": {
@@ -641,10 +632,6 @@
   "page/page-emulate-media.spec.ts": {
     "failing": [
       "EM-001 should emulate type @smoke",
-      "EM-003 should emulate colorScheme should work @smoke",
-      "EM-004 should default to light",
-      "EM-006 should work during navigation",
-      "EM-007 should change the actual colors in css",
       "EM-008 should emulate reduced motion",
       "EM-009 should keep reduced motion and color emulation after reload",
       "EM-010 should emulate forcedColors ",
@@ -797,6 +784,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > SS-014 should allow transparency",
+      "page screenshot > SS-039 should take fullPage screenshots during navigation",
       "page screenshot animations > SS-053 should not capture pseudo element css animation"
     ],
     "skipped": [
