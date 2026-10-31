@@ -515,8 +515,12 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
+    ]
+  },
+  "page/frame-goto.spec.ts": {
+    "failing": [
+      "FR-022 should continue after client redirect"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
@@ -681,6 +685,7 @@
   },
   "page/page-goto.spec.ts": {
     "failing": [
+      "NA-051 should be able to navigate to a page controlled by service worker",
       "NA-052 should send referer",
       "NA-053 should send referer of cross-origin URL",
       "NA-055 should override referrer-policy"
@@ -785,7 +790,8 @@
     "failing": [
       "page screenshot > SS-014 should allow transparency",
       "page screenshot > SS-039 should take fullPage screenshots during navigation",
-      "page screenshot animations > SS-053 should not capture pseudo element css animation"
+      "page screenshot animations > SS-053 should not capture pseudo element css animation",
+      "page screenshot animations > SS-054 should not capture css animations in shadow DOM"
     ],
     "skipped": [
       "page screenshot > SS-003 should capture blinking caret if explicitly asked for",

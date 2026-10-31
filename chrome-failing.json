@@ -1972,7 +1972,8 @@
       "selector generator > should prioritize attributes correctly > GN-068 role",
       "selector generator > should prioritize attributes correctly > GN-069 placeholder",
       "selector generator > should prioritize attributes correctly > GN-070 name",
-      "selector generator > should prioritize attributes correctly > GN-071 type"
+      "selector generator > should prioritize attributes correctly > GN-071 type",
+      "selector generator > GN-105 should not throw for slotted element when host shadow root has a twin"
     ]
   },
   "library/selectors-register.spec.ts": {
