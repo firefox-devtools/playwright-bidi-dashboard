@@ -330,8 +330,7 @@
       "ER-017 should cancel waitForEvent when page crashes",
       "ER-018 should cancel navigation when page crashes",
       "ER-019 should be able to close context when page crashes",
-      "ER-020 should be able to close page after crash",
-      "ER-021 should reject in-flight worker.evaluate when page crashes"
+      "ER-020 should be able to close page after crash"
     ]
   },
   "library/pdf.spec.ts": {
@@ -789,7 +788,6 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > SS-014 should allow transparency",
-      "page screenshot > SS-039 should take fullPage screenshots during navigation",
       "page screenshot animations > SS-053 should not capture pseudo element css animation"
     ],
     "skipped": [
