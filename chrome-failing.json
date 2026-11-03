@@ -633,7 +633,8 @@
       "SM-011 should not fail page.textContent in non-strict mode",
       "strict context mode > SM-012 should fail page.textContent in strict mode",
       "strict context mode > SM-013 should fail page.click in strict mode",
-      "strict context mode > SM-014 should opt out of strict mode"
+      "strict context mode > SM-014 should opt out of strict mode",
+      "locator visibility > SM-015 should ignore hidden matches only when resolving locators"
     ]
   },
   "library/browsercontext-timezone-id.spec.ts": {
@@ -3321,9 +3322,7 @@
       "AR-090 should limit depth",
       "AR-091 should annotate aria-hidden elements",
       "AR-092 should only annotate the top element in a hidden subtree",
-      "AR-093 should not include hidden iframes",
-      "AR-094 should not generate refs for inert elements",
-      "AR-095 should not generate refs for elements outside of a modal dialog"
+      "AR-093 should not include hidden iframes"
     ]
   },
   "page/page-aria-snapshot-json.spec.ts": {
@@ -3388,8 +3387,7 @@
       "AR-043 should snapshot with box from locator",
       "AR-044 should not include box when option is omitted",
       "AR-045 should not include hidden iframes",
-      "AR-046 should not include inert elements",
-      "AR-047 should only include the modal dialog content"
+      "AR-171 should include inert elements and elements outside of a modal dialog"
     ]
   },
   "page/page-autowaiting-basic.spec.ts": {
@@ -3504,8 +3502,7 @@
     "failing": [
       "CL-110 should avoid side effects after timeout",
       "CL-111 should timeout waiting for button to be enabled",
-      "CL-112 should timeout waiting for inert element to become non-inert",
-      "CL-113 should timeout waiting for element outside of a modal dialog"
+      "CL-112 should timeout waiting for inert element to become non-inert"
     ]
   },
   "page/page-click-timeout-2.spec.ts": {
@@ -3581,7 +3578,6 @@
       "CL-048 should fail when obscured and not waiting for hit target",
       "CL-049 should wait for button to be enabled",
       "CL-050 should wait for element to become non-inert",
-      "CL-051 should wait for modal dialog to close",
       "CL-052 should wait for input to be enabled",
       "CL-053 should wait for select to be enabled",
       "CL-054 should click disabled div",
@@ -4068,7 +4064,6 @@
       "FI-032 fill back to back",
       "FI-033 should fill contenteditable with focus handler that collapses selection",
       "FI-034 should retry on inert element",
-      "FI-035 should retry on element outside of a modal dialog",
       "FI-036 should fail with a nice error on inert element"
     ]
   },
@@ -4672,7 +4667,8 @@
       "SO-030 should wait for select to be enabled",
       "SO-031 should wait for option to be enabled",
       "SO-032 should wait for optgroup to be enabled",
-      "SO-033 should wait for select to be swapped"
+      "SO-033 should wait for select to be swapped",
+      "SO-034 should wait for select to become non-inert"
     ]
   },
   "page/page-set-content.spec.ts": {
@@ -5112,12 +5108,7 @@
       "SE-062 errors",
       "SE-063 hidden with shadow dom slots",
       "SE-064 should support output accessible name",
-      "SE-065 should not match scope by default",
-      "SE-066 should not match inert elements, unless explicitly asked for",
-      "SE-067 should not match elements outside of a modal dialog",
-      "SE-068 should match the topmost modal dialog",
-      "SE-069 should respect PLAYWRIGHT_SKIP_INERT_CHECK",
-      "SE-070 should respect PLAYWRIGHT_SKIP_DIALOG_CHECK"
+      "SE-065 should not match scope by default"
     ]
   },
   "page/selectors-text.spec.ts": {

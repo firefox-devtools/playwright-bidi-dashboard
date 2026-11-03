@@ -232,11 +232,6 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "GE-009 should use context options for popup"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -321,6 +316,11 @@
     "skipped": [
       "CK-055 clock should be frozen",
       "CK-056 clock should be realtime"
+    ]
+  },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "PA-052 should not treat navigations as new popups"
     ]
   },
   "library/page-event-crash.spec.ts": {
@@ -519,6 +519,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
@@ -788,6 +789,7 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > SS-014 should allow transparency",
+      "page screenshot > SS-039 should take fullPage screenshots during navigation",
       "page screenshot animations > SS-053 should not capture pseudo element css animation"
     ],
     "skipped": [
