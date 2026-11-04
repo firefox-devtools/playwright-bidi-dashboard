@@ -633,8 +633,7 @@
       "SM-011 should not fail page.textContent in non-strict mode",
       "strict context mode > SM-012 should fail page.textContent in strict mode",
       "strict context mode > SM-013 should fail page.click in strict mode",
-      "strict context mode > SM-014 should opt out of strict mode",
-      "locator visibility > SM-015 should ignore hidden matches only when resolving locators"
+      "strict context mode > SM-014 should opt out of strict mode"
     ]
   },
   "library/browsercontext-timezone-id.spec.ts": {
@@ -1589,7 +1588,8 @@
       "Temporal.Now > CK-049 should follow fixed time",
       "Temporal.Now > CK-050 should advance with the clock",
       "Temporal.Now > CK-051 should use the system time zone by default",
-      "Temporal.Now > CK-052 should keep the rest of Temporal intact"
+      "Temporal.Now > CK-052 should keep the rest of Temporal intact",
+      "while on pause > CK-220 should keep timers scheduled during load pending when paused"
     ]
   },
   "library/page-close.spec.ts": {
