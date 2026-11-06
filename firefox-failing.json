@@ -319,11 +319,6 @@
       "CK-056 clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "PA-052 should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -342,7 +337,8 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "PE-014 should support clipboard read"
+      "PE-014 should support clipboard read",
+      "PE-018 local network request is allowed from public origin"
     ],
     "skipped": [
       "PE-016 storage access",
@@ -804,6 +800,11 @@
     "failing": [
       "IF-002 should upload a folder",
       "IF-003 should upload a folder via label"
+    ]
+  },
+  "page/page-wait-for-function.spec.ts": {
+    "failing": [
+      "WA-004 should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {

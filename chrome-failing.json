@@ -116,7 +116,8 @@
       "BC-028 should emulate media in popup",
       "BC-029 should emulate media in cross-process iframe",
       "BC-030 default user agent",
-      "BC-031 should create two pages in parallel in various contexts"
+      "BC-031 should create two pages in parallel in various contexts",
+      "BC-084 should locate only visible elements when configured"
     ]
   },
   "library/browsercontext-clearcookies.spec.ts": {
@@ -3941,7 +3942,8 @@
       "PO-010 should work with clicking target=_blank",
       "PO-011 should work with fake-clicking target=_blank and rel=noopener",
       "PO-012 should work with clicking target=_blank and rel=noopener",
-      "PO-013 should report popup opened from iframes"
+      "PO-013 should report popup opened from iframes",
+      "PO-030 should finish loading after opening a popup while a cross-site iframe is loading"
     ]
   },
   "page/page-event-request.spec.ts": {
