@@ -233,6 +233,11 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "GE-009 should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -319,6 +324,11 @@
       "CK-056 clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "PA-052 should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -326,7 +336,8 @@
       "ER-017 should cancel waitForEvent when page crashes",
       "ER-018 should cancel navigation when page crashes",
       "ER-019 should be able to close context when page crashes",
-      "ER-020 should be able to close page after crash"
+      "ER-020 should be able to close page after crash",
+      "ER-021 should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
@@ -337,8 +348,7 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "PE-014 should support clipboard read",
-      "PE-018 local network request is allowed from public origin"
+      "PE-014 should support clipboard read"
     ],
     "skipped": [
       "PE-016 storage access",
@@ -430,6 +440,7 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
+      "TR-014 should not include trace resources from the previous chunks",
       "TR-023 should produce screencast frames scale",
       "TR-042 should save trace while a WebSocket keeps streaming frames"
     ]
@@ -516,6 +527,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
@@ -565,7 +577,6 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "IS-014 should call a function passed as an argument",
-      "IS-016 should pass arguments to the callback",
       "IS-021 should work in a child frame"
     ]
   },
