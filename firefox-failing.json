@@ -324,11 +324,6 @@
       "CK-056 clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "PA-052 should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -336,8 +331,7 @@
       "ER-017 should cancel waitForEvent when page crashes",
       "ER-018 should cancel navigation when page crashes",
       "ER-019 should be able to close context when page crashes",
-      "ER-020 should be able to close page after crash",
-      "ER-021 should reject in-flight worker.evaluate when page crashes"
+      "ER-020 should be able to close page after crash"
     ]
   },
   "library/pdf.spec.ts": {
@@ -440,7 +434,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "TR-014 should not include trace resources from the previous chunks",
       "TR-023 should produce screencast frames scale",
       "TR-042 should save trace while a WebSocket keeps streaming frames"
     ]
@@ -527,7 +520,6 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
-      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
@@ -811,11 +803,6 @@
     "failing": [
       "IF-002 should upload a folder",
       "IF-003 should upload a folder via label"
-    ]
-  },
-  "page/page-wait-for-function.spec.ts": {
-    "failing": [
-      "WA-004 should poll on interval"
     ]
   },
   "page/page-wait-for-load-state.spec.ts": {
