@@ -4632,7 +4632,8 @@
       "page screenshot animations > SS-063 should trigger particular events for finite css animation",
       "page screenshot animations > SS-064 should wait for fonts to load",
       "page screenshot > SS-095 should capture webgl canvas after its drawing buffer is resized",
-      "page screenshot > SS-096 should not wait for unused font face with failed local() source"
+      "page screenshot > SS-096 should not wait for unused font face with failed local() source",
+      "page screenshot > SS-097 should take fullPage screenshots of SVG documents"
     ]
   },
   "page/page-select-option.spec.ts": {
