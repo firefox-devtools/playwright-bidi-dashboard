@@ -474,7 +474,8 @@
       "NE-124 BrowserContext.Events.RequestFinished",
       "NE-125 should fire events in proper order",
       "NE-126 should not fire events for favicon or favicon redirects",
-      "NE-127 should reject response.finished if context closes"
+      "NE-127 should reject response.finished if context closes",
+      "NE-144 should not wait for navigation after background cache revalidation"
     ]
   },
   "library/browsercontext-page-event.spec.ts": {
@@ -1256,7 +1257,8 @@
       "EM-021 should focus with more than one page/context",
       "EM-022 should not fire blur events when interacting with more than one page/context",
       "EM-023 should not blur iframe when interacting with another page/context",
-      "EM-024 should trigger hover state concurrently"
+      "EM-024 should trigger hover state concurrently",
+      "EM-028 should keep mouse drag when interacting with another page/context"
     ]
   },
   "library/favicon.spec.ts": {
@@ -4363,7 +4365,8 @@
       "NE-054 request.existingResponse should return the response after it is received",
       "NE-055 should return http version",
       "NE-056 Response.formData() should parse multipart/form-data in page context",
-      "NE-057 should give a readable error when response.body() races with navigation"
+      "NE-057 should give a readable error when response.body() races with navigation",
+      "NE-145 should return source for a module script loaded from cache"
     ]
   },
   "page/page-network-sizes.spec.ts": {
