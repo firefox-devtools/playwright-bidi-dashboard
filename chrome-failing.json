@@ -3928,7 +3928,8 @@
       "ER-010 should emit error from unhandled rejects",
       "ER-011 pageErrors should work",
       "ER-012 clearPageErrors should work",
-      "ER-013 should fire illegal character error"
+      "ER-013 should fire illegal character error",
+      "ER-022 should not fire for a caught fetch rejected by a pending navigation"
     ]
   },
   "page/page-event-popup.spec.ts": {
