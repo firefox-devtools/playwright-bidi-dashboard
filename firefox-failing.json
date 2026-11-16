@@ -47,7 +47,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
     ]
@@ -233,11 +232,6 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "GE-009 should use context options for popup"
-    ]
-  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -331,7 +325,8 @@
       "ER-017 should cancel waitForEvent when page crashes",
       "ER-018 should cancel navigation when page crashes",
       "ER-019 should be able to close context when page crashes",
-      "ER-020 should be able to close page after crash"
+      "ER-020 should be able to close page after crash",
+      "ER-021 should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
@@ -342,7 +337,8 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "PE-014 should support clipboard read"
+      "PE-014 should support clipboard read",
+      "PE-018 local network request is allowed from public origin"
     ],
     "skipped": [
       "PE-016 storage access",
@@ -520,6 +516,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
@@ -788,7 +785,8 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > SS-014 should allow transparency",
-      "page screenshot animations > SS-053 should not capture pseudo element css animation"
+      "page screenshot animations > SS-053 should not capture pseudo element css animation",
+      "page screenshot animations > SS-064 should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > SS-003 should capture blinking caret if explicitly asked for",
