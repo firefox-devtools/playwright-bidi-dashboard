@@ -943,7 +943,8 @@
       "CD-033 should get title and URL of existing page",
       "CD-034 should skip default overrides with noDefaults",
       "CD-035 noDefaults should not affect new contexts",
-      "CD-036 should connect over CDP using a ConnectionTransport"
+      "CD-036 should connect over CDP using a ConnectionTransport",
+      "CD-054 should not wait for a busy page longer than maxPageAttachTime"
     ],
     "skipped": [
       "CD-053 should connect when another client inspects a terminated shared worker"
