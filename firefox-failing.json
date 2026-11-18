@@ -47,6 +47,7 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
     ]
@@ -196,6 +197,7 @@
   },
   "library/download.spec.ts": {
     "failing": [
+      "download event > DO-006 should report downloads for download attribute",
       "download event > DO-027 should be able to cancel pending downloads"
     ],
     "skipped": [
@@ -323,6 +325,16 @@
       "CK-056 clock should be realtime"
     ]
   },
+  "library/page-clock.spec.ts": {
+    "failing": [
+      "popup > CK-029 should run time before popup"
+    ]
+  },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "PA-052 should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -330,7 +342,8 @@
       "ER-017 should cancel waitForEvent when page crashes",
       "ER-018 should cancel navigation when page crashes",
       "ER-019 should be able to close context when page crashes",
-      "ER-020 should be able to close page after crash"
+      "ER-020 should be able to close page after crash",
+      "ER-021 should reject in-flight worker.evaluate when page crashes"
     ]
   },
   "library/pdf.spec.ts": {
@@ -368,11 +381,6 @@
     ],
     "skipped": [
       "PR-015 should use proxy with emulated user agent"
-    ]
-  },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "NE-135 should work when serving from memory cache"
     ]
   },
   "library/route-web-socket.spec.ts": {
@@ -574,6 +582,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "IS-014 should call a function passed as an argument",
+      "IS-016 should pass arguments to the callback",
       "IS-021 should work in a child frame"
     ]
   },

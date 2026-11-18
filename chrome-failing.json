@@ -3446,7 +3446,8 @@
       "PA-016 page.press should work for Enter",
       "PA-017 frame.press should work",
       "PA-018 has navigator.webdriver set to true",
-      "PA-019 should iterate over page properties"
+      "PA-019 should iterate over page properties",
+      "PA-057 should prefix the error message with the api name"
     ]
   },
   "page/page-cache-storage.spec.ts": {
