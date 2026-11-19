@@ -5225,7 +5225,8 @@
       "WO-022 should support offline",
       "WO-023 should resolve worker script allHeaders in main frame",
       "WO-024 should resolve worker script allHeaders in iframe",
-      "WO-025 should resolve worker script allHeaders in nested worker inside iframe"
+      "WO-025 should resolve worker script allHeaders in nested worker inside iframe",
+      "WO-032 should run a shared worker after redirected dedicated workers"
     ]
   }
 }
