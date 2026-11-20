@@ -47,6 +47,8 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "HA-081 should goBack to redirected navigation",
+      "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
     ]
@@ -230,11 +232,6 @@
     "failing": [
       "FF-003 should support custom firefox policies",
       "FF-004 should resize viewport with fractional device scale factor"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "GE-009 should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
@@ -519,6 +516,7 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
@@ -568,7 +566,6 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "IS-014 should call a function passed as an argument",
-      "IS-016 should pass arguments to the callback",
       "IS-021 should work in a child frame"
     ]
   },

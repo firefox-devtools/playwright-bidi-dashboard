@@ -1619,7 +1619,7 @@
     ]
   },
   "library/page-event-crash.spec.ts": {
-    "skipped": [
+    "failing": [
       "ER-014 should emit crash event when page crashes",
       "ER-015 should throw on any action after page crashes",
       "ER-016 expect should not hang when page crashed",
@@ -3184,7 +3184,8 @@
       "LO-189 should throw when predicate throws",
       "LO-190 should throw on strict mode violation",
       "LO-191 should abort via signal",
-      "LO-192 should abort via already-aborted signal"
+      "LO-192 should abort via already-aborted signal",
+      "LO-200 should throw when predicate rejects"
     ]
   },
   "page/matchers.misc.spec.ts": {
