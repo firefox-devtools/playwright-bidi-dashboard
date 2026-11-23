@@ -47,7 +47,6 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
-      "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
     ]
@@ -324,11 +323,6 @@
       "CK-056 clock should be realtime"
     ]
   },
-  "library/page-close.spec.ts": {
-    "failing": [
-      "PA-052 should not treat navigations as new popups"
-    ]
-  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -347,8 +341,7 @@
   },
   "library/permissions.spec.ts": {
     "failing": [
-      "PE-014 should support clipboard read",
-      "PE-018 local network request is allowed from public origin"
+      "PE-014 should support clipboard read"
     ],
     "skipped": [
       "PE-016 storage access",
@@ -375,11 +368,6 @@
     ],
     "skipped": [
       "PR-015 should use proxy with emulated user agent"
-    ]
-  },
-  "library/resource-timing.spec.ts": {
-    "failing": [
-      "NE-135 should work when serving from memory cache"
     ]
   },
   "library/route-web-socket.spec.ts": {
@@ -531,12 +519,12 @@
   },
   "page/frame-evaluate.spec.ts": {
     "failing": [
+      "FR-003 should dispose context on navigation",
       "FR-007 should allow cross-frame element handles"
     ]
   },
   "page/frame-hierarchy.spec.ts": {
     "failing": [
-      "FR-029 should detach child frames on navigation",
       "FR-030 should support framesets"
     ],
     "skipped": [
@@ -799,7 +787,6 @@
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > SS-014 should allow transparency",
-      "page screenshot > SS-039 should take fullPage screenshots during navigation",
       "page screenshot animations > SS-053 should not capture pseudo element css animation"
     ],
     "skipped": [
