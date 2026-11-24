@@ -47,6 +47,8 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "HA-081 should goBack to redirected navigation",
+      "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
     ]
@@ -70,11 +72,6 @@
     "failing": [
       "reuse launch > BC-076 should not cache resources",
       "reuse connect > BC-076 should not cache resources"
-    ]
-  },
-  "library/browsercontext-route.spec.ts": {
-    "skipped": [
-      "RO-185 should respect URLPattern ignoreCase"
     ]
   },
   "library/browsercontext-service-worker-policy.spec.ts": {
@@ -146,11 +143,11 @@
     "skipped": [
       "BT-097 selenium grid 3.141.59 standalone chromium",
       "BT-098 selenium grid 3.141.59 hub + node chromium",
-      "BT-099 selenium grid 4.8.3 standalone chromium",
-      "BT-100 selenium grid 4.8.3 hub + node chromium",
-      "BT-101 selenium grid 4.8.3 standalone chromium broken driver",
       "BT-102 selenium grid 3.141.59 standalone non-chromium",
-      "BT-103 selenium grid 3.141.59 standalone chromium through run-driver"
+      "BT-103 selenium grid 3.141.59 standalone chromium through run-driver",
+      "BT-099 selenium grid 4.11.0 standalone chromium",
+      "BT-100 selenium grid 4.11.0 hub + node chromium",
+      "BT-101 selenium grid 4.11.0 standalone chromium broken driver"
     ]
   },
   "library/capabilities.spec.ts": {
@@ -221,20 +218,10 @@
       "EM-023 should not blur iframe when interacting with another page/context"
     ]
   },
-  "library/fetch-proxy.spec.ts": {
-    "skipped": [
-      "PR-046 should send correct ALPN protocol to HTTPS proxy"
-    ]
-  },
   "library/firefox/launcher.spec.ts": {
     "failing": [
       "FF-003 should support custom firefox policies",
       "FF-004 should resize viewport with fractional device scale factor"
-    ]
-  },
-  "library/geolocation.spec.ts": {
-    "failing": [
-      "GE-009 should use context options for popup"
     ]
   },
   "library/har-websocket.spec.ts": {
@@ -370,6 +357,11 @@
       "PR-015 should use proxy with emulated user agent"
     ]
   },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "NE-135 should work when serving from memory cache"
+    ]
+  },
   "library/route-web-socket.spec.ts": {
     "skipped": [
       "no-mock > WS-019 should work with error after successful open",
@@ -503,11 +495,6 @@
       "EH-124 should scroll nested display:contents into view"
     ]
   },
-  "page/expect-misc.spec.ts": {
-    "skipped": [
-      "toHaveURL > EX-222 support URLPattern"
-    ]
-  },
   "page/firefox-network-response.spec.ts": {
     "skipped": [
       "FF-005 should preserve original response header fields for 200 responses",
@@ -569,6 +556,7 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "IS-014 should call a function passed as an argument",
+      "IS-016 should pass arguments to the callback",
       "IS-021 should work in a child frame"
     ]
   },
@@ -643,8 +631,7 @@
   },
   "page/page-evaluate.spec.ts": {
     "skipped": [
-      "EV-049 should throw for too deep reference chain 2",
-      "EV-099 should work with a using declaration"
+      "EV-049 should throw for too deep reference chain 2"
     ]
   },
   "page/page-event-console.spec.ts": {
@@ -780,13 +767,13 @@
       "RO-054 should intercept when postData is more than 1MB"
     ],
     "skipped": [
-      "RO-033 should not fulfill with redirect status",
-      "RO-056 should respect URLPattern ignoreCase"
+      "RO-033 should not fulfill with redirect status"
     ]
   },
   "page/page-screenshot.spec.ts": {
     "failing": [
       "page screenshot > SS-014 should allow transparency",
+      "page screenshot > SS-039 should take fullPage screenshots during navigation",
       "page screenshot animations > SS-053 should not capture pseudo element css animation"
     ],
     "skipped": [
