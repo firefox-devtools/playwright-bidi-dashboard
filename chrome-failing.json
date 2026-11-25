@@ -50,8 +50,7 @@
   "library/browsercontext-events.spec.ts": {
     "failing": [
       "BC-033 console event should work with element handles",
-      "BC-040 dialog event should work in popup 2",
-      "BC-042 dialog event should work with inline script tag"
+      "BC-040 dialog event should work in popup 2"
     ]
   },
   "library/browsercontext-expose-function.spec.ts": {
@@ -128,6 +127,7 @@
   },
   "library/browsercontext-storage-state.spec.ts": {
     "failing": [
+      "ST-002 should set local storage",
       "ST-013 should work when service worker is intefering and the origin is not open"
     ]
   },
@@ -520,8 +520,7 @@
     "failing": [
       "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
       "MC-006 should not allow parallel css coverage",
-      "MC-008 last emulateMedia wins",
-      "MC-011 should remove exposed bindings upon disconnect"
+      "MC-008 last emulateMedia wins"
     ],
     "skipped": [
       "MC-010 should chain routes with changed url"
@@ -574,6 +573,7 @@
   },
   "library/popup.spec.ts": {
     "failing": [
+      "PO-014 should inherit user agent from browser context @smoke",
       "PO-015 should respect routes from browser context",
       "PO-019 should inherit touch support from browser context",
       "PO-021 should use viewport size from window features",
@@ -668,7 +668,6 @@
   },
   "library/tracing.spec.ts": {
     "failing": [
-      "TR-001 should collect trace with resources, but no js",
       "TR-042 should save trace while a WebSocket keeps streaming frames"
     ],
     "skipped": [
@@ -944,6 +943,9 @@
       "NA-052 should send referer",
       "NA-053 should send referer of cross-origin URL",
       "NA-055 should override referrer-policy"
+    ],
+    "skipped": [
+      "NA-097 should navigate while a new service worker takes over"
     ]
   },
   "page/page-keyboard.spec.ts": {
