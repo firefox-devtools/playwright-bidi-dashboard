@@ -268,7 +268,9 @@
       "CD-034 should skip default overrides with noDefaults",
       "CD-035 noDefaults should not affect new contexts",
       "CD-036 should connect over CDP using a ConnectionTransport",
-      "CD-054 should not wait for a busy page longer than maxPageAttachTime"
+      "CD-054 should not wait for a busy page longer than maxPageAttachTime",
+      "CD-055 should work with registered selector engines",
+      "CD-056 should respect the test id attribute in strict mode errors"
     ],
     "skipped": [
       "CD-053 should connect when another client inspects a terminated shared worker"
@@ -840,6 +842,9 @@
     ]
   },
   "page/page-basic.spec.ts": {
+    "failing": [
+      "PA-017 frame.press should work"
+    ],
     "skipped": [
       "PA-012 page.frame should respect name"
     ]
