@@ -65,6 +65,7 @@ function renderChanges() {
   const minPassedPct = minPassedPctInput !== '' ? parseFloat(minPassedPctInput) : null;
   const maxPassedPctInput = document.getElementById('maxPassedPct').value;
   const maxPassedPct = maxPassedPctInput !== '' ? parseFloat(maxPassedPctInput) : null;
+  const includeRemoved = document.getElementById('includeRemoved').checked;
 
   if (!startDateInput || !endDateInput) {
     return;
@@ -84,6 +85,9 @@ function renderChanges() {
   if (maxPassedPct !== null) {
     searchParams.set('maxPassedPct', maxPassedPct);
   }
+  if (includeRemoved) {
+    searchParams.set('includeRemoved', '1');
+  }
   window.history.replaceState({}, '', `?${searchParams.toString()}`);
 
   const days = getDaysBetween(startDateInput, endDateInput);
@@ -100,7 +104,7 @@ function renderChanges() {
     for (const spec of Object.keys(data.results[suite]).sort()) {
       const specResults = data.results[suite][spec];
       const lastDay = days[days.length - 1];
-      if (specResults[browser]?.[lastDay] == null) {
+      if (specResults[browser]?.[lastDay] == null && !includeRemoved) {
         continue;
       }
       if (!hasStatusChanged(specResults, browser, days, minChanges)) {
@@ -213,6 +217,10 @@ function initializeDateInputs() {
 
   if (searchParams.has('maxPassedPct')) {
     document.getElementById('maxPassedPct').value = searchParams.get('maxPassedPct');
+  }
+
+  if (searchParams.has('includeRemoved')) {
+    document.getElementById('includeRemoved').checked = true;
   }
 }
 
