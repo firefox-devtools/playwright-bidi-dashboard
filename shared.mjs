@@ -367,6 +367,8 @@ export const suiteNames = [
   "library/locator-parser.spec.ts",
   "library/unit/code-frame.spec.ts",
   "library/emulation-coop.spec.ts",
+  "library/unit/http-server.spec.ts",
+  "library/events/listener-errors.spec.ts",
 ];
 
 export const disabledSuites = [
