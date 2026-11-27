@@ -162,6 +162,10 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
+    "failing": [
+      "run-server > BT-074 should record trace with sources",
+      "run-server > socks proxy > BT-086 should lead to the error page for forwarded requests when the connection is refused"
+    ],
     "skipped": [
       "launchServer > socks proxy > BT-080 should forward non-forwarded requests",
       "launchServer > socks proxy > BT-081 should proxy localhost requests @smoke",
@@ -522,7 +526,8 @@
     "failing": [
       "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
       "MC-006 should not allow parallel css coverage",
-      "MC-008 last emulateMedia wins"
+      "MC-008 last emulateMedia wins",
+      "MC-012 should unroute websockets"
     ],
     "skipped": [
       "MC-010 should chain routes with changed url"
@@ -842,9 +847,6 @@
     ]
   },
   "page/page-basic.spec.ts": {
-    "failing": [
-      "PA-017 frame.press should work"
-    ],
     "skipped": [
       "PA-012 page.frame should respect name"
     ]

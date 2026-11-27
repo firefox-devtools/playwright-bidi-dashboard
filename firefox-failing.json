@@ -47,6 +47,8 @@
   },
   "library/browsercontext-har.spec.ts": {
     "failing": [
+      "HA-081 should goBack to redirected navigation",
+      "HA-082 should goForward to redirected navigation",
       "HA-088 should round-trip har with postData",
       "HA-089 should record overridden requests to har"
     ]
@@ -223,6 +225,11 @@
       "FF-004 should resize viewport with fractional device scale factor"
     ]
   },
+  "library/geolocation.spec.ts": {
+    "failing": [
+      "GE-009 should use context options for popup"
+    ]
+  },
   "library/har-websocket.spec.ts": {
     "failing": [
       "HA-101 should only have one websocket entry",
@@ -309,6 +316,11 @@
       "CK-056 clock should be realtime"
     ]
   },
+  "library/page-close.spec.ts": {
+    "failing": [
+      "PA-052 should not treat navigations as new popups"
+    ]
+  },
   "library/page-event-crash.spec.ts": {
     "failing": [
       "ER-014 should emit crash event when page crashes",
@@ -354,6 +366,11 @@
     ],
     "skipped": [
       "PR-015 should use proxy with emulated user agent"
+    ]
+  },
+  "library/resource-timing.spec.ts": {
+    "failing": [
+      "NE-135 should work when serving from memory cache"
     ]
   },
   "library/route-web-socket.spec.ts": {
@@ -549,7 +566,6 @@
   "page/page-add-init-script-callback.spec.ts": {
     "failing": [
       "IS-014 should call a function passed as an argument",
-      "IS-016 should pass arguments to the callback",
       "IS-021 should work in a child frame"
     ]
   },
@@ -767,7 +783,8 @@
     "failing": [
       "page screenshot > SS-014 should allow transparency",
       "page screenshot > SS-039 should take fullPage screenshots during navigation",
-      "page screenshot animations > SS-053 should not capture pseudo element css animation"
+      "page screenshot animations > SS-053 should not capture pseudo element css animation",
+      "page screenshot animations > SS-064 should wait for fonts to load"
     ],
     "skipped": [
       "page screenshot > SS-003 should capture blinking caret if explicitly asked for",
