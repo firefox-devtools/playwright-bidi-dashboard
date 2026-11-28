@@ -102,7 +102,8 @@
   "library/browsercontext-reuse.spec.ts": {
     "failing": [
       "reuse launch > BC-076 should not cache resources",
-      "reuse connect > BC-076 should not cache resources"
+      "reuse connect > BC-076 should not cache resources",
+      "reuse connect > BC-082 should work with routeWebSocket"
     ]
   },
   "library/browsercontext-route.spec.ts": {
@@ -162,10 +163,6 @@
     ]
   },
   "library/browsertype-connect.spec.ts": {
-    "failing": [
-      "run-server > BT-074 should record trace with sources",
-      "run-server > socks proxy > BT-086 should lead to the error page for forwarded requests when the connection is refused"
-    ],
     "skipped": [
       "launchServer > socks proxy > BT-080 should forward non-forwarded requests",
       "launchServer > socks proxy > BT-081 should proxy localhost requests @smoke",
@@ -526,8 +523,7 @@
     "failing": [
       "MC-005 should not allow parallel js coverage and cleanup upon disconnect",
       "MC-006 should not allow parallel css coverage",
-      "MC-008 last emulateMedia wins",
-      "MC-012 should unroute websockets"
+      "MC-008 last emulateMedia wins"
     ],
     "skipped": [
       "MC-010 should chain routes with changed url"
@@ -580,7 +576,6 @@
   },
   "library/popup.spec.ts": {
     "failing": [
-      "PO-014 should inherit user agent from browser context @smoke",
       "PO-015 should respect routes from browser context",
       "PO-019 should inherit touch support from browser context",
       "PO-021 should use viewport size from window features",
